@@ -7,6 +7,24 @@
 A机器ssh登录B机器无需输入密码；
 加密方式选 rsa|dsa均可以，默认dsa
  
+ 1) 核心命令
+创建密钥对：ssh-keygen
+转发密钥：ssh-copy-id -i ~/.ssh/id_rsa.pub puppet@Hadoop-NN-02
+     常用密钥类型：
+ssh-keygen -t dsa 
+ssh-keygen -t rsa 
+ssh-keygen -t rsa1
+ 2) 原理
+    1.基础
+     1） 公钥：用于加密，存在于服务器
+     2） 私钥：用于解密，存在于客户机
+    2.流程
+     1）客户端向服务器发出连接请求
+     2）服务器查看客户端公钥（~/.ssh/authorized_keys）该客户机（客户机标志：用户@Host）对应的公钥
+     3）服务器验证公钥合法，则产生一条随机数（challenge），用公钥加密发送给客户端
+     4）客户端用私钥解密回传服务器端。
+     5）随机数一致，认证通过。
+ 
 二、具体操作流程
  
 单向登陆的操作过程（能满足上边的目的）：
