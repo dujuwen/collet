@@ -56,3 +56,25 @@ $ chmod 700 -R .ssh
 2、生成的rsa/dsa签名的公钥是给对方机器使用的。这个公钥内容还要拷贝到authorized_keys
 3、linux之间的访问直接 ssh 机器ip
 4、某个机器生成自己的RSA或者DSA的数字签名，将公钥给目标机器，然后目标机器接收后设定相关权限（公钥和authorized_keys权限），这个目标机就能被生成数字签名的机器无密码访问了
+
+四、authorized_keys文件
+远程主机将用户的公钥，保存在登录后的用户主目录的$HOME/.ssh/authorized_keys文件中。公钥就是一段字符串，只要把它追加在authorized_keys文件的末尾就行了。
+
+这里不使用上面的ssh-copy-id命令，改用下面的命令，解释公钥的保存过程：
+　　$ ssh user@host 'mkdir -p .ssh && cat >> .ssh/authorized_keys' < ~/.ssh/id_rsa.pub
+这条命令由多个语句组成，依次分解开来看：
+（1）"$ ssh user@host"，表示登录远程主机；
+（2）单引号中的mkdir .ssh && cat >> .ssh/authorized_keys，表示登录后在远程shell上执行的命令：
+（3）"$ mkdir -p .ssh"的作用是，如果用户主目录中的.ssh目录不存在，就创建一个；
+（4）'cat >> .ssh/authorized_keys' < ~/.ssh/id_rsa.pub的作用是，将本地的公钥文件~/.ssh/id_rsa.pub，重定向追加到远程文件authorized_keys的末尾。
+写入authorized_keys文件后，公钥登录的设置就完成了
+
+如果添加了公钥之后还是不能登录怎么办？就打开远程主机的/etc/ssh/sshd_config这个文件，检查下面几行前面"#"注释是否取掉。
+　　RSAAuthentication yes
+　　PubkeyAuthentication yes
+　　AuthorizedKeysFile .ssh/authorized_keys
+然后，重启远程主机的ssh服务。
+　　// ubuntu系统
+　　service ssh restart
+　　// debian系统
+　　/etc/init.d/ssh restart
