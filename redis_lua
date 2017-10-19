@@ -4,3 +4,5 @@
 2. 原子操作: Redis 将整个脚本作为一个原子执行, 无需担心并发, 也就无需事务;
 3. 复用: 脚本会永久保存 Redis 中, 其他客户端可继续使用.
 
+http://redisbook.readthedocs.io/en/latest/feature/scripting.html
+
