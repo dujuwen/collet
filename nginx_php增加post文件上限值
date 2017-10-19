@@ -1,0 +1,9 @@
+杜俊文(dujunwen)  14:27:48
+针对post请求解决办法： 
+修改nginx.conf里面的几个相关的配置参数 
+//client_body_buffer_size 10m(配置请求体缓存区大小, 不配的话) 
+client_max_body_size 20m(设置客户端请求体最大值) 
+client_body_temp_path /data/temp (设置临时文件存放路径。只有当上传的请求体超出缓存区大小时，才会写到临时文件中,注意临时路径要有写入权限) 
+post_max_size = 8M （表单提交的最大限制，此项不是限制上传单个文件的大小，而是针对整个表单提交的数据进行限制。）
+upload_max_filesize = 2M （上传的单个文件的最大限制）
+需要保证 post_max_size >= upload_max_filesize ，也就是前者不小于后者。
