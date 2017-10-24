@@ -21,3 +21,17 @@ git remote rm origin
 git remote add origin [url]
 ============================
 用git config命令直接修改配置文件
+
+ssh和https如何免密push?
+将ssh公钥key添加到github上，登陆到GitHub上，右上角小头像->Setting->SSH and GPG keys中，点击new SSH key。
+
+https:
+$ touch ~/.git-credentials
+$ vim ~/.git-credentials
+添加内容:
+https://{username}:{passwd}@github.com
+添加配置:
+$ git config --global credential.helper store
+查看配置:
+$ git config --list
+
