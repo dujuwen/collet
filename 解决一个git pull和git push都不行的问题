@@ -1,0 +1,23 @@
+问题描述下：
+
+昨天还好好的环境不知道做了什么，今天早上一来git pull代码，git push都不行了，郁闷的很。。。
+
+解决办法：
+1. 先去其他机器上看看行不行，其他小伙伴可以（心情更加郁闷了）说明是我本地环境有问题
+2. 把线上的再git clone一份下来看看git pull这些都正常，看看配置
+git config --list 列出两份配置
+3. 用beyong compare对比了两份配置，见证奇迹的时候到了，诶，https://github.com和git@github.com 操蛋了就是这里了
+4. 修改配置：git remote set-url origin https://xxxx
+5. 看看git remote -v，然后pull一下，打完收工!
+
+git修改远程仓库地址有三种方式：
+
+============================
+直接修改(git version 2.11.0)
+git remote set-url origin [url]
+============================
+先删除后添加
+git remote rm origin
+git remote add origin [url]
+============================
+用git config命令直接修改配置文件
