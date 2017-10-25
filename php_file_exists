@@ -1,1 +1,48 @@
-明明文件存在什么用file_exists()判断是flase?
+明明文件存在什么用file_exists('/tmp/djw/log')判断是flase?
+
+做了一个简单的测试:
+
+$rootPath = [
+    'bin',
+    'boot',
+    'data',
+    'dev',
+    'dev',
+    'home',
+    'media',
+    'mnt',
+    'opt',
+    'root',
+    'run',
+    'sbin',
+    'srv',
+    'tmp',
+    'usr',
+    'var',
+];
+foreach ($rootPath as $t) {
+    $filename = "/{$t}/djw.log";
+    $re =  is_file($filename) ? '存在' : '不存在';
+    echo $filename . $re . "<br>";
+}
+
+结果是：
+/bin/djw.log存在
+/boot/djw.log存在
+/data/djw.log存在
+/dev/djw.log存在
+/dev/djw.log存在
+/home/djw.log存在
+/media/djw.log存在
+/mnt/djw.log存在
+/opt/djw.log存在
+/root/djw.log存在
+/run/djw.log存在
+/sbin/djw.log存在
+/srv/djw.log存在
+/tmp/djw.log不存在
+/usr/djw.log存在
+/var/djw.log存在
+/sbin/djw.log存在
+
+只有/tmp/djw.log不存在，/tmp目录我服气!!
