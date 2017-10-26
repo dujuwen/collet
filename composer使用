@@ -1,0 +1,37 @@
+http://composer.json.jolicode.com/
+
+Online installer
+curl -sS https://getcomposer.org/installer | php
+
+composer.phar most needed command line
+$ composer require vendor-name/package-name
+$ composer install
+$ composer update
+$ composer update --lock
+$ composer dump-autoload --optimize
+other commands
+$ composer about
+$ composer archive
+$ composer browse
+$ composer clear-cache
+$ composer config --list
+$ composer create-project symfony/standard-edition dir/
+$ composer depends vendor-name/package-name
+$ composer diagnose
+$ composer exec
+$ composer global
+$ composer help
+$ composer info
+$ composer init
+$ composer licenses
+$ composer list
+$ composer outdated
+$ composer prohibits
+$ composer remove
+$ composer run-script
+$ composer search my keywords
+$ composer self-update
+$ composer show
+$ composer status
+$ composer suggests
+$ composer validate
