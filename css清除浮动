@@ -1,6 +1,7 @@
 http://www.positioniseverything.net/easyclearing.html
 http://www.iyunlu.com/view/css-xhtml/55.html
 http://www.iyunlu.com/demo/enclosing-float-and-clearing-float/index.html
+http://www.jianshu.com/p/a3da5e27d22b
 
 .clearfix:after {content:"."; display:block; height:0; visibility:hidden; clear:both; }
 .clearfix { *zoom:1; }
