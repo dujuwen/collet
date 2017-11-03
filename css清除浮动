@@ -1,0 +1,5 @@
+
+http://www.iyunlu.com/view/css-xhtml/55.html
+
+.clearfix:after {content:"."; display:block; height:0; visibility:hidden; clear:both; }
+.clearfix { *zoom:1; }
