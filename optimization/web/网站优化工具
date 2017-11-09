@@ -33,5 +33,8 @@ https://developers.google.com/speed/docs/insights/Server
 避免网页目标重定向
 https://developers.google.com/speed/docs/insights/AvoidRedirects
 
+移除阻止呈现的JavaScript
+https://developers.google.com/speed/docs/insights/BlockingJS
+
 更多的优化实践
 https://developers.google.com/speed/articles/compressing-javascript?hl=zh-CN
