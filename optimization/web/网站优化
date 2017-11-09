@@ -1,3 +1,5 @@
 1.google pagespeed insights
 https://developers.google.com/speed/pagespeed/insights/
 
+在chrome浏览器上安装插件
+chrome://extensions/ -- "获取更多扩展程序" -- "查找pagespeed insights"
