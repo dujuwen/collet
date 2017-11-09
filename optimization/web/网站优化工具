@@ -8,4 +8,27 @@ chrome://extensions/ -- "获取更多扩展程序" -- "查找pagespeed insights"
 
 2.gimp(linux下的photoshop)
 
-3.
+3.google的web优化建议
+优化css发送过程
+https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery
+
+优化图片
+https://developers.google.com/speed/docs/insights/OptimizeImages
+
+使用浏览器缓存
+https://developers.google.com/speed/docs/insights/LeverageBrowserCaching
+
+启用压缩功能
+https://developers.google.com/speed/docs/insights/EnableCompression
+
+缩减首屏内容的大小
+https://developers.google.com/speed/docs/insights/PrioritizeVisibleContent
+
+缩减资源(HTML、CSS和JavaScript)大小
+https://developers.google.com/speed/docs/insights/MinifyResources
+
+改善服务器响应时间
+https://developers.google.com/speed/docs/insights/Server
+
+避免网页目标重定向
+https://developers.google.com/speed/docs/insights/AvoidRedirects
