@@ -6,3 +6,12 @@ php执行的时候经常碰见file_put_contents写数据的时候出现权限问
 在配置nginx和php-fpm的时候把它们的用户和用户组统一设置为nginx就不会存在日志文件读写权限问题了
 
 在linux的世界一切皆文件，在文件的权限不发生变化的情况下，如果用户第一次可以读写一个文件，那么以后一直都可以读写这个文件(废话哈哈)
+
+
+递归修改目录权限 chmod -R 0777 dir
+修改目录所属用户和组 chown -R user:group dir
+
+有些时候可能是selinux引起的
+查看selinux状态：sestatus 或者 getenforce
+设置临时关闭：setenforce 0
+永久关闭(修改配置文件)：/etc/selinux/config 将SELINUX=enforcing改为SELINUX=disabled
