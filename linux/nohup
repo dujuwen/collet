@@ -17,3 +17,9 @@ https://www.tutorialspoint.com/unix/unix-signals-traps.htm
     意思就是:把错误信息定向到前一个（中间&的作用）打开的文件当中去
 6.&
 让程序在后台以job的形式进行
+
+使用 jobs 查看任务。
+
+使用 fg %n　将任务置为前台任务 bg %n后台任务
+
+kill pid可以干掉任务
