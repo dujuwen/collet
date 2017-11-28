@@ -1,0 +1,19 @@
+
+http://blog.csdn.net/u013410747/article/details/58586588
+
+nohup command >/dev/null 2>&1 & 到底什么意思？
+
+1.nohup
+nohup 的用途就是让提交的命令忽略 hangup 信号，那什么叫做hangup信号？这里给出了答案
+https://www.tutorialspoint.com/unix/unix-signals-traps.htm
+2.command
+这个就是你要执行的命令
+3.>
+重定向操作符，定向把命令执行结果输出
+4./dev/null
+一个空设备
+5.2>&1
+    linux上0：标准输入，1：标准输出，2：标准错误
+    意思就是:把错误信息定向到前一个（中间&的作用）打开的文件当中去
+6.&
+让程序在后台以job的形式进行
