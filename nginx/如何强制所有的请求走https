@@ -1,0 +1,23 @@
+
+vim /etc/nginx/php-fpm.conf
+
+location ~ \.php$ {
+    try_files                   $uri = 404;
+    fastcgi_pass                unix:/var/run/php-fpm.sock;
+    fastcgi_index               index.php;
+    fastcgi_intercept_errors    on;
+    fastcgi_param APP_ENV local;
+    include /etc/nginx/fastcgi.conf;
+    fastcgi_param HTTPS on;
+}
+
+关键：fastcgi_param HTTPS on;
+
+官方的是：fastcgi_param HTTPS $https if_not_empty;
+
+
+laravel框架有根据$_SERVER['HTTPS']来判断是http还是https请求
+
+https://www.awaimai.com/2196.html
+
+注意：这个 if_not_empty 额外参数只适合 Nginx 1.1.11 之后的版本
