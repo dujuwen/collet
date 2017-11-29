@@ -1,0 +1,21 @@
+1.apply的作用是转移this对象和以数组的形式向函数传递参数
+//以数组形式传递参数，不涉及到this对象的转移所以第一个参数为null
+function add (a, b) {
+  return a + b;
+};
+
+arr = [2, 3];
+add.apply(null, arr);
+
+//转移this对象
+flight = function(){};
+
+flight.prototype.get_status = function() {
+  return this.status;
+};
+
+var s = {
+  status:"flying"
+};
+
+status = flight.prototype.get_status.apply(s);
