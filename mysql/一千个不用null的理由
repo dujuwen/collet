@@ -1,0 +1,5 @@
+https://my.oschina.net/leejun2005/blog/1342985
+
+总的来说为什么不使用null?
+
+null值会使索引、索引统计和值更加复杂，并且需要一个额外字节的存储空间来标识null值。
