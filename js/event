@@ -1,0 +1,6 @@
+阻止默认事件和停止冒泡
+1. preventDefault()
+通知浏览器不要执行与事件关联的默认动作。
+
+2. stopPropagation()
+不再派发事件。
