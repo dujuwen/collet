@@ -1,0 +1,77 @@
+http://www.weste.net/2014/12-25/100791.html
+
+每一种客户端在处理https的连接时都会使用不同的证书库。IE浏览器和FireFox浏览器都可以在本浏览器的控制面板中找到证书管理器。在证书管理器中可以自由添加、删除根证书。
+
+而Linux的curl使用的证书库在文件“/etc/pki/tls/certs/ca-bundle.crt”中。（CentOS）
+
+以下是curl在访问https站点时常见的报错信息
+
+1.Peer’s Certificate issuer is not recognized
+[root@ip-172-31-32-208 nginx]# curl https://m.ipcpu.com
+curl: (60) Peer’s Certificate issuer is not recognized.
+More details here: http://curl.haxx.se/docs/sslcerts.html
+
+此种情况多发生在自签名的证书，报错含义是签发证书机构未经认证，无法识别。
+
+解决办法是将签发该证书的私有CA公钥cacert.pem文件内容，追加到/etc/pki/tls/certs/ca-bundle.crt。
+
+我们在访问12306.cn订票网站时也报了类似的错误。
+
+[root@ip-172-31-32-208 ~]# curl https://kyfw.12306.cn/
+curl: (60) Peer’s certificate issuer has been marked as not trusted by the user.
+More details here: http://curl.haxx.se/docs/sslcerts.html
+
+2.SSL routines:SSL3_GET_SERVER_CERTIFICATE:certificate verify failed
+[root@GO-EMAIL-1 aa]# curl https://github.com/
+curl: (60) SSL certificate problem, verify that the CA cert is OK. Details:
+error:14090086:SSL routines:SSL3_GET_SERVER_CERTIFICATE:certificate verify failed
+More details here: http://curl.haxx.se/docs/sslcerts.html
+
+此问题多是由于本地CA证书库过旧，导致新签发证书无法识别。
+
+经排查，github.com证书是由GTE CyberTrust Root签发,现行证书时间是：
+
+不早于(1998/8/13 0:29:00 GMT)
+不晚于(2018/8/13 23:59:00 GMT)
+而在我们的Redhat5.3系统中ca-bundle.crt文件发现，GTE CyberTrust Root的时间已经过期。
+
+Issuer: C=US, O=GTE Corporation, CN=GTE CyberTrust Root
+Validity
+Not Before: Feb 23 23:01:00 1996 GMT
+Not After : Feb 23 23:59:00 2006 GMT
+
+解决办法是更新本地CA证书库。
+
+方法一：
+
+下载http://curl.haxx.se/ca/cacert.pem 替换/etc/pki/tls/certs/ca-bundle.crt
+
+方法二：
+
+使用update-ca-trust 更新CA证书库。（CentOS6，属于ca-certificates包）
+
+3.unknown message digest algorithm
+[root@WEB_YF_2.7 ~]#curl https://www.alipay.com
+curl: (35) error:0D0C50A1:asn1 encoding routines:ASN1_item_verify:unknown message digest algorithm
+此问题多由证书本地openssl不能识别SSL证书签名算法所致。www.alipay.com 使用了SHA-256 RSA 加密算法。而openssl在OpenSSL 0.9.8o才加入此算法。
+
+解决办法是升级本地openssl。
+
+在我的操作系统RedHat5.3中,yum 升级openssl到openssl-0.9.8e-22.el5 就可以识别SHA-256算法。原因是Redhat每次都是给0.9.8e打补丁，而不是直接更换版本。在srpm包中我找到了这个补丁。
+
+Summary: The OpenSSL toolkit
+Name: openssl
+Version: 0.9.8e
+...
+Patch89: openssl-fips-0.9.8e-ssl-sha256.patch
+
+4.JAVA和PHP的问题
+java和php都可以编程来访问https网站。例如httpclient等。
+
+其调用的CA根证书库并不和操作系统一致。
+
+JAVA的CA根证书库是在 JRE的$JAVA_HOME/jre/lib/security/cacerts，该文件会随着JRE版本的升级而升级。可以使用keytool工具进行管理。
+
+PHP这边我没有进行测试，从php安装curl组件的过程来看，极有可能就是直接采用的操作系统curl一直的数据。
+
+当然PHP也提供了 curl.cainfo 参数(php.ini)来指定CA根证书库的位置。
