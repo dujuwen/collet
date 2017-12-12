@@ -1,0 +1,16 @@
+http://blog.csdn.net/fdipzone/article/details/54562656
+
+open_basedir 将php所能打开的文件限制在指定的目录树中，包括文件本身。
+当程序要使用例如fopen()或file_get_contents()打开一个文件时，这个文件的位置将会被检查。当文件在指定的目录树之外，程序将拒绝打开。
+
+本指令不受安全模式打开或关闭的影响。 
+
+open_basedir开启后会影响I/O，因为每个调用的文件都需要判断是否在限制目录内
+
+用open_basedir指定的限制实际上是前缀，不是目录名。 
+也就是说 open_basedir=/home/fdipzone 也会允许访问/home/fdipzone_abc，
+如果要将访问限制为目录，请使用斜线结束路径名，例如:open_basedir="/home/fdipzone/"
+
+如果要设置多个目录，window使用;分隔目录，linux使用:分隔目录。
+
+总结：使用open_basedir可以限制程序可操作的目录和文件，提高系统安全性。但会影响I/O性能导致系统执行变慢，因此需要根据具体需求，在安全与性能上做平衡。
