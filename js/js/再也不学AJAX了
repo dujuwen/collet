@@ -9,3 +9,6 @@ http://www.cnblogs.com/libinfs/p/7793313.html
 
 再也不学AJAX了！（三）跨域获取资源 ② - JSONP & CORS
 https://segmentfault.com/a/1190000012302319
+
+FormData 对象的使用
+https://developer.mozilla.org/zh-CN/docs/Web/API/FormData/Using_FormData_Objects
