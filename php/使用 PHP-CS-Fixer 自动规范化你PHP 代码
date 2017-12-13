@@ -1,0 +1,5 @@
+通过安装 Composer 安装
+composer global require friendsofphp/php-cs-fixer
+
+然后，确保~/.composer/vendor/bin目录在你的PATH中
+export PATH="$PATH:$HOME/.composer/vendor/bin"
