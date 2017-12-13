@@ -1,6 +1,9 @@
 
 AJAX是“Asynchronous JavaScript And XML”的缩写(即：异步的JavaScript和XML)，是一种实现无页面刷新获取服务器数据的混合技术。
 
+XMLHttpRequest的使用
+https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest#Submitting_forms_and_uploading_files
+
 再也不学AJAX了！（一）AJAX概述
 https://segmentfault.com/a/1190000012207226
 
