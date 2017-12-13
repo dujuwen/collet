@@ -3,5 +3,9 @@ https://segmentfault.com/a/1190000004162229?_ea=531240
 通过安装 Composer 安装
 composer global require friendsofphp/php-cs-fixer
 
-然后，确保~/.composer/vendor/bin目录在你的PATH中
-export PATH="$PATH:$HOME/.composer/vendor/bin"
+然后在~/.composer/vendor/bin下执行命令:
+ln -s ../friendsofphp/php-cs-fixer/php-cs-fixer /usr/local/bin/php-cs-fixer
+chmod a+x /usr/local/bin/php-cs-fixer
+
+用法：
+php-cs-fixer fix 目录或者文件
