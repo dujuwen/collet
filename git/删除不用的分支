@@ -1,0 +1,6 @@
+删除本地： git branch -D 分支名称
+删除远端仓库中的分支：git push origin --delete 分支名称
+
+查看下所有分支：git branch -a
+查看分支跟踪情况：git remote show origin
+移除所有不再使用的分支：git remote prune origin
