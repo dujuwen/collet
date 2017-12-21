@@ -1,0 +1,6 @@
+http://www.ruanyifeng.com/blog/2015/12/git-workflow.html
+
+为了便于他人阅读你的提交，也便于cherry-pick或撤销代码变化，在发起Pull Request之前，应该把多个commit合并成一个。
+（前提是，该分支只有你一个人开发，且没有跟master合并过。）
+
+可以采用rebase命令附带的squash操作
