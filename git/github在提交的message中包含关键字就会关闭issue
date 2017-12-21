@@ -1,0 +1,17 @@
+http://www.ruanyifeng.com/blog/2015/12/git-workflow.html
+开发完成后，在提交说明里面，可以写上"fixes #14"或者"closes #67"。
+
+Github规定，只要commit message里面有下面这些动词 + 编号，就会关闭对应的issue。
+close
+closes
+closed
+fix
+fixes
+fixed
+resolve
+resolves
+resolved
+
+这种方式还可以一次关闭多个issue，或者关闭其他代码库的issue，格式是username/repository#issue_number。
+
+Pull Request被接受以后，issue关闭，原始分支就应该删除。如果以后该issue重新打开，新分支可以复用原来的名字。
