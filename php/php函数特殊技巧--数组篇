@@ -1,0 +1,67 @@
+1.array_column
+$records = array(
+    array(
+        'id' => 2135,
+        'first_name' => 'John',
+        'last_name' => 'Doe',
+    ),
+    array(
+        'id' => 3245,
+        'first_name' => 'Sally',
+        'last_name' => 'Smith',
+    )
+);
+
+$first_names = array_column($records, null, 'id');
+print_r($first_names);
+
+会将id重新做完数组元素的key来重建数组:
+Array
+(
+    [2135] => Array
+        (
+            [id] => 2135
+            [first_name] => John
+            [last_name] => Doe
+        )
+
+    [3245] => Array
+        (
+            [id] => 3245
+            [first_name] => Sally
+            [last_name] => Smith
+        )
+
+)
+
+2.array_count_values
+计算数组中每个元素出现的次数
+
+3.array_diff 不带键计算数组的差集
+array_diff_assoc 带键计算数组的差集
+
+4.array_diff 根据值来计算数组的差集
+array_diff_key 根据键来计算数组的差集
+
+5.array_diff 根据值来计算数组的差集
+array_udiff 根据回调函数来计算数组的差集
+
+6.print_r(array_merge(range('A', 'Z'), range('a', 'z')));
+输出包含所有的大小写字母的数组
+
+7.array_key_exists() 与 isset() 的对比
+isset — 检测变量是否已设置并且非 NULL
+
+isset() 对于数组中为 NULL 的值不会返回 TRUE，而 array_key_exists() 会。
+<?php
+$search_array = array('first' => null, 'second' => 4);
+// returns false
+isset($search_array['first']);
+
+// returns true
+array_key_exists('first', $search_array);
+?>
+
+8.
+
+
