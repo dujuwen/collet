@@ -62,6 +62,17 @@ isset($search_array['first']);
 array_key_exists('first', $search_array);
 ?>
 
-8.
+8.in_array如果是字符串的话会区分大小写
 
+9.array_rand从数组中取出一个或多个单元(key)
+$input = array("Neo", "Morpheus", "Trinity", "Cypher", "Tank");
+var_dump(array_rand($input, 1));
+var_dump(array_rand($input, 2));
+array(2) {
+  [0]=>
+  int(3)
+  [1]=>
+  int(4)
+}
+array_rand取出的是数组中的key不是值
 
