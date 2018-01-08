@@ -1,0 +1,13 @@
+1.MAC是大小写不敏感的
+在 Mac 上，如果发现文件名大小写有问题，怎么办？
+
+1)删除旧文件，提交代码。
+添加新文件，提交代码。
+
+2)git config core.ignorecase false
+
+3)$ git mv test.txt tmp.txt
+$ git mv tmp.txt Test.txt
+$ git commit -m "Renamed test.txt to Test.txt"
+
+2.
