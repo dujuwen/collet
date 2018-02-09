@@ -56,8 +56,10 @@ curl -XGET 'localhost:9200/_cat/health?v&pretty'
 查看集群中的节点数:
 curl -XGET 'localhost:9200/_cat/nodes?v&pretty'
 
-9.
+9.List All Indices
+curl -XGET 'localhost:9200/_cat/indices?v&pretty'
 
+10.
 
 
 
