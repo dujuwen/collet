@@ -1,4 +1,23 @@
 1.建立索引(index)的时候所有字母必须小写
+
 2.从6.0.0开始mapping types被遗弃了并会在7.0版本中彻底移除,所以现在在一个索引下只保留一个类型的数据
 https://www.elastic.co/guide/en/elasticsearch/reference/current/removal-of-types.html#_what_are_mapping_types
-3.
+index/type 更恰当的比喻是只有一张表的数据库
+
+3.shards 
+分片可以被托管在集群中的任意节点上，分片是类似于数据库的分表，将一个大的index分割成更小的单元
+分片可以在创建index之后设置想要的数量，具体实现细节由es实现，使用者不需要关心
+
+分片的好处：
+水平增加存储空间和提供性能与吞吐量
+
+4.replicas 副本
+副本的好处：提高可用性和性能
+
+总的来说：一个index可以切割成多个shard，一个shard可以有0个或多个replica。一旦一个分片被复制了一次及其以上，就有主分片和复制分片。
+Once replicated, each index will have primary shards (the original shards that were replicated from) 
+and replica shards (the copies of the primary shards).
+
+副本数跟分片数一样可以在创建索引的时候定义
+
+5.
