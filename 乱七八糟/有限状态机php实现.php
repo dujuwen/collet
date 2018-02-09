@@ -79,6 +79,7 @@ function fsmHandle (FSM &$fsm, &$stateEventArr)
                 $index = 0;
             }
             $nextStateEvent = $stateEventArr[$index];
+            break;
         }
     }
 
