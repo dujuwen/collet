@@ -30,4 +30,13 @@ Each Elasticsearch shard is a Lucene index. There is a maximum number of documen
 As of LUCENE-5843, the limit is 2,147,483,519 (= Integer.MAX_VALUE - 128) documents. 
 You can monitor shard sizes using the _cat/shards API.
 
-5.
+安装es:
+https://www.elastic.co/guide/en/elasticsearch/reference/current/_installation.html
+
+5.es至少需要java 8，运行以下命令确认Java版本
+➜  ~ java -version
+java version "1.8.0_141"
+Java(TM) SE Runtime Environment (build 1.8.0_141-b15)
+Java HotSpot(TM) 64-Bit Server VM (build 25.141-b15, mixed mode)
+
+6.
