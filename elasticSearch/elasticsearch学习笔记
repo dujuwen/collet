@@ -42,3 +42,22 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.141-b15, mixed mode)
 6.在启动的时候设置集群或节点名称
 ./elasticsearch -Ecluster.name=my_cluster_name -Enode.name=my_node_name
 
+7.在启动es节点后可以使用REST API来与es沟通
+REST API能做什么?
+> Check your cluster, node, and index health, status, and statistics
+> Administer your cluster, node, and index data and metadata
+> Perform CRUD (Create, Read, Update, and Delete) and search operations against your indexes
+> Execute advanced search operations such as paging, sorting, filtering, scripting, aggregations, and many others
+
+8.Cluster Health
+https://www.elastic.co/guide/en/elasticsearch/reference/current/_cluster_health.html
+curl -XGET 'localhost:9200/_cat/health?v&pretty'
+
+查看集群中的节点数:
+curl -XGET 'localhost:9200/_cat/nodes?v&pretty'
+
+9.
+
+
+
+
