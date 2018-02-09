@@ -1,3 +1,5 @@
+https://www.cnblogs.com/nnn123/p/6723729.html
+
 //定义电梯的状态
 class LiftState {
     const OPEN = 1;
