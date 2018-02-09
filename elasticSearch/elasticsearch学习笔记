@@ -18,6 +18,16 @@ index/type 更恰当的比喻是只有一张表的数据库
 Once replicated, each index will have primary shards (the original shards that were replicated from) 
 and replica shards (the copies of the primary shards).
 
-副本数跟分片数一样可以在创建索引的时候定义
+副本数跟分片数一样可以在创建索引的时候定义。在副本数和分片数被定义好(在索引被创建好)之后，可以动态的调整副本数，但是不能调整分片数
+After the index is created, you may change the number of replicas dynamically anytime 
+but you cannot change the number of shards after-the-fact.
+
+By default, each index in Elasticsearch is allocated 5 primary shards and 1 replica which means that if you have 
+at least two nodes in your cluster, your index will have 5 primary shards and another 5 replica shards (1 complete replica)
+for a total of 10 shards per index.
+
+Each Elasticsearch shard is a Lucene index. There is a maximum number of documents you can have in a single Lucene index. 
+As of LUCENE-5843, the limit is 2,147,483,519 (= Integer.MAX_VALUE - 128) documents. 
+You can monitor shard sizes using the _cat/shards API.
 
 5.
