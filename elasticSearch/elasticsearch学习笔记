@@ -39,4 +39,6 @@ java version "1.8.0_141"
 Java(TM) SE Runtime Environment (build 1.8.0_141-b15)
 Java HotSpot(TM) 64-Bit Server VM (build 25.141-b15, mixed mode)
 
-6.
+6.在启动的时候设置集群或节点名称
+./elasticsearch -Ecluster.name=my_cluster_name -Enode.name=my_node_name
+
