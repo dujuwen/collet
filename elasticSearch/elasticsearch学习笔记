@@ -1,3 +1,6 @@
+github的api提示
+https://api.github.com/
+
 1.建立索引(index)的时候所有字母必须小写
 
 2.从6.0.0开始mapping types被遗弃了并会在7.0版本中彻底移除,所以现在在一个索引下只保留一个类型的数据
@@ -49,6 +52,18 @@ REST API能做什么?
 > Perform CRUD (Create, Read, Update, and Delete) and search operations against your indexes
 > Execute advanced search operations such as paging, sorting, filtering, scripting, aggregations, and many others
 
+RESTFUL
+https://zhuanlan.zhihu.com/p/30396391?group_id=937244108725641216
+
+PUT操作就是幂等操作
+在编程中一个幂等操作的特点是其任意次执行所产生的影响均与一次执行的影响相同
+
+http方法 操作资源 幂等 安全
+GET      SELECT  是   是
+POST     INSERT  否   否
+PUT      UPDATE  是   否
+DELETE   DELETE  是   否
+
 8.Cluster Health
 https://www.elastic.co/guide/en/elasticsearch/reference/current/_cluster_health.html
 curl -XGET 'localhost:9200/_cat/health?v&pretty'
@@ -59,7 +74,13 @@ curl -XGET 'localhost:9200/_cat/nodes?v&pretty'
 9.List All Indices
 curl -XGET 'localhost:9200/_cat/indices?v&pretty'
 
-10.
+10.创建索引
+https://www.elastic.co/guide/en/elasticsearch/reference/current/_create_an_index.html
 
+curl -XPUT 'localhost:9200/customer?pretty&pretty'
+查看所有索引
+curl -XGET 'localhost:9200/_cat/indices?v&pretty'
+
+11.
 
 
