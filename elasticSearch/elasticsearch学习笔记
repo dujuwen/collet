@@ -77,9 +77,52 @@ curl -XGET 'localhost:9200/_cat/indices?v&pretty'
 10.创建索引
 https://www.elastic.co/guide/en/elasticsearch/reference/current/_create_an_index.html
 
+在索引数据之前不是必须创建索引
 curl -XPUT 'localhost:9200/customer?pretty&pretty'
+
 查看所有索引
 curl -XGET 'localhost:9200/_cat/indices?v&pretty'
 
-11.
+11.删除索引
+curl -XDELETE 'localhost:9200/customer?pretty'
+
+12.es的更新文档实际上是先删除后增加
+
+13.es批处理
+https://www.elastic.co/guide/en/elasticsearch/reference/current/_batch_processing.html
+curl -XPOST 'localhost:9200/customer/_doc/_bulk?pretty&pretty' -H 'Content-Type: application/json' -d'
+{"index":{"_id":"1"}}
+{"name": "John Doe" }
+{"index":{"_id":"2"}}
+{"name": "Jane Doe" }
+' 
+
+14.测试数据地址
+https://raw.githubusercontent.com/elastic/elasticsearch/master/docs/src/test/resources/accounts.json
+
+15.批量导入数据
+https://www.elastic.co/guide/en/elasticsearch/reference/current/_exploring_your_data.html
+curl -H "Content-Type: application/json" -XPOST "localhost:9200/bank/account/_bulk?pretty&refresh" --data-binary "@accounts.json"
+curl "localhost:9200/_cat/indices?v"
+
+16.查询数据
+uri和body式查询
+https://www.elastic.co/guide/en/elasticsearch/reference/current/_the_search_api.html
+
+https://www.elastic.co/guide/en/elasticsearch/reference/6.2/search-uri-request.html
+curl -XGET 'localhost:9200/bank/_search?q=*&sort=account_number:asc&pretty&pretty'
+
+https://www.elastic.co/guide/en/elasticsearch/reference/6.2/search-request-body.html
+curl -XGET 'localhost:9200/bank/_search?pretty' -H 'Content-Type: application/json' -d'
+{
+  "query": { "match_all": {} },
+  "sort": [
+    { "account_number": "asc" }
+  ]
+}
+'
+
+17.
+
+
 
