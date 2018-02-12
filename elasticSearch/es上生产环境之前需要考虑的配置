@@ -94,3 +94,6 @@ or by setting nproc to 4096 in /etc/security/limits.conf.
 https://www.elastic.co/guide/en/elasticsearch/reference/current/networkaddress-cache-ttl.html
 如果节点间通信依赖DNS解析的话可以设置缓存时间
 networkaddress.cache.ttl=<timeout>
+
+9.单节点检查
+https://www.elastic.co/guide/en/elasticsearch/reference/current/bootstrap-checks.html#single-node-discovery
