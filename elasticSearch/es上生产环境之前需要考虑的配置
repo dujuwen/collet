@@ -19,4 +19,76 @@ node.name: prod-data-2
 
 node.name: ${HOSTNAME}
 
-4.
+4.network.host
+https://www.elastic.co/guide/en/elasticsearch/reference/current/network.host.html
+默认情况下es绑定的是127.0.0.1 and [::1]，需要注意的一旦network.host的值被设置成了非默认的es就会将开发模式转换成生产模式并升级一些启动检查
+
+https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-network.html#network-interface-values
+在设置nerwork.host的时候一定要注意不要暴露一个未保护的节点到公网环境
+
+5.发现设置
+https://www.elastic.co/guide/en/elasticsearch/reference/current/discovery-settings.html
+discovery.zen.ping.unicast.hosts:
+   - 192.168.1.10:9300
+   - 192.168.1.11 
+   - seeds.mydomain.com 
+
+The port will default to transport.profiles.default.port and fallback to transport.tcp.port if not specified.
+
+配置discovery.zen.minimum_master_nodes来避免脑裂
+数值取值为 (有资格当选为 Master 的节点个数 / 2+1), 这样做是为了防止脑裂现象, 防止某些主节点自成一个集群. 
+考虑到 Zookeeper 的一些配置, 主节点的个数最好是奇数个, 并且不少于 3 个; 
+但是会带来一个问题, 如必须至少一半以上的主节点是可用的, 如果不能满足这个要求, 则系统就会崩溃.
+
+6.设置jvm堆栈大小,配置文件为jvm.options
+https://www.elastic.co/guide/en/elasticsearch/reference/current/heap-size.html
+设置Xms值=Xmx，不超过物理可用内存的50%
+-Xms2g 
+-Xmx2g 
+
+7.JVM heap dump path
+https://www.elastic.co/guide/en/elasticsearch/reference/current/heap-dump-path.html
+
+8.一台服务器只为es服务应该修改的配置
+https://www.elastic.co/guide/en/elasticsearch/reference/current/system-config.html
+
+8.1 Disable swapping
+https://www.elastic.co/guide/en/elasticsearch/reference/current/setup-configuration-memory.html
+在linux上临时禁用内存交换
+sudo swapoff -a
+永久禁用则编辑为/etc/fstab将包含swap的行给注释掉
+在linux上配置sysctl value vm.swappiness为1
+修改es配置config/elasticsearch.yml文件添加:
+bootstrap.memory_lock: true
+
+查看是否禁用了内存交换:
+curl -XGET 'localhost:9200/_nodes?filter_path=**.mlockall&pretty
+如果设置了禁用内存交换但是结果为false就要看看权限问题了
+
+8.2 Increase file descriptors
+https://www.elastic.co/guide/en/elasticsearch/reference/current/file-descriptors.html
+查看文件描述符限制数
+curl -XGET 'localhost:9200/_nodes/stats/process?filter_path=**.max_file_descriptors&pretty'
+
+For the .zip and .tar.gz packages, set ulimit -n 65536 as root before starting Elasticsearch, 
+or set nofile to 65536 in /etc/security/limits.conf.
+
+On macOS, you must also pass the JVM option -XX:-MaxFDLimit to Elasticsearch in order for it to
+make use of the higher file descriptor limit.
+
+8.3 Ensure sufficient virtual memory
+https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html
+临时设置虚拟内存:
+sysctl -w vm.max_map_count=262144
+
+To set this value permanently, update the vm.max_map_count setting in /etc/sysctl.conf.
+To verify after rebooting, run sysctl vm.max_map_count.
+
+8.4 Ensure sufficient threads
+This can be done by setting ulimit -u 4096 as root before starting Elasticsearch, 
+or by setting nproc to 4096 in /etc/security/limits.conf.
+
+8.5 JVM DNS cache settings
+https://www.elastic.co/guide/en/elasticsearch/reference/current/networkaddress-cache-ttl.html
+如果节点间通信依赖DNS解析的话可以设置缓存时间
+networkaddress.cache.ttl=<timeout>
