@@ -35,6 +35,8 @@ You can monitor shard sizes using the _cat/shards API.
 
 安装es:
 https://www.elastic.co/guide/en/elasticsearch/reference/current/_installation.html
+https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html
+可以选用配置工具来安装，比如：Ansible
 
 5.es至少需要java 8，运行以下命令确认Java版本
 ➜  ~ java -version
