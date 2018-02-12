@@ -1,0 +1,22 @@
+1.统一设置pata.data和path.logs路径
+https://www.elastic.co/guide/en/elasticsearch/reference/current/path-settings.html
+
+path:
+  logs: /var/log/elasticsearch
+  data: /var/data/elasticsearch
+  
+除了统一方便管理之外更重要的原因是在es升级的时候被误删除
+
+2.设置集群的名称使其更加有意义
+https://www.elastic.co/guide/en/elasticsearch/reference/current/cluster.name.html
+cluster.name: luntan-logging-prod
+
+要注意的是集群名称的唯一性
+
+3.节点名称more是uuid产生的前7个字符，但是使其有意义比较好些
+https://www.elastic.co/guide/en/elasticsearch/reference/current/node.name.html
+node.name: prod-data-2
+
+node.name: ${HOSTNAME}
+
+4.
