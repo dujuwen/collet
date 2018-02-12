@@ -16,4 +16,10 @@ ES-Head 的主要作用：
 
 它提供一些快捷菜单，用以展现集群的各种状态
 
-2.
+2.kopf和cerebro
+
+kopf 是一个 ElasticSearch 的管理工具，它提供了对 ES 集群操作的 API，但是kopf已经不再维护了用cerebro代替
+
+https://github.com/lmenezes/cerebro
+
+3.
