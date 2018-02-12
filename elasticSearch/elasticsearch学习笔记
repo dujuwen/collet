@@ -122,7 +122,41 @@ curl -XGET 'localhost:9200/bank/_search?pretty' -H 'Content-Type: application/js
 }
 '
 
-17.
+17.查询部分字段,默认情况下是查询所有字段
+https://www.elastic.co/guide/en/elasticsearch/reference/current/_executing_searches.html
+关键 "_source": ["account_number", "balance"]
 
+curl -XGET 'localhost:9200/bank/_search?pretty' -H 'Content-Type: application/json' -d'
+{
+  "query": { "match_all": {} },
+  "_source": ["account_number", "balance"]
+}
+'
+
+"query": { "match": { "address": "mill lane" } }
+match是匹配包含mill或者lane的数据 (or)
+"query": { "match_phrase": { "address": "mill lane" } }
+match_phrase是包含"mill lane"的数据 (=)
+match将查询条件分割成个体查询,match_phrase将查询条件当成整体
+
+那么查询address 包含mill和lane怎么办(and)，用bool查询
+GET /bank/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        { "match": { "address": "mill" } },
+        { "match": { "address": "lane" } }
+      ]
+    }
+  }
+}
+
+bool must等价于sql中的and
+bool must_not等价于sql中的!=
+bool should等价于sql中的or
+可以同时将must,must_not和should放到同一个bool查询中
+
+18.
 
 
