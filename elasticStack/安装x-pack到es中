@@ -1,5 +1,9 @@
 https://www.elastic.co/start
 
+https://www.elastic.co/guide/en/elasticsearch/reference/current/installing-xpack-es.html
+安装x-pack注意必须安装和es版本对应的x-pack
+
+
 1.切换到es所在目录，如：
 /Users/dujunwen/elasticsearch-6.2.1
 
