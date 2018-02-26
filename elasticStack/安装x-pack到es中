@@ -1,0 +1,15 @@
+https://www.elastic.co/start
+
+1.切换到es所在目录，如：
+/Users/dujunwen/elasticsearch-6.2.1
+
+执行下列命令：
+./bin/elasticsearch-plugin install x-pack
+
+2.后台启动es
+./bin/elasticsearch -d
+
+3.生成默认密码
+./bin/x-pack/setup-passwords auto
+
+Note the passwords for elastic and kibana users
