@@ -3,3 +3,27 @@ elastic开始
 https://www.elastic.co/start
 
 es -> kibana -> x-pack
+
+各种启动
+1.es启动
+切换到es所在目录:
+/Users/dujunwen/elasticsearch-6.2.1 
+
+执行命令:
+./bin/elasticsearch -d
+
+浏览器打开:
+localhost:9200
+或者
+curl -XGET ./bin/elasticsearch -d
+查看es启动状态
+
+2.kibana启动
+切换到kibana所在目录：
+/Users/dujunwen/kibana-6.2.2-darwin-x86_64
+
+启动：
+./bin/kibana
+
+打开浏览器查看:
+localhost:5601
