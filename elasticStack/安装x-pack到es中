@@ -2,6 +2,11 @@ https://www.elastic.co/start
 
 https://www.elastic.co/guide/en/elasticsearch/reference/current/installing-xpack-es.html
 安装x-pack注意必须安装和es版本对应的x-pack
+如何手动安装对应版本?
+1.wget https://artifacts.elastic.co/downloads/packs/x-pack/x-pack-6.2.2.zip
+2.bin/elasticsearch-plugin install file:///path/to/file/x-pack-6.2.2.zip
+3.配置:
+
 
 
 1.切换到es所在目录，如：
