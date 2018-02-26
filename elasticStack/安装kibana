@@ -1,0 +1,10 @@
+https://www.elastic.co/guide/en/kibana/current/install.html
+
+https://www.elastic.co/cn/downloads/kibana
+
+启动kibana
+https://www.elastic.co/guide/en/kibana/current/targz.html
+
+./bin/kibana
+
+http://localhost:5601
