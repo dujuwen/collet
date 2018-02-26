@@ -13,3 +13,39 @@ https://www.elastic.co/start
 ./bin/x-pack/setup-passwords auto
 
 Note the passwords for elastic and kibana users
+
+➜  x-pack ./setup-passwords auto
+Initiating the setup of passwords for reserved users elastic,kibana,logstash_system.
+The passwords will be randomly generated and printed to the console.
+Please confirm that you would like to continue [y/N]y
+
+
+Changed password for user kibana
+PASSWORD kibana = 3rtS65WQTWe6Wv5UhQ0O
+
+Changed password for user logstash_system
+PASSWORD logstash_system = I56SWCmYgmOiNoY0fnMV
+
+Changed password for user elastic
+PASSWORD elastic = Fa0LloPVqr7JDbyoVIeq
+
+➜  x-pack pwd
+/Users/dujunwen/elasticsearch-6.2.1/bin/x-pack
+
+安装x-pack到kibana中:
+1.安装x-pack
+./bin/kibana-plugin install x-pack
+
+2.编辑配置文件kibana.yml，添加授权：
+elasticsearch.username: "kibana"
+elasticsearch.password:  "这里是上面设置的密码"
+// ./bin/x-pack/setup-passwords auto
+
+启动kibana:
+./bin/kibana
+
+浏览器打开：
+http://localhost:5601
+
+输入用户名密码：
+Username: elastic  Password: <pwd>
