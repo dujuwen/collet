@@ -8,7 +8,6 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/installing-xpack
 3.配置:
 
 
-
 1.切换到es所在目录，如：
 /Users/dujunwen/elasticsearch-6.2.1
 
