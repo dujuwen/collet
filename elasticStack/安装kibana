@@ -5,6 +5,13 @@ https://www.elastic.co/cn/downloads/kibana
 启动kibana
 https://www.elastic.co/guide/en/kibana/current/targz.html
 
+启动命令:
 ./bin/kibana
 
 http://localhost:5601
+
+在启动的时候警告：
+You're running Kibana 6.2.2 with some different versions of Elasticsearch. 
+Update Kibana or Elasticsearch to the same version to prevent compatibility issues
+
+这时应该尽量保持es 和 kibana版本一致
