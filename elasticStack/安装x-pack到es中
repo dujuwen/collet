@@ -58,3 +58,12 @@ http://localhost:5601
 
 输入用户名密码：
 Username: elastic  Password: <pwd>
+
+以上安装之后，就会发现 ES 的访问和 Kibana 的访问都受到限制，那么默认的用户名和密码是多少呢
+ElasticSearch：
+用户名：elastic
+密码：changeme
+登录到 Kibana 会发现 elastic 是一个最高级别的 user，拥有所有权限，其角色是 superuser。
+
+我们不仅可以通过 kibana 可视化的界面来管理用户
+另外我们也可以通过 ES 的 Reset Password API 来管理用户。
