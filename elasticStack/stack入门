@@ -12,6 +12,9 @@ es -> kibana -> x-pack
 执行命令:
 ./bin/elasticsearch -d
 
+后台启动es并将进程id写到指定的文件中
+./bin/elasticsearch -d -p /Users/dujunwen/Desktop/test/es_pid_num
+
 浏览器打开:
 localhost:9200
 或者
