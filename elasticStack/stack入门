@@ -27,3 +27,7 @@ curl -XGET ./bin/elasticsearch -d
 
 打开浏览器查看:
 localhost:5601
+
+显示帮助：
+/Users/dujunwen/elasticsearch-6.2.1/bin
+➜  bin ./elasticsearch --help
