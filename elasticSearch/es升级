@@ -1,3 +1,18 @@
-https://www.elastic.co/guide/en/elasticsearch/reference/6.0/setup-upgrade.html#setup-upgrade
+https://www.elastic.co/guide/en/elasticsearch/reference/6.2/setup-upgrade.html#setup-upgrade
 
 es升级的同时其他产品比如：kibana，x-pack 这些也要一起升级到对应的版本
+
+stack升级步骤与说明：
+https://www.elastic.co/guide/en/elastic-stack/6.2/upgrading-elastic-stack.html
+
+1.Review the breaking changes for changes that affect your application.
+https://www.elastic.co/guide/en/elasticsearch/reference/6.2/breaking-changes.html
+2.Check the deprecation log to see if you are using any deprecated features.
+3.If you use custom plugins, make sure compatible versions are available.
+4.Test upgrades in a dev environment before upgrading your production cluster.
+5.Back up your data before upgrading. You cannot roll back to an earlier version unless you have a backup of your data.
+升级es之前最重要的一步是备份数据:
+https://www.elastic.co/guide/en/elasticsearch/reference/6.2/modules-snapshots.html
+
+Rolling upgrades
+https://www.elastic.co/guide/en/elasticsearch/reference/6.2/rolling-upgrades.html
