@@ -1,0 +1,18 @@
+https://www.elastic.co/guide/en/elasticsearch/reference/current/docs.html
+
+Single document APIs:
+Index API
+Get API
+Delete API
+Update API
+
+Multi-document APIs:
+Multi Get API
+Bulk API
+Delete By Query API
+Update By Query API
+Reindex API
+
+All CRUD APIs are single-index APIs. The index parameter accepts a single index name, or an alias which points to a single index.
+
+1.
