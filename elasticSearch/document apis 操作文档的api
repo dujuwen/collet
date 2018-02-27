@@ -15,4 +15,21 @@ Reindex API
 
 All CRUD APIs are single-index APIs. The index parameter accepts a single index name, or an alias which points to a single index.
 
-1.
+https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-replication.html
+Reading and Writing documents
+基本写文档模型，主分片处理操作的步骤：
+1.检查主分片接收到的操作，如果操作无效则拒绝执行
+2.主分片上执行操作，执行成功进行下一步
+3.将操作内部同步转发到各个副本
+4.所有副本都执行成功并且向主分片反馈，主分片再向请求的客户端告知对应的操作已经成功处理
+
+写文档失败处理：
+由主分片所在节点告知master，然后等待最多1分钟()默认matser会从其他的副本中选择一个新的主分片，然后再新的主分片上执行操作
+...
+
+基本读:
+请求由节点到任意一个分片(即有可能是主分片或其他任何的副本)，执行查询操作，组合数据并返回(如果根据文档id查询则不存在组合数据)
+
+es还有一些潜在的问题，可以查询GitHub上的issue或者
+https://www.elastic.co/guide/en/elasticsearch/resiliency/current/index.html
+
