@@ -1,0 +1,5 @@
+在es安装目录下执行:
+➜  ./bin/elasticsearch-plugin remove x-pack
+
+在kibana安装目录下执行:
+➜  ./bin/kibana-plugin remove x-pack
