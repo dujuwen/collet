@@ -2,6 +2,25 @@ elastic开始
 
 https://www.elastic.co/start
 
+elastic stack里面的应用安装顺序与说明:
+https://www.elastic.co/guide/en/elastic-stack/6.2/installing-elastic-stack.html
+
+Install the Elastic Stack products you want to use in the following order:
+
+Elasticsearch (install instructions)
+X-Pack for Elasticsearch (install instructions)
+Kibana (install)
+X-Pack for Kibana (install instructions)
+Logstash (install)
+X-Pack for Logstash (install instructions)
+Beats (install instructions)
+Elasticsearch Hadoop (install instructions)
+
+Installing in this order ensures that the components each product depends on are in place.
+
+stack升级：
+https://www.elastic.co/guide/en/elastic-stack/6.2/upgrading-elastic-stack.html
+
 es -> kibana -> x-pack
 
 各种启动
