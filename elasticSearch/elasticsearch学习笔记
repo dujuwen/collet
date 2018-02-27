@@ -199,12 +199,56 @@ closed 表示只匹配closed的索引，其他值还有all，none相当于禁用
 
 ignore_unavailable，allow_no_indices，expand_wildcards这些根据情况使用。单索引api不支持多索引
 
-公共参数
-1) format: 表示返回数据的格式, 可选值为 yaml 和 json 两种,默认是json 例如:
+22.日期数学表达式索引
+https://www.elastic.co/guide/en/elasticsearch/reference/current/date-math-index-names.html
+
+在 Elasticsearch 中日期数学表达式是很常用的，在查询中经常会通过它来作为检索条件，比如 range 或者 daterange。表达式通常会有下面几种操作：
+
++1h ，表示加上一个一个小时
+-1d，表示减去一天
+/d，表示向一天取整
+支持的单位也很多，比如
+
+y，代表一年
+M，代表一个月
+w，代表一周
+d，代表一天
+h，代表一个小时
+m，代表一分钟
+s，代表一秒钟
+ms，代表毫秒
+举个例子：
+
+now+1h，表示当前时间加上一个小时，即一个小时后
+now+1h+1m，表示当前时间加上一个小时零一分钟，即一个小时一分钟后
+now+1h/d，表示当前时间加上一个小时，并向一天取整。
+2015-01-01\|\|+1M/d，2015-01-01 加上一个月，并向一天取整
+
+A date math index name takes the following form:
+<static_name{date_math_expr{date_format|time_zone}}>
+
+Expression	       Resolves to
+<logstash-{now/d}> logstash-2024.03.22
+
+<logstash-{now/M}> logstash-2024.03.01
+
+<logstash-{now/M{YYYY.MM}}> logstash-2024.03
+
+<logstash-{now/M-1M{YYYY.MM}}> logstash-2024.02
+
+<logstash-{now/d{YYYY.MM.dd|+12:00}}> logstash-2024.03.23
+
+例如：
+GET /%3Clogstash-%7Bnow%2Fd%7D%3E/_search 等价于GET /<logstash-{now/d}>/_search url里面的符合必须被url编码
+
+23.通用选项
+https://www.elastic.co/guide/en/elasticsearch/reference/current/common-options.html
+
+1) format=yaml: 表示返回数据的格式, 可选值为 yaml 和 json 两种,默认是json 例如:
 输入: GET /test1/user/_search?format=json
-2) pretty: 表示在已 json 格式返回数据时是否以可视化的格式返回, false 或未在设置表示不格式化, 否则格式化
-3) human: 表示是否对返回结果进行格式化处理，比如 3600(s) 显示 1h
-4) 查询结果过滤
+2) pretty=true或pretty: 表示在已 json 格式返回数据时是否以可视化的格式返回, false 或未在设置表示不格式化, 否则格式化
+3) human: 表示是否对返回结果进行视觉友好处理，比如 3600(s) 显示 1h
+4) 查询结果过滤(返回内容过滤)
 主要使用 filter_path 参数进行设置
 比如我只关心查询结果中的took和hits.total
 ➜  ~ curl -XGET 'localhost:9200/bank/account/_search?format=json&pretty&human&filter_path=took,hits.total'
@@ -215,7 +259,26 @@ ignore_unavailable，allow_no_indices，expand_wildcards这些根据情况使用
   }
 }
 
+也可以使用统配符进行设置
+输入: GET /_nodes/stats?filter_path=nodes.*.*ost*,nodes.*.os.*u
 
+若层级较多时可使用 ** 进行简化
+输入: GET /_nodes/stats?filter_path=nodes.**.*sys*
+
+若只需要_source 中的某些值，则可以将 filter_path 和_source 参数共同使用
+输入: GET /test1/account/_search?filter_path=hits.hits._source&_source=firstname,lastname,gender&size=2
+
+5)扁平化 flat_settings 用于设置在查询 setting 时, setting 中的 key 格式, 默认为 false:
+输入: GET /test1/_settings?flat_settings=true
+"index.creation_date": "1442230557598",
+
+输入: GET /test1/_settings?flat_settings=false
+"index": {
+            "creation_date": "1442230557598",
+          }
+          
+
+24.请求参数
 
 
 
