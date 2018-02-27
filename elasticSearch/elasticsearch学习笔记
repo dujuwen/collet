@@ -280,6 +280,14 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/common-options.h
 
 24.请求参数
 
+25.启用错误跟踪
+set error_trace=true:
+POST /twitter/_search?size=surprise_me&error_trace=true
 
+26.基于url的访问控制
+https://www.elastic.co/guide/en/elasticsearch/reference/current/url-access-control.html
 
+elasticsearch.yml file:
+rest.action.multi.allow_explicit_index: false
 
+这个值默认是true，当设置成false的时候es会拒绝请求body中显示指定index的请求
