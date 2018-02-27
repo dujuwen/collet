@@ -185,3 +185,38 @@ kill `cat pid`
 
 20.启动时配置es
 ./bin/elasticsearch -d -Ecluster.name=my_cluster -Enode.name=node_1
+
+21.es约定
+https://www.elastic.co/guide/en/elasticsearch/reference/current/api-conventions.html
+
+https://www.elastic.co/guide/en/elasticsearch/reference/current/multi-index.html
+多索引url查询参数：
+1) ignore_unavailable: 是否忽略单个 index 是否可用 (不存在或关闭), true 表示忽略, false 表示不忽略, 默认为 false
+例如：GET /test1/user,account/_search?ignore_unavailable=false
+2) allow_no_indices: 是否忽略通配符匹配不到 index(不存在或关闭) 的情况, true 表示允许, false 表示不允许，默认为 true
+3) expand_wildcards: 设置是否扩展通配符到 closed 的 index 中，open 表示只在匹配并为 open 的 index 中查询，
+closed 表示只匹配closed的索引，其他值还有all，none相当于禁用通配符展开
+
+ignore_unavailable，allow_no_indices，expand_wildcards这些根据情况使用。单索引api不支持多索引
+
+公共参数
+1) format: 表示返回数据的格式, 可选值为 yaml 和 json 两种,默认是json 例如:
+输入: GET /test1/user/_search?format=json
+2) pretty: 表示在已 json 格式返回数据时是否以可视化的格式返回, false 或未在设置表示不格式化, 否则格式化
+3) human: 表示是否对返回结果进行格式化处理，比如 3600(s) 显示 1h
+4) 查询结果过滤
+主要使用 filter_path 参数进行设置
+比如我只关心查询结果中的took和hits.total
+➜  ~ curl -XGET 'localhost:9200/bank/account/_search?format=json&pretty&human&filter_path=took,hits.total'
+{
+  "took" : 3,
+  "hits" : {
+    "total" : 1499
+  }
+}
+
+
+
+
+
+
