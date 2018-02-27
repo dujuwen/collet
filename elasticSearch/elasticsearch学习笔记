@@ -1,6 +1,8 @@
 github的api提示
 https://api.github.com/
 
+https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html
+
 1.建立索引(index)的时候所有字母必须小写
 
 2.从6.0.0开始mapping types被遗弃了并会在7.0版本中彻底移除,所以现在在一个索引下只保留一个类型的数据
