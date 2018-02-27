@@ -15,7 +15,7 @@ es -> kibana -> x-pack
 浏览器打开:
 localhost:9200
 或者
-curl -XGET ./bin/elasticsearch -d
+curl -XGET localhost:9200
 查看es启动状态
 
 2.kibana启动
