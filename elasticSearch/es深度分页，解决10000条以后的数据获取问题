@@ -59,7 +59,7 @@ curl -XPUT 'http://localhost:9200/_all/_settings?preserve_existing=true' -H 'Con
 
 如果要在web中使用分页浏览数据的话，修改分页器不显示比较后面的数据，去掉最后一页这些
 
-
+非要遍历整个排序数据并且可以前后翻页不可的话就这样：
 //将多个字段整合成一个字段
 //es类型为double
 //1 + last_reply_time/10 + updated_at
