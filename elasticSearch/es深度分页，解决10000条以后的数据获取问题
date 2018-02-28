@@ -25,3 +25,8 @@ If you do need to fetch large numbers of docs from your cluster, you can do so e
 scorll
 https://www.elastic.co/guide/en/elasticsearch/reference/current/search-request-scroll.html
 
+Scrolling is not intended for real time user requests, but rather for processing large amounts of data, 
+e.g. in order to reindex the contents of one index into a new index with a different configuration.
+滚动获取收不是用于处理用户实时请求而是用于处理大规模数据，比如将一个索引中的数据重新索引到另外一个不同配置的索引中。
+
+
