@@ -2,7 +2,8 @@ https://www.elastic.co/guide/en/elasticsearch/guide/current/_fetch_phase.html
 
 es数据分页简单逻辑：
 es每个分片会维护一个from+size长度的优先级队列，而es协调节点会排序 number_of_shards * (from + size) 个文档，然后会在这些排序好的文档中找到
-需要的size个文档，所以分页其实是一件很消耗cpu、内存和带宽的事情，一般情况下获取50000条以内的数据都不会有什么问题，如果要获取大量数据就要使用到scroll了
+需要的size个文档，所以分页其实是一件很消耗cpu、内存和带宽的事情，一般情况下获取50000条以内的数据都不会有什么问题，
+如果要获取大量数据就要使用到scroll了
 
 Deep Pagination
 
@@ -30,3 +31,12 @@ e.g. in order to reindex the contents of one index into a new index with a diffe
 滚动获取收不是用于处理用户实时请求而是用于处理大规模数据，比如将一个索引中的数据重新索引到另外一个不同配置的索引中。
 
 
+如何解决10000条以后的数据获取问题？
+1.比较粗暴的修改index.max_result_window的值,但是考虑到性能问题这种方式在线上环境是不可取
+
+第一种：curl -XPUT http://127.0.0.1:9200/_settings -d '{"index": {"max_result_window" : 100000}}'
+第二种：在 config/elasticsearch.yml 文件中的最后加上 index.max_result_window: 100000，但是这种方法要注意在最前面加上空格
+
+2.在重新索引的时候可以使用scroll，这种方式在实际使用中使用的较少，适合数据重新索引
+
+3.添加更多的过滤维度想办法将数据集合缩小到10000以内，这样在查询10000条以后的数据可以通过修改维度值来移动
