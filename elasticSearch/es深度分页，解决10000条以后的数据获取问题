@@ -58,3 +58,11 @@ curl -XPUT 'http://localhost:9200/_all/_settings?preserve_existing=true' -H 'Con
 将from+size > 10000 转换成加新的条件(比如根据id或者时间取range范围将符合条件的数据总数控制在10000条以内)和 new from+size
 
 如果要在web中使用分页浏览数据的话，修改分页器不显示比较后面的数据，去掉最后一页这些
+
+
+//将多个字段整合成一个字段
+//es类型为double
+//1 + last_reply_time/10 + updated_at
+//last_reply_time/10 + updated_at
+//updated_at
+然后维护一个间隔id队列，有需要就从这个队列中取值生成query 中的 range 条件
