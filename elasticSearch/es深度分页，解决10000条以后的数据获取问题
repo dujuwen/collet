@@ -55,4 +55,4 @@ curl -XPUT 'http://localhost:9200/_all/_settings?preserve_existing=true' -H 'Con
 2.在重新索引的时候可以使用scroll，这种方式在实际使用中使用的较少，适合数据重新索引
 
 3.添加更多的过滤维度想办法将数据集合缩小到10000以内，这样在查询10000条以后的数据可以通过修改维度值来移动
-将from+size > 10000 转换成加新的条件和 new from+size
+将from+size > 10000 转换成加新的条件(比如根据id或者时间取range范围将符合条件的数据总数控制在10000条以内)和 new from+size
