@@ -48,7 +48,7 @@ to set default values.
 
 Please ensure all required values are updated on all indices by executing:
 
-curl -XPUT 'http://localhost:9200/_all/_settings?preserve_existing=true' -d '{
+curl -XPUT 'http://localhost:9200/_all/_settings?preserve_existing=true' -H 'Content-Type: application/json' -d '{
   "index.max_result_window" : "1000000"
 }'
 
