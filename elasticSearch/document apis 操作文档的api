@@ -33,3 +33,8 @@ Reading and Writing documents
 es还有一些潜在的问题，可以查询GitHub上的issue或者
 https://www.elastic.co/guide/en/elasticsearch/resiliency/current/index.html
 
+1.search lite
+https://www.elastic.co/guide/en/elasticsearch/guide/current/search-lite.html
+通过url后跟查询参数的方式查询es中的数据一般用于命令行或者调试情况，在实际应该中推荐使用json放到request body查询数据
+
+2.
