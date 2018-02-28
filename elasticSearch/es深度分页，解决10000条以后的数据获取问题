@@ -1,0 +1,27 @@
+https://www.elastic.co/guide/en/elasticsearch/guide/current/_fetch_phase.html
+
+es数据分页简单逻辑：
+es每个分片会维护一个from+size长度的优先级队列，而es协调节点会排序 number_of_shards * (from + size) 个文档，然后会在这些排序好的文档中找到
+需要的size个文档，所以分页其实是一件很消耗cpu、内存和带宽的事情，一般情况下获取50000条以内的数据都不会有什么问题，如果要获取大量数据就要使用到scroll了
+
+Deep Pagination
+
+The query-then-fetch process supports pagination with the from and size parameters, but within limits. 
+Remember that each shard must build a priority queue of length from + size, 
+all of which need to be passed back to the coordinating node. And the coordinating node needs to sort through 
+number_of_shards * (from + size) documents in order to find the correct size documents.
+
+Depending on the size of your documents, the number of shards, and the hardware you are using,
+paging 10,000 to 50,000 results (1,000 to 5,000 pages) deep should be perfectly doable.
+But with big-enough from values, the sorting process can become very heavy indeed,
+using vast amounts of CPU, memory, and bandwidth. For this reason, we strongly advise against deep paging.
+
+In practice, “deep pagers” are seldom human anyway. A human will stop paging after two or three pages 
+and will change the search criteria. The culprits are usually bots or web spiders that tirelessly keep 
+fetching page after page until your servers crumble at the knees.
+
+If you do need to fetch large numbers of docs from your cluster, you can do so efficiently by disabling sorting with the scroll query
+
+scorll
+https://www.elastic.co/guide/en/elasticsearch/reference/current/search-request-scroll.html
+
