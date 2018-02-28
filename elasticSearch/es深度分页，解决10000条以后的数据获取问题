@@ -56,3 +56,5 @@ curl -XPUT 'http://localhost:9200/_all/_settings?preserve_existing=true' -H 'Con
 
 3.添加更多的过滤维度想办法将数据集合缩小到10000以内，这样在查询10000条以后的数据可以通过修改维度值来移动
 将from+size > 10000 转换成加新的条件(比如根据id或者时间取range范围将符合条件的数据总数控制在10000条以内)和 new from+size
+
+如果要在web中使用分页浏览数据的话，修改分页器不显示比较后面的数据，去掉最后一页这些
