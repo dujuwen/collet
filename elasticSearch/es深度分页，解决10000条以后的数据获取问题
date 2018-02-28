@@ -34,8 +34,23 @@ e.g. in order to reindex the contents of one index into a new index with a diffe
 如何解决10000条以后的数据获取问题？
 1.比较粗暴的修改index.max_result_window的值,但是考虑到性能问题这种方式在线上环境是不可取
 
-第一种：curl -XPUT http://127.0.0.1:9200/_settings -d '{"index": {"max_result_window" : 100000}}'
-第二种：在 config/elasticsearch.yml 文件中的最后加上 index.max_result_window: 100000，但是这种方法要注意在最前面加上空格
+从版块5.0开始在 config/elasticsearch.yml 文件中的最后加上 index.max_result_window: 100000就不允许了
+
+下面错误是在版本6.2.1中产生的
+Found index level settings on node level configuration.
+
+Since elasticsearch 5.x index level settings can NOT be set on the nodes
+configuration like the elasticsearch.yaml, in system properties or command line
+arguments.In order to upgrade all indices the settings must be updated via the
+/${index}/_settings API. Unless all settings are dynamic all indices must be closed
+in order to apply the upgradeIndices created in the future should use index templates
+to set default values.
+
+Please ensure all required values are updated on all indices by executing:
+
+curl -XPUT 'http://localhost:9200/_all/_settings?preserve_existing=true' -d '{
+  "index.max_result_window" : "1000000"
+}'
 
 2.在重新索引的时候可以使用scroll，这种方式在实际使用中使用的较少，适合数据重新索引
 
