@@ -14,4 +14,45 @@ fatal: index-pack failed
 这样做快但是历史记录就丢失了。
 另外的一种办法是给先把代码克隆下来然后改下git remote url提交到新地址的仓库里面，MD，就是克隆不下来，就想到给原仓库瘦身。
 
+如何彻底的从git仓库中删除文件？
+核心思路：先使用git rm 物理删除对应文件(或者文件夹)，然后将这些文件从仓库的历史记录中抹去
+
+
+如何移除git仓库中移除敏感数据?
+https://help.github.com/articles/removing-sensitive-data-from-a-repository/
+
+
+可以使用git的filter-branch或者使用BFG(一个字快)
+https://rtyley.github.io/bfg-repo-cleaner/
+下面我使用BFG删除:
+1.先使用git rm删除文件或文件夹，然后commit+push到远程仓库中
+2.下载BFG
+wget http://repo1.maven.org/maven2/com/madgag/bfg/1.13.0/bfg-1.13.0.jar
+3.确认安装了java环境(没有就安装)
+➜  git git:(master) java -version
+java version "1.8.0_141"
+Java(TM) SE Runtime Environment (build 1.8.0_141-b15)
+Java HotSpot(TM) 64-Bit Server VM (build 25.141-b15, mixed mode)
+4.使用命令查看帮助:
+java -jar ~/Desktop/test/bfg-1.13.0.jar
+➜  git git:(master) java -jar ~/Desktop/test/bfg-1.13.0.jar
+bfg 1.13.0
+Usage: bfg [options] [<repo>]
+...
+
+然后使用命令从本地.git目录中删除文件存在的历史记录：
+java -jar ~/Desktop/test/bfg-1.13.0.jar --delete-files userpassword.txt .git
+删除完成后会提示你：
+$ cd some-big-repo.git
+$ git reflog expire --expire=now --all && git gc --prune=now --aggressive
+
+5.强推到远程仓库
+$ git push -f
+
+注意事项：
+1.必须在所有分支上物理删除对应文件(不然有一天把没有删除干净的分支推送到远端的时候上面做的就白干了)
+2.使用BFG或者git filter-branch后都会对所有包含文件的提交记录进行重写，都会生成新的提交记录，它们的sha值都会变
+3.在执行操作的时候锁定git库任何人不能提交并且在操作完成之后所有人重新clone库
+
+使用du命令可以查看git仓库大小：du -h //当然要除去没有提交到git上的文件
 减小git仓库大小：
