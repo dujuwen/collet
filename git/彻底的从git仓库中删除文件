@@ -43,6 +43,21 @@ Usage: bfg [options] [<repo>]
 然后使用命令从本地.git目录中删除文件存在的历史记录：
 java -jar ~/Desktop/test/bfg-1.13.0.jar --delete-files userpassword.txt .git
 删除完成后会提示你：
+Deleted files
+-------------
+
+	Filename        Git id
+	-----------------------------------------------
+	test_djw.tetx | fc70ced3 (7 B), d572e8af (10 B)
+
+
+In total, 8 object ids were changed. Full details are logged here:
+
+	/Users/dujunwen/Desktop/test/helloworld/test1/.git.bfg-report/2018-03-02/22-02-06
+
+BFG run is complete! When ready, run: git reflog expire --expire=now --all && git gc --prune=now --aggressive
+
+
 $ cd some-big-repo.git
 $ git reflog expire --expire=now --all && git gc --prune=now --aggressive
 
