@@ -1,0 +1,12 @@
+1.解决上传文件过大文件，设置postBuffer
+git config --global http.postBuffer 1048576000
+
+2.设置上传时间限制
+git config --global http.lowSpeedLimit 0
+git config --global http.lowSpeedTime 999999
+
+3.配置提交代码的用户名和邮箱
+git config --global user.name "<yourname>"
+git config --global user.email "<youremail>"
+
+4.
