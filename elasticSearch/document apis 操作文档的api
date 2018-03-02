@@ -37,4 +37,9 @@ https://www.elastic.co/guide/en/elasticsearch/resiliency/current/index.html
 https://www.elastic.co/guide/en/elasticsearch/guide/current/search-lite.html
 通过url后跟查询参数的方式查询es中的数据一般用于命令行或者调试情况，在实际应该中推荐使用json放到request body查询数据
 
-2.
+2.在提交数据的时候如果指定了id那么PUT或POST提交都可以，如果没有指定id那么就只能POST提交了
+curl -XPUT/POST 'localhost:9200/twitter/_doc/1?pretty' -H 'Content-Type: application/json' -d'xx'
+curl -XPOST 'localhost:9200/twitter/_doc?pretty' -H 'Content-Type: application/json' -d'xx'
+
+3.
+
