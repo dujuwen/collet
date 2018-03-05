@@ -1,0 +1,29 @@
+1.浅克隆
+为了更快、更节省开发者和系统时间也更节约磁盘空间，第一个解决办法是使用 git 进行浅克隆。通过浅克隆可以只克隆某个库最后的历史记录。 
+怎么做到？只需要使用 --depth 选项，比如:
+git clone --depth 1  git@github.com:dujuwen/hello-world.git h1
+上面的命令只会克隆master分支，其他的分支就丢弃了
+
+2.只克隆一个分支，类似于浅克隆不同的是可以指定克隆的分支
+git clone --branch test --depth 1 git@github.com:dujuwen/hello-world.git h6
+通过上面的命令可以有效的去掉大文件，然后通过git remote set-url [--push] <name> <newurl> [<oldurl>] 可以将代码传到新的仓库上
+
+下面这种方法推master没有问题，如果是浅复制并且没有主分支的话推送是不会成功的
+➜  h4 git:(master) git remote set-url origin git@github.com:dujuwen/test_mi.git
+➜  h4 git:(master) git remote -v
+origin	git@github.com:dujuwen/test_mi.git (fetch)
+origin	git@github.com:dujuwen/test_mi.git (push)
+➜  h4 git:(master) git push
+Counting objects: 193, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (108/108), done.
+Writing objects: 100% (193/193), 228.18 KiB | 0 bytes/s, done.
+Total 193 (delta 80), reused 185 (delta 75)
+remote: Resolving deltas: 100% (80/80), done.
+To github.com:dujuwen/test_mi.git
+ * [new branch]      master -> master
+ 
+ 3.使用bfg或者git filter-branch清洗数据
+ 
+ 
+ https://dzone.com/articles/how-to-handle-big-repositories-with-git
