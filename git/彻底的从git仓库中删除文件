@@ -25,7 +25,11 @@ https://help.github.com/articles/removing-sensitive-data-from-a-repository/
 可以使用git的filter-branch或者使用BFG(一个字快)
 https://rtyley.github.io/bfg-repo-cleaner/
 下面我使用BFG删除:
-1.先使用git rm删除文件或文件夹，然后commit+push到远程仓库中
+1.先使用git rm删除文件或文件夹，然后commit+push到远程仓库中，接着将修改合并到其他有过改文件的分支上
+git rm xx
+git commit -m 'rm xx'
+git push
+[other branch] git merge ..
 2.下载BFG
 wget http://repo1.maven.org/maven2/com/madgag/bfg/1.13.0/bfg-1.13.0.jar
 3.确认安装了java环境(没有就安装)
@@ -62,7 +66,7 @@ $ cd some-big-repo.git
 $ git reflog expire --expire=now --all && git gc --prune=now --aggressive
 
 5.强推到远程仓库
-$ git push -f
+$ git push -f --all
 
 注意事项：
 1.必须在所有分支上物理删除对应文件(不然有一天把没有删除干净的分支推送到远端的时候上面做的就白干了)
@@ -70,4 +74,5 @@ $ git push -f
 3.在执行操作的时候锁定git库任何人不能提交并且在操作完成之后所有人重新clone库
 
 使用du命令可以查看git仓库大小：du -h //当然要除去没有提交到git上的文件
-减小git仓库大小：
+确认.git大小：du -sh .git
+git count-objects -vH
