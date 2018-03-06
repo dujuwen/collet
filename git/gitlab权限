@@ -1,5 +1,8 @@
 https://docs.gitlab.com/ce/user/permissions.html
 
+On public and internal projects the Guest role is not enforced. All users will be able to create issues, leave comments, 
+and clone or download the project code.
+
 Gitlab 权限管理
 Gitlab 用户在组中有五种权限：Guest、Reporter、Developer、Master、Owner
 
