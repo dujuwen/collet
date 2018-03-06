@@ -1,0 +1,9 @@
+检测某台机器是否可以访问指定域名下的git库：
+ssh -vT git@example.com //将example.com替换成实际域名
+例如：
+➜  hushuo-admin git:(master) ssh -T git@github.com
+Hi dujuwen! You've successfully authenticated, but GitHub does not provide shell access.
+
+说明这台机器可以访问git的仓库
+
+deploy key 一般是在项目中添加可以使用ssh key来进行只读仓库代码，跟http比较的优势在于不用每次拉取代码都填写用户名和密码
