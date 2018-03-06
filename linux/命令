@@ -1,2 +1,14 @@
 http://blog.csdn.net/yetyongjin/article/details/7740328
 http://www.ivarch.com/programs/pv.shtml
+
+1.命令行下的复制粘贴命令
+mac下有pbcopy和pbpaste命令可以操作复制和粘贴
+pbcopy < ~/.ssh/id_rsa.pub
+cat pbcopy < ~/.ssh/id_rsa.pub | pbcopy
+
+//输出到标准输出
+pbpaste
+//输出到文件
+pbpaste > file , pbpaste >> file
+
+linux下有clip、xsel
