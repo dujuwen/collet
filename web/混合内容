@@ -37,3 +37,6 @@ server {
   ...
 }
 This is, of course, greatly simplified; your configuration will likely be significantly more complex.
+
+附带一个工具：httpschecker，可以在mac下检测网站下的非http请求
+https://httpschecker.net/how-it-works#httpsChecker
