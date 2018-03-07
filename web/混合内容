@@ -1,0 +1,5 @@
+什么是混合内容?
+https://developers.google.com/web/fundamentals/security/prevent-mixed-content/what-is-mixed-content
+
+简单的说就是初始是https请求，但是有部分资源比如图片、css、js等，这样请求html内容就称为混合内容
+
