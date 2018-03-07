@@ -9,3 +9,8 @@ https的优势
 身份验证
 数据完整性
 保密性
+
+如何处理混合内容？
+https://developers.google.com/web/fundamentals/security/prevent-mixed-content/fixing-mixed-content?hl=en
+
+简单的说就是将所有http请求替换成https请求
