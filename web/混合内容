@@ -11,6 +11,17 @@ https的优势
 保密性
 
 如何处理混合内容？
-https://developers.google.com/web/fundamentals/security/prevent-mixed-content/fixing-mixed-content?hl=en
+https://developers.google.com/web/fundamentals/security/prevent-mixed-content/fixing-mixed-content?hl=cn
 
 简单的说就是将所有http请求替换成https请求
+
+但是对于大的网站这样就很麻烦了，大网站可以使用CSP(Content Security Policy)
+可以通过在服务器发送的响应中添加 Content-Security-Policy 或 Content-Security-Policy-Report-Only 标头为页面启用这些功能。
+此外，在页面的 <head> 部分中，可以使用一个 <meta> 标记设置 Content-Security-Policy（而非 Content-Security-Policy-Report-Only)
+
+可以通过发送一个带此指令的 Content-Security-Policy 标头启用此功能：
+
+Content-Security-Policy: upgrade-insecure-requests
+或使用一个 <meta> 元素在文档的 <head> 部分中嵌入相同的指令内联：
+
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
