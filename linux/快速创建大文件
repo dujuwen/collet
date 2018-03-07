@@ -1,0 +1,19 @@
+1.dd命令，可以转换或者复制文件
+
+dd if=/dev/zero of=test.txt bs=1024 count=1024 seek=1024*1000
+
+if （input file）代表输入文件 / 目录，如果不指定 if，默认就会从 stdin 中读取输入
+of （output file）代表输出文件 / 目录，如果不指定 of，默认就会将 stdout 作为默认输出
+bs 代表每次读入的 block 大小
+count：读取的 block 个数
+bs*count = 文件大小
+/dev/zero 是 Linux 提供的一个特殊的字符设备，它的特点是可以永远读该文件，每次读取的结果都是二进制 0
+seek：跳过输出文件中指定大小的部分，并不实际写入
+
+2.truncate，可以将文件缩小或扩展到指定大小，具体的用man查看
+trunccate -s 100K test //文件不存在的时候会自动创建，多余的截取，不足的部分用0补充
+
+上面的命令创建出来的都没有实际意义，仅仅是用来占位
+
+3.用命令创建有实际内容的文件
+perl -le 'for (1..50000) { print map { (0..9, "a".."z")[rand 36] } 1..80 }' > bigfile
