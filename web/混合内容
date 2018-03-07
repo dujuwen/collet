@@ -27,3 +27,13 @@ Content-Security-Policy: upgrade-insecure-requests
 <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
 https://www.w3.org/TR/upgrade-insecure-requests/#examples
+
+In Nginx, adding this directive might look like this:
+server {
+  ...
+
+  add_header Content-Security-Policy upgrade-insecure-requests;
+
+  ...
+}
+This is, of course, greatly simplified; your configuration will likely be significantly more complex.
