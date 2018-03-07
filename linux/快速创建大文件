@@ -1,6 +1,8 @@
 1.dd命令，可以转换或者复制文件
 
-dd if=/dev/zero of=test.txt bs=1024 count=1024 seek=1024*1000
+dd if=/dev/zero of=test.txt bs=1024 count=1024 //这个要慢一点，因为要实际写数据导硬盘
+
+dd if=/dev/zero of=test.txt count=0 seek=1024000 //生成一个占位的空文件,速度很快
 
 if （input file）代表输入文件 / 目录，如果不指定 if，默认就会从 stdin 中读取输入
 of （output file）代表输出文件 / 目录，如果不指定 of，默认就会将 stdout 作为默认输出
