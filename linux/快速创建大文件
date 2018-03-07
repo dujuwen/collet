@@ -17,3 +17,6 @@ trunccate -s 100K test //文件不存在的时候会自动创建，多余的截�
 
 3.用命令创建有实际内容的文件
 perl -le 'for (1..50000) { print map { (0..9, "a".."z")[rand 36] } 1..80 }' > bigfile
+
+dd命令还可以对文件进行大小写转换等：
+dd if=test.txt [of=xxx]  conv=lcase //将文件内容全部转换成小写并输出到标准输出上
