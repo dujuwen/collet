@@ -3,3 +3,9 @@ https://developers.google.com/web/fundamentals/security/prevent-mixed-content/wh
 
 简单的说就是初始是https请求，但是有部分资源比如图片、css、js等，这样请求html内容就称为混合内容
 
+https的优势
+当浏览器通过 HTTPS（HTTP Secure 的缩写形式）请求资源时，它使用一个已加密连接与网络服务器进行通信。
+使用 HTTPS 有三个主要优势：
+身份验证
+数据完整性
+保密性
