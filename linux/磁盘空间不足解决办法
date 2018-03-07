@@ -1,0 +1,19 @@
+https://www.jianshu.com/p/ceaf21043812
+
+当遇到 linux 系统磁盘空间不足时，应区分是哪种情景：
+
+使用df -hl命令查看磁盘 block 区使用情况，并结合du命令进一步确认是哪些文件占用空间比较大，或者是删除了文件但空间没有释放；
+使用df -ihl命令查看磁盘 inode 区使用情况；
+
+磁盘空间不足至少有三种情况：
+磁盘 block 区用尽了；
+磁盘 inode 区用尽了；
+磁盘 block 区用尽后，删除文件但文件句柄未释放；(可以用cat >> file 模拟文件句柄被使用)
+而情况 3 其实是情况 1 的特殊情况。
+
+结论：比较合适的办法是使用echo > file来清空文件内容，当然要先确定文件内容是否有用了
+
+查找大文件：
+find . -type f -size +100M #查找100M以上的文件
+find . -type f -size +100M  -print0 | xargs -0 du -h | sort -nr
+du -hm --max-depth=2 | sort -nr | head -20
