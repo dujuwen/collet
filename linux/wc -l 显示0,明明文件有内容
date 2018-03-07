@@ -1,0 +1,21 @@
+wc -l file 是用来统计文件中newline \n的个数，跟统计文件行数是不同的
+
+➜  csv echo 1 >> test
+➜  csv echo -n 111 >> test
+➜  csv cat test
+1
+111%
+➜  csv od -tc test
+0000000    1  \n   1   1   1
+0000005
+➜  csv wc -l test
+       1 test
+
+
+➜  csv echo -n 111 | wc -l
+       0
+这就是为什么一个文件明明有内容但wc -l file 显示为0的原因
+
+扩展知识：echo -n
+-n    Do not print the trailing newline character.
+echo -n 输出内容的时候，在内容的末尾打印newline符合
