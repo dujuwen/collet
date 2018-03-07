@@ -6,3 +6,6 @@ sync 命令则可用来强制将内存缓冲区中的数据立即写入磁盘中
 
 buffer：为了解决写磁盘的效率
 cache：为了解决读磁盘的效率
+
+计算执行命令需要的时间:
+time (dd if=/dev/zero of=sdxs count=500000)
