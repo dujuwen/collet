@@ -4,7 +4,7 @@ dd if=/dev/zero of=test.txt bs=1024 count=1024 seek=1024*1000
 
 if （input file）代表输入文件 / 目录，如果不指定 if，默认就会从 stdin 中读取输入
 of （output file）代表输出文件 / 目录，如果不指定 of，默认就会将 stdout 作为默认输出
-bs 代表每次读入的 block 大小
+bs 代表每次读入的 block 大小(默认是512B)
 count：读取的 block 个数
 bs*count = 文件大小
 /dev/zero 是 Linux 提供的一个特殊的字符设备，它的特点是可以永远读该文件，每次读取的结果都是二进制 0
