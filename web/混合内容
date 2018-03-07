@@ -25,3 +25,5 @@ Content-Security-Policy: upgrade-insecure-requests
 或使用一个 <meta> 元素在文档的 <head> 部分中嵌入相同的指令内联：
 
 <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+https://www.w3.org/TR/upgrade-insecure-requests/#examples
