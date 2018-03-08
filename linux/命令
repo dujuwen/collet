@@ -12,3 +12,34 @@ pbpaste
 pbpaste > file , pbpaste >> file
 
 linux下有clip、xsel
+
+2.cat，可以连接和查看文件内容
+利用heredoc将多行内容输入到文件
+➜  csv cat << EOF > file3
+heredoc> sd
+heredoc> dfd
+heredoc> 技师的就是觉得
+heredoc> 司法鉴定所肩负的
+heredoc> 的角度讲过
+heredoc> c
+heredoc> EOF
+➜  csv cat file3
+sd
+dfd
+技师的就是觉得
+司法鉴定所肩负的
+的角度讲过
+c
+
+当输入EOF按回车后自动结束
+
+//合并多个文件
+cat file1 file2 > file3
+
+//-b -n选项可以输出文件行数，-b非空行数，-n所有行数
+cat -n file
+
+//-e选项可以将多个相邻的空行合并成一个空行
+cat -e file
+
+3.
