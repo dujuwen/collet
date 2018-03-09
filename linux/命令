@@ -59,6 +59,92 @@ ctrl+D结束输入
 3.timeout命令可以限制命令的执行时间
 例如：timeout 3 ./xxx.sh //限制脚本执行时间为3秒
 
-4.
+4.jq，命令行json数据处理器，在命令行和shell脚本里面处理json数据屌的不要不要的
+https://www.jianshu.com/p/6de3cfdbdb0e
 
+用法一，基础用法，将json字符串转换成成格式良好的数据
+➜  csv cat json.txt | jq
+[
+  {
+    "name": "站长工具",
+    "url": "http://tool.chinaz.com",
+    "address": {
+      "city": "厦门",
+      "country": "中国"
+    },
+    "arrayBrowser": [
+      {
+        "name": "Google",
+        "url": "http://www.google.com"
+      },
+      {
+        "name": "Baidu",
+        "url": "http://www.baidu.com"
+      }
+    ]
+  },
+  {
+    "name": "站长之家",
+    "url": "http://tool.zzhome.com",
+    "address": {
+      "city": "大连",
+      "country": "中国"
+    },
+    "arrayBrowser": [
+      {
+        "name": "360",
+        "url": "http://www.so.com"
+      },
+      {
+        "name": "bing",
+        "url": "http://www.bing.com"
+      }
+    ]
+  }
+]
 
+用法二，[index]，例如输出列表中的第一个元素：
+➜  csv cat json.txt | jq '.[0]'
+{
+  "name": "站长工具",
+  "url": "http://tool.chinaz.com",
+  "address": {
+    "city": "厦门",
+    "country": "中国"
+  },
+  "arrayBrowser": [
+    {
+      "name": "Google",
+      "url": "http://www.google.com"
+    },
+    {
+      "name": "Baidu",
+      "url": "http://www.baidu.com"
+    }
+  ]
+}
+
+用法三，管道连线操作|:
+jq 支持管道线|，它如同 linux 命令中的管道线——把前面命令的输出当作是后面命令的输入。如下命令把.[0]作为{...}的输入，进而访问嵌套的属性，
+如.name和.address.city。
+➜  csv cat json.txt | jq '.[0] | {name:.name}'
+{
+  "name": "站长工具"
+}
+
+用法四，自定义key和输出数组[]:
+➜  csv cat json.txt| jq '[.[] | {"自定义key":.name,"地址":.address.city}]'
+[
+  {
+    "自定义key": "站长工具",
+    "地址": "厦门"
+  },
+  {
+    "自定义key": "站长之家",
+    "地址": "大连"
+  }
+]
+
+//.[0]过滤数据中的第一个元素，.[]数组中的所有元素，.address.city 这里的点后跟的属性(address和city)是原数据里面的
+
+5.
