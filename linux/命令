@@ -39,8 +39,8 @@ cat file1 file2 > file3
 //-b -n选项可以输出文件行数，-b非空行数，-n所有行数
 cat -n file
 
-//-e选项可以将多个相邻的空行合并成一个空行
-cat -e file
+//-s选项可以将多个相邻的空行合并成一个空行
+cat -s file
 
 cat some_data.txt > /dev/null这个命令的执行时间非常长，这说明了 some_data.txt 这个文件也足够大。但第二次执行这个命令时，执行时间则大大缩减了
 /dev/null是 linux 的位桶文件，写入它的内容会永远丢失，从它那里什么也读取不到
