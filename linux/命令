@@ -147,4 +147,16 @@ jq 支持管道线|，它如同 linux 命令中的管道线——把前面命令
 
 //.[0]过滤数据中的第一个元素，.[]数组中的所有元素，.address.city 这里的点后跟的属性(address和city)是原数据里面的
 
-5.
+5.od -tc 可以显示文件中的不可打印字符，格式化输出文件内容
+➜  csv od -tc zzz
+0000000    s   s   s  \n   s   s  \n   a  \n   w   w
+0000013
+➜  csv wc -l zzz
+       3 zzz
+➜  csv cat zzz
+sss
+ss
+a
+ww%
+
+6.
