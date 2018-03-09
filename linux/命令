@@ -168,4 +168,11 @@ ss
 a
 ww%
 
+➜  csv od -ta zzz //等价于od -a zzz(输出ASCII字符)
+0000000    s   s   s  nl   s   s  nl   a  nl   w   w
+0000013
+➜  csv od -tc zzz
+0000000    s   s   s  \n   s   s  \n   a  \n   w   w
+0000013
+
 6.
