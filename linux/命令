@@ -15,7 +15,7 @@ linux下有clip、xsel
 
 2.cat，可以连接和查看文件内容
 利用heredoc将多行内容输入到文件
-➜  csv cat << EOF > file3
+➜  csv cat << EOF  > file3
 heredoc> sd
 heredoc> dfd
 heredoc> 技师的就是觉得
