@@ -4,7 +4,7 @@ http://www.ivarch.com/programs/pv.shtml
 1.命令行下的复制粘贴命令
 mac下有pbcopy和pbpaste命令可以操作复制和粘贴
 pbcopy < ~/.ssh/id_rsa.pub
-cat pbcopy < ~/.ssh/id_rsa.pub | pbcopy
+cat ~/.ssh/id_rsa.pub | pbcopy
 
 //输出到标准输出
 pbpaste
