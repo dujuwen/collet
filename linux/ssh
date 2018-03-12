@@ -28,3 +28,14 @@ total 16
 -rw------- 1 root root 1675 Mar  9 15:57 id_rsa
 -rw-r--r-- 1 root root  398 Mar  9 15:57 id_rsa.pub
 -rwxrwxrwx 1 root root 1958 Mar  9 15:59 known_hosts
+
+在配置好基于ssh登录服务器的方法后最后一步是关闭密码登录:
+sudo vim /etc/ssh/sshd_config
+PasswordAuthentication no
+
+On Ubuntu or Debian machines, you can issue this command:
+sudo service ssh restart
+
+On CentOS/Fedora machines, the daemon is called sshd:
+sudo service sshd restart
+
