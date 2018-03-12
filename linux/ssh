@@ -127,3 +127,9 @@ root@bbs-dev ~ $ curl localhost:8555/admin/login
 3).动态代理语法
 ssh -f -N -D 7777 username@remote_host
 
+如何禁止端口转发？修改配置文件：
+vim /etc/ssh/sshd_config
+找到AllowTcpForwarding设置为：
+AllowTcpForwarding no
+
+
