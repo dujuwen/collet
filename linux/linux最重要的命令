@@ -26,5 +26,5 @@ man man = man 1 man //默认查看第一节
 借助!
 如：!man less
 
-什么是GUN文档?
+Texinfo?
 http://www.gnu.org/software/texinfo/
