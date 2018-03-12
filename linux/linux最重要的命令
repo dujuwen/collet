@@ -1,0 +1,30 @@
+https://www.jianshu.com/p/e3ab5de45dc3
+
+帮助命令man(info)
+
+Unix 系统中有两个重要的文档系统：
+
+Unix 联机手册：Unix 系统默认提供的文档系统；
+Info 系统：GNU 项目的官方文档系统；
+
+如何使用?
+man man
+info man
+
+说明书分页 
+man ls | less (默认)
+man cp | more
+man pwd | pg
+
+分页的时候按下h可以获取帮助信息
+
+man man = man 1 man //默认查看第一节
+
+快速查看文件的作用: man -f basename = whatis basename
+
+如何在不关闭命令的情况下查看其它命令？
+借助!
+如：!man less
+
+什么是GUN文档?
+http://www.gnu.org/software/texinfo/
