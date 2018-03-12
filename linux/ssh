@@ -136,3 +136,20 @@ ssh连接是有时效性的，如果想长时间的保持端口转发状态的�
 
 ss可以提供比netstat更多的功能
 
+现在我想知道我配置的代理隧道有没有成功，怎么查看呢?
+可以借助ss命令来查看
+root@bbs-dev ~ $ man -f ss
+ss (8)               - another utility to investigate sockets
+
+root@bbs-dev ~ $ ss -nlt
+State      Recv-Q Send-Q                           Local Address:Port                                          Peer Address:Port
+LISTEN     0      128                                  127.0.0.1:8555                                                     *:*
+LISTEN     0      128                                  127.0.0.1:6379                                                     *:*
+LISTEN     0      128                                          *:80                                                       *:*
+LISTEN     0      128                                          *:22                                                       *:*
+LISTEN     0      128                                          *:8888                                                     *:*
+LISTEN     0      128                                          *:8000                                                     *:*
+LISTEN     0      128                                         :::6379                                                    :::*
+LISTEN     0      128                                         :::80                                                      :::*
+LISTEN     0      128                                         :::22                                                      :::*
+
