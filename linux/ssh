@@ -39,3 +39,11 @@ sudo service ssh restart
 On CentOS/Fedora machines, the daemon is called sshd:
 sudo service sshd restart
 
+如果在配置ssh免密登录之后还是有问题的话就查看安全日志文件，它会告诉你为什么，一般情况下是/root目录权限 .ssh目录权限 或者 authorized_keys文件权限
+tail -f /var/log/secure
+
+一般/root 是0550
+.ssh 是 0700
+authorized_keys 是 0600
+
+2.
