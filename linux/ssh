@@ -132,4 +132,7 @@ vim /etc/ssh/sshd_config
 找到AllowTcpForwarding设置为：
 AllowTcpForwarding no
 
+ssh连接是有时效性的，如果想长时间的保持端口转发状态的话可以结合命令autossh使用
+
+ss可以提供比netstat更多的功能
 
