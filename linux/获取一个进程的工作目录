@@ -1,0 +1,11 @@
+https://mp.weixin.qq.com/s/A7OCcq33tEILvnWGmysKcw
+
+在 linux 系统中，/proc/[pid]/exe为实际运行程序的符号链接
+
+root@bbs-dev ~ $ l /proc/145625/exe
+lrwxrwxrwx 1 apache apache 0 Mar 12 11:38 /proc/145625/exe -> /usr/sbin/php-fpm
+
+/proc/[pid]/exe
+lsof
+xargs
+pwdx
