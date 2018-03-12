@@ -1,0 +1,27 @@
+https://mp.weixin.qq.com/s/K6Wg7hxWEVKTCY8jCDizuQ
+
+mac os下有：
+➜  ~ apropos uuid | grep 1
+dsmemberutil(1)          - various operations for the membership APIs, including state dump, check memberships, UUIDs, etc
+uuidgen(1)               - generates new UUID string
+
+centos下有；
+root@bbs-dev ~ $ apropos uuid | grep 1
+dbus-uuidgen (1)     - Utility to generate UUIDs
+uuidgen (1)          - create a new UUID value
+
+uuidgen是通用的
+root@bbs-dev ~ $ uuidgen
+b11577e5-ae6d-4659-933c-4c6c9dadcd9a //mac下生成的都是大写的
+
+在centos下还有:
+cat /proc/sys/kernel/random/uuid
+
+root@bbs-dev ~ $ cat /proc/sys/kernel/random/uuid
+a7b0f87b-1de0-4919-bced-3cdecfae43d5
+
+在线生成：
+https://www.uuidgenerator.net/
+
+MySQL数据库下生存uuid：
+select uuid();
