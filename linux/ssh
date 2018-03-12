@@ -52,3 +52,15 @@ https://www.digitalocean.com/community/tutorials/how-to-use-ssh-to-connect-to-a-
 公钥存在服务器上，私钥存在客户机上。当使用键对连接两台机器的时候，服务器会发送一个用公钥加密的信息到客户机上，客户机收到后将解密后的信息反馈给
 服务器，由服务器判断客户端是否合法。
 
+How Does Key-based Authentication Work?
+Key-based authentication works by creating a pair of keys: a private key and a public key.
+
+The private key is located on the client machine and is secured and kept secret.
+The public key can be given to anyone or placed on any server you wish to access.
+
+When you attempt to connect using a key-pair, the server will use the public key to create a message for the client computer
+that can only be read with the private key.
+
+The client computer then sends the appropriate response back to the server and the server will know that the client is legitimate.
+
+3.
