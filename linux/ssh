@@ -21,10 +21,10 @@ cat ~/.ssh/id_rsa.pub
 mkdir -p ~/.ssh
 echo public_key_string >> ~/.ssh/authorized_keys
 
-注意服务器上authorized_keys的权限是0644:
+注意服务器上authorized_keys的默认权限是0600:
 root@bbs-dev .ssh $ l
 total 16
--rw-r--r-- 1 root root  405 Mar 12 14:21 authorized_keys
+-rw------- 1 root root  405 Mar 12 14:21 authorized_keys
 -rw------- 1 root root 1675 Mar  9 15:57 id_rsa
 -rw-r--r-- 1 root root  398 Mar  9 15:57 id_rsa.pub
 -rwxrwxrwx 1 root root 1958 Mar  9 15:59 known_hosts
