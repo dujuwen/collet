@@ -99,5 +99,28 @@ eval $(ssh-agent)
 Agent pid 10891
 ssh-add
 
+4.ssh隧道
+https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys#setting-up-ssh-tunnels
+1).正向代理
+正向代理语法：
+ssh -L your_port:site_or_IP_to_access:site_port username@host
+ssh -L 本地端口:想访问网站或者ip地址:网站端口 username@host
 
+ssh [-f] -N -L 8888:example.com:80 username@remote_host // -f是将命令放到后台
 
+通过正向代理可以将本地访问需求转发到其他机器上执行
+
+2).反向代理
+语法：
+ssh -R remote_port:site_or_IP_to_access:site_port username@host
+ssh -R remote_port:想要访问的网站或ip地址:端口 username@host
+
+在本地执行：
+> ssh  -N -R 8888:example.com:80 username@remote_host
+例如：
+在本地执行
+➜  csv ssh -N -R 8555:localhost:8999 root@172.16.20.28
+在root@172.16.20.28上执行：
+root@bbs-dev ~ $ curl localhost:8555/admin/login
+
+3).
