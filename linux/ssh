@@ -118,9 +118,12 @@ ssh -R remote_port:想要访问的网站或ip地址:端口 username@host
 在本地执行：
 > ssh  -N -R 8888:example.com:80 username@remote_host
 例如：
-在本地执行
-➜  csv ssh -N -R 8555:localhost:8999 root@172.16.20.28
-在root@172.16.20.28上执行：
+
+步骤一，在本地执行
+➜  ssh -N -R 8555:localhost:8999 root@172.16.20.28
+步骤二，在root@172.16.20.28上执行：
 root@bbs-dev ~ $ curl localhost:8555/admin/login
 
-3).
+3).动态代理语法
+ssh -f -N -D 7777 username@remote_host
+
