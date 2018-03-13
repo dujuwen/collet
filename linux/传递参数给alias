@@ -1,6 +1,10 @@
 linux中添加别名的时候如何将外部参数传递给alias呢?
 可以借助函数来实现：
+$ vim ~/.zshrc
+在最后添加
 alias estopic_local='localdjw(){open "http://xxx.com/getEsTopicData?topic_id=$1"};localdjw'
+
+$ source .zshrc
 
 这样在命令行中就可以通过传递参数的方式调用：
 $ estopic_local 1
