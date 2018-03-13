@@ -4,7 +4,7 @@ $ vim ~/.zshrc
 在最后添加
 alias estopic_local='localdjw(){open "http://xxx.com/getEsTopicData?topic_id=$1"};localdjw'
 
-$ source .zshrc
+$ source ~/.zshrc
 
 这样在命令行中就可以通过传递参数的方式调用：
 $ estopic_local 1
