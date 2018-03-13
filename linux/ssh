@@ -153,3 +153,22 @@ LISTEN     0      128                                         :::6379           
 LISTEN     0      128                                         :::80                                                      :::*
 LISTEN     0      128                                         :::22                                                      :::*
 
+5.别名登录
+除了可以在.zshrc这样的文件中定义别名外，还可以在ssh的配置文件中定义别名：
+使用 vim ~/.ssh/config命令编辑文件，添加如下内容：
+
+Host Server_12
+HostName 192.168.200.12
+Port 22
+User root
+IdentityFile ~/.ssh/id_rsa.pub
+IdentitiesOnly yes
+
+使用ssh <Host>登录目的主机，这里使用ssh Server_12就相当于执行ssh root@192.168.200.12。 
+注释： 
+HostName 指定登录的主机名或 IP 地址 
+Port 指定登录的端口号 
+User 登录用户名 
+IdentityFile 登录的公钥文件 
+IdentitiesOnly 只接受 SSH key 登录
+
