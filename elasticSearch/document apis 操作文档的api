@@ -154,5 +154,9 @@ When the index or the index/type are provided, they will be used by default on b
 https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-delete-by-query.html
 可以根据条件批量的删除，在删除的时候可以设置分片
 
-11.
+11.update by query
+https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-update-by-query.html
+根据条件更新数据
+
+12.
 
