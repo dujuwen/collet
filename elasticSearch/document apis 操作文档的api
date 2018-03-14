@@ -58,7 +58,54 @@ content-length: 84
 
 curl -I选项表示只获取head头信息，-H是设置head头信息
 
-5.
+5.get api
+https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-get.html
+比较常用的是：source filtering
+➜  ~ curl -I 'localhost:9200/twitter/tweet/11/_source?pretty'
+
+HTTP/1.1 200 OK
+content-type: application/json; charset=UTF-8
+content-length: 105
+
+➜  ~ curl -I 'localhost:9200/twitter/tweet/112/_source?pretty'
+
+HTTP/1.1 404 Not Found
+content-type: application/json; charset=UTF-8
+content-length: 1
+
+/_source和?_source的区别在于：前者只获取source的值，后者过滤获取source值的同时还要获取type等信息
+
+➜  ~ curl 'localhost:9200/twitter/tweet/11/_source?pretty'
+
+{
+  "user" : "kimchy",
+  "post_date" : "2009-11-15T14:12:12",
+  "message" : "trying out Elasticsearch"
+}
+➜  ~ curl 'localhost:9200/twitter/tweet/11/?pretty'
+
+{
+  "_index" : "twitter",
+  "_type" : "tweet",
+  "_id" : "11",
+  "_version" : 1,
+  "found" : true,
+  "_source" : {
+    "user" : "kimchy",
+    "post_date" : "2009-11-15T14:12:12",
+    "message" : "trying out Elasticsearch"
+  }
+}
+
+其他影响get api 的功能有：
+realtime
+stored fileds
+routing
+preference
+refresh
+versioning control
+
+6.
 
 
 
