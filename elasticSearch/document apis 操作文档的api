@@ -127,6 +127,16 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-update.html
 In addition to _source, the following variables are available through the ctx map:
 _index, _type, _id, _version, _routing and _now (the current timestamp).
 
-8.
+8.multi get api
+https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-multi-get.html
+可以同时获取不同索引、不同类型下的多个文档，当然可以获取同一个类型下的多个文档：
+curl -XGET 'localhost:9200/test/type/_mget?pretty' -H 'Content-Type: application/json' -d'
+{
+    "ids" : ["1", "2"]
+}
+'
+可选的添加路由、source过滤、stored field等等
+
+9.
 
 
