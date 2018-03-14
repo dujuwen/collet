@@ -61,7 +61,9 @@ def[] da = new def[] {i, l, f*d, s}; // Declare def array da and set it to
                                      // a def array with a size of 4 and the
                                      // values i, l, f*d, and s
                                      
-5.
+5.操作符及优先级
+https://www.elastic.co/guide/en/elasticsearch/painless/6.2/_operators.html
+一个很有意思的是null safe操作  ?.
+二元操作符 ?: 注意个 ? : 区分
 
-
-
+6.
