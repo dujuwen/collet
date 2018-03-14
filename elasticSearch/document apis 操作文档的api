@@ -41,5 +41,11 @@ https://www.elastic.co/guide/en/elasticsearch/guide/current/search-lite.html
 curl -XPUT/POST 'localhost:9200/twitter/_doc/1?pretty' -H 'Content-Type: application/json' -d'xx'
 curl -XPOST 'localhost:9200/twitter/_doc?pretty' -H 'Content-Type: application/json' -d'xx'
 
-3.
+3.索引api
+https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-index_.html
+索引API里面比较重要的几个概念：自动索引创建、版本控制、操作类型、路由、数据搜索刷新、无操作更新、操作超时时间
+
+4.
+
+
 
