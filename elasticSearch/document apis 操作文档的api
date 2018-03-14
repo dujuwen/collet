@@ -97,6 +97,12 @@ content-length: 1
   }
 }
 
+终极武器：
+➜  ~ curl 'localhost:9200/twitter/tweet/11/_source?pretty&_source=user'
+{
+  "user" : "kimchy"
+}
+
 其他影响get api 的功能有：
 realtime
 stored fileds
