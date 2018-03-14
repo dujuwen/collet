@@ -45,6 +45,22 @@ def l = new ArrayList();
 
 动态类型对性能有轻微的影响，如果性能比较重要的话应该使用静态类型
 
+int[] x = new int[5];          // Declare int array x and assign it a newly
+                               //   allocated int array with a size of 5
+def[][] y = new def[5][5];     // Declare the 2-dimensional def array y and
+                               //   assign it a newly allocated 2-dimensional
+                               //   array where both dimensions have a size of 5
+int[] x = new int[] {1, 2, 3}; // Declare int array x and set it to an int
+                               //   array with values 1, 2, 3 and a size of 3
+int i = 1;
+long l = 2L;
+float f = 3.0F;
+double d = 4.0;
+String s = "5";
+def[] da = new def[] {i, l, f*d, s}; // Declare def array da and set it to
+                                     // a def array with a size of 4 and the
+                                     // values i, l, f*d, and s
+                                     
 5.
 
 
