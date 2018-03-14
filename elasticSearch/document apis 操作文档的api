@@ -111,9 +111,13 @@ preference
 refresh
 versioning control, 可以用版块控制来判断某个文档是否被更新或者删除了
 
-6.
+6.delete api
+https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-delete.html
 
+根据文档id删除，可以在删除的时候指定路由、超时等其他信息
+➜  ~ curl -XDELETE 'localhost:9200/twitter/tweet/Qb9eI2IBdrc38deduVzL?pretty'
 
+7.
 
 
 
