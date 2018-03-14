@@ -150,4 +150,9 @@ $ cat requests
 The endpoints are /_bulk, /{index}/_bulk, and {index}/{type}/_bulk. 
 When the index or the index/type are provided, they will be used by default on bulk items that don’t provide them explicitly.
 
-10.
+10.delete by query api
+https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-delete-by-query.html
+可以根据条件批量的删除，在删除的时候可以设置分片
+
+11.
+
