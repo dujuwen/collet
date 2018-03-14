@@ -19,3 +19,18 @@ POST /hockey/player/1/_explain
 painless所有可用函数:
 https://www.elastic.co/guide/en/elasticsearch/painless/6.2/painless-api-reference.html
 
+1.注释跟Java一样的
+https://www.elastic.co/guide/en/elasticsearch/painless/6.2/painless-specification.html
+单行注释：//
+多行注释：/* ... */
+
+2.常量
+https://www.elastic.co/guide/en/elasticsearch/painless/6.2/literals.html
+
+在painless中不能直接定义字符产量，只能通过类型转换单字符串的方式定义：
+(char)"C"
+(char)'c'
+
+3.变量
+https://www.elastic.co/guide/en/elasticsearch/painless/6.2/variables.html
+
