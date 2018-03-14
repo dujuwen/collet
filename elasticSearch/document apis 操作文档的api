@@ -137,6 +137,17 @@ curl -XGET 'localhost:9200/test/type/_mget?pretty' -H 'Content-Type: application
 '
 可选的添加路由、source过滤、stored field等等
 
-9.
+9.bulk api
+https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html
+批操作的json数据是有newline(\n)分割的
+批量操作例子：
+$ curl -H "Content-Type: application/x-ndjson" -XPOST localhost:9200/_bulk --data-binary "@requests"
+$ cat requests
+{ "index" : { "_index" : "test", "_type" : "_doc", "_id" : "1" } }
+{ "field1" : "value1" }
 
+批操作的终点(endpoint)可以是：
+The endpoints are /_bulk, /{index}/_bulk, and {index}/{type}/_bulk. 
+When the index or the index/type are provided, they will be used by default on bulk items that don’t provide them explicitly.
 
+10.
