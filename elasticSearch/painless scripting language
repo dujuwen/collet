@@ -7,19 +7,17 @@ https://www.elastic.co/guide/en/elasticsearch/painless/6.2/painless-debugging.ht
 
 一般在不确定的地方抛出异常throw new Exception('whatever')，有个内置函数很好用Debug.explain
 
-POST /hockey/player/1/_explain
-{
+➜  ~  curl -XPOST -H 'Content-Type: application/json' 'localhost:9200/hockey/player/1/_explain?pretty' -d '{
   "query": {
     "script": {
       "script": "Debug.explain(doc.goals)"
     }
   }
-}
+}'
 
-POST /hockey/player/1/_update
-{
+➜  ~ curl -XPOST -H 'Content-Type: application/json' 'localhost:9200/hockey/player/1/_update?pretty' -d '{
   "script": "Debug.explain(ctx._source)"
-}
+}'
 
 painless所有可用函数:
 https://www.elastic.co/guide/en/elasticsearch/painless/6.2/painless-api-reference.html
