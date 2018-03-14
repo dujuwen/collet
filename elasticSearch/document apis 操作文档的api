@@ -119,7 +119,14 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-delete.html
 根据文档id删除，可以在删除的时候指定路由、超时等其他信息
 ➜  ~ curl -XDELETE 'localhost:9200/twitter/tweet/Qb9eI2IBdrc38deduVzL?pretty'
 
-7.
+7.update api
+https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-update.html
+更新分为文档更新和脚本更新，两种更新都可以执行更新插入操作(即不存在的时候就插入数据，存在就更新)
 
+脚本更新可用的变量：
+In addition to _source, the following variables are available through the ctx map:
+_index, _type, _id, _version, _routing and _now (the current timestamp).
+
+8.
 
 
