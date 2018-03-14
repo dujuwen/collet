@@ -1,1 +1,21 @@
 https://www.elastic.co/guide/en/elasticsearch/painless/6.2/index.html
+
+painless不支持像java一样的函数重载
+
+painless如何调试?
+https://www.elastic.co/guide/en/elasticsearch/painless/6.2/painless-debugging.html
+
+一般在不确定的地方抛出异常throw new Exception('whatever')，有个内置函数很好用Debug.explain
+
+POST /hockey/player/1/_explain
+{
+  "query": {
+    "script": {
+      "script": "Debug.explain(doc.goals)"
+    }
+  }
+}
+
+painless所有可用函数:
+https://www.elastic.co/guide/en/elasticsearch/painless/6.2/painless-api-reference.html
+
