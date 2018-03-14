@@ -16,6 +16,11 @@ POST /hockey/player/1/_explain
   }
 }
 
+POST /hockey/player/1/_update
+{
+  "script": "Debug.explain(ctx._source)"
+}
+
 painless所有可用函数:
 https://www.elastic.co/guide/en/elasticsearch/painless/6.2/painless-api-reference.html
 
