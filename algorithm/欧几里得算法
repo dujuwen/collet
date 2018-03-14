@@ -1,0 +1,26 @@
+定理：两个整数的最大公约数等于其中较小的那个数和两数相除余数的最大公约数。
+
+最大公约数（Greatest Common Divisor）缩写为 GCD。
+
+gcd(a,b) = gcd(b,a mod b) (不妨设 a>b 且 r=a mod b ,r 不为 0)
+
+php实现：
+方法一，循环(推荐)：
+function gcd1($p, $q) {
+    while ($q != 0) {
+        $r = $p % $q;
+        $p = $q;
+        $q = $r;
+    }
+    return $p;
+}
+
+方法二，递归(不推荐)：
+function gcd2($p, $q) {
+    if ($q == 0) {
+        return $p;
+    }
+    return gcd($q, $p % $q);
+}
+
+递归存在调用层次限制，且条件相同的情况下性能比循环差一点
