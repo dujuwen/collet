@@ -33,4 +33,19 @@ https://www.elastic.co/guide/en/elasticsearch/painless/6.2/literals.html
 
 3.变量
 https://www.elastic.co/guide/en/elasticsearch/painless/6.2/variables.html
+变量只能以字母或下划线开始：
+[_a-zA-Z] [_a-zA-Z-0-9]*
+变量必须先声明后使用
+
+4.数据类型分为动态类型和静态类型，静态类型又分为原始类型和引用类型
+https://www.elastic.co/guide/en/elasticsearch/painless/6.2/types.html
+动态类型def，动态类型可以赋任何值：
+def x = 1;
+def l = new ArrayList();
+
+动态类型对性能有轻微的影响，如果性能比较重要的话应该使用静态类型
+
+5.
+
+
 
