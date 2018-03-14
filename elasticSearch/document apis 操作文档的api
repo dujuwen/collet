@@ -103,6 +103,8 @@ content-length: 1
   "user" : "kimchy"
 }
 
+在某些操作中不想返回source信息可以设置?_source=false
+
 其他影响get api 的功能有：
 realtime
 stored fileds
