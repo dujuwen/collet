@@ -68,4 +68,4 @@ https://www.elastic.co/guide/en/elasticsearch/painless/6.2/_operators.html
 
 6.例子
 https://www.elastic.co/guide/en/elasticsearch/painless/6.2/painless-examples.html
-
+文档的值可以通过特殊map变量doc来访问
