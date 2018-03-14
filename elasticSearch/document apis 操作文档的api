@@ -158,5 +158,5 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-delete-by-q
 https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-update-by-query.html
 根据条件更新数据
 
-12.
-
+12.reindex api
+https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-reindex.html
