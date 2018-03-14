@@ -66,4 +66,6 @@ https://www.elastic.co/guide/en/elasticsearch/painless/6.2/_operators.html
 一个很有意思的是null safe操作  ?.
 二元操作符 ?: 注意个 ? : 区分
 
-6.
+6.例子
+https://www.elastic.co/guide/en/elasticsearch/painless/6.2/painless-examples.html
+
