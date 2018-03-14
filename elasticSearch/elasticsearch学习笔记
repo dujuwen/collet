@@ -3,6 +3,9 @@ https://api.github.com/
 
 https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html
 
+es概念理解:
+https://www.zhihu.com/question/26446020?sort=created
+
 集群、节点、分片和副本之间的关系：
 一个索引的分片会存在不同的node上，一个分片的副本也会存在跟主分片不同的node上，这样除了可以提高性能还可以提高可用性
 https://www.zhihu.com/question/26446020?sort=created
