@@ -45,7 +45,22 @@ curl -XPOST 'localhost:9200/twitter/_doc?pretty' -H 'Content-Type: application/j
 https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-index_.html
 索引API里面比较重要的几个概念：自动索引创建、版本控制、操作类型、路由、数据搜索刷新、无操作更新、操作超时时间
 
-4.
+4.curl只获取head头来判断es数据是否存在，返回200表示存在，404表示不存在
+➜  ~ curl -I 'localhost:9200/twitter/tweet/11?pretty'
+HTTP/1.1 200 OK
+content-type: application/json; charset=UTF-8
+content-length: 228
+
+➜  ~ curl -I 'localhost:9200/twitter/tweet/111?pretty'
+HTTP/1.1 404 Not Found
+content-type: application/json; charset=UTF-8
+content-length: 84
+
+curl -I选项表示只获取head头信息，-H是设置head头信息
+
+5.
+
+
 
 
 
