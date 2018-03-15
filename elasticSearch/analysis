@@ -302,3 +302,21 @@ Decimal Digit Token Filter
 Fingerprint Token Filter
 Minhash Token Filter
 
+7. character filters
+https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-charfilters.html
+
+7.1 html strip char filter
+https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-htmlstrip-charfilter.html
+移除html标签(可以配置哪些不移除)并用解码值替换html实体
+例如：
+curl -XPOST "http://localhost:9200/_analyze?pretty" -H 'Content-Type: application/json' -d'
+{
+  "tokenizer":      "keyword", 
+  "char_filter":  [ "html_strip" ],
+  "text": "<p>I&apos;m so <b>happy</b>!</p>"
+}'
+
+结果：
+[ \nI'm so happy!\n ]
+
+7.2
