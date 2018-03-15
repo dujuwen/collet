@@ -123,10 +123,11 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-letter-
   "position" : 4
 }
     
-5.3 lowercase tokenizer
+5.3 lowercase tokenizer，小写字母分词器是在字母分词器的基础上加了小写过滤
 https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-lowercase-tokenizer.html
 
-
+5.4 whitespace tokenzier，空白符分词器是用空白分割单词的
+https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-whitespace-tokenizer.html
 
 6.
 
