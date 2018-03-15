@@ -1,4 +1,5 @@
 1.uri查询，通过在url后面拼接参数的方式查询
+URI 检索 将查询放在 <PARAMETERS> 中，省掉 -d '{<BODY>}' 部分。这种形式的检索又称为 “轻量检索（Search Lite）”，适合短小的即席查询
 https://www.elastic.co/guide/en/elasticsearch/reference/current/search-uri-request.html
 
 uri查询常用的参数有：
