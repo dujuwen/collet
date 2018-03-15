@@ -29,7 +29,14 @@ curl -XPUT 'localhost:9200/user?pretty' -H 'Content-Type: application/json' -d'
 2.anatomy of tokenizer，解剖分词器
 https://www.elastic.co/guide/en/elasticsearch/reference/current/analyzer-anatomy.html
 
-无论是自带的分词器还是自定义的分词器，这些分词器都可能由字符串过滤(任意个)、分词器(只有一个)和token过滤(任意个)三部分组成
+无论是自带的分词器还是自定义的分词器，这些分词器都可能由字符过滤(任意个，按顺序应用)、分词器(只有一个)和token过滤(任意个，按顺序应用)三部分组成
 
-3.
+3.testing analyzers，测试分词器
+https://www.elastic.co/guide/en/elasticsearch/reference/current/_testing_analyzers.html
+
+使用分词器测试api来测试分词器效果是非常有必要的
+https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-analyze.html
+
+
+
 
