@@ -1,5 +1,22 @@
 analysis，es分析
 https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis.html
 
-1.分析过程是通过分析器来分析的，可以在创建索引时指定分析器或者在搜索时指定分析器
+1.分析过程是通过分析器来分析的，可以在创建索引时指定分析器或者在搜索时指定分析器，如果在创建时没有指定分词器那么使用的是默认分词器
 
+索引时指定分词器：
+curl -XPUT 'localhost:9200/user?pretty' -H 'Content-Type: application/json' -d'
+{
+  "mappings": {
+    "_doc": {
+      "properties": {
+        "title": {
+          "type":     "text",
+          "analyzer": "standard"
+        }
+      }
+    }
+  }
+}
+'
+
+2.
