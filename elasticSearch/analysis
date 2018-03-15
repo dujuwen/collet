@@ -18,5 +18,12 @@ curl -XPUT 'localhost:9200/user?pretty' -H 'Content-Type: application/json' -d'
   }
 }
 '
+在搜索时指定的分词器必须和索引定义是使用的分词器一样，ES寻找分词器的顺序(优先级)：
+1) An analyzer specified in the query itself. 在query中明确指定的
+2) The search_analyzer mapping parameter. search_analyzer参数映射指定的分词器
+3) The analyzer mapping parameter. analyzer映射参数指定的分词器
+4) An analyzer in the index settings called default_search. 索引设置中指定的default_search对应的值
+5) An analyzer in the index settings called default. 索引设置中default对应的值
+6) The standard analyzer. 系统自带的标准分词器
 
 2.
