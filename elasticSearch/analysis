@@ -1,0 +1,5 @@
+analysis，es分析
+https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis.html
+
+1.分析过程是通过分析器来分析的，可以在创建索引时指定分析器或者在搜索时指定分析器
+
