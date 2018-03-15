@@ -61,6 +61,13 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-analyze.
 也可以在测试的时候使用临时自定义分词器来测试
 https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-analyze.html
 
+测试一个自定义临时分词器:
+➜  ~ curl -XGET 'localhost:9200/_analyze?pretty' -H 'Content-Type: application/json' -d'
+{
+  "filter" : ["lowercase"],
+  "text" : "BaR"
+}
+'
 4.
 
 
