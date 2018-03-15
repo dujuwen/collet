@@ -319,4 +319,9 @@ curl -XPOST "http://localhost:9200/_analyze?pretty" -H 'Content-Type: applicatio
 结果：
 [ \nI'm so happy!\n ]
 
-7.2
+7.2 mapping char filter
+https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-mapping-charfilter.html
+根据映射文件替换过滤
+
+7.3 pattern replace char filter
+https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-pattern-replace-charfilter.html
