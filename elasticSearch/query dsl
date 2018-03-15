@@ -1,0 +1,6 @@
+1.dsl(Domain Specific Language)
+https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html
+
+dsl由2种类型子查询组成，叶子查询和复合查询，叶子查询可以直接使用，复合查询是由叶子查询和其他复合查询组合成的
+查询子句根据查询环境或者过滤环境的不同而表现不一样
+
