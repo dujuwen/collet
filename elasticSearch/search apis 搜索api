@@ -2,7 +2,7 @@
 https://www.elastic.co/guide/en/elasticsearch/reference/current/search-uri-request.html
 
 uri查询常用的参数有：
-q 指定查询条件
+q 指定查询条件，query string语法 https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html
 analyzer 分析器
 _source 获取指定字段数据或者不返回_source信息
 sort 排序方式,Can either be in the form of fieldName, or fieldName:asc/fieldName:desc,可以同时指定多个用逗号分隔
