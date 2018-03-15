@@ -68,6 +68,18 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-analyze.
   "text" : "BaR"
 }
 '
+
+测试自定义分词器：
+➜  ~ curl -XPOST "http://localhost:9200/_analyze?pretty" -H 'Content-Type: application/json' -d'
+{
+  "tokenizer": {
+          "type": "ngram",
+          "min_gram": "1",
+          "max_gram": "6"
+        },
+  "text":      "这是测试"
+}'
+
 4.
 
 
