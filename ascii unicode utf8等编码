@@ -6,3 +6,5 @@ Unicode（统一码、万国码、单一码）是计算机科学领域里的一�
 
 UTF-8（8-bit Unicode Transformation Format）是一种针对 Unicode 的可变长度字符编码，又称万国码。由 Ken Thompson 于 1992 年创建。
 现在已经标准化为 RFC 3629。UTF-8 用 1 到 6 个字节编码 Unicode 字符。用在网页上可以统一页面显示中文简体繁体及其它语言（如英文，日文，韩文）。
+
+GBK是针对GB 2312的扩展，都是汉字编码规范
