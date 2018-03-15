@@ -58,6 +58,9 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-analyze.
 
 自定义分词器需先在索引中定义然后在映射中引用，测试自定义分词器的时候可以通过分词器名称或者通过映射的字段来引用
 
+也可以在测试的时候使用临时自定义分词器来测试
+https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-analyze.html
+
 4.
 
 
