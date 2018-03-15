@@ -1,6 +1,7 @@
 analysis，es分析
 https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis.html
 https://my.oschina.net/xiaohui249/blog/260993
+https://zhuanlan.zhihu.com/p/29183128
 
 全文搜索引擎会用某种算法对要建索引的文档进行分析， 从文档中提取出若干 Token(词元)， 这些算法称为 Tokenizer(分词器)， 这些 Token 会被进一步处理，
 比如转成小写等，这些处理算法被称为 Token Filter(词元处理器), 被处理后的结果被称为 Term(词)， 文档中包含了几个这样的 Term 被称为 Frequency(词频)。
