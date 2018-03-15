@@ -257,7 +257,48 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-tokenfi
 
 es有一系列的内置token过滤器，它们可以用来修改、添加和删除token，也可以构建自定义token过滤器
 
-
-
-
+Standard Token Filter
+ASCII Folding Token Filter
+Flatten Graph Token Filter
+Length Token Filter
+Lowercase Token Filter
+Uppercase Token Filter
+NGram Token Filter
+Edge NGram Token Filter
+Porter Stem Token Filter
+Shingle Token Filter
+Stop Token Filter
+Word Delimiter Token Filter
+Word Delimiter Graph Token Filter
+Stemmer Token Filter
+Stemmer Override Token Filter
+Keyword Marker Token Filter
+Keyword Repeat Token Filter
+KStem Token Filter
+Snowball Token Filter
+Phonetic Token Filter
+Synonym Token Filter
+Synonym Graph Token Filter
+Compound Word Token Filters
+Reverse Token Filter
+Elision Token Filter
+Truncate Token Filter
+Unique Token Filter
+Pattern Capture Token Filter
+Pattern Replace Token Filter
+Trim Token Filter
+Limit Token Count Token Filter
+Hunspell Token Filter
+Common Grams Token Filter
+Normalization Token Filter
+CJK Width Token Filter
+CJK Bigram Token Filter
+Delimited Payload Token Filter
+Keep Words Token Filter
+Keep Types Token Filter
+Classic Token Filter
+Apostrophe Token Filter
+Decimal Digit Token Filter
+Fingerprint Token Filter
+Minhash Token Filter
 
