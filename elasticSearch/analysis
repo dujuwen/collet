@@ -83,7 +83,28 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-analyze.
 4.分析器
 https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-analyzers.html
 
-5.tokenizers，分词器
+5.tokenizers，分词器分为内置分词器和自定义分词器，内置分词器可以用于构建自定义分词器
+https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-tokenizers.html
+
+面向单词的分词器：
+5.1 Standard Tokenizer
+https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-standard-tokenizer.html
+标准分词器将标点符号去掉然后分词，分词最大长度为max_token_length所控制默认为255，可以自定义这个值来设置最长分词长度：
+POST _analyze
+{
+  "tokenizer":  {
+          "type": "standard",
+          "max_token_length": 5
+        },
+  "text": "The 2 b,as,,eds-on text"
+}
+
+一般情况是：
+POST _analyze
+{
+  "tokenizer": "standard",
+  "text": "The 2 QUICK Brown-Foxes jumped over the lazy dog's bone."
+}
 
 6.
 
