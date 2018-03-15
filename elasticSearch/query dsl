@@ -9,6 +9,7 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/query-filter-con
 
 查询环境会计算文件的相关度(得分)并且结果不会缓存，过滤查询不会计算文档的相关度并且会缓存查询，因此过滤查询的速度一般要比query查询快一些
 一般情况下的使用方法是在query查询中包含过滤查询，用过滤查询来快速过滤数据然后使用query查询来精确查找，过滤查询不会影响匹配文档的得分
+将影响文件得分的放在query查询中，将其他固定条件(不影响文档得分的)放到filter中
 
 3.
 
