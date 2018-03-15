@@ -5,10 +5,16 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/search-uri-reque
 uri查询常用的参数有：
 q 指定查询条件，query string语法 https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html
 analyzer 分析器
+df 当query string没有指定字段时默认字段，df默认是在所有字段
 _source 获取指定字段数据或者不返回_source信息
 sort 排序方式,Can either be in the form of fieldName, or fieldName:asc/fieldName:desc,可以同时指定多个用逗号分隔
 timeout 设置超时时间
 from 返回数据偏移量，默认是0
 size 返回数据条数，默认是10
+
+URI 中的 <QUERY_STRING> 需要使用 百分号编码。一些特殊字符需要用 % 开头的字符串表示。下面会用到的用 %20 表示空格，例如 a AND b 将表示为 a%20AND%20b
+例如：
+curl -XGET "http://localhost:9200/user/_search?df=firstname&q=Dena%20OR%20Nikki&pretty"
+检索时，可以用 <fieldName>:<value> 的方式指定在哪个字段内搜索 value，如果没有:符号那么只表示值
 
 2.
