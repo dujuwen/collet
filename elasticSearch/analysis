@@ -183,6 +183,49 @@ POST _analyze
 edge n-gram适合搜索歌曲或电影名称，也适合完成自动完成建议
 https://www.elastic.co/guide/en/elasticsearch/reference/current/search-suggesters-completion.html
 
+结构化分词器通常用于结构化文本，像email、zip代码、路径等等不是用于全文分词
+5.10 keyword tokenizer
+https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-keyword-tokenizer.html
+无操作分词器
+
+5.11 pattern tokenizer
+https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-pattern-tokenizer.html
+正则表达式分词器，比如可以使用逗号分隔数据：
+➜  ~ curl -XPOST "http://localhost:9200/_analyze?pretty" -H 'Content-Type: application/json' -d'
+{
+  "tokenizer": {
+    "type": "pattern",
+    "pattern": ","
+},
+  "text": "测试,数据, test data"
+}'
+{
+  "tokens" : [
+    {
+      "token" : "测试",
+      "start_offset" : 0,
+      "end_offset" : 2,
+      "type" : "word",
+      "position" : 0
+    },
+    {
+      "token" : "数据",
+      "start_offset" : 3,
+      "end_offset" : 5,
+      "type" : "word",
+      "position" : 1
+    },
+    {
+      "token" : " test data",
+      "start_offset" : 6,
+      "end_offset" : 16,
+      "type" : "word",
+      "position" : 2
+    }
+  ]
+}
+
+
 6.
 
 
