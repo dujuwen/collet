@@ -22,5 +22,16 @@ curl -XGET 'localhost:9200/user/_search?pretty' -H 'Content-Type: application/js
     }
 }
 '
+结果中的_score字段会受到boost的影响：
+"match_all": { "boost" : 1.2 }
 
-4.
+4.full text queries
+https://www.elastic.co/guide/en/elasticsearch/reference/current/full-text-queries.html
+
+在学习全文查询之前需要了解es是如何分析接收到的数据的：
+https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis.html
+
+4.1 match query
+https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-query.html
+
+match查询接收文本、数字和日期
