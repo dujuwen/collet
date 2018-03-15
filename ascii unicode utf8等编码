@@ -60,3 +60,27 @@ PUA 增补	207 字	E600-E6CF
 汉字结构	12 字	2FF0-2FFB
 汉语注音	22 字	3105-3120
 注音扩展	22 字	31A0-31BA
+
+php随机产生中文字符串代码：
+
+/**
+ * 产生随机中文字符串
+ *
+ * @param int $num 字符串文字数
+ * @return string
+ */
+function randomChineseStr($num) {
+    $num = intval($num);
+    if ($num > 0) {
+        $decodeStr = '"';
+        $min = hexdec('4e00');
+        $max = hexdec('9fa5');
+        for ($i = 0; $i < $num; $i++) {
+            $decodeStr .= '\u' . dechex(rand($min, $max));
+        }
+        $decodeStr .= '"';
+        return json_decode($decodeStr);
+    }
+
+    return '';
+}
