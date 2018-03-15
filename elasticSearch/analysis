@@ -87,7 +87,7 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-analyze
 https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-tokenizers.html
 
 面向单词的分词器：
-5.1 Standard Tokenizer
+5.1 Standard Tokenizer，特点：使用字符和空格分词
 https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-standard-tokenizer.html
 标准分词器将标点符号去掉然后分词，分词最大长度为max_token_length所控制默认为255，可以自定义这个值来设置最长分词长度：
 POST _analyze
@@ -105,6 +105,28 @@ POST _analyze
   "tokenizer": "standard",
   "text": "The 2 QUICK Brown-Foxes jumped over the lazy dog's bone."
 }
+
+5.2 letter tokenizer
+https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-letter-tokenizer.html
+字母分词器以非字母进行分割，中文会被归入字母行列:
+➜  ~ curl -XPOST "http://localhost:9200/_analyze?pretty" -H 'Content-Type: application/json' -d'
+{
+  "tokenizer": "letter",
+  "text": "The 2 QUICK Brown-Foxes 啊哈哈ss."
+}'
+上面分词器结果有一段：
+{
+  "token" : "啊哈哈ss",
+  "start_offset" : 24,
+  "end_offset" : 29,
+  "type" : "word",
+  "position" : 4
+}
+    
+5.3 lowercase tokenizer
+https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-lowercase-tokenizer.html
+
+
 
 6.
 
