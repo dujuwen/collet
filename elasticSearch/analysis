@@ -235,7 +235,21 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-simplep
 5.14 path hierarchy tokenizer
 https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-pathhierarchy-tokenizer.html
 路径层次化分词器一般用于路径处理
+例如：
+➜  ~ curl -XPOST "http://localhost:9200/_analyze?pretty" -H 'Content-Type: application/json' -d'
+{
+  "tokenizer": "path_hierarchy",
+  "text": "/one/two/three"
+}'
 
-6.
+结果：
+[ /one, /one/two, /one/two/three ]
+
+6.token filters
+https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-tokenfilters.html
+
+
+
+
 
 
