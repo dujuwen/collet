@@ -143,7 +143,7 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-thai-to
 5.8 ngram tokenizer
 https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-ngram-tokenizer.html
 递进式分割字符串，可以指定最小分割长度(默认为1)，最大分割长度(默认为2)，还可以指定token_chars(默认是[]保留所有)来过滤只分割的内容
-例如：等额3个字符长度分割字符串，结果只包含数字和字母
+例如：等额3个字符长度分割字符串，结果只包含数字和字母，中文一个汉字和英文一个字母是等同的都视为字母
 POST _analyze
 {
   "tokenizer": {"type": "ngram",
@@ -166,6 +166,22 @@ POST _analyze
   "position": 7
 }
 
+5.9 edge n-gram tokenizer
+https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-edgengram-tokenizer.html
+边缘n-gram分词器，跟n-gram分词不同的是递进规则，n-gram是从左到右一个字符一个字符依次递进，而edge n-gram则是从第一个字符开始固定加后面
+字符递进
+例如：
+POST _analyze
+{
+  "tokenizer": "edge_ngram",
+  "text": "Quick Fox"
+}
+
+结果是：
+[ Q, Qu ]
+
+edge n-gram适合搜索歌曲或电影名称，也适合完成自动完成建议
+https://www.elastic.co/guide/en/elasticsearch/reference/current/search-suggesters-completion.html
 
 6.
 
