@@ -4,3 +4,11 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html
 dsl由2种类型子查询组成，叶子查询和复合查询，叶子查询可以直接使用，复合查询是由叶子查询和其他复合查询组合成的
 查询子句根据查询环境或者过滤环境的不同而表现不一样
 
+2.查询环境和过滤环境
+https://www.elastic.co/guide/en/elasticsearch/reference/current/query-filter-context.html
+
+查询环境会计算文件的相关度(得分)并且结果不会缓存，过滤查询不会计算文档的相关度并且会缓存查询，因此过滤查询的速度一般要比query查询快一些
+一般情况下的使用方法是在query查询中包含过滤查询，用过滤查询来快速过滤数据然后使用query查询来精确查找，过滤查询不会影响匹配文档的得分
+
+3.
+
