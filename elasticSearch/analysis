@@ -133,7 +133,39 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-whitesp
 https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-uaxurlemail-tokenizer.html
 类似于standard分词器，但是保留url，email等
 
-5.6 
+5.6 classic tokenizer，良好的英文文档分词器
+https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-classic-tokenizer.html
+
+5.7 thai tokenizer，泰语分词器
+https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-thai-tokenizer.html
+
+部分单词分词器
+5.8 ngram tokenizer
+https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-ngram-tokenizer.html
+递进式分割字符串，可以指定最小分割长度(默认为1)，最大分割长度(默认为2)，还可以指定token_chars(默认是[]保留所有)来过滤只分割的内容
+例如：等额3个字符长度分割字符串，结果只包含数字和字母
+POST _analyze
+{
+  "tokenizer": {"type": "ngram",
+          "min_gram": 3,
+          "max_gram": 3,
+          "token_chars": [
+            "letter",
+            "digit"
+          ]},
+  "text": "2Quick Fox"
+}
+
+当最小和最大值相同时等额分割字符串:
+
+{
+  "token": " Fo",
+  "start_offset": 7,
+  "end_offset": 10,
+  "type": "word",
+  "position": 7
+}
+
 
 6.
 
