@@ -87,7 +87,7 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-analyze
 https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-tokenizers.html
 
 面向单词的分词器：
-5.1 Standard Tokenizer，特点：使用字符和空格分词
+5.1 Standard Tokenizer，特点：使用字符和空格分词，点不会被分割，会保留字母、数字、下划线、点、英文的'
 https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-standard-tokenizer.html
 标准分词器将标点符号去掉然后分词，分词最大长度为max_token_length所控制默认为255，可以自定义这个值来设置最长分词长度：
 POST _analyze
@@ -128,6 +128,12 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-lowerca
 
 5.4 whitespace tokenzier，空白符分词器是用空白分割单词的
 https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-whitespace-tokenizer.html
+
+5.5 uax url email tokenize
+https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-uaxurlemail-tokenizer.html
+类似于standard分词器，但是保留url，email等
+
+5.6 
 
 6.
 
