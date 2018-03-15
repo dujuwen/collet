@@ -230,10 +230,11 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-simplep
 
 5.13 simple pattern split tokenizer
 https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-simplepatternsplit-tokenizer.html
+上面这三个正则分词器一个比一个要求严格，但是速度越来越快
 
 5.14 path hierarchy tokenizer
 https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-pathhierarchy-tokenizer.html
-
+路径层次化分词器一般用于路径处理
 
 6.
 
