@@ -37,6 +37,30 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/_testing_analyze
 使用分词器测试api来测试分词器效果是非常有必要的
 https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-analyze.html
 
+例如：
+➜  ~ curl -XPOST "http://localhost:9200/_analyze?pretty" -H 'Content-Type: application/json' -d'
+{
+  "tokenizer": "standard",
+  "filter":  [ "lowercase", "asciifolding" ],
+  "text":      "Is this déja ME 啊哈?"
+}'
+
+其中一部分数据是：
+{
+      "token" : "哈",
+      "start_offset" : 17,
+      "end_offset" : 18,
+      "type" : "<IDEOGRAPHIC>",
+      "position" : 5
+}
+分词器在分词的过程中不仅产生了分词，还生成了position(used for phrase queries or word proximity queries)和start_offset end_offset 
+(used for highlighting search snippets)。postion用于单词和相近词搜索，offset用户高亮搜索
+
+自定义分词器需先在索引中定义然后在映射中引用，测试自定义分词器的时候可以通过分词器名称或者通过映射的字段来引用
+
+4.
+
+
 
 
 
