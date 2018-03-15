@@ -225,6 +225,15 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-pattern
   ]
 }
 
+5.12 simple pattern tokenizer 
+https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-simplepatternsplit-tokenizer.html
+
+5.13 simple pattern split tokenizer
+https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-simplepatternsplit-tokenizer.html
+
+5.14 path hierarchy tokenizer
+https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-pathhierarchy-tokenizer.html
+
 
 6.
 
