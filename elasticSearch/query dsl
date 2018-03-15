@@ -11,5 +11,16 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/query-filter-con
 一般情况下的使用方法是在query查询中包含过滤查询，用过滤查询来快速过滤数据然后使用query查询来精确查找，过滤查询不会影响匹配文档的得分
 将影响文件得分的放在query查询中，将其他固定条件(不影响文档得分的)放到filter中
 
-3.
+3.match_all match_none
+https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-all-query.html
 
+全匹配
+curl -XGET 'localhost:9200/user/_search?pretty' -H 'Content-Type: application/json' -d'
+{
+    "query": {
+        "match_all": {}
+    }
+}
+'
+
+4.
