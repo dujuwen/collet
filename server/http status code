@@ -35,3 +35,15 @@
 worker_rlimit_nofile 65535;
 重新启动 nginx，重新载入设置 
 4、代码问题，有可能是数据库问题我的在 nginx 日志 php 日志都没有发现什么问题, 最后发现数据库访问不了, 修正后问题解决。(这种居多)
+
+502 和 504 要结合top ps pmap free - G 等命令定位
+
+php-fpm影响502的配置有：
+request_terminate_timeout
+max_requests
+pm.max_children
+
+php-fpm影响504的配置主要是phpcgi相关的
+
+一个网站高并发访问的同时要重启php-cgi，如何做到平滑的重启(可以定时平滑重启)?
+php-fpm reload 
