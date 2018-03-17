@@ -38,10 +38,18 @@ worker_rlimit_nofile 65535;
 
 502 和 504 要结合top ps pmap free - G 等命令定位
 
+502 错误主要从四个方向入手：
+1. max_children
+2. request_terminate_timeout、max_execution_time
+3. 代码，如数据库相关
+4. 网关服务是否启动如 php-fpm
+
 php-fpm影响502的配置有：
-request_terminate_timeout
-max_requests
 pm.max_children
+request_terminate_timeout
+max_execution_time
+max_requests
+
 
 php-fpm影响504的配置主要是fastcgi相关的
 
