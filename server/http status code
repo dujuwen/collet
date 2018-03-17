@@ -15,7 +15,7 @@
 2. 访问量大的时候，由于系统资源限制，而不能打开过多的文件
 
 一般分析思路：
-（1）查看 nginx error log ，查看 php error log
+（1）查看 nginx error log ，查看 php error log，并结合sentry，kibana一起
 （2）如果是 too many open files，修改 nginx 的 worker_rlimit_nofile 参数，使用 ulimit 查看系统打开文件限制，修改 / etc/security/limits.conf
 （3）如果是脚本的问题，则需要修复脚本错误，并优化代码
 （4）各种优化都做好，还是出现 too many open files，那就要考虑做负载均衡，把流量分散到不同服务器上去了。
