@@ -5,6 +5,8 @@ http://www.zsythink.net/archives/1199
 https://www.jianshu.com/p/c2aee2ff7bd8
 https://www.digitalocean.com/community/tutorials/iptables-essentials-common-firewall-rules-and-commands
 https://www.cyberciti.biz/tips/linux-iptables-examples.html
+https://www.digitalocean.com/community/tutorials/how-to-choose-an-effective-firewall-policy-to-secure-your-servers
+https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-using-firewalld-on-centos-7
 
 1. 通用匹配：源地址目标地址的匹配
 -s：指定作为源地址匹配，这里不能指定主机名称，必须是 IP
