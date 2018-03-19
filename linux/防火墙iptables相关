@@ -80,3 +80,23 @@ Incoming                 /     \         Outgoing
                 ----> Local Process ----
                 
                 
+1.iptables简单理解
+包过滤规则组成了链，链组成了表
+table -- chain -- rule
+使用man iptables查看iptables相关操作或者使用iptables -h查看快捷操作
+iptables 1.4.21 内置了5个表，优先级从高到低是(就是man手册中从下到上的表)：security，raw，mangle，nat，filter(默认)
+
+如何查看表支持过滤链?
+iptables -t [tablename] -L
+比如:
+~ $ iptables -L -t security
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination
+
+
