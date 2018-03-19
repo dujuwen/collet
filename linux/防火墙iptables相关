@@ -63,3 +63,20 @@ REDIRECT：重定向：主要用于实现端口重定向
 MARK：打防火墙标记的
 RETURN：返回
 在自定义链执行完毕后使用返回，来返回原规则链。
+
+
+fileter表工作流程：
+
+Incoming                 /     \         Outgoing
+       -->[Routing ]--->|FORWARD|------->
+          [Decision]     \_____/        ^
+               |                        |
+               v                      ____
+              ___                    /    \
+             /   \                  |OUTPUT|
+            |INPUT|                  \____/
+             \___/                      ^
+               |                        |
+                ----> Local Process ----
+                
+                
