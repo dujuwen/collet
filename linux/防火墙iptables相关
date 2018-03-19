@@ -99,4 +99,7 @@ target     prot opt source               destination
 Chain OUTPUT (policy ACCEPT)
 target     prot opt source               destination
 
+查看某个协议的帮助，-p后跟协议名称(不区分大小写)：
+iptables -p icmp --help
+
 
