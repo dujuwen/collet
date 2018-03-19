@@ -132,3 +132,4 @@ iptables -L
 以原始方式查询当前iptables配置：
 iptables -S
 
+BTW: 在centos 7中还可以使用firewall-cmd来配置防火墙
