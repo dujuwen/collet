@@ -102,4 +102,10 @@ target     prot opt source               destination
 查看某个协议的帮助，-p后跟协议名称(不区分大小写)：
 iptables -p icmp --help
 
+对于 127.0.0.1 比较特殊，我们需要明确定义它
+
+iptables -A INPUT -s 127.0.0.1 -d 127.0.0.1 -j ACCEPT
+iptables -A OUTPUT -s 127.0.0.1 -d 127.0.0.1 -j ACCEPT
+
+2.
 
