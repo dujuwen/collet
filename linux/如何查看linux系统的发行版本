@@ -1,0 +1,10 @@
+1.centos如何看发行版本信息
+下面两个命令显示内容是一样的
+cat /etc/centos-release 
+cat /etc/system-release
+
+例如：
+$ cat /etc/centos-release
+CentOS Linux release 7.3.1611 (Core)
+
+2.
