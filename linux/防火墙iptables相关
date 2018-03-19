@@ -124,5 +124,9 @@ service iptables save
 还原默认配置：
 # service iptables restart
 
+以良好分类的方式查看当前iptables配置：
+iptables -L
 
+以原始方式查询当前iptables配置：
+iptables -S
 
