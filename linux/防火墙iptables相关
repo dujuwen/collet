@@ -1,0 +1,65 @@
+官网文档
+https://netfilter.org/documentation/index.html
+
+http://www.zsythink.net/archives/1199
+https://www.jianshu.com/p/c2aee2ff7bd8
+https://www.digitalocean.com/community/tutorials/iptables-essentials-common-firewall-rules-and-commands#service-mysql
+https://www.cyberciti.biz/tips/linux-iptables-examples.html
+
+1. 通用匹配：源地址目标地址的匹配
+-s：指定作为源地址匹配，这里不能指定主机名称，必须是 IP
+IP | IP/MASK | 0.0.0.0/0.0.0.0
+而且地址可以取反，加一个 “!” 表示除了哪个 IP 之外
+-d：表示匹配目标地址
+-p：用于匹配协议的（这里的协议通常有 3 种，TCP/UDP/ICMP）
+-i eth0：从这块网卡流入的数据
+
+流入一般用在 INPUT 和 PREROUTING 上
+-o eth0：从这块网卡流出的数据
+流出一般在 OUTPUT 和 POSTROUTING 上
+
+2. 扩展匹配
+2.1 隐含扩展：对协议的扩展
+-p tcp :TCP 协议的扩展。一般有三种扩展
+--dport XX-XX：指定目标端口, 不能指定多个非连续端口, 只能指定单个端口，比如
+--dport 21  或者 --dport 21-23 (此时表示 21,22,23)
+--sport：指定源端口
+--tcp-fiags：TCP 的标志位（SYN,ACK，FIN,PSH，RST,URG）
+对于它，一般要跟两个参数：
+1. 检查的标志位
+2. 必须为 1 的标志位
+--tcpflags syn,ack,fin,rst syn   =    --syn
+表示检查这 4 个位，这 4 个位中 syn 必须为 1，其他的必须为 0。所以这个意思就是用于检测三次握手的第一次包的。
+对于这种专门匹配第一包的 SYN 为 1 的包，还有一种简写方式，叫做 --syn
+
+-p udp：UDP 协议的扩展
+--dport
+--sport
+-p icmp：icmp 数据报文的扩展
+--icmp-type：
+echo-request(请求回显)，一般用 8 来表示
+所以 --icmp-type 8 匹配请求回显数据包
+echo-reply （响应的数据包）一般用 0 来表示
+
+2.2 显式扩展（-m）
+
+扩展各种模块
+-m multiport：表示启用多端口扩展
+之后我们就可以启用比如 --dports 21,23,80
+
+详解 - j ACTION
+
+常用的 ACTION：
+
+DROP：悄悄丢弃
+一般我们多用 DROP 来隐藏我们的身份，以及隐藏我们的链表
+REJECT：明示拒绝
+ACCEPT：接受
+custom_chain：转向一个自定义的链
+DNAT
+SNAT
+MASQUERADE：源地址伪装
+REDIRECT：重定向：主要用于实现端口重定向
+MARK：打防火墙标记的
+RETURN：返回
+在自定义链执行完毕后使用返回，来返回原规则链。
