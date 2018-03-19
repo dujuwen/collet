@@ -3,7 +3,7 @@ https://netfilter.org/documentation/HOWTO/cn/packet-filtering-HOWTO-7.html
 https://netfilter.org/documentation/index.html
 http://www.zsythink.net/archives/1199
 https://www.jianshu.com/p/c2aee2ff7bd8
-https://www.digitalocean.com/community/tutorials/iptables-essentials-common-firewall-rules-and-commands#service-mysql
+https://www.digitalocean.com/community/tutorials/iptables-essentials-common-firewall-rules-and-commands
 https://www.cyberciti.biz/tips/linux-iptables-examples.html
 
 1. 通用匹配：源地址目标地址的匹配
@@ -107,5 +107,11 @@ iptables -p icmp --help
 iptables -A INPUT -s 127.0.0.1 -d 127.0.0.1 -j ACCEPT
 iptables -A OUTPUT -s 127.0.0.1 -d 127.0.0.1 -j ACCEPT
 
-2.
+2.配置文件
+iptables相关的配置文件保存在：/etc/sysconfig/iptables-config
+iptables定义的过滤规则保存在：/etc/sysconfig/iptables
+
+3.
+
+
 
