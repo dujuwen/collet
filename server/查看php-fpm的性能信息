@@ -1,0 +1,40 @@
+1.配置php-fpm
+vim /etc/php-fpm.d/www.conf
+pm.status_path = /status
+
+2.配置nginx
+添加status_ping.conf
+$ cat status_ping.conf
+server {
+    listen       9955;
+
+	location ~ ^/(status|ping)$ {
+		access_log off;
+		allow 127.0.0.1;
+		deny all;
+		include fastcgi_params;
+		fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+		fastcgi_pass                unix:/var/run/php-fpm.sock;
+	}
+}
+
+3.平滑重启nginx 和 php-fpm
+nginx -s reload
+kill -s usr2 ``
+
+$ curl '127.0.0.1:9955/status'
+pool:                 www
+process manager:      dynamic
+start time:           20/Mar/2018:20:13:06 +0800
+start since:          321
+accepted conn:        13899
+listen queue:         0
+max listen queue:     0
+listen queue len:     0
+idle processes:       14
+active processes:     7
+total processes:      21
+max active processes: 19
+max children reached: 0
+slow requests:        15
+
