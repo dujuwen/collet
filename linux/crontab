@@ -1,0 +1,6 @@
+1.查看crontab执行日志
+tail -f /var/log/cron
+
+2.查看哪些用户定义了执行计划
+ls /var/spool/cron/
+
