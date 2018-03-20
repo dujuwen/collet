@@ -46,9 +46,10 @@ worker_rlimit_nofile 65535;
 
 php-fpm影响502的配置有：
 pm.max_children
-request_terminate_timeout
-max_execution_time
 max_requests
+request_terminate_timeout
+
+max_execution_time (php ini配置)
 
 
 php-fpm影响504的配置主要是fastcgi相关的
