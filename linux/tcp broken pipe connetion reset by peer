@@ -1,0 +1,10 @@
+http://lovestblog.cn/blog/2014/05/20/tcp-broken-pipe/
+
+connection reset by peer 表示本端 tcp 连接收到了对端发送的 RST 段。
+
+broken pipe 是一个信号，表示对已关闭的管道进行读写操作。
+
+rst flag 段产生的原因有几下几种：
+1. 请求的目标端口未开放，会收到 rst 段。
+2. socket Recv-Q 中的数据未完全被应用程序读取，而关闭该 socket，会发送 rst 段。
+3. 向已关闭的 socket 发送数据，会发送 rst 段。
