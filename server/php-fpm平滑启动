@@ -1,0 +1,13 @@
+master 进程可以理解以下信号：
+SIGINT, SIGTERM 立刻终止
+SIGQUIT 平滑终止
+SIGUSR1 重新打开日志文件
+SIGUSR2 平滑重载所有worker进程并重新载入配置和二进制模块
+
+php-fpm 关闭：
+kill -s INT `cat /run/php-fpm/php-fpm.pid`
+
+php-fpm 重启：
+kill -s USR2 `cat /run/php-fpm/php-fpm.pid`
+
+关键是发送信号，信号名称不区分大小写：kill -s USR2
