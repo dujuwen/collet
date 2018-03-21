@@ -57,7 +57,7 @@ php-fpm影响504的配置主要是fastcgi相关的
 一个网站高并发访问的同时要重启php-cgi，如何做到平滑的重启(可以定时平滑重启)?
 php-fpm reload 
 
-php-fpm
+nginx 502
 1.A programming error is sometimes segfaulting php-fpm, which in turn means that the connection with nginx will be severed. 
 This will usually leave at least some logs around and/or core dumps, which can be analysed further.
 2.For some reason, PHP is not being able to write a session file (usually: session.save_path = "/var/lib/php/sessions"). 
