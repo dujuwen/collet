@@ -11,3 +11,6 @@ php-fpm 重启：
 kill -s USR2 `cat /run/php-fpm/php-fpm.pid`
 
 关键是发送信号，信号名称不区分大小写：kill -s USR2
+
+计算php-fpm平均内存：
+ps --no-headers -o "rss,cmd" -C php-fpm | awk '{sum+=$1} END { printf ("%d%s\n", sum/NR/1024,"M") }'
