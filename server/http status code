@@ -56,3 +56,18 @@ php-fpm影响504的配置主要是fastcgi相关的
 
 一个网站高并发访问的同时要重启php-cgi，如何做到平滑的重启(可以定时平滑重启)?
 php-fpm reload 
+
+php-fpm
+1.A programming error is sometimes segfaulting php-fpm, which in turn means that the connection with nginx will be severed. 
+This will usually leave at least some logs around and/or core dumps, which can be analysed further.
+2.For some reason, PHP is not being able to write a session file (usually: session.save_path = "/var/lib/php/sessions"). 
+This can be bad permissions, bad ownership, bad user/group, or more esoteric/obscure issues like running out of inodes on
+that directory (or even a full disk!). This will usually not leave many core dumps around and possibly not even anything on
+the PHP error logs.
+3.Even more tricky to debug: an extension is misbehaving (occasionally hitting some kind of inner limit, or a bug which is not
+triggered all the time), segfaulting, and bringing the php-fpm process down with it — thus closing the connection with nginx. 
+The usual culprits are APC, memcache/d, etc. (in my case it was the New Relic extension), so the idea here is to turn
+each extension off until the error disappears.
+
+you fastcgi-process is not accessible by nginx; either to slow or not corresponding at all. bad gateway means:
+nginx cannot fastcgi_pass to that defined ressource 127.0.0.1:9000; at that very specific moment
