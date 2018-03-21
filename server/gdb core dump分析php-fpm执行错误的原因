@@ -1,4 +1,5 @@
 https://bugs.php.net/bugs-generating-backtrace.php
+https://ma.ttias.be/generate-php-core-dumps-segfaults-php-fpm/
 http://joshuais.me/shi-yong-gdbdiao-shi-phpduan-cuo-wu/
 
 1.打开core dump
