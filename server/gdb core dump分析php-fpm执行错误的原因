@@ -1,0 +1,43 @@
+http://joshuais.me/shi-yong-gdbdiao-shi-phpduan-cuo-wu/
+
+1.打开core dump
+先查看系统core是否打开:
+ulimit -a /ulimit -c
+
+~ $ ulimit -c
+unlimited
+
+如果ulimit -c显示为0表示关闭了core dump，打开方式为ulimit -c unlimited (或者任意正整数)，永久性打开可以修改配置文件：
+vim /etc/security/limits.conf 
+添加一行：
+* soft core unlimited
+
+修改php-fpm配置：
+vim /etc/php-fpm.d/www.conf
+rlimit_core = unlimited
+
+修改core dump文件记录路径:
+$ echo '/tmp/coredump-%e.%p.%t' > /proc/sys/kernel/core_pattern
+core dumps 文件支持变量：
+
+%%  a single % character
+%c  core file size soft resource limit of crashing process (since
+    Linux 2.6.24)
+%d  dump mode—same as value returned by prctl(2) PR_GET_DUMPABLE
+    (since Linux 3.7)
+%e  executable filename (without path prefix)
+%E  pathname of executable, with slashes ('/') replaced by
+    exclamation marks ('!') (since Linux 3.0).
+%g  (numeric) real GID of dumped process
+%h  hostname (same as nodename returned by uname(2))
+%p  PID of dumped process, as seen in the PID namespace in which
+    the process resides
+%P  PID of dumped process, as seen in the initial PID namespace
+    (since Linux 3.12)
+%s  number of signal causing dump
+%t  time of dump, expressed as seconds since the Epoch,
+    1970-01-01 00:00:00 +0000 (UTC)
+%u  (numeric) real UID of dumped process
+
+2.当 core dump 之后，使用命令 gdb program core 来查看 core 文件，其中 program 为可执行程序名，core 为生成的 core 文件名。
+
