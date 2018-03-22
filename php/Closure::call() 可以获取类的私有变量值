@@ -1,0 +1,13 @@
+http://php.net/manual/zh/migration70.new-features.php
+
+
+class A {
+  private $x = 1;
+}
+
+// PHP 7+ 及更高版本的代码
+$getX = function() {
+  return $this->x;
+};
+
+echo $getX->call(new A);
