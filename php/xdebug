@@ -1,0 +1,17 @@
+https://xdebug.org/docs/
+
+https://github.com/xdebug/xdebug
+
+安装
+直接从git上下载 然后编译:
+git clone https://github.com/xdebug/xdebug.git
+cd /usr/local/Cellar/php71/7.1.2_13/bin
+./phpize
+./configure -h //查看帮助
+./configure --enable-xdebug --with-php-config=/usr/local/Cellar/php71/7.1.2_13/bin/php-config
+make clean
+make && make install
+
+添加php扩展
+vim /usr/local/etc/php/7.1/conf.d/11-xdebug.ini:
+zend_extension="xdebug.so"
