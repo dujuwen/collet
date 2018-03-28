@@ -24,3 +24,7 @@ xdebug_start_trace();
 .....
 var_dump(xdebug_stop_trace());
 
+2.在本地开发的时候关闭自动跟踪，把gc回收统计打开，本地php ini配置文件
+vim /usr/local/etc/php/7.1/conf.d/11-xdebug.ini
+
+3.
