@@ -1,5 +1,5 @@
 https://xdebug.org/docs/
-
+https://xdebug.org/docs/all_functions
 https://github.com/xdebug/xdebug
 
 安装
@@ -30,4 +30,22 @@ vim /usr/local/etc/php/7.1/conf.d/11-xdebug.ini
 3.在需要var_dump();die;的地方可以用下面的代替
 xdebug_print_function_stack( 'Your own message' );
 
-4.
+4.获取方法的执行顺序
+var_dump(xdebug_get_function_stack());
+
+5.获取响应头
+xdebug_get_headers()
+
+6.对指定的函数进行监视
+xdebug_start_function_monitor( [ 'strrev', 'array_push' ] );
+
+/* Run some code: */
+echo strrev("yes!"), "\n";
+echo strrev("yes!"), "\n";
+
+var_dump(xdebug_get_monitored_functions());
+xdebug_stop_function_monitor();
+
+7.
+
+
