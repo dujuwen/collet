@@ -46,6 +46,14 @@ echo strrev("yes!"), "\n";
 var_dump(xdebug_get_monitored_functions());
 xdebug_stop_function_monitor();
 
-7.
+7.如何对某一段代码进行追踪，将auto_trace设置为0，然后在需要的代码之间调用开始追踪和结束追踪函数
+xdebug.auto_trace=0
+
+xdebug_start_trace()
+...
+xdebug_stop_trace();
+
+开始追踪和结束追踪都返回追踪日志存储的文件名(路径)
+
 
 
