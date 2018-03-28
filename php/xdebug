@@ -57,3 +57,5 @@ xdebug_stop_trace();
 
 8.xdebug_get_function_stack()可以获得文件函数执行顺序,返回一个数组
 var_dump(xdebug_get_function_stack());
+
+获得的是从代码执行开始到断点所在点函数的调用顺序
