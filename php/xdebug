@@ -55,5 +55,5 @@ xdebug_stop_trace();
 
 开始追踪和结束追踪都返回追踪日志存储的文件名(路径)
 
-
-
+8.xdebug_get_function_stack()可以获得文件函数执行顺序,返回一个数组
+var_dump(xdebug_get_function_stack());
