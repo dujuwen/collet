@@ -15,3 +15,12 @@ make && make install
 添加php扩展
 vim /usr/local/etc/php/7.1/conf.d/11-xdebug.ini:
 zend_extension="xdebug.so"
+
+需要注意的地方：
+1.在执行跟踪开始之前，当前执行程序必须对配置xdebug.trace_output_dir指定的输出具有写入的权限
+//xdebug.trace_options=0 覆盖写,1是追加写,线上的话一定要设置为覆盖写!!
+
+xdebug_start_trace();
+.....
+var_dump(xdebug_stop_trace());
+
