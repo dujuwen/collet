@@ -14,3 +14,6 @@ Installing shared extensions:     /usr/local/Cellar/php71/7.1.2_13/lib/php/exten
 
 ; Enable Zend OPcache extension module
 zend_extension=opcache.so
+
+检测opcache模块是否安装成功:
+php -m 或者 php -i | grep -i opcache
