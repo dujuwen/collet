@@ -1,0 +1,16 @@
+可以选择在第一次安装的时候通过--enable-opcache一起编译安装
+
+也可以选择手动安装：
+$ cd /Users/dujunwen/Downloads/php-7.1.2/ext/opcache
+$ /usr/local/Cellar/php71/7.1.2_13/bin/phpize //检测环境生成配置文件
+$ ./configure --with-php-config=/usr/local/Cellar/php71/7.1.2_13/bin/php-config
+$ sudo make && make install
+
+安装成功后会显示类似:
+sh-3.2# make install
+Installing shared extensions:     /usr/local/Cellar/php71/7.1.2_13/lib/php/extensions/debug-non-zts-20160303/
+
+接着在php ini配置中新建一个配置文件目录下新建文件opcache.ini来存放opcache相关配置，加载扩展:
+
+; Enable Zend OPcache extension module
+zend_extension=opcache.so
