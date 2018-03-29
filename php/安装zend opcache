@@ -17,3 +17,8 @@ zend_extension=opcache.so
 
 检测opcache模块是否安装成功:
 php -m 或者 php -i | grep -i opcache
+
+图像用户界面查看opcache缓存情况可选的有:
+https://github.com/amnuts/opcache-gui (推荐，更简单些)
+
+https://github.com/PeeHaa/OpCacheGUI
