@@ -22,3 +22,7 @@ php -m 或者 php -i | grep -i opcache
 https://github.com/amnuts/opcache-gui (推荐，更简单些)
 
 https://github.com/PeeHaa/OpCacheGUI
+
+重启php-fpm是必要的吗?
+部署代码后重启php-fpm的目的除了解决某些代码内存泄漏问题,还可以重置opcache缓存的文件(前提是开启了opcache缓存)
+如果不存在内存泄漏和opcache缓存的话可以长时间不用重启!
