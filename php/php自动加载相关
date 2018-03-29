@@ -1,0 +1,8 @@
+https://sjolzy.cn/PHP-autoload-and-automatic-loading-mechanism-splautoload-Detailed.html
+http://php.net/manual/zh/function.spl-autoload-register.php
+
+在同时存在__autoload()和spl_autoload()的情况下优先使用spl_autoload()
+
+判断文件是否存在需要做磁盘 I/O 操作，众所周知磁盘 I/O 操作的效率很低，因此这才是使得 autoload 机制效率降低的罪魁祸首!
+
+因此，我们在系统设计时，需要定义一套清晰的将类名与实际磁盘文件映射的机制。这个规则越简单越明确，autoload 机制的效率就越高。
