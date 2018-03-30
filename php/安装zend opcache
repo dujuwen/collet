@@ -29,3 +29,5 @@ https://github.com/PeeHaa/OpCacheGUI
 
 下面这选项开启的话需要系统支持
 opcache.huge_code_pages=1
+
+注意：官方给了一个 Note，如果 opcache 要与 xdebug 同时加载，那么 opcache 需要在 xdebug 之前进行加载
