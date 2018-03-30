@@ -1,0 +1,42 @@
+http://www.laruence.com/2015/10/02/3069.html
+
+关于 Hugepage 是啥，简单的说下就是默认的内存是以 4KB 分页的，而虚拟地址和内存地址是需要转换的， 而这个转换是要查表的，
+CPU 为了加速这个查表过程都会内建 TLB（Translation Lookaside Buffer）， 显而易见如果虚拟页越小，表里的条目数也就越多，
+而 TLB 大小是有限的，条目数越多 TLB 的 Cache Miss 也就会越高， 所以如果我们能启用大内存页就能间接降低这个 TLB Cache Miss
+
+zend_extension=opcache.so
+opcache里面有一项配置可以利用hugepage:
+; copying of PHP code (text segment) into HUGE PAGES
+opcache.huge_code_pages=1
+开始这个配置后可以将text段内容拷贝到hugepage中
+
+检查系统是否支持hugepage:
+$ cat /proc/meminfo | grep -i huge
+AnonHugePages:    444416 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+
+上面结果说明该系统支持hugepage，每个分页大小是2M
+
+开启hugepage:
+$ sudo sysctl vm.nr_hugepages=128
+vm.nr_hugepages = 128
+
+重启php-fpm后查看:
+$ cat /proc/meminfo | grep -i huge
+AnonHugePages:    462848 kB
+HugePages_Total:     128
+HugePages_Free:      114
+HugePages_Rsvd:       50
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+
+说明hugepage已经被利用起来了
+
+查看php-fpm text大小
+$ size /usr/sbin/php-fpm
+   text	   data	    bss	    dec	    hex	filename
+4301267	 543798	 119656	4964721	 4bc171	/usr/sbin/php-fpm
