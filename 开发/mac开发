@@ -1,1 +1,23 @@
-1.
+1.借助apropos、whatis或者man -k来根据关键字获取命令
+
+apropos命令是根据关键字在whatis数据库里面搜索符合条件的记录。whatis数据库其实就是一个文件，里面存储了很多命令相关的简介，一个命令简介一行
+
+whatis数据库位置:
+/usr/share/man/whatis
+
+一般是系统定时更新里面的数据，所以自己往里面添加数据之前要将这些数据先备份以防止被系统生成的数据给覆盖
+
+先将要添加的信息放到临时文件，然后再往whatis里面添加信息，之后就可以使用apropos命令来搜索了:
+$ vim /Users/dujunwen/Desktop/test/data/whatis_append_data
+添加:
+git config --list - [git]显示当前项目配置信息
+git remote show origin - [git]显示远程库相关信息
+git remote prune origin - [git]移除被删除的分支,远程和本地同步
+
+$ sudo /usr/share/man/whatis
+将上面的内容追加此文件后面
+
+$ apropos "删除"
+git remote prune origin - [git]移除被删除的分支,远程和本地同步
+(END)
+
