@@ -1,6 +1,18 @@
+git中文手册:
 https://git-scm.com/book/zh/v2
+
+使用规范流程:
+http://www.ruanyifeng.com/blog/2015/08/git-use-process.html
 
 1.git变基的原则:
 只对尚未推送或分享给别人的本地修改执行变基操作清理历史，从不对已推送至别处的提交执行变基操作
 
-2.
+2.git工作流比较:
+https://github.com/geeeeeeeeek/git-recipes/wiki/3.5-%E5%B8%B8%E8%A7%81%E5%B7%A5%E4%BD%9C%E6%B5%81%E6%AF%94%E8%BE%83#fork%E5%B7%A5%E4%BD%9C%E6%B5%81
+
+总结:
+对于小团队基于功能的工作流是比较推荐的
+对于大型开发团队基于gitflow的工作流是比较推荐的
+对于开源项目基于fork的工作流是比较推荐的
+
+3.
