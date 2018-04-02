@@ -1,0 +1,12 @@
+1.先安装git
+
+2.jekyll可以生成静态文件
+用gem安装jekyll，而jekyll是基于ruby的所有先按照ruby和其包管理器
+brew install ruby
+
+安装rubygems
+https://rubygems.org/pages/download
+下载zip包后解压，解压后执行下面命令安装：
+$ sudo ruby setup.rb
+
+3.安装jekyll
