@@ -10,9 +10,9 @@ whatis数据库位置:
 先将要添加的信息放到临时文件，然后再往whatis里面添加信息，之后就可以使用apropos命令来搜索了:
 $ vim /Users/dujunwen/Desktop/test/data/whatis_append_data
 添加:
-git config --list - [git]显示当前项目配置信息
-git remote show origin - [git]显示远程库相关信息
-git remote prune origin - [git]移除被删除的分支,远程和本地同步
+git config --list - [git6]显示当前项目配置信息
+git remote show origin - [git6]显示远程库相关信息
+git remote prune origin - [git6]移除被删除的分支,远程和本地同步
 
 $ sudo /usr/share/man/whatis
 将上面的内容追加此文件后面
@@ -21,3 +21,9 @@ $ apropos "删除"
 git remote prune origin - [git]移除被删除的分支,远程和本地同步
 (END)
 
+$ apropos "git6"
+git config --list - [git6]显示当前项目配置信息
+git remote show origin - [git6]显示远程库相关信息
+git remote prune origin - [git6]移除被删除的分支,远程和本地同步
+
+为什么取名git6呢？哥高兴，哈哈哈...
