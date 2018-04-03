@@ -52,3 +52,9 @@ https://www.08sec.com/reprinted/16384.html
 https://blog.csdn.net/hguisu/article/details/46126249
 
 http://geek.csdn.net/news/detail/200402
+
+常用公开的防爬方法（按技术难度由简单到难）：
+1. Nginx 等 Web Server 层面的限流，人机识别。可以用 Nginx 模块 limit_req或者用 Nginx Lua 自己写一点防爬逻辑，加上 Set-Cookie 和 302 / 验证码的手段，过滤掉一些简单的爬虫。
+2：前端打点，正常用户和爬虫的请求最大区别在于是否会渲染 HTML、运行网页的 JavaScript。通过前端打点可以过滤掉一些中级爬虫。
+3：IP 库，正经的爬虫大部分都跑在服务器上，通过 IP 库中的非人类访问量甄别服务
+4：终极爬虫防护的意义在于让你没法获取到正常的数据，所以构造假数据返回给爬虫是很猥琐的一种手段。
