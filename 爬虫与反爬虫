@@ -9,6 +9,8 @@ https://segmentfault.com/a/1190000005840672
 
 http://www.zving.com/c/2017-11-15/269861.shtml
 
+http://monburan.cn/crawler/2017/04/02/Reflections-About-A-New-Way-To-Anti-Crawler-And-Crawler.html
+
 1. 对 Referer 和 User-Agent 进行检查
 
 ZCMS 将检查 http 头中的 Referer 和 User-Agent 项，对于无 Referer、不符合规则的 Referer、不符合规则的 User-Agent 重定向到验证码输入页面，只有输入正确的验证码才可以进行后续浏览。
@@ -40,4 +42,5 @@ ZCMS 支持基于 URL 规则的行为识别，正常浏览行为在访问网站�
 8. 伪数据
 
 ZCMS 对于识别测出的爬虫行为，将不重定向验证码也返回错误信息，而是采用自动生成伪数据的方式向爬虫返回正常的 200 状态响应结果，以提高爬虫数据分析的难度。
+
 
