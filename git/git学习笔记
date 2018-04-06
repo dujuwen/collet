@@ -30,8 +30,8 @@ git push默认是不会将本地标签推送到远程仓库中的，可以使用
 git push --tags //一次将所有没有推送的标签推送到远程仓库
 git push origin tagname //将某一个版本的标签推送到远程仓库中
 
-6.
+6.如何在特定版本上检出新的分支
+git checkout -b [branchname] [tagname] //在特定的标签上创建一个新分支
 
-
-
+7.
 
