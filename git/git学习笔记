@@ -60,6 +60,9 @@ git push -u [remotename]/[branch]
 如何查看当前分支跟踪的是远程哪个分支呢?
 可以使用git status或者git remote show origin命令
 
+查看所有分支的跟踪情况:
+git branch -vv
+
 10.
 
 
