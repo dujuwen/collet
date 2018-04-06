@@ -15,4 +15,10 @@ https://github.com/geeeeeeeeek/git-recipes/wiki/3.5-%E5%B8%B8%E8%A7%81%E5%B7%A5%
 对于大型开发团队基于gitflow的工作流是比较推荐的
 对于开源项目基于fork的工作流是比较推荐的
 
-3.
+3.rm file 、git rm file 和 git rm --cached file的区别
+rm file是直接将工作区域的文件删除，文件状态体现的是changes not staged for commit
+git rm file是将文件删除的同时将文件改变添加到暂存区域，文件状态体现是changes to be committed
+git rm --cached file是在rm file 和 git rm file的合并版，即在工作区域保留文件的同时从暂存区域去掉
+
+4.
+
