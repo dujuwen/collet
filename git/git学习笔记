@@ -22,5 +22,16 @@ git rm --cached file是在rm file 和 git rm file的合并版，即在工作区�
 
 4.在git中任何已提交的东西几乎总是可恢复的
 
-5.
+5.git标签分为轻量标签和标注标签，如果忘了对过去的版本打标签后期也是可以打的，例如：
+git tag -a tagname -m 'xxx' sha-1 id
+
+共享标签
+git push默认是不会将本地标签推送到远程仓库中的，可以使用下列命令推送标签：
+git push --tags //一次将所有没有推送的标签推送到远程仓库
+git push origin tagname //将某一个版本的标签推送到远程仓库中
+
+6.
+
+
+
 
