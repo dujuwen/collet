@@ -67,6 +67,6 @@ git branch -vv
 如果想要统计最新的领先与落后数字，需要在运行此命令前抓取所有的远程仓库。 可以像这样做：
 $ git fetch --all; git branch -vv
 
-10.
-
+10.删除远程分支
+$ git push origin --delete branchname
 
