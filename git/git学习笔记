@@ -7,6 +7,11 @@ http://www.ruanyifeng.com/blog/2015/08/git-use-process.html
 1.git变基的原则:
 只对尚未推送或分享给别人的本地修改执行变基操作清理历史，从不对已推送至别处的提交执行变基操作
 
+无论是通过变基，还是通过三方合并，整合的最终结果所指向的快照始终是一样的，只不过提交历史不同罢了。 变基是将一系列提交按照原有次序依次应用到另一分支上，
+而合并是把最终结果合在一起。
+
+merge和rebase的结果指向的快照是一样的，不一样的是提交的历史记录。merge会比rebase多一些。
+
 2.git工作流比较:
 https://github.com/geeeeeeeeek/git-recipes/wiki/3.5-%E5%B8%B8%E8%A7%81%E5%B7%A5%E4%BD%9C%E6%B5%81%E6%AF%94%E8%BE%83#fork%E5%B7%A5%E4%BD%9C%E6%B5%81
 
