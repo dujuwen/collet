@@ -18,6 +18,12 @@ $ git rebase --onto master server client
 以上命令的意思是：
 “取出 client 分支，找出处于 client 分支和 server 分支的共同祖先之后的修改，然后把它们在 master 分支上重放一遍”。
 
+git pull --rebase 等价于先 git fetch，再 git rebase teamone/master。
+
+如果习惯使用 git pull ，同时又希望默认使用选项 --rebase，可以执行这条语句 git config --global pull.rebase true 来更改 pull.rebase 的默认配置。
+
+只要把变基命令当作是在推送前清理提交使之整洁的工具，并且只在从未推送至共用仓库的提交上执行变基命令，就不会有事。
+
 2.git工作流比较:
 https://github.com/geeeeeeeeek/git-recipes/wiki/3.5-%E5%B8%B8%E8%A7%81%E5%B7%A5%E4%BD%9C%E6%B5%81%E6%AF%94%E8%BE%83#fork%E5%B7%A5%E4%BD%9C%E6%B5%81
 
