@@ -135,4 +135,14 @@ $ git ls-files -u
 100755 36c06c8752c78d2aff89571132f3bf7841a7b5c3 2	hello.rb
 100755 e85207e04dfdd5eb0a1e9febbc67fd837c44a1cd 3	hello.rb
 
+可以使用git diff --ours/--theirs/--base对比冲突
+
+在合并产生冲突的时候如何简单的只保留一边呢?
+只保留当前分支的(我们的):
+$ git checkout --ours webpack.mix.js
+
+只保留待合并分支上的:
+$ git checkout --theirs webpack.mix.js
+
+
 
