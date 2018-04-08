@@ -7,4 +7,5 @@ https://www.php-fig.org/psr/psr-2/
 3.psr3 日志接口
 https://www.php-fig.org/psr/psr-3/
 
-4.
+4.psr4 自动加载器
+https://www.php-fig.org/psr/psr-4/
