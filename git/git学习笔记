@@ -95,6 +95,18 @@ $ cd
 $ mkdir .ssh && chmod 700 .ssh
 $ touch .ssh/authorized_keys && chmod 600 .ssh/authorized_keys
 
-12.
+12.提交区间，双点，多点，三点语法
+https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E9%80%89%E6%8B%A9%E4%BF%AE%E8%AE%A2%E7%89%88%E6%9C%AC
 
+//在develop中当时不在master中的日志
+$ git log master..develop 
 
+下列 3 个命令是等价的：
+$ git log refA..refB
+$ git log ^refA refB
+$ git log refB --not refA
+
+这个语法可以选择出被两个引用中的一个包含但又不被两者同时包含的提交
+$ git log --left-right master...experiment
+
+13.
