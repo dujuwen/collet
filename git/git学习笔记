@@ -109,4 +109,13 @@ $ git log refB --not refA
 这个语法可以选择出被两个引用中的一个包含但又不被两者同时包含的提交
 $ git log --left-right master...experiment
 
-13.
+13.git搜索
+https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E6%90%9C%E7%B4%A2
+
+$ git grep --count gmtime_r
+$ git log -SZLIB_BUF_MAX --oneline
+
+14.
+
+
+
