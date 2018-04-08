@@ -12,3 +12,8 @@ https://www.php-fig.org/psr/psr-4/
 
 例子:
 https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader-examples.md
+
+5.缓存接口
+https://www.php-fig.org/psr/psr-6/
+
+6.
