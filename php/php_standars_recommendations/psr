@@ -9,3 +9,6 @@ https://www.php-fig.org/psr/psr-3/
 
 4.psr4 自动加载器
 https://www.php-fig.org/psr/psr-4/
+
+例子:
+https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader-examples.md
