@@ -144,5 +144,11 @@ $ git checkout --ours webpack.mix.js
 只保留待合并分支上的:
 $ git checkout --theirs webpack.mix.js
 
+可以传递给 --conflict 参数 diff3 或 merge（默认选项）。 如果传给它 diff3，Git 会使用一个略微不同版本的冲突标记：
+不仅仅只给你 “ours” 和 “theirs” 版本，同时也会有 “base” 版本在中间来给你更多的上下文。
+$ git checkout --conflict=diff3 webpack.mix.js
 
+如果你喜欢这种格式，可以通过设置 merge.conflictstyle 选项为 diff3 来做为以后合并冲突的默认选项。
+$ git config --global merge.conflictstyle diff3
 
+16.
