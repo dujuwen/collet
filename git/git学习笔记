@@ -118,5 +118,21 @@ $ git log -SZLIB_BUF_MAX --oneline
 14.git重写历史，拆分提交，合并提交，修改提交历史中的邮箱等等
 https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E9%87%8D%E5%86%99%E5%8E%86%E5%8F%B2
 
-15.
+15.高级合并
+https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E9%AB%98%E7%BA%A7%E5%90%88%E5%B9%B6
+
+合并冲突:
+Stage 1 是它们共同的祖先版本，stage 2 是你的版本，stage 3 来自于 MERGE_HEAD，即你将要合并入的版本（“theirs”）。
+
+通过 git show 命令与一个特别的语法，你可以将冲突文件的这些版本释放出一份拷贝。
+$ git show :1:hello.rb > hello.common.rb
+$ git show :2:hello.rb > hello.ours.rb
+$ git show :3:hello.rb > hello.theirs.rb
+
+如果你想要更专业一点，也可以使用 ls-files -u 底层命令来得到这些文件的 Git blob 对象的实际 SHA-1 值。
+$ git ls-files -u
+100755 ac51efdc3df4f4fd328d1a02ad05331d8e2c9111 1	hello.rb
+100755 36c06c8752c78d2aff89571132f3bf7841a7b5c3 2	hello.rb
+100755 e85207e04dfdd5eb0a1e9febbc67fd837c44a1cd 3	hello.rb
+
 
