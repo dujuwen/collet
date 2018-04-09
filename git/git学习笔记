@@ -249,4 +249,18 @@ $ git fsck
 $ git push origin :topic
 因为引用规格（的格式）是 <src>:<dst>，所以上述命令把 <src> 留空，意味着把远程版本库的 topic 分支定义为空值，也就是删除它。
 
-29.
+29.通过ssh进行授权检测
+$ ssh -T git@github.com
+Hi dujuwen! You've successfully authenticated, but GitHub does not provide shell access.
+
+30.如何知道git到底做了什么？可以使用git调试
+https://git-scm.com/book/zh/v2/Git-%E5%86%85%E9%83%A8%E5%8E%9F%E7%90%86-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F
+$ GIT_TRACE=true git pull
+
+31.
+
+
+
+
+
+
