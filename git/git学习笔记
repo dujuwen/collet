@@ -204,3 +204,11 @@ $ cat package.json | git hash-object --stdin
 ➜  gittest git:(master) git hash-object package.json
 dedcbef7129649db00350ba6dd2bb4d89baebb56
 
+23.查看master提交树
+$ git cat-file -p master^{tree}
+
+24.查看某个文件的内容
+$ git cat-file -p 1f7a7a472abf3dd9643fd615f6da379c4acb3e3a
+
+25.
+
