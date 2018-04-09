@@ -257,9 +257,19 @@ Hi dujuwen! You've successfully authenticated, but GitHub does not provide shell
 https://git-scm.com/book/zh/v2/Git-%E5%86%85%E9%83%A8%E5%8E%9F%E7%90%86-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F
 $ GIT_TRACE=true git pull
 
-31.
+31.假设现在reset了分支到之前的版本，如何找回最新提交的哈希值？
+https://git-scm.com/book/zh/v2/Git-%E5%86%85%E9%83%A8%E5%8E%9F%E7%90%86-%E7%BB%B4%E6%8A%A4%E4%B8%8E%E6%95%B0%E6%8D%AE%E6%81%A2%E5%A4%8D
 
+一：find .git/fefs/ -type f
+二：git for-each-ref
+三：git reflog
+四：git fsck --full //列出悬空对象
+五：删除当前分支重新检出一次
 
+git log -g可以列出当前日志的同时显示引用日志
+$ git log -g
+
+32.
 
 
 
