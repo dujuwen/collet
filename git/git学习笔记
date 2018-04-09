@@ -180,6 +180,8 @@ https://git-scm.com/book/zh/v2/%E8%87%AA%E5%AE%9A%E4%B9%89-Git-%E9%85%8D%E7%BD%A
 分别对应级别是:
 --local > --global > --system
 
+可以把 core.autocrlf 设置成 input 来告诉 Git 在提交时把回车和换行转换成换行，检出时不转换：
+$ git config --global core.autocrlf input
 
 
 
