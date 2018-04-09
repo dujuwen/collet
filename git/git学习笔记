@@ -199,4 +199,8 @@ $ git merge topic
 Auto-merging database.xml
 Merge made by recursive.
 
-22.
+22.计算文件的哈希值
+$ cat package.json | git hash-object --stdin
+➜  gittest git:(master) git hash-object package.json
+dedcbef7129649db00350ba6dd2bb4d89baebb56
+
