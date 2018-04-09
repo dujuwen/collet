@@ -269,8 +269,17 @@ https://git-scm.com/book/zh/v2/Git-%E5%86%85%E9%83%A8%E5%8E%9F%E7%90%86-%E7%BB%B
 git log -g可以列出当前日志的同时显示引用日志
 $ git log -g
 
-32.
+32.git rev-list 基本类似 git log 命令，但它默认只输出 SHA-1 值而已，没有其他信息。 
+所以要获取由一次提交到另一次提交之间的所有 SHA-1 值，可以像这样运行：
+https://git-scm.com/book/zh/v2/%E8%87%AA%E5%AE%9A%E4%B9%89-Git-%E4%BD%BF%E7%94%A8%E5%BC%BA%E5%88%B6%E7%AD%96%E7%95%A5%E7%9A%84%E4%B8%80%E4%B8%AA%E4%BE%8B%E5%AD%90#r_enforcing_commit_message_format
 
+$ git rev-list 538c33..d14fc7
+d14fc7c847ab946ec39590d87783c69b031bdfb7
+9f585da4401b0a3999e84113824d15245c13f0be
+234071a1be950e2a8d078e6141f5cd20c1e61ad3
+dfa04c9ef3d5197182f13fb5b9b1fb7717d2222a
+17716ec0f1ff5c77eff40b7fe912f9f6cfd0e475
 
+33.
 
 
