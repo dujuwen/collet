@@ -231,6 +231,8 @@ $ git update-ref refs/heads/api_201803 0137888bfe0fb0a1f43110df1a88ee3e566c2e7d
 refs/heads/api_201803来自cat .git/HEAD
 0137888bfe0fb0a1f43110df1a88ee3e566c2e7d来自 cat origin对应的记录
 
+可以使用git for-each-ref列出当前git下所有引用
+
 26.如何将大文件提交(或者误提交)从git历史中抹去？
 实践前提：非抹去不可
 
