@@ -230,3 +230,14 @@ $ find .git/refs -type f
 $ git update-ref refs/heads/api_201803 0137888bfe0fb0a1f43110df1a88ee3e566c2e7d
 refs/heads/api_201803来自cat .git/HEAD
 0137888bfe0fb0a1f43110df1a88ee3e566c2e7d来自 cat origin对应的记录
+
+26.如何将大文件提交(或者误提交)从git历史中抹去？
+实践前提：非抹去不可
+
+通过git update-ref将当期分支引用指向误提交之前
+如果该分支是保护分支比如master分支，去掉该分支的保护，去掉误提交内容然后生成一个新的提交，强制推送到远程分支!
+
+注意的是，通过这种方式会抹掉一些历史日志，如果要保留历史日志可以将分支指向之前的提交后使用cherry-pick一个一个应用，这样会保留响应的历史日志
+
+27.
+
