@@ -225,8 +225,8 @@ $ git update-ref refs/heads/api_201803 1a410efbd13591db07496601ebc7a059dd55cfe9
 
 如何将当前分支修改回最新的提交？
 $ find .git/refs -type f
-找到远程分支最后引用
 
+找到远程分支最后引用
 $ git update-ref refs/heads/api_201803 0137888bfe0fb0a1f43110df1a88ee3e566c2e7d
 refs/heads/api_201803来自cat .git/HEAD
 0137888bfe0fb0a1f43110df1a88ee3e566c2e7d来自 cat origin对应的记录
@@ -244,3 +244,9 @@ refs/heads/api_201803来自cat .git/HEAD
 27.输出当前项目下的悬空(dangling)对象
 $ git fsck
 
+28.除了使用git push origin --delete branchname 和 git branch删除远程分支还有其他删除分支的方式没？
+还可以借助类似下面的命令通过引用规格从远程服务器上删除引用：
+$ git push origin :topic
+因为引用规格（的格式）是 <src>:<dst>，所以上述命令把 <src> 留空，意味着把远程版本库的 topic 分支定义为空值，也就是删除它。
+
+29.
