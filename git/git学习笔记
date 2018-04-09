@@ -280,6 +280,22 @@ d14fc7c847ab946ec39590d87783c69b031bdfb7
 dfa04c9ef3d5197182f13fb5b9b1fb7717d2222a
 17716ec0f1ff5c77eff40b7fe912f9f6cfd0e475
 
-33.
+33.如何查看当前git项目占用空间大小？
+$ du -sh .git
+
+或者快速查看：
+$ git count-objects -v
+count: 16
+size: 64
+in-pack: 2105
+packs: 1
+size-pack: 5969
+prune-packable: 0
+garbage: 0
+size-garbage: 0
+
+size-pack大小是KB，大概6M
+
+34.
 
 
