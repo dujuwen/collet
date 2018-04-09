@@ -210,5 +210,23 @@ $ git cat-file -p master^{tree}
 24.查看某个文件的内容
 $ git cat-file -p 1f7a7a472abf3dd9643fd615f6da379c4acb3e3a
 
-25.
+25.git引用
+https://git-scm.com/book/zh/v2/Git-%E5%86%85%E9%83%A8%E5%8E%9F%E7%90%86-Git-%E5%BC%95%E7%94%A8
 
+如何将当前分支指向之前的提交？
+$ cat .git/HEAD
+ref: refs/heads/api_201803
+
+使用git update-ref命令更新引用
+$ git update-ref refs/heads/api_201803 1a410efbd13591db07496601ebc7a059dd55cfe9
+
+指向之前的提交后会发生什么？
+会将该提交之后的所有修改在本地重新应用一次，然后添加到暂存区
+
+如何将当前分支修改回最新的提交？
+$ find .git/refs -type f
+找到远程分支最后引用
+
+$ git update-ref refs/heads/api_201803 0137888bfe0fb0a1f43110df1a88ee3e566c2e7d
+refs/heads/api_201803来自cat .git/HEAD
+0137888bfe0fb0a1f43110df1a88ee3e566c2e7d来自 cat origin对应的记录
