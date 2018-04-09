@@ -183,6 +183,20 @@ https://git-scm.com/book/zh/v2/%E8%87%AA%E5%AE%9A%E4%B9%89-Git-%E9%85%8D%E7%BD%A
 可以把 core.autocrlf 设置成 input 来告诉 Git 在提交时把回车和换行转换成换行，检出时不转换：
 $ git config --global core.autocrlf input
 
+21.git属性
+https://git-scm.com/book/zh/v2/%E8%87%AA%E5%AE%9A%E4%B9%89-Git-Git-%E5%B1%9E%E6%80%A7
 
+考虑如下场景：项目中有一个分叉的或者定制过的特性分支，你希望该分支上的更改能合并回你的主干分支，同时需要忽略其中某些文件。
+此时这个合并策略就能派上用场。 假设你有一个数据库设置文件 database.xml，在两个分支中它是不同的，而你想合并另一个分支到你的分支上，
+又不想弄乱该数据库文件。 你可以设置属性如下：
+database.xml merge=ours
+然后定义一个虚拟的合并策略，叫做 ours：
 
+$ git config --global merge.ours.driver true
+如果你合并了另一个分支，database.xml 文件不会有合并冲突，相反会显示如下信息：
 
+$ git merge topic
+Auto-merging database.xml
+Merge made by recursive.
+
+22.
