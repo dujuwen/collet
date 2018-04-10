@@ -67,4 +67,21 @@ php composer.phar show
 
 php composer.phar show monolog/monolog
 
-8.
+8.依赖性检测 depends
+depends 命令可以查出已安装在你项目中的某个包，是否正在被其它的包所依赖，并列出他们。
+
+php composer.phar depends --link-type=require monolog/monolog
+
+如果需要手动删除vendor下的包可以先进行依赖检测
+
+9.依赖包状态检测 status
+如果你经常修改依赖包里的代码，并且它们是从 source（自定义源）进行安装的，那么 status 命令允许你进行检查，如果你有任何本地的更改它将会给予提示。
+
+php composer.phar status
+你可以使用 --verbose 系列参数（-v|vv|vvv）来获取更详细的详细：
+
+php composer.phar status -v
+
+10.
+
+
