@@ -135,7 +135,21 @@ php composer.phar create-project doctrine/orm path 2.2.*
 --optimize (-o): 转换 PSR-0/4 autoloading 到 classmap 获得更快的载入速度。这特别适用于生产环境，但可能需要一些时间来运行，因此它目前不是默认设置。
 --no-dev: 禁用 autoload-dev 规则。
 
-16.
+16.列出已安装每个包的许可协议
+$ composer licenses
+Name                       Version  License
+carbondate/carbon          1.25.1   MIT
+symfony/polyfill-mbstring  v1.7.0   MIT
+symfony/translation        v4.0.8   MIT
+
+17.诊断 diagnose
+如果你觉得发现了一个 bug 或是程序行为变得怪异，你可能需要运行 diagnose 命令，来帮助你检测一些常见的问题:
+php composer.phar diagnose
+
+18.归档 archive
+此命令用来对指定包的指定版本进行 zip/tar 归档。它也可以用来归档你的整个项目，不包括 excluded/ignored（排除 / 忽略）的文件:
+php composer.phar archive vendor/package 2.0.21 --format=zip
+
 
 
 
