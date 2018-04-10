@@ -22,4 +22,11 @@ https://docs.phpcomposer.com/
 
 2.对于项目请提交你应用程序的 composer.lock （包括 composer.json）到你的版本库中
 
-3.
+3.在安装成功后优化自动加载器
+//-o, --optimize-autoloader      Optimize autoloader during autoloader dump
+https://docs.phpcomposer.com/03-cli.html
+
+composer install -h
+composer install -o
+
+4.
