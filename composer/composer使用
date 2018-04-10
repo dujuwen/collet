@@ -82,6 +82,11 @@ php composer.phar status
 
 php composer.phar status -v
 
-10.
+10.composer --prefer-dist和--prefer-source的区别
+--prefer-dist 会从 github 上下载. zip 压缩包，并缓存到本地。下次再安装就会从本地加载，大大加速安装速度。但她没有保留 .git 文件夹, 没有版本信息。
+适合基于这个 package 进行开发。
 
+--prefer-source 会从 github 上 clone 源代码，不会在本地缓存。但她保留了. git 文件夹，从而可以实现版本控制。适合用于修改源代码。
+
+11.
 
