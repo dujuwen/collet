@@ -7,6 +7,15 @@ https://packagist.org/
 最简单的方式就是：
 wget https://getcomposer.org/composer.phar | sudo mv composer.phar /usr/local/bin/composer
 
+全局安装 (on OSX via homebrew)
+Composer 是 homebrew-php 项目的一部分。
+
+brew update
+brew tap josegonzalez/homebrew-php
+brew tap homebrew/versions
+brew install php55-intl
+brew install josegonzalez/php/composer
+
 安装composer的前提条件是先安装php
 
 安装前请务必确保已经正确安装了 PHP。打开命令行窗口并执行 php -v 查看是否正确输出版本号。
