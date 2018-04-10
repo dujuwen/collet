@@ -50,4 +50,4 @@ Windows 系统：
 最后重新打开一个命令行窗口试一试执行 composer --version 看看是否正确输出版本号。
 
 最后
-提示：不要忘了经常执行 composer selfupdate 以保持 Composer 一直是最新版本哦！
+提示：不要忘了经常执行 composer self-update 以保持 Composer 一直是最新版本哦！
