@@ -93,4 +93,16 @@ php composer.phar status -v
 
 php composer.phar validate
 
-12.
+12.自我更新 self-update
+将 Composer 自身升级到最新版本，只需要运行 self-update 命令。它将替换你的 composer.phar 文件到最新版本。
+php composer.phar self-update
+
+如果你想要升级到一个特定的版本，可以这样简单的指定它：
+php composer.phar self-update 1.0.0-alpha7
+
+如果你已经为整个系统安装 Composer（参见 全局安装），你可能需要在 root 权限下运行它：
+sudo composer self-update
+
+13.
+
+
