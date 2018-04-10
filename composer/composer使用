@@ -1,6 +1,8 @@
-
-Online installer
+Online installer:
 curl -sS https://getcomposer.org/installer | php
 
 Composer Cheat Sheet for developers:
 http://composer.json.jolicode.com/
+
+Composer中文文档:
+https://docs.phpcomposer.com/
