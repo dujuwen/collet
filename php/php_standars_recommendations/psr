@@ -32,17 +32,6 @@ https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader-e
 终止类名对应一个以 .php 结尾的文件。文件名必须和终止类名大小写匹配；
 自动载入器的实现不可抛出任何异常，不可引发任何等级的错误；也不应返回值；
 
-参考：http://www.php-fig.org/psr/psr-4/
-在其中有以下的类实例，但是相对与 PSR0，却是不太容易明白
-
-首先，\Symfony\Core\Request 和 \ Zend\Acl 很好理解，其满足 PSR0 规范，但是 \ Acme\Log\Writer\File_Writer 就不太好理解了。
-四、Composer 对 PSR4 的处理
-看了 Composer 对 PSR4 的处理，才能比较容易理解 PSR4。自动生成的 PSR4 配置文件名称为 autoload_psr4.php（PSR0 的是 autoload_namespace.php），配置文件返回一个关联数组，键是名称空间的前缀，值是名称空间前缀对应的路径。
-
-以 \ Acme\Log\Writer\File_Writer 作为例子，其名称空间前缀是 \Acme\Log\Writer，则其在 autoload_psr4.php 表示为
-'\<span style="font-size:14px;">\Acme\\Log\\Writer</span>' => (array) './acme-log-writer/lib/'
-使用自动加载时，先通过名称空间的前缀，找到对应的映射路径，在根据 PSR0 规范找到对应的类定义文件。但是这里有些例外，类名中的下划线在 PSR4 中是不需要转换成目录的。
-
 使用 PSR4，我觉得有 2 个好处：
 1. 减少代码目录的深度
 2. 可以通过前缀快速找到映射目录，提高自动加载的效率
