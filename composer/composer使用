@@ -160,5 +160,6 @@ https://docs.phpcomposer.com/articles/scripts.html
 composer run-script [--dev] [--no-dev] script
 例如 composer run-script post-install-cmd 将会运行所有 post-install-cmd 事件下定义的脚本。
 
-20.
+20.composer架构
+https://docs.phpcomposer.com/04-schema.html
 
