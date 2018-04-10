@@ -150,6 +150,15 @@ php composer.phar diagnose
 此命令用来对指定包的指定版本进行 zip/tar 归档。它也可以用来归档你的整个项目，不包括 excluded/ignored（排除 / 忽略）的文件:
 php composer.phar archive vendor/package 2.0.21 --format=zip
 
+19.什么是脚本？
+https://docs.phpcomposer.com/articles/scripts.html
+一个脚本，在 Composer 中，可以是一个 PHP 回调（定义为静态方法）或任何命令行可执行的命令。
+脚本对于在 Composer 运行过程中，执行一个资源包的自定义代码或包专用命令是非常有用的。
 
+手动运行脚本
+如果你想手动运行事件脚本，可以使用下面的语法结构：
+composer run-script [--dev] [--no-dev] script
+例如 composer run-script post-install-cmd 将会运行所有 post-install-cmd 事件下定义的脚本。
 
+20.
 
