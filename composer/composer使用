@@ -88,5 +88,9 @@ php composer.phar status -v
 
 --prefer-source 会从 github 上 clone 源代码，不会在本地缓存。但她保留了. git 文件夹，从而可以实现版本控制。适合用于修改源代码。
 
-11.
+11.有效性检测 validate
+在提交 composer.json 文件和创建 tag 前，你应该始终运行 validate 命令。它将检测你的 composer.json 文件是否是有效的
 
+php composer.phar validate
+
+12.
