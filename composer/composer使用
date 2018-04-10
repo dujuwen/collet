@@ -49,4 +49,22 @@ php composer.phar require
 不希望通过交互来指定依赖包，你可以在这条令中直接指明依赖包:
 php composer.phar require vendor/package:2.* vendor/package2:dev-master
 
-6.
+6.全局执行 global
+global 命令允许你在 COMPOSER_HOME 目录下执行其它命令，像 install、require 或 update。
+
+并且如果你将 $COMPOSER_HOME/vendor/bin 加入到了 $PATH 环境变量中，你就可以用它在命令行中安装全局应用，下面是一个例子：
+
+php composer.phar global require fabpot/php-cs-fixer:dev-master
+现在 php-cs-fixer 就可以在全局范围使用了（假设你已经设置了你的 PATH）。如果稍后你想更新它，你只需要运行 global update：
+
+php composer.phar global update
+
+7.展示 show
+列出所有可用的软件包，你可以使用 show 命令。
+
+php composer.phar show
+如果你想看到一个包的详细信息，你可以输入一个包名称。
+
+php composer.phar show monolog/monolog
+
+8.
