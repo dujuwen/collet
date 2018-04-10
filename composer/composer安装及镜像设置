@@ -9,16 +9,15 @@ https://packagist.org/
 安装前请务必确保已经正确安装了 PHP。打开命令行窗口并执行 php -v 查看是否正确输出版本号。
 打开命令行并依次执行下列命令安装最新版本的 Composer：
 
-复制
+
 php -r "copy('https://install.phpcomposer.com/installer', 'composer-setup.php');"
-复制
+
 php composer-setup.php
-复制
+
 php -r "unlink('composer-setup.php');"
 执行第一条命令下载下来的 composer-setup.php 脚本将简单地检测 php.ini 中的参数设置，如果某些参数未正确设置则会给出警告；然后下载最新版本的 composer.phar 文件到当前目录。
 
 上述 3 条命令的作用依次是：
-
 下载安装脚本 － composer-setup.php － 到当前目录。
 执行安装过程。
 删除安装脚本。
