@@ -304,5 +304,5 @@ https://git-scm.com/docs/git-archive
 git archive --format=zip HEAD:Documentation/ > git-1.4.0-docs.zip
 git archive -o latest.zip HEAD
 
-36.
-
+36.在所有js文件中查找$.post忽略大小写并显示行数
+git grep -ni -C1 '$.post' -- '*.js'
