@@ -163,3 +163,6 @@ composer run-script [--dev] [--no-dev] script
 20.composer架构
 https://docs.phpcomposer.com/04-schema.html
 
+21.资源库
+https://docs.phpcomposer.com/05-repositories.html
+如果从其他人fork过来的项目有问题或不如意的地方可以自己修改然后提交到git仓库中，此时可以在自己的项目中使用自定义的库
