@@ -1,0 +1,18 @@
+function profile()
+{
+    static $i;
+    $i++;
+    echo "==$i\n";
+}
+
+// Set up a tick handler
+register_tick_function("profile");
+
+// Run a block of code, throw a tick every 2nd statement
+declare(ticks=1) {
+    for ($x = 0; $x < 10; $x++) {
+        echo $x . PHP_EOL;
+    }
+}
+
+echo("ss");
