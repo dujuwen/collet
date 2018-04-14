@@ -1,0 +1,68 @@
+// array_merge后面字符串key会覆盖前面的，数字key依次叠加。+前面的保留不变，后面多余的补上
+$a1 = [
+    'str1' => 'sjsjshhshsh',
+    'ar' => [1,2,3],
+    '9' => true,
+    11 => 19,
+    'oo' => null,
+];
+$a2 = [
+    'str1' => 'sjsjshhshsh_new',
+    'ar' => [1,2,3,4],
+    '9' => false,
+    11 => 19,
+    'oo' => 'o0',
+    '12' => 888,
+];
+
+var_dump(array_merge($a1, $a2));
+array(8) {
+  ["str1"]=>
+  string(15) "sjsjshhshsh_new"
+  ["ar"]=>
+  array(4) {
+    [0]=>
+    int(1)
+    [1]=>
+    int(2)
+    [2]=>
+    int(3)
+    [3]=>
+    int(4)
+  }
+  [0]=>
+  bool(true)
+  [1]=>
+  int(19)
+  ["oo"]=>
+  string(2) "o0"
+  [2]=>
+  bool(false)
+  [3]=>
+  int(19)
+  [4]=>
+  int(888)
+}
+
+var_dump($a1+$a2);
+array(6) {
+  ["str1"]=>
+  string(11) "sjsjshhshsh"
+  ["ar"]=>
+  array(3) {
+    [0]=>
+    int(1)
+    [1]=>
+    int(2)
+    [2]=>
+    int(3)
+  }
+  [9]=>
+  bool(true)
+  [11]=>
+  int(19)
+  ["oo"]=>
+  NULL
+  [12]=>
+  int(888)
+}
