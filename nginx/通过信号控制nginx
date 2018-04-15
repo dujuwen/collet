@@ -1,0 +1,17 @@
+http://nginx.org/en/docs/control.html
+
+nginx can be controlled with signals. 
+The process ID of the master process is written to the file /usr/local/nginx/logs/nginx.pid by default.
+This name may be changed at configuration time, or in nginx.conf using the pid directive. 
+The master process supports the following signals:
+
+TERM, INT	fast shutdown
+QUIT	graceful shutdown
+HUP	changing configuration, keeping up with a changed time zone (only for FreeBSD and Linux),
+    starting new worker processes with a new configuration, graceful shutdown of old worker processes
+USR1	re-opening log files
+USR2	upgrading an executable file
+WINCH	graceful shutdown of worker processes
+
+例如：
+kill -HUP nginx_master_pid 可以优雅的读取配置后重启子进程
