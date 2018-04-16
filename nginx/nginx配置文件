@@ -37,6 +37,24 @@ server {
         index test.html;
     }
 }
+现在访问图片需要输入http://loc.nginx.t/images/zan.png
+
+在上面的基础上扩展:
+server {
+    server_name loc.nginx.t;
+    root /Users/dujunwen/Desktop/test/data;
+
+    location / {
+        index test.html;
+    }
+
+    location ~ \.(gif|jpg|png)$ {
+        root /Users/dujunwen/Desktop/test/data/images;
+    }
+}
+现在访问图片只需要输入http://loc.nginx.t/zan.png
+
+root指令后面指定的路径如果是以/开头那么就是从根目录下查找，如果不以/根开头就是相对默认路径下的 不是相对在此server中root开始的!!
 
 If there are several matching location blocks nginx selects the one with the longest prefix.
 nginx在多个location都匹配的时候选择的是最长路径匹配location
