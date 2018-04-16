@@ -75,4 +75,13 @@ Default:	server_names_hash_max_size 512;
 Context:	http
 Sets the maximum size of the server names hash tables. 
 
-4.
+4.nginx debug log
+http://nginx.org/en/docs/debugging_log.html
+http://www.360doc.com/content/12/1114/11/1073512_247759364.shtml
+
+默认情况下nginx是没有开启debug模式的，先验证nginx -V是否有with-debug，如果没有那么进行增量编译
+nginx配置是支持增量编译的，在之前编译基础上增加--with-debug，编译安装好之后用error_log指令设置debug模式
+
+5.
+
+
