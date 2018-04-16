@@ -12,3 +12,24 @@ Directives placed in the configuration file outside of any contexts are consider
 The events and http directives reside in the main context, server in http, and location in server.
 The rest of a line after the # sign is considered a comment.
 
+2.获取静态资源配置
+server {
+    listen 80;
+    server_name loc.nginx.t;
+
+    location / {
+        root  /Users/dujunwen/Desktop/test/data;
+        index test.html;
+    }
+
+    location /images/ {
+        root  /Users/dujunwen/Desktop/test/data;
+    }
+}
+
+If there are several matching location blocks nginx selects the one with the longest prefix.
+nginx在多个location都匹配的时候选择的是最长路径匹配location
+
+在将目录权限改大后还是出现403的话可以修改 user 用户 用户组，用户和组跟 location root下目录对应的用户和组一致即可
+
+3.
