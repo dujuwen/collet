@@ -63,4 +63,16 @@ nginx在多个location都匹配的时候选择的是最长路径匹配location
 
 在将目录权限改大后还是出现403的话可以修改 user 用户 用户组，用户和组跟 location root下目录对应的用户和组一致即可
 
-3.
+3.为了加快处理静态配置nginx使用哈希表来存储这些配置
+http://nginx.org/en/docs/hash.html
+
+在需要的时候首先考虑的是加大server_names_hash_max_size的值
+那么什么时候是需要的时候呢?
+可以简单的使用nginx -T | wc -l来统计 如果值大于512就可以适当的加大server_names_hash_max_size值
+
+Syntax:	server_names_hash_max_size size;
+Default:	server_names_hash_max_size 512;
+Context:	http
+Sets the maximum size of the server names hash tables. 
+
+4.
