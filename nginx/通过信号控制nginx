@@ -1,3 +1,4 @@
+1.通过kill发送信号
 http://nginx.org/en/docs/control.html
 
 nginx can be controlled with signals. 
@@ -15,3 +16,17 @@ WINCH	graceful shutdown of worker processes
 
 例如：
 kill -HUP nginx_master_pid 可以优雅的读取配置后重启子进程
+
+2.通过nginx -s发送信号
+http://nginx.org/en/docs/beginners_guide.html
+
+Starting, Stopping, and Reloading Configuration
+To start nginx, run the executable file. Once nginx is started, it can be controlled by invoking the executable with the -s parameter. 
+Use the following syntax:
+nginx -s signal
+Where signal may be one of the following:
+
+stop — fast shutdown
+quit — graceful shutdown
+reload — reloading the configuration file
+reopen — reopening the log files
