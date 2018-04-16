@@ -27,6 +27,17 @@ server {
     }
 }
 
+上面配置可以简写为:
+server {
+    # 默认监听的就是80端口
+    server_name loc.nginx.t;
+    root /Users/dujunwen/Desktop/test/data;
+
+    location / {
+        index test.html;
+    }
+}
+
 If there are several matching location blocks nginx selects the one with the longest prefix.
 nginx在多个location都匹配的时候选择的是最长路径匹配location
 
