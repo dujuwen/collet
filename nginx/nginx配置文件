@@ -82,6 +82,10 @@ http://www.360doc.com/content/12/1114/11/1073512_247759364.shtml
 默认情况下nginx是没有开启debug模式的，先验证nginx -V是否有with-debug，如果没有那么进行增量编译
 nginx配置是支持增量编译的，在之前编译基础上增加--with-debug，编译安装好之后用error_log指令设置debug模式
 
-5.
+5.将nginx日志通过syslog记录到指定的服务器上
+http://nginx.org/en/docs/syslog.html
+http://oopsguy.com/2017/07/23/nginx-document-logging-to-syslog/
+
+6.
 
 
