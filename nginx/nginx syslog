@@ -45,3 +45,6 @@ See http://www.rsyslog.com for more information.
 
 在shell中还可以使用logger来记录日志到syslog
 
+
+通过 Rsyslog 配置日志接收端的时候，如示例 @10.x.x.x:514，用于指定接收日志的服务器的协议、IP 地址和端口号。
+使用 @代表走 UDP 协议，使用 @@代表走 TCP 协议，冒号后面的 514 代表接收端口。
