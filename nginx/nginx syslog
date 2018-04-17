@@ -11,7 +11,7 @@ error_log syslog:server=172.16.20.28;
 vim /etc/rsyslog.conf
 
 $template IpTemplate,"/var/log/%FROMHOST-IP%.log" 
-*.*  ?IpTemplate 
+*.*  ?IpTemplate # ? 代表使用动态的模板
 & ~ 
 
 如果你想要的话，也可以使用下面的模式对特定的设备或严重性级别使用新的模板直接来记录日志消息。
