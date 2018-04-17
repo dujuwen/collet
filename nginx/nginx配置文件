@@ -86,6 +86,20 @@ nginx配置是支持增量编译的，在之前编译基础上增加--with-debug
 http://nginx.org/en/docs/syslog.html
 http://oopsguy.com/2017/07/23/nginx-document-logging-to-syslog/
 
-6.
+6.nginx配置单位
+http://nginx.org/en/docs/syntax.html
 
+Sizes can be specified in bytes, kilobytes (suffixes k and K) or megabytes (suffixes m and M), for example, “1024”, “8k”, “1m”.
+Offsets may be also specified in gigabytes using g or G suffixes.
+Time intervals can be specified in milliseconds, seconds, minutes, hours, days and so on, using the following suffixes:
 
+ms	milliseconds
+s	seconds
+m	minutes
+h	hours
+d	days
+w	weeks
+M	months, 30 days
+y	years, 365 days
+
+7.
