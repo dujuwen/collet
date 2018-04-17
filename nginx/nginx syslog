@@ -1,5 +1,6 @@
 https://linux.cn/article-5023-1.html
 http://nginx.org/en/docs/syslog.html
+http://xmodulo.com/configure-syslog-server-linux.html
 
 将日志通过网络记录到集中的日志服务器
 本地nginx配置:
