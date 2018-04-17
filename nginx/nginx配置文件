@@ -134,4 +134,31 @@ server {
     }
 }
 
-8.
+8.nginx同时监听多个端口
+http://nginx.org/en/docs/http/server_names.html
+server {
+    listen       80;
+    listen       8080  default_server;
+    server_name  example.net;
+    ...
+}
+
+server {
+    listen       80  default_server;
+    listen       8080;
+    server_name  example.org;
+    ...
+}
+
+server {
+    listen       80;
+    server_name  example.org
+                 www.example.org
+                 ""
+                 192.168.1.1
+                 ;
+    ...
+}
+
+9.
+
