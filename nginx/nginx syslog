@@ -42,3 +42,6 @@ rsyslogd 7.4.7, compiled with:
 	uuid support:				Yes
 
 See http://www.rsyslog.com for more information.
+
+在shell中还可以使用logger来记录日志到syslog
+
