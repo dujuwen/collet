@@ -57,6 +57,13 @@ server {
 root指令后面指定的路径如果是以/开头那么就是从根目录下查找，如果不以/根开头就是相对默认路径(nginx prefix)下的
 如何获取nginx prefix?
 $ nginx -V
+sudo nginx -V
+Password:
+nginx version: nginx/1.13.12
+built by clang 9.0.0 (clang-900.0.39.2)
+built with OpenSSL 1.1.0e  16 Feb 2017
+TLS SNI support enabled
+configure arguments: --prefix=/usr/local/Cellar/nginx/1.10.3 --with-http_ssl_module --with-pcre ...
 
 If there are several matching location blocks nginx selects the one with the longest prefix.
 nginx在多个location都匹配的时候选择的是最长路径匹配location
