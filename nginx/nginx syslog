@@ -28,3 +28,17 @@ In rsyslog, syslog configuration is structured based on the following schema.
 [facility-level].[severity-level]  [destination]
 
 destination可以是某个文件如/var/log/messages 也可是某个变量如 ?IpTemplate
+
+查看rsyslog版本信息:
+$ rsyslogd -v
+rsyslogd 7.4.7, compiled with:
+	FEATURE_REGEXP:				Yes
+	FEATURE_LARGEFILE:			No
+	GSSAPI Kerberos 5 support:		Yes
+	FEATURE_DEBUG (debug build, slow code):	No
+	32bit Atomic operations supported:	Yes
+	64bit Atomic operations supported:	Yes
+	Runtime Instrumentation (slow code):	No
+	uuid support:				Yes
+
+See http://www.rsyslog.com for more information.
