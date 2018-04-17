@@ -15,3 +15,6 @@ $template IpTemplate,"/var/log/%FROMHOST-IP%.log"
 
 centos7重启服务:
 sudo systemctl restart rsyslog
+
+ps aux | grep -i rsyslogd
+/usr/sbin/rsyslogd -n
