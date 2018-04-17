@@ -163,5 +163,10 @@ server {
 A special wildcard name in the form “.example.org” can be used to match both the exact name 
 “example.org” and the wildcard name “*.example.org”.
 
-9.
+9.优化server name和listen配置
+http://nginx.org/en/docs/http/server_names.html
+
+If a server is the only server for a listen port, then nginx will not test server names at all 
+(and will not build the hash tables for the listen port).
+
 
