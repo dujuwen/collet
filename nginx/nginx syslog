@@ -22,3 +22,9 @@ sudo systemctl restart rsyslog
 
 ps aux | grep -i rsyslogd
 /usr/sbin/rsyslogd -n
+
+
+In rsyslog, syslog configuration is structured based on the following schema.
+[facility-level].[severity-level]  [destination]
+
+destination可以是某个文件如/var/log/messages 也可是某个变量如 ?IpTemplate
