@@ -14,6 +14,9 @@ $template IpTemplate,"/var/log/%FROMHOST-IP%.log"
 *.*  ?IpTemplate 
 & ~ 
 
+如果你想要的话，也可以使用下面的模式对特定的设备或严重性级别使用新的模板直接来记录日志消息。
+[facility-level].[severity-level]    ?RemoteLogs
+
 centos7重启服务:
 sudo systemctl restart rsyslog
 
