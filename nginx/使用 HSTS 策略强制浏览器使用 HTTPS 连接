@@ -1,0 +1,11 @@
+HSTS – HTTP Strict Transport Security，HTTP 严格传输安全。它允许一个 HTTPS 网站要求浏览器总是通过 HTTPS 来访问，
+这使得攻击者在用戶与服务器通讯过程中拦截、篡改信息以及冒充身份变得更为困难。
+
+只要在 Nginx 配置文件加上以下头信息就可以了：
+add_header Strict-Transport-Security "max-age=31536000; includeSubDomains;preload" always;
+
+max-age：设置单位时间内強制使用 HTTPS 连接
+includeSubDomains：可选，所有子域同时生效
+preload：可选，非规范值，用于定义使用『HSTS 预加载列表』
+always：可选，保证所有响应都发送此响应头，包括各种內置错误响应
+当用户进行 HTTPS 连接的时候，服务器会发送一个 Strict-Transport-Security 响应
