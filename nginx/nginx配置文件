@@ -170,6 +170,8 @@ If a server is the only server for a listen port, then nginx will not test serve
 (and will not build the hash tables for the listen port).
 
 10.nginx负载均衡
+http://nginx.org/en/docs/http/load_balancing.html
+
 nginx支持的负载均衡方法(3种):
 round-robin — requests to the application servers are distributed in a round-robin fashion,
 least-connected — next request is assigned to the server with the least number of active connections,
@@ -193,5 +195,14 @@ http {
 }
 
 To configure load balancing for HTTPS instead of HTTP, just use “https” as the protocol.
+
+如果想让一些服务器获取更多的请求可以设置权重:
+ upstream myapp1 {
+    server srv1.example.com weight=3;
+    server srv2.example.com;
+    server srv3.example.com;
+}
+现在有5个请求过来,3个会到srv1,剩下的两台机器各分配到1个
+
 
 11.
