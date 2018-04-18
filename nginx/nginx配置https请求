@@ -37,3 +37,29 @@ http {
         #防XSS攻擊
         add_header X-Xss-Protection 1;
         
+在 Nginx 下配置 HTTPS 的关键要点：
+
+获得 SSL 证书
+  通过 OpenSSL 命令获得 example.key 和 example.csr 文件
+  提供 example.csr 文件给第三方可靠证书颁发机构，选择适合的安全级别证书并签署，获得 example.crt 文件
+通过 listen 命令 SSL 参数以及引用 example.key 和 example.crt 文件完成 HTTPS 基础配置
+
+HTTPS 优化
+  减少 CPU 运算量
+    使用 keepalive 长连接
+    复用 SSL 会话参数
+  使用 HSTS 策略强制浏览器使用 HTTPS 连接
+    添加 Strict-Transport-Security 头部信息
+    使用 HSTS 预加载列表（HSTS Preload List）
+  加强 HTTPS 安全性
+    使用迪菲 - 赫尔曼密钥交换（D-H，Diffie–Hellman key exchange）方案
+    添加 X-Frame-Options 头部信息，减少点击劫持
+    添加 X-Content-Type-Options 头部信息，禁止服务器自动解析资源类型
+    添加 X-Xss-Protection 头部信息，防 XSS 攻击
+    
+HTTP/HTTPS 混合服务器配置
+
+基于服务器名称（name-based）的 HTTPS 服务器
+  为每个 HTTPS 服务器分配独立的 IP 地址
+  泛域证书
+  域名标识（SNI）
