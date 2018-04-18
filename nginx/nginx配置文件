@@ -136,6 +136,16 @@ server {
 
 8.nginx同时监听多个端口
 http://nginx.org/en/docs/http/server_names.html
+
+If it is required to process requests without the “Host” header field in a server block which is not the default, 
+an empty name should be specified:
+server {
+    listen       80;
+    server_name  example.org  www.example.org  ""; # ""用于处理没有header中没有host头的请求
+    ...
+}
+
+简单配置例子:
 server {
     listen       80;
     listen       8080  default_server;
@@ -247,3 +257,12 @@ server {
     }
     #[...]
 }
+
+In catch-all server examples the strange name “_” can be seen:
+server {
+    listen       80  default_server;
+    server_name  _;
+    return       444;
+}
+There is nothing special about this name, it is just one of a myriad of invalid domain names which never intersect with any real name.
+Other invalid names like “--” and “!@#” may equally be used.
