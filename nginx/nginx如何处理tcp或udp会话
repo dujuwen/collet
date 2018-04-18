@@ -10,6 +10,16 @@ http://nginx.org/en/docs/stream/stream_processing.html
 3.Access
 实际数据处理前的客户端访问限制。该 ngx_stream_access_module 模块在这个阶段被调用。
 
+在这个阶段可以做ip限制，除了可以在nginx配置中限制ip访问之外在外部linux系统还可以使用iptables来限制ip访问
+server {
+    ...
+    deny  192.168.1.1;
+    allow 192.168.1.0/24;
+    allow 10.1.1.0/16;
+    allow 2001:0db8::/32; #ipv6
+    deny  all;
+}
+
 4.SSL
 TLS / SSL 终止。该 ngx_stream_ssl_module 模块在这个阶段被调用。
 
