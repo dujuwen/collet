@@ -261,7 +261,7 @@ server {
 In catch-all server examples the strange name “_” can be seen:
 server {
     listen       80  default_server;
-    server_name  _;
+    server_name  _; # 如果监听的端口80只有一个这样的配置，server_name是什么都不重要了，只有它没得选择
     return       444;
 }
 There is nothing special about this name, it is just one of a myriad of invalid domain names which never intersect with any real name.
