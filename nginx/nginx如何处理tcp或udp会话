@@ -23,6 +23,33 @@ server {
 4.SSL
 TLS / SSL 终止。该 ngx_stream_ssl_module 模块在这个阶段被调用。
 
+This module is not built by default, it should be enabled with the --with-stream_ssl_module configuration parameter.
+
+To reduce the processor load, it is recommended to:
+set the number of worker processes equal to the number of processors,
+enable the shared session cache,
+disable the built-in session cache,
+and possibly increase the session lifetime (by default, 5 minutes):
+
+worker_processes auto;
+
+stream {
+
+    ...
+
+    server {
+        listen              12345 ssl;
+
+        ssl_protocols       TLSv1 TLSv1.1 TLSv1.2;
+        ssl_ciphers         AES128-SHA:AES256-SHA:RC4-SHA:DES-CBC3-SHA:RC4-MD5;
+        ssl_certificate     /usr/local/nginx/conf/cert.pem;
+        ssl_certificate_key /usr/local/nginx/conf/cert.key;
+        ssl_session_cache   shared:SSL:10m;
+        ssl_session_timeout 10m;
+
+        ...
+    }
+
 5.Preread
 将数据的初始字节读入 预读缓冲区， 以允许诸如 ngx_stream_ssl_preread_module 之类的模块在处理之前分析数据。
 
