@@ -1,0 +1,23 @@
+
+http://nginx.org/en/docs/stream/stream_processing.html
+
+Post-accept
+接受客户端连接后的第一阶段。该 ngx_stream_realip_module 模块在这个阶段被调用。
+
+Pre-access
+初步检查访问。该 ngx_stream_limit_conn_module 模块在这个阶段被调用。
+
+Access
+实际数据处理前的客户端访问限制。该 ngx_stream_access_module 模块在这个阶段被调用。
+
+SSL
+TLS / SSL 终止。该 ngx_stream_ssl_module 模块在这个阶段被调用。
+
+Preread
+将数据的初始字节读入 预读缓冲区， 以允许诸如 ngx_stream_ssl_preread_module 之类的模块在处理之前分析数据。
+
+Content
+实际处理数据的强制阶段，通常 代理 到 上游 服务器，或指定的值 返回 给客户端。
+
+Log
+记录客户端会话处理结果的最后阶段。该 ngx_stream_log_module 模块在这个阶段被调用。
