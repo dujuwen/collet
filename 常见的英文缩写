@@ -1,2 +1,5 @@
 1.MIME = Multipurpose Internet Mail Extensions，多用途互联网邮件扩展
 2.RFC = Request For Comments，征求意见稿
+3.SNI = Server Name Indication，服务器名称指示
+4.SSl = Secure Socket Layer，安全套接字层
+5.TLS = Transport Layer Security，传输层安全
