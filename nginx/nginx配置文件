@@ -244,7 +244,7 @@ http {
 访问相应的server的话可以这样配置:
 server {
     listen 9001;
-    server_name _; #代表所有无效的host
+    server_name _; #表示所有请求端口是9001但是server_name跟其他server下配置的server_name都不匹配的情况
     return 404;
 }
 
