@@ -169,4 +169,29 @@ http://nginx.org/en/docs/http/server_names.html
 If a server is the only server for a listen port, then nginx will not test server names at all 
 (and will not build the hash tables for the listen port).
 
+10.nginx负载均衡
+nginx支持的负载均衡方法(3种):
+round-robin — requests to the application servers are distributed in a round-robin fashion,
+least-connected — next request is assigned to the server with the least number of active connections,
+ip-hash — a hash-function is used to determine what server should be selected for the next request (based on the client’s IP address).
 
+http {
+    upstream myapp1 {
+        [round-robin|least-connected|ip-hash]
+        server srv1.example.com;
+        server srv2.example.com;
+        server srv3.example.com;
+    }
+
+    server {
+        listen 80;
+
+        location / {
+            proxy_pass http://myapp1;
+        }
+    }
+}
+
+To configure load balancing for HTTPS instead of HTTP, just use “https” as the protocol.
+
+11.
