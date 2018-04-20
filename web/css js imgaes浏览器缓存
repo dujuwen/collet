@@ -1,14 +1,16 @@
 https://varvy.com/pagespeed/cache-control.html
 http://imweb.io/topic/5795dcb6fb312541492eda8c
 
-
 Cache-Control: max-age=2592000, public
+
+可以现在server下定义公共的root，如果没有定义公共的root则需要在各自的location下定义root
 
 location ~* \.(jpg|jpeg|png|gif|ico|css|js)$ {
     expires 365d;
 }
 
 location ~* \.(jpg|jpeg|png|gif|ico|css|js)$ {
+    root /path/to/files; # 替换成实际路径
     expires 10d;
     add_header Cache-Control "max-age=864000, public";
 }
