@@ -60,3 +60,7 @@ https://chrome.google.com/webstore/detail/the-great-suspender/klbibkeccnjlkjkiok
 15. 接口测试：Restlet Client - REST API Testing
 
 https://chrome.google.com/webstore/detail/restlet-client-rest-api-t/aejoelaoggembcahagimdiliamlcdmfm?hl=en-US
+
+16. 图片提取
+
+https://chrome.google.com/webstore/detail/imageassistant-image-batc/dbjbempljhcmhlfpfacalomonjpalpko
