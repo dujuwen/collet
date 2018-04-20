@@ -1,0 +1,7 @@
+https://varvy.com/pagespeed/cache-control.html
+
+Cache-Control: max-age=2592000, public
+
+location ~* \.(jpg|jpeg|png|gif|ico|css|js)$ {
+    expires 365d;
+}
