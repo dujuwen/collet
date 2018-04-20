@@ -1,7 +1,12 @@
 https://varvy.com/pagespeed/cache-control.html
+http://imweb.io/topic/5795dcb6fb312541492eda8c
+
 
 Cache-Control: max-age=2592000, public
 
 location ~* \.(jpg|jpeg|png|gif|ico|css|js)$ {
     expires 365d;
 }
+
+http1.1 新增了 Cache-Control 来定义缓存过期时间。注意：若报文中同时出现了 Expires 和 Cache-Control，则以 Cache-Control 为准。
+也就是说优先级从高到低分别是 Pragma -> Cache-Control -> Expires
