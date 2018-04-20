@@ -8,5 +8,10 @@ location ~* \.(jpg|jpeg|png|gif|ico|css|js)$ {
     expires 365d;
 }
 
+location ~* \.(jpg|jpeg|png|gif|ico|css|js)$ {
+    expires 10d;
+    add_header Cache-Control "max-age=864000, public"
+}
+
 http1.1 新增了 Cache-Control 来定义缓存过期时间。注意：若报文中同时出现了 Expires 和 Cache-Control，则以 Cache-Control 为准。
 也就是说优先级从高到低分别是 Pragma -> Cache-Control -> Expires
