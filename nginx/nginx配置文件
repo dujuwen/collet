@@ -134,6 +134,10 @@ server {
     }
 }
 
+~是大小写敏感匹配，~*是大小写不敏感匹配
+matching of a variable against a regular expression using the “~” (for case-sensitive matching) and
+“~*” (for case-insensitive matching) operators.
+
 8.nginx同时监听多个端口
 http://nginx.org/en/docs/http/server_names.html
 
