@@ -348,4 +348,13 @@ Syntax:	large_client_header_buffers number size;
 Default:	large_client_header_buffers 4 8k;
 Context:	http, server
 
-17.
+17. 静态文件缓存
+http://nginx.org/en/docs/http/ngx_http_core_module.html#open_file_cache
+
+open_file_cache          max=1000 inactive=20s;
+open_file_cache_valid    30s;
+open_file_cache_min_uses 2;
+open_file_cache_errors   on;
+
+18.
+
