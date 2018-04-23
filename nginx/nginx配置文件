@@ -377,5 +377,5 @@ echo "ttlsa:$(openssl passwd -crypt 123456)\n" >> ./htpasswd
 19. JSON WEB TOKEN
 https://blog.csdn.net/liuwenbiao1203/article/details/52351772
 http://nginx.org/en/docs/http/ngx_http_auth_jwt_module.html
-
+https://blog.csdn.net/weiker12/article/details/68950279
 
