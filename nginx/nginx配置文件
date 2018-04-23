@@ -277,3 +277,23 @@ Other invalid names like “--” and “!@#” may equally be used.
 13. 检查一个目录的权限
 namei -om /path/to/check
 
+14. http map
+map $http_host $name {
+    hostnames;
+
+    default       0;
+
+    example.com   1;
+    *.example.com 1;
+    example.org   2;
+    *.example.org 2;
+    .example.net  3;
+    wap.*         4;
+}
+
+map $http_user_agent $mobile {
+    default       0;
+    "~Opera Mini" 1;
+}
+
+15.
