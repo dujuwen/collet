@@ -356,5 +356,22 @@ open_file_cache_valid    30s;
 open_file_cache_min_uses 2;
 open_file_cache_errors   on;
 
-18.
+18. nginx配置基础用户密码认证
+http://nginx.org/en/docs/http/ngx_http_auth_basic_module.html
 
+location / {
+    auth_basic "need auth";
+    auth_basic_user_file /usr/local/etc/nginx/in_conf/htpasswd;
+    index index.html;
+}
+
+用户名密码格式
+# comment
+name1:password1
+name2:password2:comment
+name3:password3
+
+注意保存用户名和密码的文件中密码应该加密
+echo "ttlsa:$(openssl passwd -crypt 123456)\n" >> ./htpasswd
+
+19.
