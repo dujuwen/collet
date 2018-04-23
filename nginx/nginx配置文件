@@ -374,4 +374,8 @@ name3:password3
 注意保存用户名和密码的文件中密码应该加密
 echo "ttlsa:$(openssl passwd -crypt 123456)\n" >> ./htpasswd
 
-19.
+19. JSON WEB TOKEN
+https://blog.csdn.net/liuwenbiao1203/article/details/52351772
+http://nginx.org/en/docs/http/ngx_http_auth_jwt_module.html
+
+
