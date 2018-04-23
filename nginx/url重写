@@ -10,3 +10,10 @@ server {
 
 通return进行301永久重定向
 
+rewrite 和 location 功能有点像，都能实现跳转，主要区别在于 rewrite 是在同一域名内更改获取资源的路径，
+而 location 是对一类路径做控制访问或反向代理，可以 proxy_pass 到其他机器。很多情况下 rewrite 也会写在 location 里，它们的执行顺序是：
+
+执行 server 块的 rewrite 指令
+执行 location 匹配
+执行选定的 location 中的 rewrite 指令
+如果其中某步 URI 被重写，则重新循环执行 1-3，直到找到真实存在的文件；循环超过 10 次，则返回 500 Internal Server Error 错误。
