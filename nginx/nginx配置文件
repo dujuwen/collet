@@ -273,3 +273,7 @@ server {
 }
 There is nothing special about this name, it is just one of a myriad of invalid domain names which never intersect with any real name.
 Other invalid names like “--” and “!@#” may equally be used.
+
+13. 检查一个目录的权限
+namei -om /path/to/check
+
