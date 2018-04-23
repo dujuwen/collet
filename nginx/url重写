@@ -12,6 +12,7 @@ server {
 
 
 http://blog.51cto.com/dengxi/1842099
+http://blog.51cto.com/unixman/1711943
 
 rewrite 和 location 功能有点像，都能实现跳转，主要区别在于 rewrite 是在同一域名内更改获取资源的路径，
 而 location 是对一类路径做控制访问或反向代理，可以 proxy_pass 到其他机器。很多情况下 rewrite 也会写在 location 里，它们的执行顺序是：
