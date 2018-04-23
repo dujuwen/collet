@@ -324,4 +324,9 @@ http {
         }
     }
     
-15.
+15.可以启用sendfile on来加快数据输出(小文件)
+Syntax:	sendfile on | off;
+Default:	sendfile off;
+Context:	http, server, location, if in location
+
+16.
