@@ -403,6 +403,7 @@ http://nginx.org/en/docs/http/ngx_http_core_module.html#server_tokens
 
 21. 优化网络传输bits和packet
 http {
+    sendfile on;
     tcp_nodelay on;
     tcp_nopush on;
 }
