@@ -423,5 +423,16 @@ but instead used for request redirection. They cannot be nested, and cannot cont
 
 location @name是用于定义重定向请求location
 
-23.
+23.自定义域名解析
+Syntax:	resolver address ... [valid=time] [ipv6=on|off];
+Default:	—
+Context:	http, server, location
+
+server {
+   resolver 182.254.116.116 114.114.115.115 valid=3600s ipv6=off;
+    resolver_timeout 5s;
+}
+
+24.
+
 
