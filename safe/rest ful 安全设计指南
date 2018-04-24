@@ -1,0 +1,78 @@
+https://www.kancloud.cn/kancloud/rest-api-design-safety/78110
+https://zhuanlan.zhihu.com/p/20034107
+
+RFC 一致性
+
+1.Methods
+HTTP 协议提供了很多 methods 来操作数据：
+GET: 获取某个资源，GET 操作应该是幂等（idempotence）的，且无副作用。
+POST: 创建一个新的资源。
+PUT: 替换某个已有的资源。PUT 操作虽然有副作用，但其应该是幂等的。
+PATCH（RFC5789）: 修改某个已有的资源。
+DELETE：删除某个资源。DELETE 操作有副作用，但也是幂等的。
+
+2.Headers
+很多 REST API 犯的比较大的一个问题是：不怎么理会 request headers。对于 REST API，有一些 HTTP headers 很重要：
+Accept：服务器需要返回什么样的 content。如果客户端要求返回 "application/xml"，服务器端只能返回 "application/json"，
+那么最好返回 status code 406 not acceptable（RFC2616），当然，返回 application/json 也并不违背 RFC 的定义。
+一个合格的 REST API 需要根据 Accept 头来灵活返回合适的数据。
+
+If-Modified-Since/If-None-Match：如果客户端提供某个条件，那么当这条件满足时，才返回数据，否则返回 304 not modified。
+比如客户端已经缓存了某个数据，它只是想看看有没有新的数据时，会用这两个 header 之一，服务器如果不理不睬，依旧做足全套功课，
+返回 200 ok，那就既不专业，也不高效了。
+
+If-Match：在对某个资源做 PUT/PATCH/DELETE 操作时，服务器应该要求客户端提供 If-Match 头，只有客户端提供的 Etag 与服务器对应资源的 Etag 一致，
+才进行操作，否则返回 412 precondition failed。这个头非常重要，下文详解。
+
+3.Status Code
+
+很多 REST API 犯下的另一个错误是：返回数据时不遵循 RFC 定义的 status code，而是一律 200 ok + error message。
+这么做在 client + API 都是同一公司所为还凑合可用，但一旦把 API 暴露给第三方，不但贻笑大方，还会留下诸多互操作上的隐患。
+
+4.安全性
+安全并单单不意味着加密解密，而是一致性（integrity），机密性（confidentiality）和可用性（availibility）。
+
+5.请求数据验证
+
+我们从数据流入 REST API 的第一步 —— 请求数据的验证 —— 来保证安全性。你可以把请求数据验证看成一个巨大的漏斗，把不必要的访问统统过滤在第一线：
+Request headers 是否合法：如果出现了某些不该有的头，或者某些必须包含的头没有出现或者内容不合法，根据其错误类型一律返回 4xx。
+比如说你的 API 需要某个特殊的私有头（e.g. X-Request-ID），那么凡是没有这个头的请求一律拒绝。这可以防止各类漫无目的的 webot 或 crawler 的请求，
+节省服务器的开销。
+
+Request URI 和 Request body 是否合法：如果请求带有了不该有的数据，或者某些必须包含的数据没有出现或内容不合法，一律返回 4xx。比如说
+，API 只允许 querystring 中含有 query，那么 "?sort=desc" 这样的请求需要直接被拒绝。有不少攻击会在 querystring 和 request body 里做文章，
+最好的对应策略是，过滤所有含有不该出现的数据的请求。
+
+6.数据完整性验证
+REST API 往往需要对 backend 的数据进行修改。修改是个很可怕的操作，我们既要保证正常的服务请求能够正确处理，还需要防止各种潜在的攻击，如 replay。
+数据完整性验证的底线是：保证要修改的数据和服务器里的数据是一致的 —— 这是通过 Etag 来完成。
+
+Etag 可以认为是某个资源的一个唯一的版本号。当客户端请求某个资源时，该资源的 Etag 一同被返回，而当客户端需要修改该资源时，
+需要通过 "If-Match" 头来提供这个 Etag。服务器检查客户端提供的 Etag 是否和服务器同一资源的 Etag 相同，如果相同，才进行修改，
+否则返回 412 precondition failed。
+
+使用 Etag 可以防止错误更新。比如 A 拿到了 Resource X 的 Etag X1，B 也拿到了 Resource X 的 Etag X1。B 对 X 做了修改，
+修改后系统生成的新的 Etag 是 X2。这时 A 也想更新 X，由于 A 持有旧的 Etag，服务器拒绝更新，直至 A 重新获取了 X 后才能正常更新。
+
+Etag 类似一把锁，是数据完整性的最重要的一道保障。Etag 能把绝大多数 integrity 的问题扼杀在摇篮中，当然，race condition 还是存在的：
+如果 B 的修改还未进入数据库，而 A 的修改请求正好通过了 Etag 的验证时，依然存在一致性问题。这就需要在数据库写入时做一致性写入的前置检查。
+
+7.访问控制
+REST API 需要清晰定义哪些操作能够公开访问，哪些操作需要授权访问。一般而言，如果对 REST API 的安全性要求比较高，那么，
+所有的 API 的所有操作均需得到授权。
+
+在 HTTP 协议之上处理授权有很多方法，如 HTTP BASIC Auth，OAuth，HMAC Auth 等，其核心思想都是验证某个请求是由一个合法的请求者发起。
+Basic Auth 会把用户的密码暴露在网络之中，并非最安全的解决方案，OAuth 的核心部分与 HMAC Auth 差不多，只不过多了很多与 token 分发相关的内容。
+这里我们主要讲讲 HMAC Auth 的思想。
+
+回到 Security 的三个属性：一致性，机密性，和可用性。HMAC Auth 保证一致性：请求的数据在传输过程中未被修改，因此可以安全地用于验证请求的合法性。
+
+HMAC 主要在请求头中使用两个字段：Authorization 和 Date（或 X-Auth-Timestamp）。Authorization 字段的内容由 ":" 分隔成两部分，":" 
+前是 access-key，":" 后是 HTTP 请求的 HMAC 值。在 API 授权的时候一般会为调用者生成 access-key 和 access-secret，前者可以暴露在网络中，
+后者必须安全保存。当客户端调用 API 时，用自己的 access-secret 按照要求对 request 的 headers/body 计算 HMAC，
+然后把自己的 access-key 和 HMAC 填入 Authorization 头中。服务器拿到这个头，从数据库（或者缓存）中取出 access-key 对应的 secret，
+按照相同的方式计算 HMAC，如果其与 Authorization header 中的一致，则请求是合法的，且未被修改过的；否则不合法。
+
+8.
+
+
