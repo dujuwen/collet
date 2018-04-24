@@ -2,7 +2,12 @@ get请求页：
 http://loc.nginx.t:8100/test.html?page=1&per_page=10
 
 
-arg_name:
+//echo arg_page:$arg_page\n;
+//echo arg_per_page:$arg_per_page\n;
+
+arg_page:1
+
+arg_per_page:10
 
 args:page=1&per_page=10
 
@@ -75,8 +80,6 @@ request_id:37b3e5f8b3cce83251d58f65aea3eac6
 request_length:493
 
 request_method:GET
-
-arg_name:
 
 request_time:0.000
 
