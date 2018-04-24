@@ -433,6 +433,9 @@ server {
     resolver_timeout 5s;
 }
 
+使用curl测试自定义header头：
+curl "127.0.0.1:8001/" -H "upstream-host:www.qq.com" -voa
+
 24.
 
 
