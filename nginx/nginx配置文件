@@ -198,6 +198,13 @@ If a server is the only server for a listen port, then nginx will not test serve
 10.nginx负载均衡
 http://nginx.org/en/docs/http/load_balancing.html
 
+Syntax:	upstream name { ... }
+Default:	—
+Context:	http
+
+Defines a group of servers. Servers can listen on different ports.
+By default, requests are distributed between the servers using a weighted round-robin balancing method.
+
 nginx支持的负载均衡方法(3种):
 round-robin — requests to the application servers are distributed in a round-robin fashion,
 least-connected — next request is assigned to the server with the least number of active connections,
