@@ -73,6 +73,20 @@ HMAC 主要在请求头中使用两个字段：Authorization 和 Date（或 X-Au
 然后把自己的 access-key 和 HMAC 填入 Authorization 头中。服务器拿到这个头，从数据库（或者缓存）中取出 access-key 对应的 secret，
 按照相同的方式计算 HMAC，如果其与 Authorization header 中的一致，则请求是合法的，且未被修改过的；否则不合法。
 
-8.
+在做 HMAC 的时候，request headers 中的 request method，request URI，Date/X-Auth-Timestamp 等 header 会被计算在 HMAC 中。
+将时间戳计算在 HMAC 中的好处是可以防止 replay 攻击。客户端和服务器之间的 UTC 时间正常来说偏差很小，那么，一个请求携带的时间戳，
+和该请求到达服务器时服务器的时间戳，中间差别太大，超过某个阈值（比如说 120s），那么可以认为是 replay，服务器主动丢弃该请求。
 
+使用 HMAC 可以很大程度上防止 DOS 攻击 —— 无效的请求在验证 HMAC 阶段就被丢弃，最大程度保护服务器的计算资源。
 
+8.HTTPS
+HMAC Auth 尽管在保证请求的一致性上非常安全，可以用于鉴别请求是否由合法的请求者发起，但请求的数据和服务器返回的响应都是明文传输，
+对某些要求比较高的 API 来说，安全级别还不够。这时候，需要部署 HTTPS。在其之上再加一层屏障。
+
+9.其他
+做到了接口一致性（符合 RFC）和安全性，REST API 可以算得上是合格了。当然，一个实现良好的 REST API 还应该有如下功能：
+rate limiting：访问限制。
+metrics：服务器应该收集每个请求的访问时间，到达时间，处理时间，latency，便于了解 API 的性能和客户端的访问分布，以便更好地优化性能和应对突发请求。
+docs：丰富的接口文档 - API 的调用者需要详尽的文档来正确调用 API，可以用 swagger 来实现。
+hooks/event propogation：其他系统能够比较方便地与该 API 集成。比如说添加了某资源后，通过 kafka 或者 rabbitMQ 向外界暴露某个消息，
+相应的 subscribers 可以进行必要的处理。不过要注意的是，hooks/event propogation 可能会破坏 REST API 的幂等性，需要小心使用。
