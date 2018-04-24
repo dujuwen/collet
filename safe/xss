@@ -1,6 +1,8 @@
 http://www.cnblogs.com/bangerlee/archive/2013/04/06/3002142.html
 https://www.cnblogs.com/lovesong/p/5199623.html
 
+XSS 是什么？它的全名是：Cross-site scripting，为了和 CSS 层叠样式表区分所以取名 XSS
+
 xss 表示 Cross Site Scripting(跨站脚本攻击)，它与 SQL 注入攻击类似，SQL 注入攻击中以 SQL 语句作为用户输入，
 从而达到查询 / 修改 / 删除数据的目的，而在 xss 攻击中，通过插入恶意脚本，实现对用户游览器的控制。
 
