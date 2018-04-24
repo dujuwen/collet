@@ -1,0 +1,9 @@
+DNS原理入门:
+http://www.ruanyifeng.com/blog/2016/06/dns.html
+
+公共DNS哪家强?
+http://www.dnsdizhi.com/post-296.html
+根据ping -c 50 ip排名：
+第一：182.254.116.116
+第二：114.114.115.115
+
