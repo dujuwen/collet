@@ -395,3 +395,10 @@ https://blog.csdn.net/liuwenbiao1203/article/details/52351772
 http://nginx.org/en/docs/http/ngx_http_auth_jwt_module.html
 https://blog.csdn.net/weiker12/article/details/68950279
 
+20. 在发生错误的时候不要显示服务器版本号
+http {
+    server_tokens off;
+}
+http://nginx.org/en/docs/http/ngx_http_core_module.html#server_tokens
+
+21.
