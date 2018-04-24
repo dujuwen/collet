@@ -1,3 +1,13 @@
+常见的内建变量：
+1）$uri: 用来获取当前请求的 URI（经过解码，并且不包含请求参数）
+2) $request_uri: 用来获取请求最原始的 URI（未经解码，并且不包含请求参数）
+3）$arg_xxx 变量群：用来获取当前请求名为 xxx 的 URI 参数的值
+4）$cookie_xxx 变量群：用来获取 cookie 值
+5）$http_xxx 变量群：用来获取请求头的值
+6）$send_http_xxx 变量群：用来获取响应头的值
+7) $args: 返回当前请求的 URL 参数串（即请求 URL 中问号后面的部分）
+
+
 http://nginx.org/en/docs/http/ngx_http_core_module.html#variables
 核心变量中斜线name都是要替换成实际值
 
