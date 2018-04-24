@@ -408,4 +408,13 @@ http {
     tcp_nopush on;
 }
 
-22.
+22. location @name {}
+http://nginx.org/en/docs/http/ngx_http_core_module.html#location
+
+The “@” prefix defines a named location. Such a location is not used for a regular request processing, 
+but instead used for request redirection. They cannot be nested, and cannot contain nested locations.
+
+location @name是用于定义重定向请求location
+
+23.
+
