@@ -511,4 +511,20 @@ Context:	http, server
 When the use of underscores is disabled, request header fields whose names contain underscores are marked as invalid and 
 become subject to the ignore_invalid_headers directive.
 
-31.
+31.长连接
+https://skyao.gitbooks.io/learning-nginx/content/documentation/keep_alive.html
+https://lanjingling.github.io/2016/06/11/nginx-https-keepalived-youhua/
+
+Syntax:	keepalive_requests number;
+Default:	keepalive_requests 100;
+Context:	http, server, location
+
+Syntax:	keepalive_timeout timeout [header_timeout];
+Default:	keepalive_timeout 75s;
+Context:	http, server, location
+
+keepalive 这个参数一定要小心设置，尤其对于 QPS 比较高的场景，推荐先做一下估算，根据 QPS 和平均响应时间大体能计算出需要的长连接的数量。
+比如 10000 QPS 和 100 毫秒响应时间就可以推算出需要的长连接数量大概是 1000. 然后将 keepalive 设置为这个长连接数量的 10% 到 30%。
+
+32.
+
