@@ -1,5 +1,6 @@
 http://nginx.org/en/docs/
 https://tengine.taobao.org/nginx_docs/cn/
+https://weizhimiao.github.io/2016/10/03/Nginx%E9%85%8D%E7%BD%AE%E6%95%B4%E7%90%86/
 
 调试nginx的时候可以将daemon设置为off
 Syntax:	daemon on | off;
