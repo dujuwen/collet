@@ -17,13 +17,14 @@ root     pts/1    172.16.25.65     16:33    1.00s  0.05s  0.00s w
 3.如何查看服务器的cpu核数
 /proc 文件系统是一个虚拟的文件系统，不占用磁盘空间，它反映了当前操作系统的运行情况
 
-查看物理核数：
+查看物理CPU个数：
 $ cat /proc/cpuinfo  | grep "physical id" | sort | uniq | wc -l
 
-查看逻辑核数：
+查看逻辑CPU个数：
 $ cat /proc/cpuinfo  | grep processor | sort | uniq | wc -l
-或者：
-$ cat /proc/cpuinfo  | grep "cpu cores"
+
+查看逻辑CPU核数：
+$ cat /proc/cpuinfo  | grep "cpu cores" | uniq
 
 4.
 
