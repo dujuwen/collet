@@ -436,6 +436,7 @@ server {
 使用curl测试自定义header头：
 curl "127.0.0.1:8001/" -H "upstream-host:www.qq.com" -voa
 
-24.
+24.最大用户连接数 = worker进程数 × worker连接数
+即 max_clients = worker_processes * worker_connections
 
-
+25.
