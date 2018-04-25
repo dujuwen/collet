@@ -72,3 +72,15 @@ Swap:          7.9G        895M        7.0G
 cache 是高速缓存，用于 CPU 和内存之间的缓冲
 buffer 是 I/O 缓存，用于内存和硬盘的缓冲
 
+PID：进程 ID
+USER: 真实用户名称
+PR: 优先级
+NI: Nice 值，负值表示高优先级，正值表示低优先级
+VIRT: 进程使用的虚拟内存总量，单位 kb VIRT=SWAP+RES
+RES: 进程使用的、未被换出的物理内存大小，单位 kb RES=CODE+DATA
+SHR: 共享内存大小，单位 kb
+S: 进程状态  D = 不可中断的睡眠状态 R = 运行 S = 睡眠 T = 跟踪 / 停止 Z = 僵尸进程
+%CPU  上次更新到现在的 CPU 时间占用百分比
+%MEM  进程使用的物理内存百分比
+TIME+  进程使用的 CPU 时间总计，单位 1/100 秒
+COMMAND 命令名 / 命令行 进程名称
