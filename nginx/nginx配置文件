@@ -526,5 +526,34 @@ Context:	http, server, location
 keepalive 这个参数一定要小心设置，尤其对于 QPS 比较高的场景，推荐先做一下估算，根据 QPS 和平均响应时间大体能计算出需要的长连接的数量。
 比如 10000 QPS 和 100 毫秒响应时间就可以推算出需要的长连接数量大概是 1000. 然后将 keepalive 设置为这个长连接数量的 10% 到 30%。
 
-32.
+32.限速
+限制下载速度:
+http://nginx.org/en/docs/http/ngx_http_core_module.html#limit_rate
+https://www.centos.bz/2017/03/nginx-limit_rate-limit_conn-download-speed/
 
+Syntax:	limit_rate rate;
+Default:	limit_rate 0;
+Context:	http, server, location, if in location
+
+Rate limit can also be set in the $limit_rate variable. It may be useful in cases where rate should be limited depending 
+on a certain condition:
+
+server {
+    if ($slow) {
+        set $limit_rate 4k;
+    }
+    ...
+}
+
+Syntax:	limit_rate_after size;
+Default:	limit_rate_after 0;
+Context:	http, server, location, if in location
+
+
+限制连接数和限制连接速度:
+http://nginx.org/en/docs/http/ngx_http_limit_conn_module.html
+http://nginx.org/en/docs/http/ngx_http_limit_req_module.html
+http://www.cnblogs.com/CarpenterLee/p/8084533.html
+https://segmentfault.com/a/1190000011166016
+
+33.
