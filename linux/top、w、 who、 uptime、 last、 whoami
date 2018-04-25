@@ -56,3 +56,14 @@ si : is meaning of "software irq"
 st : is meaning of "steal time"
 
 
+KiB Mem :  7979116 total,  2679580 free,  3163532 used,  2136004 buff/cache
+总内存、空闲内存、使用内存、用做内核缓存内存
+
+KiB Swap:  8258556 total,  7341132 free,   917424 used.  4229092 avail Mem
+交换分区空间、空闲的交换分区总量、使用的交换分区总量、可以的交换区总量 
+
+更直观的查看内存使用情况:
+$ free -h G
+              total        used        free      shared  buff/cache   available
+Mem:           7.6G        3.1G        2.5G        184M        2.0G        4.0G
+Swap:          7.9G        895M        7.0G
