@@ -496,6 +496,10 @@ postpone_output 512;
 30.http请求header头合法组成为：
 字母、数字、连字符(-)或者可能有下划线，下划线
 
+在请求头中不要有下划线，这个是CGI遗留问题，预防header头映射到CGI变量时有歧义，具体：http://www.it1352.com/213499.html
+This is done in order to prevent ambiguities when mapping headers to CGI variables,
+as both dashes and underscores are mapped to underscores during that process.
+
 Syntax:	ignore_invalid_headers on | off;
 Default:	ignore_invalid_headers on;
 Context:	http, server
