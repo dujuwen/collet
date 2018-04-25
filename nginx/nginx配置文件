@@ -482,3 +482,16 @@ location /404.html {
     internal;
     # ...
 }
+
+29.postpone_output
+Syntax:	postpone_output size;
+Default:	
+postpone_output 1460;
+Context:	http, server, location
+
+If possible, the transmission of client data will be postponed until nginx has at least size bytes of data to send. 
+The zero value disables postponing data transmission.
+
+postpone_output 512;
+
+30.
