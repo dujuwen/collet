@@ -579,4 +579,11 @@ Context:	http, server, location
 
 这个参数需要根据实际情况来考虑
 
-34.
+34.关闭不响应的连接
+Syntax:	reset_timedout_connection on | off;
+Default:	reset_timedout_connection off;
+Context:	http, server, location
+
+reset_timedout_connection on;
+
+35.
