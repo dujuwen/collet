@@ -549,6 +549,14 @@ Syntax:	limit_rate_after size;
 Default:	limit_rate_after 0;
 Context:	http, server, location, if in location
 
+对于有大文件请求，比如视频、音频等，可以限制下载速度，节约带款：
+location ^~ /videos/ {
+    ...
+    limit_rate_after 1m; //传输1m以后开始限制下载速度
+    limit_rate 150k; //限制下载速度为150kb/s
+    ...
+}
+
 
 限制连接数和限制连接速度:
 http://nginx.org/en/docs/http/ngx_http_limit_conn_module.html
