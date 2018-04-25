@@ -564,4 +564,19 @@ http://nginx.org/en/docs/http/ngx_http_limit_req_module.html
 http://www.cnblogs.com/CarpenterLee/p/8084533.html
 https://segmentfault.com/a/1190000011166016
 
-33.
+33. 延迟关闭
+Syntax:	lingering_time time;
+Default:	lingering_time 30s;
+Context:	http, server, location
+
+lingering_close 启用后，这个配置项对于上传大文件很有用。当用户请求的 Content-Length 大于 max_client_body_size 配置时，
+Nginx 服务会立刻向用户发送 413（Request entity too large）响应。但是，很多客户端可能不管 413 返回值，仍然持续不断地上传 HTTP body，这时，
+经过了 lingering_time 设置的时间后，Nginx 将不管用户是否仍在上传，都会把连接关闭掉。
+
+Syntax:	lingering_timeout time;
+Default:	lingering_timeout 5s;
+Context:	http, server, location
+
+这个参数需要根据实际情况来考虑
+
+34.
