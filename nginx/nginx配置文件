@@ -465,5 +465,19 @@ working_directory   /tmp/;
    再次：~* 和 ~ 正则匹配，顺序依据出现顺序；
    最后：如果出现正则匹配成功，则采用该正则匹配；如果无可匹配正则，则采用前缀匹配结果。
    
-28. 
+28. internal
+http://nginx.org/en/docs/http/ngx_http_core_module.html#internal
 
+Syntax:	internal;
+Default:	—
+Context:	location
+
+Specifies that a given location can only be used for internal requests. 
+For external requests, the client error 404 (Not Found) is returned.
+
+error_page 404 /404.html;
+
+location /404.html {
+    internal;
+    # ...
+}
