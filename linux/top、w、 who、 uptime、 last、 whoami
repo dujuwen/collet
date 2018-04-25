@@ -1,0 +1,29 @@
+1. w - Show who is logged on and what they are doing.
+$ w
+ 16:45:53 up 3 days, 16:25,  2 users,  load average: 0.00, 0.07, 0.18
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+root     pts/0    172.16.25.65     16:04   25.00s  0.08s  0.00s less -s
+root     pts/1    172.16.25.65     16:33    1.00s  0.05s  0.00s w
+
+ 16:45:53 //系统当前时间
+ up 3 days, 16:25 //系统启动了3天16小时25分钟
+ 2 users //当前有2个登录用户
+ load average: 0.00, 0.07, 0.18 //过去1分钟 5分钟 15分钟 平均线程数
+ 
+ 2.load average
+在多处理器系统上，负载相对于可用的处理器内核的数量是相对的，“100% 利用” 标志负载为 1，只是标志在一个单一的核心系统
+2 标志是在双核，4 是标志在四核 。因此，有一个 14 load average 值和 24 个 内核的负载平均，服务器是远超载的
+
+3.如何查看服务器的cpu核数
+/proc 文件系统是一个虚拟的文件系统，不占用磁盘空间，它反映了当前操作系统的运行情况
+
+查看物理核数：
+$ cat /proc/cpuinfo  | grep "physical id" | sort | uniq | wc -l
+
+查看逻辑核数：
+$ cat /proc/cpuinfo  | grep processor | sort | uniq | wc -l
+或者：
+$ cat /proc/cpuinfo  | grep "cpu cores"
+
+4.
+
