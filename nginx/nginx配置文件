@@ -485,8 +485,7 @@ location /404.html {
 
 29.postpone_output
 Syntax:	postpone_output size;
-Default:	
-postpone_output 1460;
+Default:	postpone_output 1460;
 Context:	http, server, location
 
 If possible, the transmission of client data will be postponed until nginx has at least size bytes of data to send. 
@@ -494,4 +493,18 @@ The zero value disables postponing data transmission.
 
 postpone_output 512;
 
-30.
+30.http请求header头合法组成为：
+字母、数字、连字符(-)或者可能有下划线，下划线
+
+Syntax:	ignore_invalid_headers on | off;
+Default:	ignore_invalid_headers on;
+Context:	http, server
+
+Syntax:	underscores_in_headers on | off;
+Default:	underscores_in_headers off;
+Context:	http, server
+
+When the use of underscores is disabled, request header fields whose names contain underscores are marked as invalid and 
+become subject to the ignore_invalid_headers directive.
+
+31.
