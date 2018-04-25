@@ -586,4 +586,11 @@ Context:	http, server, location
 
 reset_timedout_connection on;
 
-35.
+35.响应客户端超时时间，对于处理时间比较长的后台应用要注意了
+Sets a timeout for transmitting a response to the client.
+Syntax:	send_timeout time;
+Default:	send_timeout 60s;
+Context:	http, server, location
+
+36.
+
