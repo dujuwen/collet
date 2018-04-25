@@ -26,5 +26,12 @@ $ cat /proc/cpuinfo  | grep processor | sort | uniq | wc -l
 查看逻辑CPU核数：
 $ cat /proc/cpuinfo  | grep "cpu cores" | uniq
 
-4.
+4.whoami
+Print the user name associated with the current effective user ID
 
+5.uptime - Tell how long the system has been running. 
+uptime -h //打印帮助
+
+6.last, lastb - show listing of last logged in users
+
+7.top - display Linux processes
