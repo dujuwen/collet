@@ -35,3 +35,24 @@ uptime -h //打印帮助
 6.last, lastb - show listing of last logged in users
 
 7.top - display Linux processes
+
+%Cpu(s): 
+13.9 us //用户空间占用 CPU 百分比
+2.5 sy //内核空间占用 CPU 百分比
+0.0 ni //用户进程空间内改变过优先级的进程占用 CPU 百分比
+83.5 id //空闲 CPU
+0.0 wa //等待输入输出的 CPU 时间百分比
+0.0 hi //硬中断
+0.1 si //软中断 
+0.0 st //实时
+
+us: is meaning of "user CPU time"
+sy: is meaning of "system CPU time"
+ni: is meaning of" nice CPU time"
+id: is meaning of "idle"
+wa: is meaning of "iowait" 
+hi：is meaning of "hardware irq"
+si : is meaning of "software irq"
+st : is meaning of "steal time"
+
+
