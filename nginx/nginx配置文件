@@ -626,8 +626,17 @@ location / {
 打开目录浏览功能,如果需要的话可以单独开启一个端口配置授权来查看
 location / {
     autoindex on;
+    autoindex_exact_size off;
     root /Users/dujunwen;
 }
 
-38.
+38.设置响应编码
+http://nginx.org/en/docs/http/ngx_http_charset_module.html
 
+Syntax:	charset charset | off;
+Default:	charset off;
+Context:	http, server, location, if in location
+
+charset utf-8; # Adds the specified charset to the “Content-Type” response header field.
+
+39.
