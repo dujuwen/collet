@@ -656,6 +656,23 @@ Content-Type: text/plain
 如果要设置默认为下载文件的话可以设置：
 default_type  application/octet-stream
 
-41.
+41.简单的mp4播放测试
+server {
+    location / {
+        index index.html;
+    }
 
+    location ~ \.mp4$ {
+        mp4;
+        mp4_buffer_size     1m;
+        mp4_max_buffer_size 5m;
+    }
+}
+
+➜  data cat index.html
+<html>
+<video id="video" src="video.mp4" controls = "true" preload="auto"> </video>
+</html>
+
+42.
 
