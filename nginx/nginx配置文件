@@ -589,5 +589,17 @@ Syntax:	send_timeout time;
 Default:	send_timeout 60s;
 Context:	http, server, location
 
-36.
+36.在响应内容之前或者之后发起子请求来追加内容
+http://nginx.org/en/docs/http/ngx_http_addition_module.html
 
+Syntax:	add_before_body uri;
+Default:	—
+Context:	http, server, location
+
+可以用于特殊调试场景:
+location = /xxxxx {
+    add_before_body /before_action;
+    add_after_body  /after_action;
+}
+
+37.
