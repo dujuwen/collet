@@ -598,6 +598,7 @@ Context:	http, server, location
 
 可以用于特殊调试场景:
 location = /xxxxx {
+    internal; #只能通过内部重定向访问
     add_before_body /before_action;
     add_after_body  /after_action;
 }
