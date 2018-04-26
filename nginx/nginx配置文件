@@ -639,4 +639,11 @@ Context:	http, server, location, if in location
 
 charset utf-8; # Adds the specified charset to the “Content-Type” response header field.
 
-39.
+39.empty_gif 指令，开启响应 1x1 空白图片
+语法:     empty_gif;
+默认:     —
+配置段:     location
+
+40.
+
+
