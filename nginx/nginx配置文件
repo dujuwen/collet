@@ -644,6 +644,18 @@ charset utf-8; # Adds the specified charset to the “Content-Type” response h
 默认:     —
 配置段:     location
 
-40.
+40.default_type定义响应的Content-Type值
+Syntax:	default_type mime-type;
+Default:	default_type text/plain;
+Context:	http, server, location
+
+default_type text/plain; 
+对应响应头：
+Content-Type: text/plain
+
+如果要设置默认为下载文件的话可以设置：
+default_type  application/octet-stream
+
+41.
 
 
