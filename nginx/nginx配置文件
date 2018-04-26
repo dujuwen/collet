@@ -603,4 +603,22 @@ location = /xxxxx {
     add_after_body  /after_action;
 }
 
-37.
+37.跟index相关的
+http://nginx.org/en/docs/http/ngx_http_index_module.html
+http://nginx.org/en/docs/http/ngx_http_random_index_module.html
+http://nginx.org/en/docs/http/ngx_http_autoindex_module.html
+
+Syntax:	random_index on | off;
+Default:	random_index off;
+Context:	location
+
+Syntax:	index file ...;
+Default:	index index.html;
+Context:	http, server, location
+
+location / {
+    index index.$geo.html index.html; # index指令中可以包含变量
+}
+
+
+
