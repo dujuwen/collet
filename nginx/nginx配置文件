@@ -2,6 +2,9 @@ http://nginx.org/en/docs/
 https://tengine.taobao.org/nginx_docs/cn/
 https://weizhimiao.github.io/2016/10/03/Nginx%E9%85%8D%E7%BD%AE%E6%95%B4%E7%90%86/
 
+nginx第三方模块
+https://www.nginx.com/resources/wiki/modules/index.html
+
 调试nginx的时候可以将daemon设置为off
 Syntax:	daemon on | off;
 Default:	daemon on;
@@ -620,5 +623,11 @@ location / {
     index index.$geo.html index.html; # index指令中可以包含变量
 }
 
+打开目录浏览功能,如果需要的话可以单独开启一个端口配置授权来查看
+location / {
+    autoindex on;
+    root /Users/dujunwen;
+}
 
+38.
 
