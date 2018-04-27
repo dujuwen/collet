@@ -705,12 +705,67 @@ Syntax:	large_client_header_buffers number size;
 Default:	large_client_header_buffers 4 8k;
 Context:	http, server
 
+Syntax:	fastcgi_request_buffering on | off;
+Default:	fastcgi_request_buffering on;
+Context:	http, server, location
+
 缓冲配置应该根据实际需求调整:
 fastcgi_buffering on;
+fastcgi_request_buffering on;
 fastcgi_buffer_size 16k; #设置读取fastcgi响应头缓冲大小
-fastcgi_buffers 16 4k; #设置响应缓冲大小为64k
+fastcgi_buffers 16 8k; #设置响应缓冲大小
 fastcgi_busy_buffers_size 32k; #设置成fastcgi_buffer_size的2倍就可以了
 client_body_buffer_size 256k; #设置请求内容缓冲空间大小
 client_header_buffer_size 16k; #设置请求头缓冲大小
 large_client_header_buffers 16 8k; #设置额外的请求头缓冲大小
 
+
+几个fastcgi相关的连接超时时间，在需要的时候可以调整数据发送和读取超时时间：
+Syntax:	fastcgi_connect_timeout time;
+Default:	fastcgi_connect_timeout 60s;
+Context:	http, server, location
+
+Syntax:	fastcgi_read_timeout time;
+Default:	fastcgi_read_timeout 60s;
+Context:	http, server, location
+
+Syntax:	fastcgi_send_timeout time;
+Default:	fastcgi_send_timeout 60s;
+Context:	http, server, location
+
+向fastcgi传递参数
+http://nginx.org/en/docs/http/ngx_http_fastcgi_module.html#fastcgi_param
+
+Syntax:	fastcgi_param parameter value [if_not_empty];
+Default:	—
+Context:	http, server, location
+
+影响header头传递的指令还有underscores_in_headers
+
+fastcgi_param SCRIPT_FILENAME /home/www/scripts/php$fastcgi_script_name; #/home/www/scripts/php可以用$document_root替换
+fastcgi_param QUERY_STRING    $query_string;
+fastcgi_param REQUEST_METHOD  $request_method;
+fastcgi_param CONTENT_TYPE    $content_type;
+fastcgi_param CONTENT_LENGTH  $content_length;
+fastcgi_param HTTPS           $https if_not_empty;
+
+比如php处理
+location ~ \.php$ {
+    include /etc/nginx/fastcgi.conf;
+    try_files                   $uri  =404;
+    fastcgi_pass                unix:/var/run/php-fpm.sock;
+    fastcgi_index               index.php;
+    fastcgi_intercept_errors    on;
+    fastcgi_param APP_ENV local;
+    fastcgi_param HTTPS on;
+}
+
+Syntax:	fastcgi_pass address;
+Default:	—
+Context:	location, if in location
+
+fastcgi_pass localhost:9000;
+fastcgi_pass unix:/tmp/fastcgi.socket;
+fastcgi_pass还可以代理传递到server组
+
+43.
