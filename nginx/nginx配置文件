@@ -717,7 +717,7 @@ Context:	http, server, location
 fastcgi_buffering on;
 fastcgi_request_buffering on;
 fastcgi_buffer_size 16k; #设置读取fastcgi响应头缓冲大小
-fastcgi_buffers 16 8k; #设置响应缓冲大小
+fastcgi_buffers 16 16k; #设置响应缓冲大小
 fastcgi_busy_buffers_size 32k; #设置成fastcgi_buffer_size的2倍就可以了
 client_body_buffer_size 256k; #设置请求内容缓冲空间大小
 client_header_buffer_size 16k; #设置请求头缓冲大小
