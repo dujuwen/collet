@@ -674,5 +674,43 @@ server {
 <video id="video" src="video.mp4" controls = "true" preload="auto"> </video>
 </html>
 
-42.
+42.fastcgi配置
+http://nginx.org/en/docs/http/ngx_http_fastcgi_module.html#fastcgi_buffer_size
+
+Syntax:	fastcgi_buffer_size size;
+Default:	fastcgi_buffer_size 4k|8k;
+Context:	http, server, location
+
+Syntax:	fastcgi_buffering on | off;
+Default:	fastcgi_buffering on;
+Context:	http, server, location
+
+Syntax:	fastcgi_buffers number size;
+Default:	fastcgi_buffers 8 4k|8k;
+Context:	http, server, location
+
+Syntax:	fastcgi_busy_buffers_size size;
+Default:	fastcgi_busy_buffers_size 8k|16k;
+Context:	http, server, location
+
+Syntax:	fastcgi_max_temp_file_size size;
+Default:	fastcgi_max_temp_file_size 1024m; #响应临时文件最大为1G
+Context:	http, server, location
+
+Syntax:	client_body_buffer_size size;
+Default:	client_body_buffer_size 8k|16k;
+Context:	http, server, location
+
+Syntax:	large_client_header_buffers number size;
+Default:	large_client_header_buffers 4 8k;
+Context:	http, server
+
+缓冲配置应该根据实际需求调整:
+fastcgi_buffering on;
+fastcgi_buffer_size 16k; #设置读取fastcgi响应头缓冲大小
+fastcgi_buffers 16 4k; #设置响应缓冲大小为64k
+fastcgi_busy_buffers_size 32k; #设置成fastcgi_buffer_size的2倍就可以了
+client_body_buffer_size 256k; #设置请求内容缓冲空间大小
+client_header_buffer_size 16k; #设置请求头缓冲大小
+large_client_header_buffers 16 8k; #设置额外的请求头缓冲大小
 
