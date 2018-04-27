@@ -709,6 +709,10 @@ Syntax:	fastcgi_request_buffering on | off;
 Default:	fastcgi_request_buffering on;
 Context:	http, server, location
 
+Syntax:	fastcgi_intercept_errors on | off;
+Default:	fastcgi_intercept_errors off; # >=300的错误是直接发送给客户端还是进行内部重定向?在开发的时候设置为off在线上设置为on
+Context:	http, server, location
+
 缓冲配置应该根据实际需求调整:
 fastcgi_buffering on;
 fastcgi_request_buffering on;
