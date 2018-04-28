@@ -780,6 +780,7 @@ server {
     gzip_min_length 1000;
     gzip_proxied    expired no-cache no-store private auth;
     gzip_types text/plain application/javascript text/css image/jpeg image/gif image/png; 
+    gzip_vary on;
     #这里类型来自响应的Content-Type,可以根据需要添加配置,text/html总会被压缩
     gzip_disable "MSIE [1-6]\.";
     #gzip_buffers 32 4k; #先对响应数据进行评估下然后设置合理的响应缓冲
