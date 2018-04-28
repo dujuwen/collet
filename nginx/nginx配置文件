@@ -791,4 +791,13 @@ Default:	gzip_buffers 32 4k|16 8k;
 Context:	http, server, location
 
 
+对于静态文件可以考虑使用gzip_static开启压缩
+http://nginx.org/en/docs/http/ngx_http_gzip_static_module.html
+
+gzip_static  on;
+gzip_proxied expired no-cache no-store private auth;
+
+gzip_static生效的前提是请求目录下存在名称相同且以.gz结尾的文件，使用gzip_static压缩的话要先准备好压缩后的gz文件，并且服务器会消耗更多的空间来
+存储压缩文件和原问题，这个有利有弊要自己衡量。
+
 44.
