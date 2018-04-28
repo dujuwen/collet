@@ -800,4 +800,7 @@ gzip_proxied expired no-cache no-store private auth;
 gzip_static生效的前提是请求目录下存在名称相同且以.gz结尾的文件，使用gzip_static压缩的话要先准备好压缩后的gz文件，并且服务器会消耗更多的空间来
 存储压缩文件和原问题，这个有利有弊要自己衡量。
 
+在linux下可以使用tar -zcvf xx.gz xx 命令来创建压缩文件
+tar -zxvf xx.gz 这个是解压文件
+
 44.
