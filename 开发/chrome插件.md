@@ -17,6 +17,8 @@ https://chrome.google.com/webstore/detail/extension-manager/gjldcdngmdknpinoemnd
 
 https://chrome.google.com/webstore/detail/json-handle/iahnhfdhidomcpggpaimmmahffihkfnj
 
+https://chrome.google.com/webstore/detail/%E6%9E%81%E7%AE%80-json-%E6%A0%BC%E5%BC%8F%E5%8C%96/fhlnfdmpnhhakjljpllkigcegcejpoec?utm_source=chrome-ntp-icon
+
 5. 多点高亮查找：Multi-highlight
 
 https://chrome.google.com/webstore/detail/multi-highlight/pfgfgjlejbbpfmcfjhdmikihihddeeji
