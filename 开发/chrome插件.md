@@ -71,3 +71,8 @@ https://chrome.google.com/webstore/detail/imageassistant-image-batc/dbjbempljhcm
 17.edit this cookie
 
 https://chrome.google.com/webstore/detail/editthiscookie/fngmhnnpilhplaeedifhccceomclgfbg?utm_source=chrome-ntp-icon
+
+
+18.es head
+
+https://chrome.google.com/webstore/detail/elasticsearch-head/ffmkiejjmecolpfloofpjologoblkegm?utm_source=chrome-ntp-icon
