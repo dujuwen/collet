@@ -803,4 +803,10 @@ gzip_static生效的前提是请求目录下存在名称相同且以.gz结尾的
 在linux下可以使用tar -zcvf xx.gz xx 命令来创建压缩文件
 tar -zxvf xx.gz 这个是解压文件
 
-44.
+44.如何隐藏nginx的server信息？
+实现方案：重新编译源码
+vim src/http/ngx_http_header_filter_module.c  # 49-50行
+
+45.
+
+
