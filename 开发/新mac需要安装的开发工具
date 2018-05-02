@@ -50,6 +50,28 @@ Preferences(cmd+,)-Profiles-default-colors-(Color Presets...)下拉中选择ubun
 
 23.php/mysql/redis
 
+redis下载安装地址:
+http://www.redis.cn/download.html
+下载，解压，编译:
+
+$ wget http://download.redis.io/releases/redis-4.0.9.tar.gz
+$ tar xzf redis-4.0.9.tar.gz
+$ cd redis-4.0.9
+$ make
+
+二进制文件是编译完成后在src目录下，通过下面的命令启动Redis服务：
+
+$ src/redis-server
+
+你可以使用内置的客户端命令redis-cli进行使用：
+
+$ src/redis-cli
+redis> set foo bar
+OK
+redis> get foo
+"bar"
+
+
 24.sequel pro(数据库管理工具)
 
 25.vmware fusion(可选)
