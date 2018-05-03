@@ -915,6 +915,8 @@ http {
         location / {
             index index${variant}.html;
 
-51.
+51.nginx健康检查
+
+52.
 
 
