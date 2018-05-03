@@ -837,6 +837,7 @@ Context:	http
 46.镜像模块
 http://nginx.org/en/docs/http/ngx_http_mirror_module.html
 http://vinc.top/2017/08/14/nginx%E6%A8%A1%E5%9D%97ngx_http_mirror_module/
+https://gitissue.com/issues/5ae0e3db10561d087f383317
 
 利用mirror模块，可以将线上实时访问流量拷贝至其他环境，基于这些流量可以做版本发布前的预先验证，进行流量放大后的压测等等
 
