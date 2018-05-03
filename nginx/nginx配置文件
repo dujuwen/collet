@@ -807,6 +807,32 @@ tar -zxvf xx.gz 这个是解压文件
 实现方案：重新编译源码
 vim src/http/ngx_http_header_filter_module.c  # 49-50行
 
-45.
+45.自定义记录日志
+http://nginx.org/en/docs/http/ngx_http_log_module.html
 
+map $status $loggable {
+    ~^[23]  0;
+    default 1;
+}
+access_log /path/to/access.log combined if=$loggable;
+
+log_format compression '$remote_addr - $remote_user [$time_local] '
+                       '"$request" $status $bytes_sent '
+                       '"$http_referer" "$http_user_agent" "$gzip_ratio"';
+
+access_log /spool/logs/nginx-access.log compression buffer=32k;
+
+
+Syntax:	access_log path [format [buffer=size] [gzip[=level]] [flush=time] [if=condition]];
+access_log off;
+Default:	access_log logs/access.log combined;
+Context:	http, server, location, if in location, limit_except
+
+Syntax:	log_format name [escape=default|json|none] string ...;
+Default:	log_format combined "...";
+Context:	http
+
+可以在写日志的时候加上写入缓存:buffer
+
+46.
 
