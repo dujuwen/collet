@@ -880,5 +880,27 @@ if ($invalid_referer) {
     return 403;
 }
 
-49.
+49.下载防盗链
+http://nginx.org/en/docs/http/ngx_http_secure_link_module.html
+https://www.centos.bz/2018/01/nginx%E4%BD%BF%E7%94%A8secure_link%E6%A8%A1%E5%9D%97%E9%98%B2%E7%9B%97%E9%93%BE/
+https://blog.csdn.net/crazyzxljing0621/article/details/72900336
+
+location /s/ {
+    secure_link $arg_md5,$arg_expires;
+    secure_link_md5 "$secure_link_expires$uri$remote_addr secret";
+
+    if ($secure_link = "") {
+        return 403;
+    }
+
+    if ($secure_link = "0") {
+        return 410;
+    }
+
+    ...
+}
+
+50.
+
+
 
