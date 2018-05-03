@@ -834,5 +834,26 @@ Context:	http
 
 可以在写日志的时候加上写入缓存:buffer
 
-46.
+46.镜像模块
+http://nginx.org/en/docs/http/ngx_http_mirror_module.html
+http://vinc.top/2017/08/14/nginx%E6%A8%A1%E5%9D%97ngx_http_mirror_module/
+
+利用mirror模块，可以将线上实时访问流量拷贝至其他环境，基于这些流量可以做版本发布前的预先验证，进行流量放大后的压测等等
+
+# original配置
+location / {
+    mirror /mirror;
+    mirror_request_body off;
+    proxy_pass http://127.0.0.1:9502;
+}
+
+# mirror配置
+location /mirror {
+    internal;
+    proxy_pass http://127.0.0.1:8081$request_uri;
+    proxy_set_header X-Original-URI $request_uri;
+}
+
+47.
+
 
