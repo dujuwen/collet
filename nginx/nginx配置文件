@@ -855,6 +855,19 @@ location /mirror {
     proxy_set_header X-Original-URI $request_uri;
 }
 
-47.
+47.realip，在存在反向代理的时候获取真正的ip地址
+http://nginx.org/en/docs/http/ngx_http_realip_module.html
+https://leo108.com/pid-2132/
 
+首先要明确一点，realip模块生效的前提是：直接连接nginx的ip是在set_real_ip_from中指定的。
+当real_ip_recursive为off时，nginx会把real_ip_header指定的HTTP头中的最后一个IP当成真实IP
+当real_ip_recursive为on时，nginx会把real_ip_header指定的HTTP头中的最后一个不是信任服务器的IP当成真实IP
+
+set_real_ip_from  192.168.1.0/24;
+set_real_ip_from  192.168.2.1;
+real_ip_header    X-Forwarded-For;
+real_ip_recursive on;
+这个配置的意思是说192.168.2.1和ip段192.168.1.0/24都是信任地址(代理服务器地址，不是真实地址)，真实地址来自于头X-Forwarded-For。
+
+48.
 
