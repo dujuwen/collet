@@ -2,8 +2,11 @@ user nginx;
 #这里在线上应该将nginx程序设置为root所有者,chown root /path/to/nginx,chmod u+s /path/to/nginx,然后这里设置了用户才不会出错
 
 worker_processes auto;
+worker_cpu_affinity auto; #利用多核cpu来提高nginx性能
+worker_rlimit_nofile 65535; #不能超过ulimit -n的值,同时最大打开文件数,这个值尽量调整大点
 
 error_log /var/log/nginx/error.log notice;
+#可选的日志级别 debug(需要在编译的时候加上--with-debug), info, notice, warn, error, crit, alert, or emerg
 
 pid /run/nginx.pid;
 
@@ -12,7 +15,7 @@ pid /run/nginx.pid;
 
 
 events {
-    worker_connections 2048; #这里可以根据情况调整
+    worker_connections 1024; #这里可以根据情况调整,worker_rlimit_nofile对这里有影响
 }
 
 http {
