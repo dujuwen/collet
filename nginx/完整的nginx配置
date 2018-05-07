@@ -69,6 +69,13 @@ http {
     fastcgi_busy_buffers_size 64k;
     fastcgi_temp_file_write_size 512k;
 
+    #将无用的连接尽快设置为超时,可以保护服务器的系统资源（CPU、内存、磁盘）
+    client_header_timeout 15;
+    clietn_body_timeout 15;
+    #send_timeout 15;
+    
+    #client_max_body_size 10m;      #具体数字要根据业务需求决定
+    
     server {
         listen       8000;
         server_name  test.loc;
