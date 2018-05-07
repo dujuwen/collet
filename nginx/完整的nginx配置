@@ -16,10 +16,17 @@ pid /run/nginx.pid;
 charset utf-8; #Adds the specified charset to the “Content-Type” response header field
 
 events {
+    use epoll; #linux下这样设定
     worker_connections 1024; #这里可以根据情况调整,worker_rlimit_nofile对这里有影响
 }
 
 http {
+
+    client_header_buffer_size 4k;
+    large_client_header_buffers 8 8k;
+
+    open_file_cache max=65535; #文件缓存
+    open_file_cache_min_uses 1;
 
     server {
         listen       8000;
