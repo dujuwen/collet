@@ -1,0 +1,5 @@
+确认pcre是否在linux系统上安装
+
+$ ldconfig -v | grep -i pcre
+
+出现了pcre相关的动态链接库就表示正确安装了
