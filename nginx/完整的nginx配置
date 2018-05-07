@@ -103,6 +103,7 @@ http {
         }
 
         location ~* \.(jpg|jpeg|png|gif|ico|bmp|swf|css|js)$ {
+            access_log off;
             expires 1d;
             add_header Cache-Control "max-age=86400, public";
         }
@@ -118,5 +119,20 @@ http {
             fastcgi_pass   127.0.0.1:9000;
         }
     }
+    
+    #下面这个配置是防止恶意解析
+    server {
+        listen 80 default_server;
+        server_name _;
+        return 501;
+    }
+    
+    server {
+        listen 80;
+        server_name xxxxx.com;
+        #...
+    }
+
+
 }
 
