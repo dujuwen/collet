@@ -43,7 +43,7 @@ http {
                       '$status $body_bytes_sent "$http_referer" '
                       '"$http_user_agent" "$http_x_forwarded_for"';
 
-    access_log  /var/log/nginx/logs/access.log  main;
+    access_log  /var/log/nginx/logs/access.log  main buffer=32k; #access log应该开启写入缓存
 
     sendfile on; #如果用来进行下载等应用磁盘IO重负载应用，可设置为off，以平衡磁盘与网络IO处理速度，降低系统uptime
     tcp_nopush on;
@@ -69,7 +69,7 @@ http {
 
         root /Users/dujunwen/project/github/LieToMe/public;
         index  index.php index.html index.htm;
-
+        
         location / {
            try_files $uri $uri/ /index.php?$args;
         }
