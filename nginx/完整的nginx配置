@@ -24,6 +24,7 @@ events {
 }
 
 http {
+    keepalive_requests 8192;
     server_tokens off; #响应的时候不显示nginx版本信息
 
     client_header_buffer_size 4k;
