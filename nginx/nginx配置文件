@@ -935,3 +935,29 @@ Syntax:	fastcgi_intercept_errors on | off;
 Default:	fastcgi_intercept_errors off;
 Context:	http, server, location
 
+54.nginx如何做流量控制
+https://mp.weixin.qq.com/s/LlhrldDzjm4Kt25Zs1HCtw
+
+geo $limit {
+    default         1;
+    10.0.0.0/8         0;
+    192.168.0.0/64     0;
+}
+
+map $limit $limit_key {
+    0 "";
+    1 $binary_remote_addr;
+}
+
+limit_req_zone $limit_key zone=req_zone:10m rate=5r/s;
+
+server {
+    location / {
+        limit_req zone=req_zone burst=10 nodelay;
+
+        # ...
+    }
+}
+
+55.
+
