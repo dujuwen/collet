@@ -1,6 +1,15 @@
 nginx安装配置完整版:
 https://segmentfault.com/a/1190000002797601
 
+nginx配置调优:
+http://www.z-dig.com/nginx-optimization-25.html
+https://renwole.com/archives/387
+https://www.jianshu.com/p/56d42bcf78c3
+http://blog.51cto.com/qiuyt/2074641
+http://qkxue.net/info/152742/nginx
+https://yq.aliyun.com/articles/495622
+http://blog.xiayf.cn/2014/05/03/optimizing-nginx-and-php-fpm-for-high-traffic-sites/
+
 user nginx; 
 #这里在线上应该将nginx程序设置为root所有者,chown root /path/to/nginx,chmod u+s /path/to/nginx,然后这里设置了用户才不会出错
 
