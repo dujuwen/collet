@@ -24,7 +24,7 @@ events {
 }
 
 http {
-    server_tokens off; #关闭显示nginx版本信息
+    server_tokens off; #错误页面不显示nginx版本信息
 
     client_header_buffer_size 4k;
     client_body_buffer_size 256k;
