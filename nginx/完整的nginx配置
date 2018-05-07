@@ -46,7 +46,15 @@ http {
     sendfile on; #如果用来进行下载等应用磁盘IO重负载应用，可设置为off，以平衡磁盘与网络IO处理速度，降低系统uptime
     tcp_nopush on;
     tcp_nodelay on;
+
+    #gzip压缩功能设置
     gzip on;
+    gzip_min_length 1k;
+    gzip_buffers    4 16k;
+    gzip_http_version 1.0;
+    gzip_comp_level 1;
+    gzip_types text/html text/plain text/css text/javascript application/json application/javascript application/x-javascript application/xml;
+    gzip_vary on;
     
     proxy_buffer_size 16k;
     proxy_buffers 4 32k;
