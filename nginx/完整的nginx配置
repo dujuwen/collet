@@ -133,6 +133,6 @@ http {
         #...
     }
 
-
+    #Nginx站点目录及文件URL访问控制,判断给定目录或url用allow deny internal和return等来限制访问
 }
 
