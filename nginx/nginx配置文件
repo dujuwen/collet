@@ -924,5 +924,14 @@ location /basic_status {
     stub_status;
 }
 
-53.
+53.如何自定义处理300以上错误
+https://blog.csdn.net/hellolingyun/article/details/37934815
+
+Syntax:	proxy_intercept_errors on | off;
+Default:	proxy_intercept_errors off;
+Context:	http, server, location
+
+Syntax:	fastcgi_intercept_errors on | off;
+Default:	fastcgi_intercept_errors off;
+Context:	http, server, location
 
