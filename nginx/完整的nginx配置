@@ -24,6 +24,8 @@ events {
 }
 
 http {
+    server_tokens off; #关闭显示nginx版本信息
+
     client_header_buffer_size 4k;
     client_body_buffer_size 256k;
     large_client_header_buffers 8 8k;
