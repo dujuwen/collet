@@ -31,7 +31,8 @@ http {
     large_client_header_buffers 8 8k;
 
     open_file_cache max=65535; #文件缓存
-    open_file_cache_min_uses 1;
+    open_file_cache_min_uses 2;
+    open_file_cache_errors on;
     
     server_names_hash_bucket_size 128;
     server_names_hash_max_size 1024;
