@@ -26,4 +26,7 @@ CentOS
     sudo yum --disablerepo="*" --enablerepo="openresty" list available
 参考 OpenResty RPM 包页面获取这些包更多的细节。
 
-2.
+2.openresty最佳实践
+https://www.kancloud.cn/allanyu/openresty-best-practices/82570
+
+3.
