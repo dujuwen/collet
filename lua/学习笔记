@@ -626,4 +626,8 @@ print("case 2:", str.sub(str, 1, 2))
 lua_package_path "/usr/servers/lualib/?.lua;;";  #lua 模块  
 lua_package_cpath "/usr/servers/lualib/?.so;;";  #c模块   
 
-29.
+29.lua中可以被 JIT 编译的元操作
+http://wiki.luajit.org/NYI
+在实际编写代码的时候应该尽量用可编译操作
+
+
