@@ -1,0 +1,8 @@
+http://www.lua.org/manual/5.1/
+https://www.codingnow.com/2000/download/lua_manual.html
+http://wiki.jikexueyuan.com/project/openresty/lua/class.html
+
+1.布尔类型，可选值 true/false；Lua 中 nil 和 false 为“假”，其它所有值均为“真”。
+比如 0 和空字符串就是“真”
+
+2.
