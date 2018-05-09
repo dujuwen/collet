@@ -41,5 +41,17 @@ local a = foo    --把函数赋给变量
 
 print(a())
 
+function foo()
+end
+等价于
+foo = function ()
+end
+
+local function foo()
+end
+等价于
+local foo = function ()
+end
+
 4.
 
