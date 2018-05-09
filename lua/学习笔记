@@ -307,6 +307,17 @@ string.match(s, p [, init])
 
 string.gmatch(s, p) --返回一个迭代器函数，通过这个迭代器函数可以遍历到在字符串 s 中出现模式串 p 的所有地方。
 
+string.rep(s, n) --返回字符串 s 的 n 次拷贝，即将一个字符串重复n次
+
+string.sub(s, i [, j])
+-- 返回字符串 s 中，索引 i 到索引 j 之间的子字符串。当 j 缺省时，默认为 -1，也就是字符串 s 的最后位置。i 可以为负数。
+当索引 i 在字符串 s 的位置在索引 j 的后面时，将返回一个空字符串。
+
+string.gsub(s, p, r [, n])
+-- 将目标字符串 s 中所有的子串 p 替换成字符串 r。可选参数 n，表示限制替换次数。返回值有两个，第一个是被替换后的字符串，第二个是替换了多少次。
+
+string.reverse (s) --接收一个字符串 s，返回这个字符串的反转。
+
 例如:
 print(string.char(65,66)) -- AB
 
@@ -351,3 +362,47 @@ lua
 nil
 27/7/2015
 string.match 目前并不能被 JIT 编译，应 尽量 使用 ngx_lua 模块提供的 ngx.re.match 等接口。
+
+s = "hello world from Lua"
+for w in string.gmatch(s, "%a+") do  --匹配最长连续且只含字母的字符串
+    print(w)
+end
+
+-->output
+hello
+world
+from
+Lua
+
+t = {}
+s = "from=world, to=Lua"
+for k, v in string.gmatch(s, "(%a+)=(%a+)") do  --匹配两个最长连续且只含字母的
+    t[k] = v                                    --字符串，它们之间用等号连接
+end
+for k, v in pairs(t) do
+print (k,v)
+end
+
+-->output
+to      Lua
+from    world
+此函数string.gmatch目前并不能被 LuaJIT 所 JIT 编译，而只能被解释执行。应 尽量 使用 ngx_lua 模块提供的 ngx.re.gmatch 等接口。
+
+print(string.rep("abc", 3)) --拷贝3次"abc"
+-->output  abcabcabc
+
+s = 'djw'
+if #string.sub(s, 4) == 0 then
+	print('true') --输出true
+else
+	print('false')
+end
+
+print(string.gsub("Lua Lua Lua", "Lua", "hello"))
+print(string.gsub("Lua Lua Lua", "Lua", "hello", 2)) --指明第四个参数
+
+-->output
+hello hello hello   3
+hello hello Lua     2
+string.gsub不能为 LuaJIT 所 JIT 编译，而只能被解释执行。一般我们推荐使用 ngx_lua 模块提供的 ngx.re.gsub 函数。
+
