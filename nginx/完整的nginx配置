@@ -93,6 +93,11 @@ http {
         root /Users/dujunwen/project/github/LieToMe/public;
         index  index.php index.html index.htm;
         
+        # 必选规则
+        location = / {
+            #直接跳转到php代码首页处理
+        }
+
         location / {
            try_files $uri $uri/ /index.php?$args;
         }
