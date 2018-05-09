@@ -2,6 +2,10 @@ http://nginx.org/en/docs/
 https://tengine.taobao.org/nginx_docs/cn/
 https://weizhimiao.github.io/2016/10/03/Nginx%E9%85%8D%E7%BD%AE%E6%95%B4%E7%90%86/
 
+nginx陷阱和常见错误
+http://wiki.jikexueyuan.com/project/openresty/ngx/pitfalls_and_common_mistakes.html
+https://www.nginx.com/resources/wiki/start/topics/tutorials/config_pitfalls/
+
 nginx第三方模块
 https://www.nginx.com/resources/wiki/modules/index.html
 
