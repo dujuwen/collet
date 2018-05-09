@@ -84,4 +84,15 @@ not	逻辑非
 在 c 语言中，and 和 or 只得到两个值 1 和 0，其中 1 表示真，0 表示假。Lua 中 and 的执行过程是这样的：
 a and b 如果 a 为 nil，则返回 a，否则返回 b;
 a or b 如果 a 为 nil，则返回 b，否则返回 a。
+and找第一个假 or找第一个真
+local c = nil
+local d = 0
+local e = 100
+print(c and d)  -->打印 nil
+print(c and e)  -->打印 nil
+print(d and e)  -->打印 100
+print(c or d)   -->打印 0
+print(c or e)   -->打印 100
+print(not c)    -->打印 true
+print(not d)    -->打印 false
 
