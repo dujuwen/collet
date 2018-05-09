@@ -1013,3 +1013,5 @@ location /	通用匹配，任何未匹配到其它location的请求都会匹配�
 注意：前缀匹配，如果有包含关系时，按最大匹配原则进行匹配。比如在前缀匹配：location /dir01 与 location /dir01/dir02，
 如有请求 http://localhost/dir01/dir02/file 将最终匹配到 location /dir01/dir02
 
+58.由于 SSLv3 的 POODLE 漏洞， 建议不要在开启 SSL 的网站使用 SSLv3。 你可以简单粗暴的直接禁用 SSLv3，用 TLS 来替代：
+ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
