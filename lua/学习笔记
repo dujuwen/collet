@@ -507,5 +507,44 @@ my test file
 hello
 lua
 
-22.
+22.面向对象编程，类
+http://wiki.jikexueyuan.com/project/openresty/lua/object_oriented.html
+
+account.lua:
+local _M = {}
+
+local mt = { __index = _M }
+
+function _M.deposit (self, v)
+    self.balance = self.balance + v
+end
+
+function _M.withdraw (self, v)
+    if self.balance > v then
+        self.balance = self.balance - v
+    else
+        error("insufficient funds")
+    end
+end
+
+function _M.new (self, balance)
+    balance = balance or 0
+    return setmetatable({balance = balance}, mt)
+end
+
+return _M
+
+调用
+local account = require("account")
+
+local a = account:new()
+a:deposit(100)
+
+local b = account:new()
+b:deposit(50)
+
+print(a.balance)  --> output: 100
+print(b.balance)  --> output: 50
+
+23.
 
