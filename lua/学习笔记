@@ -605,5 +605,20 @@ location /test {
 26.虚变量
 在返回值为多个的时候不想要的可以用_代替
 
-27.
+27.点操作和冒号操作的区别
+http://wiki.jikexueyuan.com/project/openresty/lua/dot_diff.html
 
+function t.a.b.c:f (params) body end 等价于
+t.a.b.c.f = function (self, params) body end
+
+冒号操作是点操作的语法糖，冒号操作只有在变量是对象时才使用
+
+冒号操作会带入一个 self 参数，用来代表 自己。而点号操作，只是 内容 的展开。
+在函数定义时，使用冒号将默认接收一个 self 参数，而使用点号则需要显式传入 self 参数。
+
+local str = "abcde"
+print("case 1:", str:sub(1, 2))
+print("case 2:", str.sub(str, 1, 2))
+都是ab
+
+28.
