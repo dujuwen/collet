@@ -132,7 +132,7 @@ http {
 
         location ~ "^(.+\.php)($|/)" {
             fastcgi_index index.php;
-            try_files $uri $uri/ /index.php?$args =404; #=404一定要加上，找不到就跳到404页面
+            try_files $uri /index.php?$args =404; #=404一定要加上，找不到就跳到404页面。只关心文件是否存在所以可以去掉$uri/
             include        fastcgi_params;
             fastcgi_split_path_info ^(.+\.php)(.*)$;
             fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
