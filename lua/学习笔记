@@ -406,3 +406,63 @@ hello hello hello   3
 hello hello Lua     2
 string.gsub不能为 LuaJIT 所 JIT 编译，而只能被解释执行。一般我们推荐使用 ngx_lua 模块提供的 ngx.re.gsub 函数。
 
+18.table 库
+http://wiki.jikexueyuan.com/project/openresty/lua/table_library.html
+
+下标从 1 开始
+在初始化一个数组的时候，若不显式地用键值对方式赋值，则会默认用数字作为下标，从 1 开始。由于在 Lua 内部实际采用哈希表和数组分别保存键值对、普通值，
+所以不推荐混合使用这两种赋值方式。
+
+table.getn 获取长度 --取长度操作符写作一元操作 #。#s 等价于 table.maxn(s)，但是前面效率高点
+对于有“空洞”的情况，table 的长度存在一定的 不可确定性。
+不要在 Lua 的 table 中使用 nil 值，如果一个元素要删除，直接 remove，不要用 nil 去代替。
+
+table.concat (table [, sep [, i [, j ] ] ])
+--对于元素是 string 或者 number 类型的表 table，返回 table[i]..sep..table[i+1] ··· sep..table[j] 连接成的字符串。
+填充字符串 sep 默认为空白字符串。起始索引位置 i 默认为 1，结束索引位置 j 默认是 table 的长度。如果 i 大于 j，返回一个空字符串。
+
+table.insert (table, [pos ,] value)
+--在（数组型）表 table 的 pos 索引位置插入 value，其它元素向后移动到空的地方。pos 的默认值是表的长度加一，即默认是插在表的最后。
+
+table.maxn (table)
+返回（数组型）表 table 的最大索引编号；如果此表没有正的索引编号，返回 0。
+当长度省略时，此函数通常需要 O(n) 的时间复杂度来计算 table 的末尾。因此用这个函数省略索引位置的调用形式来作 table 元素的末尾追加，是高代价操作。
+local a = {}
+a[-1] = 10
+print(table.maxn(a))
+a[5] = 10
+print(table.maxn(a))
+
+-->output
+0
+5
+
+table.remove (table [, pos])
+--在表 table 中删除索引为 pos（pos 只能是 number 型）的元素，并返回这个被删除的元素，它后面所有元素的索引值都会减一。pos 的默认值是表的长度，
+即默认是删除表的最后一个元素。
+
+table.sort (table [, comp])
+--按照给定的比较函数 comp 给表 table 排序，也就是从 table[1] 到 table[n]，这里 n 表示 table 的长度。 比较函数有两个参数，
+如果希望第一个参数排在第二个的前面，就应该返回 true，否则返回 false。 如果比较函数 comp 没有给出，默认从小到大排序。
+
+local function compare(x, y) --从大到小排序
+   return x > y         --如果第一个参数大于第二个就返回true，否则返回false
+end
+
+local a = { 1, 7, 3, 4, 25}
+table.sort(a)           --默认从小到大排序
+print(a[1], a[2], a[3], a[4], a[5])
+table.sort(a, compare) --使用比较函数进行排序
+print(a[1], a[2], a[3], a[4], a[5])
+
+-->output
+1   3   4   7   25
+25  7   4   3   1
+
+table 其他非常有用的函数
+LuaJIT 2.1 新增加的 table.new 和 table.clear 函数是非常有用的。前者主要用来预分配 Lua table 空间，后者主要用来高效的释放 table 空间，
+并且它们都是可以被 JIT 编译的。具体可以参考一下 OpenResty 捆绑的 lua-resty-* 库，里面有些实例可以作为参考。
+
+19.
+
+
