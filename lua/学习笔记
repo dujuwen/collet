@@ -28,4 +28,18 @@ print(corp["city"])           -->output:"Beijing"
 print(corp.staff[1])          -->output:Jack
 print(corp[10])               -->output:360
 
-3.
+3.函数，函数必须以end结尾
+local function foo()
+    print("in the function")
+    --dosomething()
+    local x = 10
+    local y = 20
+    return x + y
+end
+
+local a = foo    --把函数赋给变量
+
+print(a())
+
+4.
+
