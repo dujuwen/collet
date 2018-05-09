@@ -467,6 +467,45 @@ LuaJIT 2.1 新增加的 table.new 和 table.clear 函数是非常有用的。前
 推荐使用 ngx_lua 模块提供的带缓存的时间接口，如 ngx.today, ngx.time, ngx.utctime, ngx.localtime, ngx.now, ngx.http_time，以及 
 ngx.cookie_time
 
-20.
+20.数学函数
+math.max(x, ...)	返回参数中值最大的那个数，参数必须是number型
+math.min(x, ...)	返回参数中值最小的那个数，参数必须是number型
+math.random ([m [, n]])	不传入参数时，返回 一个在区间[0,1)内均匀分布的伪随机实数；只使用一个整数参数m时，返回一个在区间[1, m]内均匀分布的伪随机整数；使用两个整数参数时，返回一个在区间[m, n]内均匀分布的伪随机整数
+math.randomseed (x)	为伪随机数生成器设置一个种子x，相同的种子将会生成相同的数字序列
+math.floor(x)	返回最大且不大于x的整数
+math.ceil(x)	返回最小且不小于x的整数
+math.pi	圆周率
 
+math.randomseed (os.time())   --把100换成os.time()
+print(math.random())          -->output 0.88946195867794
+print(math.random(100))       -->output 68
+print(math.random(100, 360))  -->output 129
+
+21.文件操作
+http://wiki.jikexueyuan.com/project/openresty/lua/file.html
+
+Lua I/O 库提供两种不同的方式处理文件：隐式文件描述，显式文件描述。
+
+这些文件 I/O 操作，在 OpenResty 的上下文中对事件循环是会产生阻塞效应。OpenResty 比较擅长的是高并发网络处理，在这个环境中，任何文件的操作，
+都将阻塞其他并行执行的请求。实际中的应用，在 OpenResty 项目中应尽可能让网络处理部分、文件 I/0 操作部分相互独立，不要揉和在一起。
+
+打开已经存在的 test1.txt 文件，并读取里面的内容：
+file = io.input("test1.txt")    -- 使用 io.input() 函数打开文件
+
+repeat
+    line = io.read()            -- 逐行读取内容，文件结束时返回nil
+    if nil == line then
+        break
+    end
+    print(line)
+until (false)
+
+io.close(file)                  -- 关闭文件
+
+--> output
+my test file
+hello
+lua
+
+22.
 
