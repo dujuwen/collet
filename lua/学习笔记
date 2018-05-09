@@ -192,5 +192,21 @@ http://wiki.jikexueyuan.com/project/openresty/lua/break.html
 语句 break 用来终止 while、repeat 和 for 三种循环的执行，并跳出当前循环体， 继续执行当前循环之后的语句
 return 主要用于从函数中返回结果，或者用于简单的结束一个函数的执行
 
-11.
+11.函数
+function function_name (arc)  -- arc 表示参数列表，函数的参数列表可以为空
+   -- body
+end
+
+由于全局变量一般会污染全局名字空间，同时也有性能损耗（即查询全局环境表的开销），因此我们应当尽量使用“局部函数”，
+其记法是类似的，只是开头加上 local 修饰符
+local function function_name (arc)
+  -- body
+end
+
+foo.bar = function (a, b, c)
+    print(a, b, c)
+end
+此时我们是把一个函数类型的值赋给了 foo 表的 bar 字段,对于此种形式的函数定义，不能再使用 local 修饰符了，因为不存在定义新的局部变量了
+
+12.
 
