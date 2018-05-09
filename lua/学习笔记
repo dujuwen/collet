@@ -574,4 +574,32 @@ function isTableEmpty(t)
 end
 注意：next 指令是不能被 LuaJIT 的 JIT 编译优化，并且 LuaJIT 貌似没有明确计划支持这个指令优化，在不是必须的情况下，尽量少用。
 
-25.
+25.正则表达式
+推荐使用ngx.re.*
+ngx.re.* 中的 o 选项，指明该参数，被编译的 Pattern 将会在工作进程中缓存，并且被当前工作进程的每次请求所共享。
+Pattern 缓存的上限值通过 lua_regex_cache_max_entries 来修改。
+
+ngx.re.* 中的 j 选项，指明该参数，如果使用的 PCRE 库支持 JIT，OpenResty 会在编译 Pattern 时启用 JIT。
+启用 JIT 后正则匹配会有明显的性能提升。较新的平台，自带的 PCRE 库均支持 JIT。如果系统自带的 PCRE 库不支持 JIT，出于性能考虑，
+最好自己编译一份 libpcre.so，然后在编译 OpenResty 时链接过去。
+要想验证当前 PCRE 库是否支持 JIT，可以这么做:
+编译 OpenResty 时在 ./configure 中指定 --with-debug 选项
+在 error_log 指令中指定日志级别为 debug
+运行正则匹配代码，查看日志中是否有 pcre JIT compiling result: 1
+
+即使运行在不支持 JIT 的 OpenResty 上，加上 j 选项也不会带来坏的影响。
+location /test {
+    content_by_lua_block {
+        local regex = [[\d+]]
+
+        -- 参数 "j" 启用 JIT 编译，参数 "o" 是开启缓存必须的
+        local m = ngx.re.match("hello, 1234", regex, "jo")
+        if m then
+            ngx.say(m[0])
+        else
+            ngx.say("not matched!")
+        end
+    }
+}
+
+26.
