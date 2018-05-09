@@ -546,5 +546,27 @@ b:deposit(50)
 print(a.balance)  --> output: 100
 print(b.balance)  --> output: 50
 
-23.
+上面这段代码 "setmetatable({balance = balance}, mt)"，其中 mt 代表 { __index = _M } ，这句话值得注意。
+根据我们在元表这一章学到的知识，我们明白，setmetatable 将 _M 作为新建表的原型，所以在自己的表内找不到 'deposit'、'withdraw' 这些方法和变量的时候，
+便会到 __index 所指定的 _M 类型中去寻找。
+
+23.元表
+__index 元方法
+下面的例子中，我们实现了在表中查找键不存在时转而在元表中查找该键的功能：
+
+mytable = setmetatable({key1 = "value1"},   --原始表
+  {__index = function(self, key)            --重载函数
+    if key == "key2" then
+      return "metatablevalue"
+    end
+  end
+})
+
+print(mytable.key1,mytable.key2)  --> output：value1 metatablevalue
+关于 __index 元方法，有很多比较高阶的技巧，例如：__index 的元方法不需要非是一个函数，他也可以是一个表。
+
+t = setmetatable({[1] = "hello"}, {__index = {[2] = "world"}})
+print(t[1], t[2])   -->hello world
+
+24.
 
