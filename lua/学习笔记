@@ -568,5 +568,10 @@ print(mytable.key1,mytable.key2)  --> output：value1 metatablevalue
 t = setmetatable({[1] = "hello"}, {__index = {[2] = "world"}})
 print(t[1], t[2])   -->hello world
 
-24.
+24.table非空判断
+function isTableEmpty(t)
+    return t == nil or next(t) == nil
+end
+注意：next 指令是不能被 LuaJIT 的 JIT 编译优化，并且 LuaJIT 貌似没有明确计划支持这个指令优化，在不是必须的情况下，尽量少用。
 
+25.
