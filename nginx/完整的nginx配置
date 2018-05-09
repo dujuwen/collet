@@ -86,12 +86,13 @@ http {
     
     #client_max_body_size 10m;      #具体数字要根据业务需求决定
     
+    index index.php index.html index.htm; #在http定义后下面的server会继承
+    
     server {
         listen       8000;
         server_name  test.loc;
 
         root /Users/dujunwen/project/github/LieToMe/public;
-        index  index.php index.html index.htm;
         
         # 必选规则
         location = / {
