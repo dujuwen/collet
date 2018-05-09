@@ -40,3 +40,10 @@ OK ，已经安装成功！
 保存为MyLua.sublime-build（我为了跟原本的那个Lua区分开，用的MyLua），然后再Build System就能显示出这个选项了。
 
 新建一个xxx.lua文件，随便写个语句，选择lua为build system，按一下花+b，就能跑出来了。
+
+3.为sublime安装lua相关插件
+先安装包管理器
+Tools -> Command Paletter -> Package Control: Install Package
+
+搜索要安装的插件的名字(分别搜索这4个：luasnippet、basesnippet、BracketHighlighter、
+FormatLua )      AllAutocomplete（这个是全文档方法变量的补全） 
