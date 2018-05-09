@@ -156,5 +156,35 @@ for i, v in ipairs(t) do
     end
 end
 
-9.
+9.for
+http://wiki.jikexueyuan.com/project/openresty/lua/for.html
+
+for 语句有两种形式：数字 for（numeric for）和范型 for（generic for）
+
+for var = begin, finish, step do
+    --body
+end
+
+for i = 1, 5 do
+  print(i)
+end
+
+-- 打印数组a的所有值
+local a = {"a", "b", "c", "d"}
+for i, v in ipairs(a) do
+  print("index:", i, " value:", v)
+end
+
+-- 打印table t中所有的key
+for k in pairs(t) do
+    print(k)
+end
+
+标准库提供了几种迭代器，包括用于迭代文件中每行的（io.lines）、 迭代 table 元素的（pairs）、迭代数组元素的（ipairs）、
+迭代字符串中单词的（string.gmatch）等
+
+值得一提的是，在 LuaJIT 2.1 中，ipairs() 内建函数是可以被 JIT 编译的，而 pairs() 则只能被解释执行。因此在性能敏感的场景，
+应当合理安排数据结构，避免对哈希表进行遍历。
+
+10.
 
