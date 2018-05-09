@@ -224,5 +224,23 @@ end
 在常用基本类型中，除了 table 是按址传递类型外，其它的都是按值传递参数。 用全局变量来代替函数参数的不好编程习惯应该被抵制，
 良好的编程习惯应该是减少全局变量的使用。
 
-13.
+13.lua中函数可以有多个返回值
+local s, e = string.find("hello world", "llo")
+print(s, e)  -->output 3  5
+
+local function swap(a, b)   -- 定义函数 swap，实现两个变量交换值
+   return b, a              -- 按相反顺序返回变量的值
+end
+
+如果你确保只取函数返回值的第一个值，可以使用括号运算符，例如
+
+local function init()
+    return 1, "lua"
+end
+
+print((init()), 2)   -->output  1  2
+print(2, (init()))   -->output  2  1
+
+14.
+
 
