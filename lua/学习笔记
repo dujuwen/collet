@@ -53,5 +53,35 @@ end
 local foo = function ()
 end
 
-4.
+4.表达式
+<=	小于等于
+>=	大于等于
+==	等于
+~=	不等于
+print(1 < 2)    -->打印 true
+print(1 == 2)   -->打印 false
+print(1 ~= 2)   -->打印 true
+local a, b = true, false
+print(a == b)  -->打印 false
+
+在使用“==”做等于判断时，要注意对于 table, userdate 和函数， Lua 是作引用比较的。也就是说，只有当两个变量引用同一个对象时，才认为它们相等。
+local a = { x = 1, y = 0}
+local b = { x = 1, y = 0}
+if a == b then
+  print("a==b")
+else
+  print("a~=b") --输出不等
+end
+
+由于 Lua 字符串总是会被“内化”，即相同内容的字符串只会被保存一份，因此 Lua 字符串之间的相等性比较可以简化为其内部存储地址的比较。
+这意味着 Lua 字符串的相等性比较总是为 O(1). 而在其他编程语言中，字符串的相等性比较则通常为 O(n)，即需要逐个字节（或按若干个连续字节）进行比较。
+
+5.逻辑运算符
+and	逻辑与
+or	逻辑或
+not	逻辑非
+
+在 c 语言中，and 和 or 只得到两个值 1 和 0，其中 1 表示真，0 表示假。Lua 中 and 的执行过程是这样的：
+a and b 如果 a 为 nil，则返回 a，否则返回 b;
+a or b 如果 a 为 nil，则返回 b，否则返回 a。
 
