@@ -11,7 +11,7 @@ ngx_lua中文翻译
 https://github.com/iresty/nginx-lua-module-zh-wiki
 
 1.lua_code_cache
-语法: lua_code_cache on | off
+语法: lua_code_cache on | off 
 默认: lua_code_cache on
 环境: http, server, location, location if
 打开或者关闭 *_by_lua_file 指令（类似 set_by_lua_file 和 content_by_lua_file） 中指定的 Lua 代码，以及 Lua 模块的 Lua 代码缓存。
@@ -259,6 +259,54 @@ body_filter_by_lua*, log_by_lua*, ngx.timer.*, balancer_by_lua*
 ngx.ctx 表查询需要相对昂贵的元方法调用，这比通过用户自己的函数参数直接传递基于请求的数据要慢得多。所以不要为了节约用户函数参数而滥用此 API，
 因为它可能对性能有明显影响。
 
-15.
+15.ngx.location.capture
+https://github.com/iresty/nginx-lua-module-zh-wiki#ngxlocationcapture
 
+语法: res = ngx.location.capture(uri, options?)
+环境: rewrite_by_lua*, access_by_lua*, content_by_lua*
+向 uri 发起一个同步非阻塞 Nginx 子请求。
+
+res = ngx.location.capture('/foo/bar?a=3&b=4')
+因为 Nginx 内核限制，子请求不允许类似 @foo 命名 location。请使用标准 location，并设置 internal 指令，仅服务内部请求。
+返回一个包含四个元素的 Lua 表 (res.status, res.header, res.body, 和 res.truncated)。
+Nginx 子请求是一种非常强有力的方式，它可以发起非阻塞的内部请求访问目标 location
+
+可选的选项表可以作为第二个参数传入，支持以下选项：
+
+method 指定子请求的请求方法, 只接受类似 ngx.HTTP_POST 的常量。
+body 指定子请求的请求体 (仅接受字符串值)。
+args 指定子请求的 URI 请求参数 (可以是字符串或者 Lua 表)。
+ctx 指定一个 Lua 表作为子请求的 ngx.ctx 表，可以是当前请求的 ngx.ctx 表。这种方式可以让父请求和子请求共享完全相同的上下文环境。
+vars 用一个 Lua 表设置子请求中的 Nginx 变量值。
+copy_all_vars 设置是否复制所有当前请求的 Nginx 变量值到子请求中，修改子请求的 nginx 变量值不影响当前 (父) 请求。
+share_all_vars 设置是否共享所有当前 (父) 请求的 Nginx 变量值到子请求中，修改子请求的 nginx 变量值将影响当前 (父) 请求。
+
+应用此选项将可能导致非常难以发现的错误，这种副作用是非常有害的。所以只有当完全明确知道自己在做什么时才打开此选项。
+always_forward_body 当设置为 true 时，如果没有设置 body 选项，当前 (父) 请求的请求体将被转发给子请求。
+
+被 ngx.req.read_body() 或 lua_need_request_body on 指令读取的请求体将直接转发给子请求，而不是在创建子请求时再复制整个请求体 
+(无论此请求体是缓存在内存中还是临时文件中)。默认情况下，此选项值为 false，当 body 选项没有设置，且当子请求的请求方法是 PUT 和 POST 时，
+当前 (父) 请求的请求体才被转发。
+
+ngx.location.capture_multi
+语法: res1, res2, ... = ngx.location.capture_multi({ {uri, options?}, {uri, options?}, ... })
+环境: rewrite_by_lua*, access_by_lua*, content_by_lua*
+与 ngx.location.capture 类似，并允许多个子请求并行访问。
+
+此函数根据输入列表并行发起多个子请求，并按原顺序返回结果。例如:
+ res1, res2, res3 = ngx.location.capture_multi{
+     { "/foo", { args = "a=3&b=4" } },
+     { "/bar" },
+     { "/baz", { method = ngx.HTTP_POST, body = "hello" } },
+ }
+
+ if res1.status == ngx.HTTP_OK then
+     ...
+ end
+
+ if res2.body == "BLAH" then
+     ...
+ end
+
+16.
 
