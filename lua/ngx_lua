@@ -102,3 +102,11 @@ https://github.com/iresty/nginx-lua-module-zh-wiki
  }
 硬编码限制最小大小是 8KB，而实际的最小大小取决于实际中用户数据集（有些人是从 12KB 开始）。
 更多细节请参考 ngx.shared.DICT。
+
+6.lua_transform_underscores_in_response_headers
+语法: lua_transform_underscores_in_response_headers on|off
+默认: lua_transform_underscores_in_response_headers on
+环境: http, server, location, location-if
+对于 ngx.header.HEADER API 中指定响应头，该指令指定是否将下划线(_)转化为连接线(-)。
+
+7.
