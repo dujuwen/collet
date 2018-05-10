@@ -1,0 +1,26 @@
+    location /set {
+        default_type 'text/html';
+        proxy_set_header Host test.yufei.com;
+        proxy_connect_timeout 5s;
+        proxy_send_timeout 3s;
+        proxy_read_timeout 3s;
+        proxy_pass http://test.yufei.com/api?a=$aaa&b=$bbb;
+    }
+
+    location /change {
+        set $a '';
+        set $b '';
+        content_by_lua '
+            local time = os.date("%Y%m%d")
+            local args = ngx.req.get_query_args()
+            local a = args["a"]
+            local b = args["b"]
+            local res = ngx.location.capture("/set",
+                { share_all_vars = true,
+                 vars = { a = aaa , b = bbb }
+                 })
+            local text = res.body
+            ngx.say(text)
+            ngx.exit(200)
+        ';
+    }
