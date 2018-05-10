@@ -1,0 +1,30 @@
+http://openresty.org/cn/using-luarocks.html
+
+使用 LuaRocks
+
+这个示例中展示了在 OpenResty 中使用 LuaRocks 。这个示例已经在 Linux 和 Mac OS X 下，通过 Lua 解释器与 LuaJIT 的测试。
+
+LuaRocks 是一个部署和管理 Lua 模块的系统。
+
+LuaRocks 允许通过 "rocks" 安装独立的 Lua 模块,并且包含附加的版本信息。我们假设您已经在默认的路径里面安装了OpenResty.即, /usr/local/openresty. 您可以根据实际安装OpenResty的路径来调整本示例中的路径。如果您还没有安装 OpenResty, 请查看下载 与安装页.
+
+安装 LuaRocks
+首先让我们来安装 LuaRocks:
+
+请您从 http://www.luarocks.org/en/Download 下载最新版本的 LuaRocks . 当写这篇文章的时候,最新版本为 2.0.4.1（译注：目前最新版本已经更新到了2.0.5）, 在这个示例中我们将使用这个版本。（译注:如果您在安装了2.0.6版本的 LuaRocks，请记得填写正确的Lua解释器的地址,无论您使用 Lua 官方的解释器还是选择 LuaJIT，请确保安装时 LuaRocks 能找到它,否则 LuaRocks 可能报错）
+
+wget http://luarocks.org/releases/luarocks-2.0.4.1.tar.gz
+tar -xzvf luarocks-2.0.4.1.tar.gz
+cd luarocks-2.0.4.1/
+./configure
+make
+sudo make install
+通过 LuaRocks安装 Lua MD5 库
+在本示例中, 我们将使用 Lua MD5 library 作为服务器上的一个例子, 所以我们需要通过 LuaRocks 来安装它:
+
+sudo luarocks install md5
+配置我们的 OpenResty 应用
+Let's change the current directory to /usr/local/openresty/nginx/:
+
+cd /usr/local/openresty/nginx/
+...
