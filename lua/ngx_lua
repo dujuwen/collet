@@ -9,3 +9,23 @@ https://github.com/openresty/lua-nginx-module
 
 ngx_lua中文翻译
 https://github.com/iresty/nginx-lua-module-zh-wiki
+
+1.lua_code_cache
+语法: lua_code_cache on | off
+默认: lua_code_cache on
+环境: http, server, location, location if
+打开或者关闭 *_by_lua_file 指令（类似 set_by_lua_file 和 content_by_lua_file） 中指定的 Lua 代码，以及 Lua 模块的 Lua 代码缓存。
+
+在开发环境应该关闭，在生产环境应该打开。如果想要完全读取新的lua代码应该重启Nginx
+
+2.lua_regex_cache_max_entries
+语法: lua_regex_cache_max_entries <num>
+默认: lua_regex_cache_max_entries 1024
+环境: http
+
+正则表达式被用于 ngx.re.match， ngx.re.gmatch， ngx.re.sub， 和 ngx.re.gsub，如果使用o (既，编译一次的标识)正则选项，将会被缓存。
+允许的默认数量为 1024，当达到此限制，新的正则表达式将不会被缓存（就像没指定o选项一样），将会有且仅只有一个告警信息在 error.log 文件中
+对于部分正则表达式（字符串的各种替换，如 ngx.re.sub 和 ngx.re.gsub），不要使用 o选项，这类正则每次都不一样，缓存无法被利用。
+这样我们可以避免撞上最大数的限制。
+
+3.
