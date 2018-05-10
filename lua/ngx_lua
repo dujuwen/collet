@@ -28,4 +28,46 @@ https://github.com/iresty/nginx-lua-module-zh-wiki
 对于部分正则表达式（字符串的各种替换，如 ngx.re.sub 和 ngx.re.gsub），不要使用 o选项，这类正则每次都不一样，缓存无法被利用。
 这样我们可以避免撞上最大数的限制。
 
-3.
+3.init_by_lua_block
+语法: init_by_lua_block { lua-script }
+环境: http
+阶段: loading-config
+与 init_by_lua 指令相似，只不过该指令在一对括号（{}）中直接内嵌 Lua 代码，替代之前 Nginx 的字符串（需要特殊字符转义）。
+例如：
+通常，你可以在服务启动时注册 Lua 全局变量或预加载 Lua 模块。这是个预加载Lua模块的示例代码：
+ init_by_lua {
+     cjson = require "cjson"'
+  }
+
+ server {
+     location = /api {
+         content_by_lua_block {
+             ngx.say(cjson.encode({dog = 5, cat = 6}))
+         }
+     }
+ }
+ 
+ 你也可以在这个阶段初始化lua_shared_dict共享内存内容。这里是示例代码：
+
+ lua_shared_dict dogs 1m;
+
+ init_by_lua {
+     local dogs = ngx.shared.dogs
+     dogs:set("Tom", 56)
+ }
+
+ server {
+     location = /api {
+         content_by_lua_block {
+             local dogs = ngx.shared.dogs
+             ngx.say(dogs:get("Tom"))
+         }
+     }
+ }
+ 
+ 在这个上下文中，只有一小部分的 Nginx Lua API 是被支持的：
+记录日志的 APIs：ngx.log 和 print
+共享内存字典 APIs：ngx.shared.DICT
+
+4.
+
