@@ -338,4 +338,19 @@ status 参数可以是 status argument can be ngx.OK, ngx.ERROR, ngx.HTTP_NOT_FO
  -- 退出整个请求而不是当前处理阶段
  ngx.exit(ngx.HTTP_OK)
 
-18.
+18.ngx_lua时间api
+     location /test {
+    	content_by_lua_block {
+    		-- 系统当前时间2018-05-10 17:13:06
+	    	ngx.say(ngx.today()) --yyyy-mm-dd 2018-05-10
+	    	ngx.say(ngx.localtime()) --yyyy-mm-dd hh:mm:ss 2018-05-10 17:13:06
+	    	ngx.say(ngx.utctime()) --yyyy-mm-dd hh:mm:ss 2018-05-10 09:13:06
+	    	ngx.say(ngx.time()) --当前时间戳所经过的秒数 1525943586
+	    	ngx.say(ngx.now()) --获取的当前时间戳所经过的时间(以秒为单位，小数部分是毫秒) 1525943586.118
+	    	ngx.say(ngx.cookie_time(ngx.time())) --Thu, 10-May-18 09:13:06 GMT
+	    	ngx.say(ngx.http_time(ngx.time())) --Thu, 10 May 2018 09:13:06 GMT
+    	}
+    }
+
+19.
+
