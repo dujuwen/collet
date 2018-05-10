@@ -1,0 +1,8 @@
+类似json，比json更快且占用空间更加小。如果空间很重要的话可以考虑使用它
+
+https://msgpack.org/
+http://fperrad.github.io/lua-MessagePack/
+
+nginx lua文档
+https://www.nginx.com/resources/wiki/modules/lua/
+https://github.com/openresty/lua-nginx-module
