@@ -320,6 +320,22 @@ ngx.say
 环境: rewrite_by_lua*, access_by_lua*, content_by_lua*
 与 ngx.print 相同,同时末尾添加一个回车符。
 
-17.
+17.ngx.exit
+语法: ngx.exit(status)
+环境: rewrite_by_lua*, access_by_lua*, content_by_lua*, header_filter_by_lua*, ngx.timer.*, balancer_by_lua*, 
+ssl_certificate_by_lua*, ssl_session_fetch_by_lua*, ssl_session_store_by_lua*
 
+当 status >= 200 (即 ngx.HTTP_OK 及以上) 时，本函数中断当前请求执行并返回状态值给 nginx。
+当 status == 0 (即 ngx.OK) 时，本函数退出当前的“处理阶段句柄” (或当使用 content_by_lua* 指令时的“内容句柄”) ，
+继续执行当前请求的下一个阶段 (如果有)。
 
+status 参数可以是 status argument can be ngx.OK, ngx.ERROR, ngx.HTTP_NOT_FOUND, ngx.HTTP_MOVED_TEMPORARILY 
+或其它 HTTP status constants。
+
+要返回一个自定义内容的错误页，使用类似下面的代码：
+ ngx.status = ngx.HTTP_GONE
+ ngx.say("This is our own content")
+ -- 退出整个请求而不是当前处理阶段
+ ngx.exit(ngx.HTTP_OK)
+
+18.
