@@ -386,5 +386,15 @@ ssl_session_fetch_by_lua*, ssl_session_store_by_lua*
 获取基于共享内存名为 DICT 的 Lua 字典对象，它是一个共享内存区块，通过 lua_shared_dict 指令定义。
 所有共享内存区块均被当前 nginx 服务器实例的所有 nginx worker 进程共享。
 
-20.
-
+20.获取一些配置,config跟nginx -V获取的对应值是一样的
+	location /lua {
+		content_by_lua_block {
+		    ngx.say(ngx.config.prefix())
+		    ngx.say(ngx.config.nginx_version)
+		    ngx.say(ngx.config.nginx_configure())
+		    ngx.say(ngx.config.ngx_lua_version)
+		    ngx.say(ngx.worker.exiting())
+		    ngx.say(ngx.worker.pid())
+		    ngx.say(ngx.worker.count())
+		}
+	}
