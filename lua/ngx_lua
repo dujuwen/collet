@@ -352,5 +352,39 @@ status 参数可以是 status argument can be ngx.OK, ngx.ERROR, ngx.HTTP_NOT_FO
     	}
     }
 
-19.
+19.共享内存区域块
+https://github.com/iresty/nginx-lua-module-zh-wiki#ngxshareddict
+
+lua_shared_dict act 1m;
+
+server {
+location /set {
+		content_by_lua_block {
+			local act = ngx.shared.act
+			act:set("name","djw")
+			ngx.say("set done!")
+		}
+	}
+
+	location /get {
+		content_by_lua_block {
+			local act = ngx.shared.act
+			ngx.say("name:" .. act:get("name"))
+		}
+	}
+}
+
+就像mini版的redis一样，但是操作更加简单，即使在Nginx重启后数据依然存在!
+
+ngx.shared.DICT
+语法: dict = ngx.shared.DICT
+语法: dict = ngx.shared[name_var]
+环境: init_by_lua*, init_worker_by_lua*, set_by_lua*, rewrite_by_lua*, access_by_lua*, content_by_lua*,
+header_filter_by_lua*, body_filter_by_lua*, log_by_lua*, ngx.timer.*, balancer_by_lua*, ssl_certificate_by_lua*, 
+ssl_session_fetch_by_lua*, ssl_session_store_by_lua*
+
+获取基于共享内存名为 DICT 的 Lua 字典对象，它是一个共享内存区块，通过 lua_shared_dict 指令定义。
+所有共享内存区块均被当前 nginx 服务器实例的所有 nginx worker 进程共享。
+
+20.
 
