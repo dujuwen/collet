@@ -130,5 +130,88 @@ Lua 中使用的 API 以两个标准模块的形式封装：ngx 和 ndk。这两
  相对小数据量的磁盘操作可以通过标准的 Lua io 库来实现，但大规模的文件读写如果可能应该避免，因为可能会严重阻塞 Nginx 进程。
  为获得最好性能，强烈建议将所有网络和磁盘 I/O 操作发送到 Nginx 的子请求中 (通过类似 ngx.location.capture 的方法) 处理。
  
- 8.
+ 8.ngx.var.VARIABLE
+语法: ngx.var.VAR_NAME
+环境: set_by_lua*, rewrite_by_lua*, access_by_lua*, content_by_lua*, header_filter_by_lua*, body_filter_by_lua*, log_by_lua*
+
+读写 Nginx 变量值:
+ value = ngx.var.some_nginx_variable_name
+ ngx.var.some_nginx_variable_name = value
+请注意，只有已经定义的 nginx 变量可以被写入。例如:
+ location /foo {
+     set $my_var ''; # 需要在设置时创建 $my_var 变量
+     content_by_lua_block {
+         ngx.var.my_var = 123;
+         ...
+     }
+ }
  
+9.Core constants
+环境: init_by_lua*, set_by_lua*, rewrite_by_lua*, access_by_lua*, content_by_lua*, header_filter_by_lua*,
+body_filter_by_lua*, *log_by_lua*, ngx.timer.*, balancer_by_lua*, ssl_certificate_by_lua*
+    ngx.OK (0)
+    ngx.ERROR (-1)
+    ngx.AGAIN (-2)
+    ngx.DONE (-4)
+    ngx.DECLINED (-5)
+请注意，这些常量中只有三个可以被 Nginx API for Lua 使用 (即 ngx.exit 只接受 NGX_OK, NGX_ERROR, 和 NGX_DECLINED 作为输入)。
+
+ngx.null
+ngx.null 常量是一个 NULL 的 轻量用户数据 ，一般被用来表达 Lua table 等里面的 nil (空) 值，类似于 lua-cjson 库中的 cjson.null 常量。
+
+10.HTTP method constants
+  ngx.HTTP_GET
+  ngx.HTTP_HEAD
+  ngx.HTTP_PUT
+  ngx.HTTP_POST
+  ngx.HTTP_DELETE
+  ngx.HTTP_OPTIONS   (v0.5.0rc24 版本加入)
+  ngx.HTTP_MKCOL     (v0.8.2 版本加入)
+  ngx.HTTP_COPY      (v0.8.2 版本加入)
+  ngx.HTTP_MOVE      (v0.8.2 版本加入)
+  ngx.HTTP_PROPFIND  (v0.8.2 版本加入)
+  ngx.HTTP_PROPPATCH (v0.8.2 版本加入)
+  ngx.HTTP_LOCK      (v0.8.2 版本加入)
+  ngx.HTTP_UNLOCK    (v0.8.2 版本加入)
+  ngx.HTTP_PATCH     (v0.8.2 版本加入)
+  ngx.HTTP_TRACE     (v0.8.2 版本加入)
+这些常量一般被用在 ngx.location.capture 和 ngx.location.capture_multi 方法中。
+
+11.HTTP status constants
+value = ngx.HTTP_CONTINUE (100) (first added in the v0.9.20 release)
+   value = ngx.HTTP_SWITCHING_PROTOCOLS (101) (first added in the v0.9.20 release)
+   value = ngx.HTTP_OK (200)
+   value = ngx.HTTP_CREATED (201)
+   value = ngx.HTTP_ACCEPTED (202) (first added in the v0.9.20 release)
+   value = ngx.HTTP_NO_CONTENT (204) (first added in the v0.9.20 release)
+   value = ngx.HTTP_PARTIAL_CONTENT (206) (first added in the v0.9.20 release)
+   value = ngx.HTTP_SPECIAL_RESPONSE (300)
+   value = ngx.HTTP_MOVED_PERMANENTLY (301)
+   value = ngx.HTTP_MOVED_TEMPORARILY (302)
+   value = ngx.HTTP_SEE_OTHER (303)
+   value = ngx.HTTP_NOT_MODIFIED (304)
+   value = ngx.HTTP_TEMPORARY_REDIRECT (307) (first added in the v0.9.20 release)
+   value = ngx.HTTP_BAD_REQUEST (400)
+   value = ngx.HTTP_UNAUTHORIZED (401)
+   value = ngx.HTTP_PAYMENT_REQUIRED (402) (first added in the v0.9.20 release)
+   value = ngx.HTTP_FORBIDDEN (403)
+   value = ngx.HTTP_NOT_FOUND (404)
+   value = ngx.HTTP_NOT_ALLOWED (405)
+   value = ngx.HTTP_NOT_ACCEPTABLE (406) (first added in the v0.9.20 release)
+   value = ngx.HTTP_REQUEST_TIMEOUT (408) (first added in the v0.9.20 release)
+   value = ngx.HTTP_CONFLICT (409) (first added in the v0.9.20 release)
+   value = ngx.HTTP_GONE (410)
+   value = ngx.HTTP_UPGRADE_REQUIRED (426) (first added in the v0.9.20 release)
+   value = ngx.HTTP_TOO_MANY_REQUESTS (429) (first added in the v0.9.20 release)
+   value = ngx.HTTP_CLOSE (444) (first added in the v0.9.20 release)
+   value = ngx.HTTP_ILLEGAL (451) (first added in the v0.9.20 release)
+   value = ngx.HTTP_INTERNAL_SERVER_ERROR (500)
+   value = ngx.HTTP_METHOD_NOT_IMPLEMENTED (501)
+   value = ngx.HTTP_BAD_GATEWAY (502) (first added in the v0.9.20 release)
+   value = ngx.HTTP_SERVICE_UNAVAILABLE (503)
+   value = ngx.HTTP_GATEWAY_TIMEOUT (504) (first added in the v0.3.1rc38 release)
+   value = ngx.HTTP_VERSION_NOT_SUPPORTED (505) (first added in the v0.9.20 release)
+   value = ngx.HTTP_INSUFFICIENT_STORAGE (507) (first added in the v0.9.20 release)
+
+12.
+
