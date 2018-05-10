@@ -6,3 +6,6 @@ http://fperrad.github.io/lua-MessagePack/
 nginx lua文档
 https://www.nginx.com/resources/wiki/modules/lua/
 https://github.com/openresty/lua-nginx-module
+
+ngx_lua中文翻译
+https://github.com/iresty/nginx-lua-module-zh-wiki
