@@ -11,27 +11,30 @@ https://github.com/pintsized/lua-resty-http
 /usr/local/Cellar/openresty/1.13.6.1/lualib/resty
 
 验证代码:
-server {
-    listen       8080 default_server;
-    server_name  _;
+resolver 182.254.116.116 114.114.115.115 valid=3600s ipv6=off;
 
-    resolver 8.8.8.8;
+location /baidu {
+    content_by_lua_block {
+        local http = require "resty.http"
+        local httpc = http.new()
+        --ngx.say("res.body")
+        --return
 
-    location /baidu {
-        content_by_lua_block {
-            local http = require "resty.http"
-            local httpc = http.new()
-            local res, err = httpc:request_uri("http://www.baidu.com")
-            if res.status == ngx.HTTP_OK then
-                ngx.say(res.body)
-            else
-                ngx.exit(res.status)
-            end
-        }
+        local res, err = httpc:request_uri("http://www.baidu.com")
+        if err then
+            ngx.say(err)
+            return
+        end
+
+        if res.status == ngx.HTTP_OK then
+            ngx.say(res.body)
+        else
+            ngx.exit(res.status)
+        end
     }
 }
 
-访问 http://127.0.0.1:8080/baidu , 如果出现的是百度的首页，说明你配置成功了。
+访问 http://127.0.0.1:10000/baidu , 如果出现的是百度的首页，说明你配置成功了。
 
 当然这里也可以自定义 lua_package_path 指定 Lua 的查找路径，这样就可以把第三方代码放到相应的位置下，这么做更加方便归类文件，
 明确什么类型的文件放到什么地方（比如：公共文件、业务文件）。
