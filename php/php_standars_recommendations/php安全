@@ -1,4 +1,5 @@
 http://phpsecurity.readthedocs.io/en/latest/index.html
+http://php.net/manual/zh/security.php
 
 1.所有的用户输入必须进过安全检查
 比如用户输入的是文件名那么文件名中..符号是肯定不能存在的，此时可以用basename来获取名称并用ctype系列函数来检测文件名是否只有字母数字和下划线,
@@ -21,6 +22,8 @@ http://phpsecurity.readthedocs.io/en/latest/index.html
 3.每个数据除了测试预期正确的输入外还要写单元测试测试非预期的输入
 
 4.错误报告
+http://php.net/manual/zh/security.errors.php
+
 第一个是彻底地检查所有函数，并尝试弥补大多数错误。
 第二个是对在线系统彻底关闭错误报告。
 第三个是使用 PHP 自定义的错误处理函数创建自己的错误处理机制。根据不同的安全策略，三种方法可能都适用。
