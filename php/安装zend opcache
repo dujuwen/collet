@@ -31,3 +31,6 @@ https://github.com/PeeHaa/OpCacheGUI
 opcache.huge_code_pages=1
 
 注意：官方给了一个 Note，如果 opcache 要与 xdebug 同时加载，那么 opcache 需要在 xdebug 之前进行加载
+
+在本地开启opcache之前请求使用laravel框架大概rps大概是22，开启opcache之后飙升到66，速度明显有了成倍的提升!!!
+ab -c2 -n100 127.0.0.1:8000/v1/usertest
