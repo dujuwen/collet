@@ -40,5 +40,8 @@ http://php.net/manual/zh/security.errors.php
 彻底关闭错误报告或者把 php.ini 中的 display_errors 设为 off 来关闭所有的错误显示以将代码隔绝于探测。
 当然，如果要迟一些再这样做，就不要忘记打开 ini 文件内的 log_errors 选项，并通过 error_log 指定用于记录错误信息的文件。
 
-5.
+5.经常更新，并时刻留意最新版本及其改变
+
+6.
+
 
