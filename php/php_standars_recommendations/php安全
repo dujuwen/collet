@@ -1,1 +1,7 @@
 http://phpsecurity.readthedocs.io/en/latest/index.html
+
+1.所有的用户输入必须进过安全检查
+比如用户输入的是文件名那么文件名中..符号是肯定不能存在的，此时可以用basename来获取名称并用ctype系列函数来检测文件名是否只有字母数字和下划线,
+而没有其他符号
+
+2.
