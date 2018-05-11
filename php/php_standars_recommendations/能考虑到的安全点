@@ -1,0 +1,6 @@
+1.数据存入数据库的时候进行安全检查，特别是来自用户的数据
+比如字符串存入数据库的时候需要转义，存入数字的时候只能是数字
+addslashes — 使用反斜线引用字符串
+http://php.net/manual/zh/function.addslashes.php
+
+2.
