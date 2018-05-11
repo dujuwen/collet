@@ -78,8 +78,7 @@ $ cat /etc/logrotate.d/nginx
     sharedscripts
     postrotate
         /bin/kill -USR1 `cat /run/nginx.pid 2>/dev/null` 2>/dev/null || true #在rotate之后告诉nginx re-opening log files
-    endscript
-    postrotate
+	#或者直接用nginx -s reopen,如果用kill发送信号的话要先判断pid文件是否存在
 	find /var/log/nginx/* -name "*.gz" -mtime +7 -type f -exec rm -rf {} \; 
 	#查找nginx log目录下修改时间>=7天的以gz结尾的文件然后把它们删除
 	#保留一周以内的日志文件多余的就删除掉
