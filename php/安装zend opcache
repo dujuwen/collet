@@ -34,3 +34,5 @@ opcache.huge_code_pages=1
 
 在本地开启opcache之前请求使用laravel框架大概rps大概是22，开启opcache之后飙升到66，速度明显有了成倍的提升!!!
 ab -c2 -n100 127.0.0.1:8000/v1/usertest
+
+随着并发的增加而请求数不变rps会有明显的下降，还是要多多优化!!!
