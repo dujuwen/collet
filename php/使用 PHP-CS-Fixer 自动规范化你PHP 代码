@@ -5,6 +5,9 @@ composer global require friendsofphp/php-cs-fixer
 
 然后在~/.composer/vendor/bin下执行命令:
 ln -s ../friendsofphp/php-cs-fixer/php-cs-fixer /usr/local/bin/php-cs-fixer
+最好是执行:
+ln -s /Users/dujunwen/.composer/vendor/friendsofphp/php-cs-fixer/php-cs-fixer /usr/local/bin/php-cs-fixer
+
 chmod a+x /usr/local/bin/php-cs-fixer
 
 用法：
