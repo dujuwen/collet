@@ -49,7 +49,26 @@ nginx是nginx -V
 9.php共享存储位置,安装目录lib下
 /Users/dujunwen/Desktop/test/after_build/php7.1.17/lib/php/extensions/no-debug-non-zts-20160303
 
-10.
+10.官网的php安装方法
+http://php.net/manual/zh/install.unix.nginx.php
+
+准备好php源文件,考虑需要的支持或者扩展
+cd ../php-x.x.x
+./configure --enable-fpm --with-mysql ...省略了
+make
+sudo make install
+
+如何创建配置文件呢？
+是work环境就将源码中的php.ini-development拷贝到安装目录下的lib目录，然后将名称改为php.ini
+是线上环境就将源码中的php.ini-production拷贝到安装目录下的lib目录，然后将名称改为php.ini
+
+修改配置php.ini php-fpm.conf
+启动php-fpm
+
+11.php-fpm如何知道是从哪里读取php配置信息的呢？
+php-fpm是跟随php(通过 --enable-fpm)安装的，哦，明了了
+
+12.
 
 
 
