@@ -28,4 +28,13 @@ Error 类并非继承自 Exception 类，所以不能用 catch (Exception $e) { 
 5.http基本认证除了可以在nginx上直接认证外还可以在php中认证
 http://php.net/manual/zh/features.http-auth.php
 
-6.
+6.php可以像其他脚本一样运行
+http://php.net/manual/zh/features.commandline.php
+
+#!/usr/bin/php
+<?php
+    var_dump($argv);
+?>
+
+7.
+
