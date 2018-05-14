@@ -2,4 +2,10 @@
 PHP 也支持两种复合类型：数组和对象。这两种类型具可以赋值给变量或者从函数返回。
 标量:bi fs
 
-2.
+2.有效的类型申明
+http://php.net/manual/zh/functions.arguments.php#functions.variable-arg-list
+
+类或者接口名称、self、array、callable、bool、float、int、string
+
+3.
+
