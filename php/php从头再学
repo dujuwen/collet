@@ -36,5 +36,12 @@ http://php.net/manual/zh/features.commandline.php
     var_dump($argv);
 ?>
 
-7.
+7.如果只是简单的调试php代码不想更改服务器配置的话可以使用内置服务器
+http://php.net/manual/zh/features.commandline.webserver.php
+
+$ cd ~/public_html
+$ php -S localhost:8000
+
+8.
+
 
