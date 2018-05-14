@@ -7,5 +7,11 @@ http://php.net/manual/zh/functions.arguments.php#functions.variable-arg-list
 
 类或者接口名称、self、array、callable、bool、float、int、string
 
-3.
+3.函数返回值类型申明
+http://php.net/manual/zh/functions.returning-values.php
 
+function sum($a, $b): int {
+    return $a + $b;
+}
+
+4.
