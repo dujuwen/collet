@@ -4,4 +4,6 @@ file_uploads = On
 ;上传临时文件目录如果nginx有定义的话优先使用nginx定义的临时文件目录,但是要保证临时目录php有读写权限
 ;如何查看临时文件目录?nginx -V 然后查找http-client-body-temp-path
 upload_max_filesize = 2M ;最大上传文件大小
+post_max_size = 8M ; post_max_size必须大于等于upload_max_filesize,这个配置也会影响php上传文件
+
 
