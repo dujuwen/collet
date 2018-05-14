@@ -46,7 +46,11 @@ $ php -S localhost:8000
 php -i | grep configure
 nginx是nginx -V
 
-9.
+9.php共享存储位置,安装目录lib下
+/Users/dujunwen/Desktop/test/after_build/php7.1.17/lib/php/extensions/no-debug-non-zts-20160303
+
+10.
+
 
 
 
