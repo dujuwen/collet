@@ -1,0 +1,18 @@
+ansible中文
+http://ansible-tran.readthedocs.io/en/latest/
+http://getansible.com/
+
+github地址
+https://github.com/ansible/ansible
+
+很多写好的ansible脚本
+https://galaxy.ansible.com/
+https://galaxy.ansible.com/list#/roles?page=1&page_size=10
+
+1.mac下安装ansible
+https://www.jianshu.com/p/873975e0abb8
+
+brew install ansible
+
+2.
+
