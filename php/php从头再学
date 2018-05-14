@@ -25,4 +25,7 @@ Error 类并非继承自 Exception 类，所以不能用 catch (Exception $e) { 
 或者通过注册异常处理函数（ set_exception_handler()）来捕获 Error。
 由于Error和Exception都继承自Throwable所以可以使用catch(Throwable $t)来同时捕获异常或者错误
 
-5.
+5.http基本认证除了可以在nginx上直接认证外还可以在php中认证
+http://php.net/manual/zh/features.http-auth.php
+
+6.
