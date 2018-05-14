@@ -14,4 +14,15 @@ function sum($a, $b): int {
     return $a + $b;
 }
 
-4.
+4.error
+http://php.net/manual/zh/language.errors.php7.php
+
+Throwable
+    Error
+    Exception
+    
+Error 类并非继承自 Exception 类，所以不能用 catch (Exception $e) { ... } 来捕获 Error。你可以用 catch (Error $e) { ... }，
+或者通过注册异常处理函数（ set_exception_handler()）来捕获 Error。
+由于Error和Exception都继承自Throwable所以可以使用catch(Throwable $t)来同时捕获异常或者错误
+
+5.
