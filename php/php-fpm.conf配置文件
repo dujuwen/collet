@@ -1,7 +1,10 @@
+http://php.net/manual/zh/install.fpm.configuration.php
+
 ;约定一下,log文件通通写到/var/log/类型(nginx|php|php-fpm|mysql|redis)/级别(access|info|error...).log
 
 [global]
-pid = /run/php-fpm.pid
+pid = /run/php-fpm/php-fpm.pid
 
 error_log = /var/log/php-fpm/php-fpm.log
 
+log_level = notice
