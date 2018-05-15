@@ -1,15 +1,15 @@
 在原生的nginx中如果没有添加ngx_lua模块的话调试nginx的变量是非常麻烦的，但是借助ngx_lua模块和一些第三方的模块在openresty中调试时很容易的
 
 location ~ "^(.+\.php)($|/)" { #location这里的匹配可以根据需要修改,这里是调试php相关的
-    set $djw1 $fastcgi_script_name;
+    set $fsn1 $fastcgi_script_name;
     fastcgi_split_path_info ^(.+\.php)(.*)$;
-    set $djw2 $fastcgi_script_name;
-    set $djw3 $fastcgi_path_info;
+    set $fsn2 $fastcgi_script_name;
+    set $path $fastcgi_path_info;
     content_by_lua_block {
-        ngx.say(ngx.var.djw1) -- 在lua中可以获取nginx中定义了的变量
-        ngx.say("djw test")
-        ngx.say(ngx.var.djw2)
-        ngx.say(ngx.var.djw3) 
+        ngx.say("fastcgi_script_name = " .. ngx.var.fsn1) -- 在lua中可以获取nginx中定义了的变量
+        ngx.say("-----------------")
+        ngx.say("fastcgi_script_name = " .. ngx.var.fsn2)
+        ngx.say("fastcgi_path_info = " .. ngx.var.path) 
         -- print() --同时可以借助print函数将日志打印到error log
     }
 }
