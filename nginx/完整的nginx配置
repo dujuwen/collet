@@ -132,14 +132,14 @@ http {
 
         location ~ "^(.+\.php)($|/)" {
             #当请求的uri以/结尾的时候在后面追加的文件,比如/test/会变成/test/index.php
-            fastcgi_index index.php; 
+            #fastcgi_index index.php; #这里不需要因为.php/文件后面不应该有其他php文件
             
             #try_files =404一定要加上，找不到就跳到404页面。只关心文件是否存在所以可以去掉$uri/
             #请求URL为http://127.0.0.1:9111/test.php/?a=1&b=2&c=3
             #uri = /test.php/
             #fastcgi_script_name = /test.php/index.php
-            #在配置try_file的时候加上$fastcgi_script_name兼容性更好
-            try_files $uri $fastcgi_script_name /index.php?$args =404; 
+            #php文件下面不应该有其他的php
+            try_files $uri /index.php?$args =404; 
             
             include        fastcgi_params; #这个文件跟nginx.conf同一级
             
