@@ -1,5 +1,6 @@
 官方demo php.ini配置
 http://git.php.net/?p=php-src.git;a=blob;f=php.ini-production;hb=HEAD
+http://git.php.net/?p=php-src.git;a=tree;hb=HEAD
 
 ;文件上传部分
 file_uploads = On
