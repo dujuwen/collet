@@ -133,13 +133,18 @@ http {
 
         location ~ "^(.+\.php)($|/)" {
             try_files $uri /index.php?$args =404; #=404一定要加上，找不到就跳到404页面。只关心文件是否存在所以可以去掉$uri/
-            include        fastcgi_params;
-            fastcgi_split_path_info ^(.+\.php)(.*)$;
-            fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-            fastcgi_param SCRIPT_NAME $fastcgi_script_name;
-            fastcgi_param PATH_INFO $fastcgi_path_info;
+            include        fastcgi_params; #这个文件跟nginx.conf同一级
+            #可以将配置fastcgi_param  SCRIPT_FILENAME $document_root$fastcgi_script_name;移动到fastcgi_params中这样所有页面就共享了
+            fastcgi_param  SCRIPT_FILENAME $document_root$fastcgi_script_name;
             fastcgi_pass   127.0.0.1:9000;
         }
+        
+        #location ~ ^(.+\.php)(.*)$ {
+            #fastcgi_split_path_info ^(.+\.php)(.*)$;
+            #fastcgi_split_path_info       ^(.+\.php)(.*)$;
+            #fastcgi_param SCRIPT_FILENAME /path/to/php$fastcgi_script_name;
+            #fastcgi_param PATH_INFO       $fastcgi_path_info;
+        #}
     }
     
     #下面这个配置是防止恶意解析
