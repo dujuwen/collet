@@ -9,6 +9,8 @@ http://git.php.net/?p=php-src.git;a=tree;hb=HEAD
 php-fpm是从哪里去找php.ini配置的?
 php-fpm -i | grep --with-config-file-path
 
+配置文件路径搜索顺序
+http://php.net/manual/zh/configuration.file.php
 
 ;文件上传部分
 file_uploads = On
