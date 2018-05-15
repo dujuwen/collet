@@ -14,6 +14,7 @@ kill -USR2 `cat /run/php-fpm/php-fpm.pid`
 
 如何平滑重启nginx:
 kill -HUP `cat /run/nginx.pid`
+nginx -s reload
 
 -------------------------------------------
 
