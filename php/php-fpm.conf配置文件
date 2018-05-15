@@ -1,3 +1,7 @@
+;约定一下,log文件通通写到/var/log/类型(nginx|php|php-fpm|mysql|redis)/级别(access|info|error...).log
+
 [global]
 pid = /run/php-fpm.pid
+
+error_log = /var/log/php-fpm/php-fpm.log
 
