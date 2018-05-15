@@ -6,5 +6,6 @@ file_uploads = On
 upload_max_filesize = 2M ;最大上传文件大小
 post_max_size = 8M ;post_max_size必须大于等于upload_max_filesize,这个配置也会影响php上传文件
 
-
+cgi.fix_pathinfo = 1;这里可能存在漏洞http://zyan.cc/nginx_0day/,但是在nginx层做好适配就可以了,不让不正常的请求走到php中来
 cli_server.color = On ;控制内置Web Server的终端输出有无颜色
+
