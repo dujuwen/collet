@@ -86,6 +86,7 @@ http {
     
     #client_max_body_size 10m;      #具体数字要根据业务需求决定
     
+    fastcgi_index index.php; #当请求的uri以/结尾的时候在后面追加的文件,比如/test/会变成/test/index.php
     index index.php index.html index.htm; #在http定义后下面的server会继承
     
     server {
@@ -131,7 +132,6 @@ http {
         }
 
         location ~ "^(.+\.php)($|/)" {
-            fastcgi_index index.php;
             try_files $uri /index.php?$args =404; #=404一定要加上，找不到就跳到404页面。只关心文件是否存在所以可以去掉$uri/
             include        fastcgi_params;
             fastcgi_split_path_info ^(.+\.php)(.*)$;
