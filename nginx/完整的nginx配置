@@ -130,7 +130,7 @@ http {
             add_header Cache-Control "max-age=86400, public";
         }
 
-        location ~ "^(.+\.php)($|/)" {
+        location ~ "^(.+\.php)$" {
             #当请求的uri以/结尾的时候在后面追加的文件,比如/test/会变成/test/index.php
             #fastcgi_index index.php; #这里不需要因为.php/文件后面不应该有其他php文件
             
