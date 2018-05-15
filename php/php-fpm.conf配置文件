@@ -17,6 +17,8 @@ kill -HUP `cat /run/nginx.pid`
 nginx -s reload
 
 -------------------------------------------
+/etc/php-fpm.conf
+-------------------------------------------
 
 [global]
 pid = /run/php-fpm/php-fpm.pid
@@ -34,3 +36,13 @@ rlimit_files = 65535
 ;;;;;;;;;;;;;;;;;;;;
 
 include /etc/php-fpm.d/*.conf
+
+-------------------------------------------
+/etc/php-fpm.d/www.conf 这里www为池名称
+-------------------------------------------
+[www]
+
+user = nginx
+group = nginx
+
+
