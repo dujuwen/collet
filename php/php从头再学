@@ -62,6 +62,10 @@ sudo make install
 是work环境就将源码中的php.ini-development拷贝到安装目录下的lib目录，然后将名称改为php.ini
 是线上环境就将源码中的php.ini-production拷贝到安装目录下的lib目录，然后将名称改为php.ini
 
+cp php.ini-development /usr/local/php/php.ini
+cp /usr/local/etc/php-fpm.conf.default /usr/local/etc/php-fpm.conf
+cp sapi/fpm/php-fpm /usr/local/bin
+
 修改配置php.ini php-fpm.conf
 启动php-fpm
 
