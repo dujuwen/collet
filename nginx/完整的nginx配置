@@ -118,7 +118,8 @@ http {
             root   /usr/local/Cellar/nginx/1.6.2/html;
         }
 
-        location ~* \.(jpg|jpeg|png|gif|ico|bmp|swf|css|js)$ {
+        location ~* \.(jpg|jpeg|png|gif|ico|bmp|swf|css|js)($|.*) {
+            #凡是路径中包括图片的都应该到图片这里
             access_log off;
             #防止图片盗链
             valid_referers none blocked *.xxx.com xxx.com;
