@@ -2,6 +2,14 @@
 http://git.php.net/?p=php-src.git;a=blob;f=php.ini-production;hb=HEAD
 http://git.php.net/?p=php-src.git;a=tree;hb=HEAD
 
+如何查找php.ini配置文件?
+1.php --ini
+2.phpinfo()
+
+php-fpm是从哪里去找php.ini配置的?
+php-fpm -i | grep --with-config-file-path
+
+
 ;文件上传部分
 file_uploads = On
 ;upload_tmp_dir = 
