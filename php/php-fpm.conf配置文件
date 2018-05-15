@@ -29,3 +29,8 @@ daemonize = yes ;设置php fpm在后台运行,开放环境调试的时候可以�
 
 rlimit_files = 65535
 
+;;;;;;;;;;;;;;;;;;;;
+; Pool Definitions ;
+;;;;;;;;;;;;;;;;;;;;
+
+include /etc/php-fpm.d/*.conf
