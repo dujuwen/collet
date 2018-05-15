@@ -10,7 +10,12 @@ php-fpm是从哪里去找php.ini配置的?
 php-fpm -i | grep --with-config-file-path
 
 配置文件路径搜索顺序
-http://php.net/manual/zh/configuration.file.php
+在配置文件中还可以使用变量
+in php.ini you can reference to an existing directive or an environment variable using the syntax ${varname}.
+
+http://php.net/manual/zh/configuration.file.ph
+
+--------------------------------------------
 
 ;文件上传部分
 file_uploads = On
