@@ -5,6 +5,18 @@ http://php.net/manual/zh/install.fpm.configuration.php
 ; Boolean flags can be turned on using the values 1, On, True or Yes.
 ; They can be turned off using the values 0, Off, False or No.
 
+如何kill掉php-fpm:
+pkill php-fpm
+
+如何平滑重启php-fpm:
+kill -s USR2 `cat /run/php-fpm/php-fpm.pid`
+kill -USR2 `cat /run/php-fpm/php-fpm.pid`
+
+如何平滑重启nginx:
+kill -HUP `cat /run/nginx.pid`
+
+-------------------------------------------
+
 [global]
 pid = /run/php-fpm/php-fpm.pid
 
@@ -13,4 +25,6 @@ error_log = /var/log/php-fpm/error.log
 log_level = notice
 
 daemonize = yes ;设置php fpm在后台运行,开放环境调试的时候可以将这个值设置为no
+
+rlimit_files = 65535
 
