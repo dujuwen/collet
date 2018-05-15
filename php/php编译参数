@@ -1,8 +1,8 @@
 安装php:
 https://tojohnonly.github.io/69-CentOS%E5%AE%89%E8%A3%85PHP.html
 
-在安装nginx和php之前应该添加用户和组nginx:nginx，
-将nginx、php-fpm和代码存放路径的用户和用户组都设置为nginx
+在安装nginx和php之前应该添加用户和组www:www，
+将nginx、php-fpm和代码存放路径的用户和用户组都设置为www
 
 可以通过ps aux | grep nginx(或php-fpm)来查看运行用户
 
