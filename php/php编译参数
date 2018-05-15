@@ -1,2 +1,7 @@
+./configure
+
 安装php-fpm
 --enable-fpm
+
+php.ini配置文件存放路径
+--with-config-file-path=/etc
