@@ -101,4 +101,27 @@ Perl （Practical Extraction and Report Language)Perl借取了C、sed、awk、sh
 
 最直接的表述：Pear是PHP的上层扩展，Pecl是PHP的底层扩展。
 
-16.
+16.php-config
+http://php.net/manual/zh/install.pecl.php-config.php
+
+php-config 是一个简单的命令行脚本用于获取所安装的 PHP 配置的信息。
+
+在编译扩展时，如果安装有多个 PHP 版本，可以在配置时用 --with-php-config 选项来指定使用哪一个版本编译，该选项指定了相对应的 php-config 
+脚本的路径。
+
+php-config 脚本在命令行所能使用的选项可以通过 -h 选项来显示：
+Usage: /usr/local/bin/php-config [OPTION]
+Options:
+  --prefix            [...]
+  --includes          [...]
+  --ldflags           [...]
+  --libs              [...]
+  --extension-dir     [...]
+  --include-dir       [...]
+  --php-binary        [...]
+  --php-sapis         [...]
+  --configure-options [...]
+  --version           [...]
+  --vernum            [...]
+  
+17.
