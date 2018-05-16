@@ -7,6 +7,8 @@ http://git.php.net/?p=php-src.git;a=tree;hb=HEAD
 2.phpinfo()
 
 php-fpm是从哪里去找php.ini配置的?
+http://php.net/manual/zh/faq.installation.php
+
 php-fpm -i | grep --with-config-file-path
 
 配置文件路径搜索顺序
