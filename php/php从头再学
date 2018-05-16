@@ -89,8 +89,16 @@ http://php.net/manual/zh/install.pecl.phpize.php
 
 phpize 命令是用来准备 PHP 扩展库的编译环境的
 
-15.
+15.PEAR, PECL和Perl的区别
+PEAR是PHP扩展与应用库（the PHP Extension and Application Repository）的缩写。它是一个PHP扩展及应用的一个代码仓库，简单地说，
+PEAR就是PHP的CPAN。
 
+PECL （PHP Extension Community Library），PHP的扩展库，它提供了一系列已知的扩展库，由C++等其他语言编写而成，以.so形式出现，.so 为共享库,
+是shared object,用于动态连接的,和dll差不多，为比PEAR更快，但是与PEAR不同的是，PECL需要在服务器上配置并被注册到主机中。
 
+Perl （Practical Extraction and Report Language)Perl借取了C、sed、awk、shell scripting以及很多其他程序语言的特性。
+其中最重要的特性是它内部集成了正则表达式的功能，以及巨大的第三方代码库CPAN。简而言之，Perl象C一样强大，象awk、sed等脚本描述语言一样方便
 
+最直接的表述：Pear是PHP的上层扩展，Pecl是PHP的底层扩展。
 
+16.
