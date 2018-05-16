@@ -64,4 +64,20 @@ include /etc/php-fpm.d/*.conf
 user = nginx
 group = nginx
 
+; 接收fastcgi请求的地址
+; 也可以配置成socket, /run/php-fpm.sock
+; tcp在高并发的时候具有更好的稳定性
+; 这里的listen会影响nginx中的配置: fastcgi_pass   127.0.0.1:9000; 这两处要保持一致
+listen = 127.0.0.1:9000
+
+; http://www.hao32.com/webserver/459.html
+; No, it means that up to 511 connections can be queued in kernel listen
+; queue. 511 is just a safe limit for the most OSes. For FreeBSD it’s -1,
+; i.e., value of sysctl kern.ipc.somaxconn.
+; May I modify it to 1024 or higher( I am sure use it less than SOMAXCONN )
+; 在修改下面的值之前要修改系统内核配置(也可以直接修改配置文件/etc/sysctl.conf):
+; sysctl -a | grep somaxconn，sysctl net.core.somaxconn=1024，sysctl -p
+listen.backlog = 1024
+
+
 
