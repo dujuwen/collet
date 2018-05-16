@@ -1,9 +1,9 @@
 http://php.net/manual/zh/install.fpm.configuration.php
 
-;约定一下,log文件通通写到/var/log/类型(nginx|php|php-fpm|mysql|redis)/级别(access|info|error...).log
-;pid文件一律放到/run/类型/类型.pid
+; 约定一下,log文件通通写到/var/log/类型(nginx|php|php-fpm|mysql|redis)/级别(access|info|error...).log
+; pid文件一律放到/run/类型/类型.pid
 
-;在php(php-fpm)配置中
+; 在php(php-fpm)配置中
 ; Boolean flags can be turned on using the values 1, On, True or Yes.
 ; They can be turned off using the values 0, Off, False or No.
 
@@ -29,14 +29,17 @@ error_log = /var/log/php-fpm/error.log
 
 log_level = notice
 
-;http://www.04007.cn/article/441.html
-;如果子进程在 emergency_restart_interval 设定的时间内收到该参数设定次数的 SIGSEGV 或者 SIGBUS退出信号，则FPM会重新启动
-;SIGBUS(Bus error)意味着指针所对应的地址是有效地址，但总线不能正常使用该指针。通常是未对齐的数据访问所致。
-;SIGSEGV(Segment fault)意味着指针所对应的地址是无效地址，没有物理内存对应该地址。
+; http://www.04007.cn/article/441.html
+; 如果子进程在 emergency_restart_interval 设定的时间内收到该参数设定次数的 SIGSEGV 或者 SIGBUS退出信号，则FPM会重新启动
+; SIGBUS(Bus error)意味着指针所对应的地址是有效地址，但总线不能正常使用该指针。通常是未对齐的数据访问所致。
+; SIGSEGV(Segment fault)意味着指针所对应的地址是无效地址，没有物理内存对应该地址。
 emergency_restart_threshold = 10
 
-;emergency_restart_interval 用于设定平滑重启的间隔时间
-emergency_restart_interval = 60
+; emergency_restart_interval 用于设定平滑重启的间隔时间
+; Available Units: s(econds), m(inutes), h(ours), or d(ays)
+; Default Unit: seconds
+; 5分钟内收到10次异常信号就优雅的重启php-fpm
+emergency_restart_interval = 300
 
 daemonize = yes ;设置php fpm在后台运行,开放环境调试的时候可以将这个值设置为no
 
