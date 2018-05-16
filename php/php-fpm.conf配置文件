@@ -79,5 +79,10 @@ listen = 127.0.0.1:9000
 ; sysctl -a | grep somaxconn，sysctl net.core.somaxconn=1024，sysctl -p
 listen.backlog = 1024
 
+; Set permissions for unix socket, if one is used.
+; 为socket连接设置权限,tcp连接这里不用管
+;listen.owner = _www
+;listen.group = _www
+;listen.mode = 0660
 
 
