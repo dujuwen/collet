@@ -16,3 +16,4 @@ sysctl -a
 显示主机的名称
 sysctl -n kernel.hostname
 
+也可以手动修改/etc/sysctl.conf文件然后 sudo sysctl -p/etc/sysctl.conf 使文件生效
