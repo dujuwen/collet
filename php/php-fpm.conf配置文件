@@ -99,7 +99,7 @@ pm.max_children = 80 ;这里顶峰的时候需要2.4G内存
 pm.start_servers = 3
 pm.min_spare_servers = 1
 pm.max_spare_servers = 3
-
-
+; 在请求数达到此值的时候需要重启该进程,如果没有内存溢出的话这个值应该调整大一点
+pm.max_requests = 200000
 
 
