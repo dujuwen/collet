@@ -85,4 +85,11 @@ listen.backlog = 1024
 ;listen.group = _www
 ;listen.mode = 0660
 
+; Makes sense only with a tcp listening socket. Each address
+; must be separated by a comma(,). If this value is left blank, connections will be
+; accepted from any ip address.
+; Default Value: any
+; 如果没有其他服务器连接到这台机器上可以设置这个为本地地址
+listen.allowed_clients = 127.0.0.1
+
 
