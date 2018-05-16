@@ -92,4 +92,14 @@ listen.backlog = 1024
 ; 如果没有其他服务器连接到这台机器上可以设置这个为本地地址
 listen.allowed_clients = 127.0.0.1
 
+; process manager配置
+pm = dynamic
+; pm.max_children可以根据内存动态调整,按照一个30M估算
+pm.max_children = 80 ;这里顶峰的时候需要2.4G内存
+pm.start_servers = 3
+pm.min_spare_servers = 1
+pm.max_spare_servers = 3
+
+
+
 
