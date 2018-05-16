@@ -289,6 +289,9 @@ access.log = /var/log/php-fpm/access.log
 ;
 ; Default: "%R - %u %t \"%m %r\" %s"
 ;access.format = "%R - %u %t \"%m %r%Q%q\" %s %f %{mili}d %{kilo}M %C%%"
+; 从左到右分别是:请求ip地址||请求开始时间||请求方法||参数||文件||请求内容长度(POST才有)||处理时间(毫秒)||总共使用cpu||用户使用cpu||php峰值内存||状态码||pool name name
+access.format = "[%R]||%{%Y-%m-%dT%H:%M:%S%z}t||%m||%r%Q%q||%f||%l||%{miliseconds}d||%C||%{user}C||%{mega}M||%s||%n"
+
 
 ; The log file for slow requests
 ; Default Value: not set
