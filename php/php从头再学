@@ -124,4 +124,11 @@ Options:
   --version           [...]
   --vernum            [...]
   
+获取php的configure信息可以用:
+$ php-config --configure-options
+
+获取php扩展安装路径:
+$ php-config --extension-dir
+/usr/lib/php/extensions/no-debug-non-zts-20160303
+
 17.
