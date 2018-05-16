@@ -65,7 +65,7 @@ user = nginx
 group = nginx
 
 ; 接收fastcgi请求的地址
-; 也可以配置成socket, /run/php-fpm.sock
+; 也可以配置成socket, /run/php-fpm.sock，对应的nginx配置 fastcgi_pass   unix:/run/php-fpm.sock;
 ; tcp在高并发的时候具有更好的稳定性
 ; 这里的listen会影响nginx中的配置: fastcgi_pass   127.0.0.1:9000; 这两处要保持一致
 listen = 127.0.0.1:9000
