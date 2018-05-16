@@ -41,6 +41,11 @@ emergency_restart_threshold = 10
 ; 5分钟内收到10次异常信号就优雅的重启php-fpm
 emergency_restart_interval = 300
 
+; php进程信号复用: php-fpm作为一个调度员，会自动让空闲的FastCGI进程去处理请求，但是在分配请求给php进程前，PHP-FPM需要发送一个进程复用信号给
+; FastCGI，以让FastCGI准备请求处理。但是FastCGI进程并不总是能够处理请求，也就是不能够响应进程复用信号，这个参数就表示了PHP-FPM留给FastCGI
+; 进程多久时间去响应进程复用信号，如果超时PHP-FPM会选择其他的fastcgi去处理。
+process_control_timeout = 20
+
 daemonize = yes ;设置php fpm在后台运行,开放环境调试的时候可以将这个值设置为no
 
 rlimit_files = 65535
