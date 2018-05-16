@@ -75,9 +75,10 @@ listen = 127.0.0.1:9000
 ; queue. 511 is just a safe limit for the most OSes. For FreeBSD it’s -1,
 ; i.e., value of sysctl kern.ipc.somaxconn.
 ; May I modify it to 1024 or higher( I am sure use it less than SOMAXCONN )
+
 ; 在修改下面的值之前要修改系统内核配置(也可以直接修改配置文件/etc/sysctl.conf):
-; sysctl -a | grep somaxconn，sysctl net.core.somaxconn=1024，sysctl -p
-listen.backlog = 1024
+; sysctl -a | grep somaxconn，sysctl net.core.somaxconn=2048，sysctl -p
+listen.backlog = 2048
 
 ; Set permissions for unix socket, if one is used.
 ; 为socket连接设置权限,tcp连接这里不用管
