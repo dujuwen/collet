@@ -16,4 +16,9 @@ sysctl -a
 显示主机的名称
 sysctl -n kernel.hostname
 
+修改主机名称
+sysctl -a | grep hostname
+将xxx替换成自己想要的名称，最好能表达这台机器的作用
+sysctl -w kernel.hostname=xxx
+
 也可以手动修改/etc/sysctl.conf文件然后 sudo sysctl -p/etc/sysctl.conf 使文件生效
