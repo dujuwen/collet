@@ -296,16 +296,21 @@ access.format = "[%R]||%s||%{%Y-%m-%dT%H:%M:%S%z}t||%m||%r%Q%q||%l||%{milisecond
 ; The log file for slow requests
 ; Default Value: not set
 ; Note: slowlog is mandatory if request_slowlog_timeout is set
-;slowlog = log/$pool.log.slow
+slowlog = /var/log/php-fpm/slow.log
 
 ; The timeout for serving a single request after which a PHP backtrace will be
 ; dumped to the 'slowlog' file. A value of '0s' means 'off'.
 ; Available units: s(econds)(default), m(inutes), h(ours), or d(ays)
 ; Default Value: 0
-;request_slowlog_timeout = 0
+request_slowlog_timeout = 1
 
+; The timeout for serving a single request after which the worker process will
+; be killed. This option should be used when the 'max_execution_time' ini option
+; does not stop script execution for some reason. A value of '0' means 'off'.
+; Available units: s(econds)(default), m(inutes), h(ours), or d(ays)
+; Default Value: 0
+request_terminate_timeout = 120
 
-
-
+rlimit_files = 65535
 
 
