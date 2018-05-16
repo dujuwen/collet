@@ -8,6 +8,9 @@ https://tojohnonly.github.io/69-CentOS%E5%AE%89%E8%A3%85PHP.html
 
 可以通过ps aux | grep nginx(或php-fpm)来查看运行用户
 
+可能的编译问题:
+http://php.net/manual/zh/faq.build.php
+
 --------------------------
 
 ./configure
