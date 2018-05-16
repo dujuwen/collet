@@ -1,0 +1,18 @@
+http://man.linuxde.net/sysctl
+
+EXAMPLES
+       /sbin/sysctl -a
+       /sbin/sysctl -n kernel.hostname
+       /sbin/sysctl -w kernel.domainname="example.com"
+       /sbin/sysctl -p/etc/sysctl.conf
+       /sbin/sysctl -a --pattern forward
+       /sbin/sysctl -a --pattern forward$
+       /sbin/sysctl -a --pattern 'net.ipv4.conf.(eth|wlan)0.arp'
+       /sbin/sysctl --system --pattern '^net.ipv6'
+
+查看所有可读配置：
+sysctl -a
+
+显示主机的名称
+sysctl -n kernel.hostname
+
