@@ -14,8 +14,12 @@ php-fpm -i | grep --with-config-file-path
 配置文件路径搜索顺序
 在配置文件中还可以使用变量
 in php.ini you can reference to an existing directive or an environment variable using the syntax ${varname}.
-
 http://php.net/manual/zh/configuration.file.ph
+
+有些 PHP　选项可以接受缩写的字节值，与仅能接受 integer字节值相反。都有哪些缩写字节值？可以将其用于 php.ini 之外吗？
+可用的选择有 K（对应 Kilobytes），M（对应 Megabytes）和 G（对应 Gigabytes；自 PHP 5.1.0 起可用），区分大小写。其余的都认为是字节。
+1M等于一个 Megabyte，即 1048576字节。 1K等于一个 Kilobyte，即 1024字节。不能在 php.ini 之外使用这些符号，最好用整数的 integer字节值
+http://php.net/manual/zh/faq.using.php
 
 --------------------------------------------
 
