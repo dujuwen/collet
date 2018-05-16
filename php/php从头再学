@@ -72,7 +72,14 @@ cp sapi/fpm/php-fpm /usr/local/bin
 11.php-fpm如何知道是从哪里读取php配置信息的呢？
 php-fpm是跟随php(通过 --enable-fpm)安装的，哦，明了了
 
-12.
+12.密码散列
+http://php.net/manual/zh/book.password.php
+
+$password = 'djwtes';
+$hash = password_hash($password, PASSWORD_DEFAULT);
+var_dump($hash, password_verify($password, $hash), password_get_info($hash));
+
+13.
 
 
 
