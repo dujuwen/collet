@@ -1,4 +1,6 @@
 1.为了安全应该有两个密码字段使用不同的加密,其中一个是备份
+密码散列
+http://php.net/manual/zh/book.password.php
 
 2.考虑到迁移为每个用户添加一个uuid唯一值
 
