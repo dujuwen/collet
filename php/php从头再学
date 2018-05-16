@@ -79,7 +79,13 @@ $password = 'djwtes';
 $hash = password_hash($password, PASSWORD_DEFAULT);
 var_dump($hash, password_verify($password, $hash), password_get_info($hash));
 
-13.
+13.html和php
+http://php.net/manual/zh/faq.html.php
+
+显示数据的时候必须使用htmlspecialchars — 将特殊字符转换为 HTML 实体
+
+14.
+
 
 
 
