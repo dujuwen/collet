@@ -84,9 +84,12 @@ http://php.net/manual/zh/faq.html.php
 
 显示数据的时候必须使用htmlspecialchars — 将特殊字符转换为 HTML 实体
 
-14.
+14.phpize命令的作用
+http://php.net/manual/zh/install.pecl.phpize.php
 
+phpize 命令是用来准备 PHP 扩展库的编译环境的
 
+15.
 
 
 
