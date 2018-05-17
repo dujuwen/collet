@@ -156,3 +156,14 @@ try {
     echo "First finally.\n";
 }
 
+19.涉及错误的运行时配置
+http://php.net/manual/zh/errorfunc.configuration.php
+error_reporting = E_ALL ; 开发环境为全部
+display_errors = On ; 开发环境为On，线上环境为Off
+display_startup_errors = On ; 开发环境为On，线上环境为Off
+log_errors = On ;
+track_errors = On ; 如果开启，最后的一个错误将永远存在于变量 $php_errormsg 中
+
+20.
+
+
