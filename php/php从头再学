@@ -52,6 +52,9 @@ nginx是nginx -V
 9.php共享存储位置,安装目录lib下
 /Users/dujunwen/Desktop/test/after_build/php7.1.17/lib/php/extensions/no-debug-non-zts-20160303
 
+查找共享库路径:
+php-config --extension-dir
+
 10.官网的php安装方法
 http://php.net/manual/zh/install.unix.nginx.php
 
@@ -72,8 +75,9 @@ cp sapi/fpm/php-fpm /usr/local/bin
 修改配置php.ini php-fpm.conf
 启动php-fpm
 
-11.php-fpm如何知道是从哪里读取php配置信息的呢？
-php-fpm是跟随php(通过 --enable-fpm)安装的，哦，明了了
+11.php-fpm如何知道是从哪里读取php.ini配置信息的呢？
+php-fpm是跟随php(通过 --enable-fpm)安装的，在编译选项中存在--with-config-file-path的话从指定目录下查找php.ini
+其他方式可以通过php --ini 或者 phpinfo() 来获取
 
 12.密码散列
 http://php.net/manual/zh/book.password.php
