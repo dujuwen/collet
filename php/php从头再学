@@ -156,6 +156,9 @@ try {
     echo "First finally.\n";
 }
 
+在有错误或异常的时候定义了set_error_handler或set_exception_handler函数的时候会捕获错误或异常信息
+设置用户自定义的错误/异常处理函数
+
 19.涉及错误的运行时配置
 http://php.net/manual/zh/errorfunc.configuration.php
 error_reporting = E_ALL ; 开发环境为全部
