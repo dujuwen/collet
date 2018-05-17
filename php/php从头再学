@@ -44,6 +44,9 @@ $ php -S localhost:8000
 
 8.如何查看php的编译信息
 php -i | grep configure
+php-fpm -i | grep configure
+php-config --configure-options
+
 nginx是nginx -V
 
 9.php共享存储位置,安装目录lib下
