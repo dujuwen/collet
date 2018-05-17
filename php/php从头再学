@@ -167,6 +167,9 @@ display_startup_errors = On ; 开发环境为On，线上环境为Off
 log_errors = On ;
 track_errors = On ; 如果开启，最后的一个错误将永远存在于变量 $php_errormsg 中
 
-20.
+20.debug_backtrace打印调用回溯，debug_print_backtrace打印include/require回溯
+http://php.net/manual/zh/function.debug-backtrace.php
+
+21.
 
 
