@@ -145,5 +145,14 @@ http://php.net/manual/zh/install.pecl.static.php
 这样的库可以动态编译之后将对应的so文件移动到php-config --extension-dir对应的目录下，然后在php.ini配置文件中通过zend_extension=xxx.so启用
 该库，并修改相应的配置
 
-18.
+18.异常处理
+http://php.net/manual/zh/language.exceptions.php
+
+try {
+    echo inverse(5) . "\n";
+} catch (Exception $e) {
+    echo 'Caught exception: ',  $e->getMessage(), "\n";
+} finally {
+    echo "First finally.\n";
+}
 
