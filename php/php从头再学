@@ -164,6 +164,8 @@ try {
 错误处理:
 http://php.net/manual/zh/book.errorfunc.php
 
+将致命的错误发送到邮箱，其他的记录到日志、ELK
+
 http://php.net/manual/zh/errorfunc.configuration.php
 error_reporting = E_ALL ; 开发环境为全部
 display_errors = On ; 开发环境为On，线上环境为Off
