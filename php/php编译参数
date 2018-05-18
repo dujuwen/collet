@@ -16,6 +16,9 @@ http://php.net/manual/zh/configure.about.php
 
 ./configure
 
+设置安装路径
+--prefix=/usr/local/php
+
 安装php-fpm
 --enable-fpm
 
