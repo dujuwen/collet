@@ -24,3 +24,10 @@ php.ini配置文件存放路径
 
 --with-fpm-user=nginx
 --with-fpm-group=nginx
+
+phpdbg相关的在开发环境可以开启,Build phpdbg:
+--enable-phpdbg
+Build phpdbg web SAPI support:
+--enable-phpdbg-webhelper
+Build phpdbg in debug mode:
+--enable-phpdbg-debug
