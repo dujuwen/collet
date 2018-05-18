@@ -179,6 +179,12 @@ track_errors = On ; 如果开启，最后的一个错误将永远存在于变量
 20.debug_backtrace打印调用回溯，debug_print_backtrace打印include/require回溯
 http://php.net/manual/zh/function.debug-backtrace.php
 
-21.
+21.php中官方所有的函数和使用示例
+http://php.net/manual/zh/indexes.functions.php
+http://php.net/manual/zh/indexes.examples.php
+
+22.
+
+
 
 
