@@ -14,7 +14,7 @@ php-fpm -i | grep --with-config-file-path
 配置文件路径搜索顺序
 在配置文件中还可以使用变量
 in php.ini you can reference to an existing directive or an environment variable using the syntax ${varname}.
-http://php.net/manual/zh/configuration.file.ph
+http://php.net/manual/zh/configuration.file.php
 
 有些 PHP　选项可以接受缩写的字节值，与仅能接受 integer字节值相反。都有哪些缩写字节值？可以将其用于 php.ini 之外吗？
 可用的选择有 K（对应 Kilobytes），M（对应 Megabytes）和 G（对应 Gigabytes；自 PHP 5.1.0 起可用），区分大小写。其余的都认为是字节。
@@ -51,5 +51,9 @@ variables_order = "GPCS"
 ;if variables_order is set to "SP" then PHP will create the superglobals $_SERVER and $_POST, but not create $_ENV,
 ;$_GET, and $_COOKIE. Setting to "" means no superglobals will be set.
 
+request_order = "GP"
+;This directive describes the order in which PHP registers GET, POST and Cookie variables into the _REQUEST array. 
+;Registration is done from left to right, newer values override older values.
+;If this directive is not set, variables_order is used for $_REQUEST contents.
 
 
