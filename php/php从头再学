@@ -208,5 +208,8 @@ http://php.net/manual/zh/tokens.php
 token_get_all — 将提供的源码按 PHP 标记进行分割
 token_name — 获取提供的 PHP 解析器代号的符号名称
 
-24.
+24.get_browser(),通过查找 browscap.ini 文件中的浏览器信息，尝试检测用户的浏览器所具有的功能
+http://php.net/manual/zh/function.get-browser.php
+可以用来统计用户的浏览器访问信息进行后面的分析，考虑到性能问题可以使用第三方库:https://github.com/sinergi/php-browser-detector
 
+25.
