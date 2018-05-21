@@ -41,3 +41,6 @@ Build phpdbg in debug mode:
 线上,线下自定义:
 --with-config-file-path=/etc
 --with-config-file-scan-dir=/etc/php.d
+
+--enable-opcache
+ 
