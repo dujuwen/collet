@@ -183,8 +183,25 @@ http://php.net/manual/zh/function.debug-backtrace.php
 http://php.net/manual/zh/indexes.functions.php
 http://php.net/manual/zh/indexes.examples.php
 
-22.
+22.全局命名空间
+http://php.net/manual/zh/userlandnaming.globalnamespace.php
 
+以下代码结构会进入全局命名空间：
+functions（函数）
+classes（类）
+interfaces（接口）
+constants（常量，并非类常量）
+在函数／方法之外定义的变量
 
+规则:
+函数名在两个词中间使用下划线，类名则同时使用 camelCase 和 PascalCase 规则。
+PHP 在任何扩展库的全局符号前附加上扩展库的名称
+Iterators 和 Exceptions 则只是简单加上 "Iterator" 和 "Exception" 后缀。例如：
+ArrayIterator
+LogicException
 
+提示(虽然有命名空间可以解决，但是有独特的全局命名空间肯定是更好的):
+要写出能经受住时间考验的代码，建议给任何进入全局命名空间的符号都加上一个不常见的 3-4 字母的前缀（或后缀），中间用下划线分开。
+
+23.
 
