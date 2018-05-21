@@ -117,6 +117,8 @@ session.use_cookies = 1
 session.cookie_secure = 1
 ;在线下可以设置为0，在支持https的时候一定要设置为1
 session.use_only_cookies = 1
+session.name = STACKCHINAID
+;重新设置了session的名字
 session.cookie_httponly = 1
 session.gc_divisor = 1000
 ;线上这个值可以根据情况设置大点
