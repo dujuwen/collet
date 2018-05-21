@@ -230,4 +230,8 @@ https://blog.csdn.net/u012302539/article/details/60779715
 27.parse_ini_file() — 解析一个配置文件，配置文件的语法和php.ini是一样的
 http://php.net/manual/zh/function.parse-ini-file.php
 
-28.
+28.sys_getloadavg(),返回三个系统负载（系统运行队列中的进程数）的样本数据，分别是1分钟、5分钟和15分钟之前
+http://php.net/manual/zh/function.sys-getloadavg.php
+
+29.
+
