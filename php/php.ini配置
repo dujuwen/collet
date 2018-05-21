@@ -95,3 +95,17 @@ date.timezone = "Asia/Shanghai"
 ;设置默认时区,在代码中可以通过date_default_timezone_set('Asia/Shanghai');来设置默认时区
 ;所支持的时区列表: http://php.net/manual/zh/timezones.php
 
+zend.assertions = 1
+; Switch whether to compile assertions at all (to have no overhead at run-time)
+; -1: Do not compile at all
+;  0: Jump over assertion at run-time
+;  1: Execute assertions
+; Changing from or to a negative value is only possible in php.ini! (For turning assertions on and off at run-time, see assert.active, when zend.assertions = 1)
+; Default Value: 1
+; Development Value: 1
+; Production Value: -1
+; http://php.net/zend.assertion
+assert.exception = On
+;断言线下开启并抛出异常
+
+
