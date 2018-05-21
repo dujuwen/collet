@@ -43,4 +43,5 @@ Build phpdbg in debug mode:
 --with-config-file-scan-dir=/etc/php.d
 
 --enable-opcache
- 
+--with-zip
+--with-bz2
