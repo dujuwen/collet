@@ -64,7 +64,6 @@ register_argc_argv = Off
 ;This directive determines whether PHP registers $argv & $argc each time it runs.
 ;没有必要在每次运行时注册
 
-
 [browscap]
 ; http://php.net/browscap
 browscap = /Users/dujunwen/Downloads/php_browscap.ini
@@ -75,3 +74,7 @@ browscap = /Users/dujunwen/Downloads/php_browscap.ini
 
 max_execution_time = 30
 ;脚本的最大执行时间，单位秒，可以根据需要修改这个配置
+
+memory_limit = 128M
+;运行脚本内存限制，可以根据需要调整
+
