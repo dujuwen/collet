@@ -227,4 +227,7 @@ https://blog.csdn.net/u012302539/article/details/60779715
 // 生成公钥  
 # openssl rsa -in rsa_private_key.pem -pubout -out rsa_public_key.pem  
 
-27.
+27.parse_ini_file() — 解析一个配置文件，配置文件的语法和php.ini是一样的
+http://php.net/manual/zh/function.parse-ini-file.php
+
+28.
