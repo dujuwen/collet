@@ -61,4 +61,14 @@ register_argc_argv = Off
 ;没有必要在每次运行时注册
 
 
+[browscap]
+; http://php.net/browscap
+browscap = /Users/dujunwen/Downloads/php_browscap.ini
+;浏览器功能文件的位置和文件名,
+;从哪里下载php_browscap.ini? http://browscap.org/
+;可以通过get_browser()函数获取浏览器信息，比如平台、版本和是否是移动设备访问
+;这个功能在线上使用之前需要压测下对性能的影响
+
+
+
 
