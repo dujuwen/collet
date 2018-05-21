@@ -78,3 +78,19 @@ max_execution_time = 30
 memory_limit = 128M
 ;运行脚本内存限制，可以根据需要调整
 
+;开发环境所有的错误配置应该开启
+error_reporting = E_ALL
+display_errors = On
+display_startup_errors = On
+log_errors = On
+log_errors_max_len = 2048
+track_errors = On
+html_errors = On
+error_prepend_string = "<span style='color: #ff0000'>"
+error_append_string = "</span>"
+error_log = /var/log/php/error.log
+;无论是线上还是线下都要记录php错误日志
+
+
+
+
