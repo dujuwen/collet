@@ -36,3 +36,7 @@ cli_server.color = On ;控制内置Web Server的终端输出有无颜色
 
 expose_php = Off ;决定是否暴露 PHP 被安装在服务器上（例如在 Web 服务器的信息头中加上其签名：X-Powered-By: PHP/5.3.7),不暴露
 
+realpath_cache_ttl = 3600 ; 
+;单位秒,文件或目录的绝对路径缓存时间,如果文件或者目录不是经常改变的话可以设置时间长一点,在重启php-fpm后可以重新读取
+
+
