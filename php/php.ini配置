@@ -56,4 +56,9 @@ request_order = "GP"
 ;Registration is done from left to right, newer values override older values.
 ;If this directive is not set, variables_order is used for $_REQUEST contents.
 
+register_argc_argv = Off
+;This directive determines whether PHP registers $argv & $argc each time it runs.
+;没有必要在每次运行时注册
+
+
 
