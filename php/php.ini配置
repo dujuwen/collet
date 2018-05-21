@@ -28,15 +28,28 @@ file_uploads = On
 ;upload_tmp_dir = 
 ;上传临时文件目录如果nginx有定义的话优先使用nginx定义的临时文件目录,但是要保证临时目录php有读写权限
 ;如何查看临时文件目录?nginx -V 然后查找http-client-body-temp-path
-upload_max_filesize = 2M ;最大上传文件大小
-post_max_size = 8M ;post_max_size必须大于等于upload_max_filesize,这个配置也会影响php上传文件
 
-cgi.fix_pathinfo = 1;这里可能存在漏洞http://zyan.cc/nginx_0day/,但是在nginx层做好适配就可以了,不让不正常的请求走到php中来
-cli_server.color = On ;控制内置Web Server的终端输出有无颜色
+upload_max_filesize = 2M 
+;最大上传文件大小
+
+post_max_size = 8M 
+;post_max_size必须大于等于upload_max_filesize,这个配置也会影响php上传文件
+
+cgi.fix_pathinfo = 1
+;这里可能存在漏洞http://zyan.cc/nginx_0day/,但是在nginx层做好适配就可以了,不让不正常的请求走到php中来
+
+cli_server.color = On 
+;控制内置Web Server的终端输出有无颜色
 
 expose_php = Off ;决定是否暴露 PHP 被安装在服务器上（例如在 Web 服务器的信息头中加上其签名：X-Powered-By: PHP/5.3.7),不暴露
 
 realpath_cache_ttl = 3600 ; 
 ;单位秒,文件或目录的绝对路径缓存时间,如果文件或者目录不是经常改变的话可以设置时间长一点,在重启php-fpm后可以重新读取
+
+variables_order = "GPCS"
+;Sets the order of the EGPCS (Environment, Get, Post, Cookie, and Server) variable parsing. For example, 
+;if variables_order is set to "SP" then PHP will create the superglobals $_SERVER and $_POST, but not create $_ENV,
+;$_GET, and $_COOKIE. Setting to "" means no superglobals will be set.
+
 
 
