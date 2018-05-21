@@ -91,3 +91,7 @@ error_append_string = "</span>"
 error_log = /var/log/php/error.log
 ;无论是线上还是线下都要记录php错误日志
 
+date.timezone = "Asia/Shanghai"
+;设置默认时区,在代码中可以通过date_default_timezone_set('Asia/Shanghai');来设置默认时区
+;所支持的时区列表: http://php.net/manual/zh/timezones.php
+
