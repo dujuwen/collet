@@ -209,9 +209,10 @@ https://mbd.baidu.com/newspage/data/landingsuper?context=%7B%22nid%22%3A%22news_
 
 50.在回答问题的时候尽可能的详细，不仅仅是内容，还有系统环境 系统版本号 软件环境 版本号 等等。。。(在答案中以标签的形式存在)
 
-51.网站风格
-https://www.imooc.com/article/19278
+51.kafka适合ELK日志收集，RabbitMQ适合可靠的消息处理
 
 52.一定要处理好用户投诉机制
 
 53.demo库
+
+54.
