@@ -212,4 +212,12 @@ token_name — 获取提供的 PHP 解析器代号的符号名称
 http://php.net/manual/zh/function.get-browser.php
 可以用来统计用户的浏览器访问信息进行后面的分析，考虑到性能问题可以使用第三方库:https://github.com/sinergi/php-browser-detector
 
-25.
+25.version_compare — 对比两个「PHP 规范化」的版本数字字符串
+http://php.net/manual/zh/function.version-compare.php
+
+version_compare('7.1.2', '5.5.6'); => 1
+version_compare('7.1.2', '5.5.6', '>='); => true
+在需要进行规范化版本对比的时候可以使用version_compare
+
+26.
+
