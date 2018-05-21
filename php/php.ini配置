@@ -108,4 +108,23 @@ zend.assertions = 1
 assert.exception = On
 ;断言线下开启并抛出异常
 
+;跟session相关的配置
+;http://php.net/manual/zh/session.security.ini.php
+;http://php.net/manual/zh/session.configuration.php#ini.session.auto-start
 
+session.use_strict_mode = 1
+session.use_cookies = 1
+session.cookie_secure = 1
+;在线下可以设置为0，在支持https的时候一定要设置为1
+session.use_only_cookies = 1
+session.cookie_httponly = 1
+session.gc_divisor = 1000
+;线上这个值可以根据情况设置大点
+session.sid_length = 64
+session.sid_bits_per_character = 5
+session.upload_progress.enabled = On
+session.upload_progress.cleanup = On
+session.upload_progress.prefix = "upload_progress_"
+session.upload_progress.name = "PHP_SESSION_UPLOAD_PROGRESS
+session.hash_function = "sha512"
+session.hash_bits_per_character = 5
