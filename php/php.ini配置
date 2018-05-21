@@ -91,6 +91,3 @@ error_append_string = "</span>"
 error_log = /var/log/php/error.log
 ;无论是线上还是线下都要记录php错误日志
 
-
-
-
