@@ -2,6 +2,9 @@
 http://git.php.net/?p=php-src.git;a=blob;f=php.ini-production;hb=HEAD
 http://git.php.net/?p=php-src.git;a=tree;hb=HEAD
 
+完整的php配置:
+http://php.net/manual/zh/ini.list.php
+
 如何查找php.ini配置文件?
 1.php --ini
 2.phpinfo()
