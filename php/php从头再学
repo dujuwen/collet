@@ -362,5 +362,12 @@ echo mb_strimwidth("Hello World", 0, 10, "...");
 // 输出 Hello W...
 
 需要说明的是第三个参数宽度中文是两个字符宽度，英文是一个，如果按照字符截取的话可以使用mb_substr()
-mb_strimwidth("思考a的", 0, 5) //输出"思考a", 多字节字符不足一个的时候不截取
+mb_strimwidth("思考a的", 0, 5) //输出"思考a", 多字节字符不足一个的时候不截取, 多字节字符通常是单字节字符的两倍宽度
 
+mb_strwidth — 返回字符串的宽度
+int mb_strwidth ( string $str [, string $encoding = mb_internal_encoding() ] )
+返回 string 类型 str 的宽度。
+
+多字节字符通常是单字节字符的两倍宽度。
+
+42.
