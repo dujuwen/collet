@@ -355,5 +355,12 @@ openssl_random_pseudo_bytes() — 生成一个伪随机字节串
 random_bytes() - Generates cryptographically secure pseudo-random bytes
 uniqid() - 生成一个唯一ID
 
-41.
+41.mb_strimwidth — 获取按指定宽度截断的字符串
+http://php.net/manual/zh/function.mb-strimwidth.php
+
+echo mb_strimwidth("Hello World", 0, 10, "...");
+// 输出 Hello W...
+
+需要说明的是第三个参数宽度中文是两个字符宽度，英文是一个，如果按照字符截取的话可以使用mb_substr()
+mb_strimwidth("思考a的", 0, 5) //输出"思考a", 多字节字符不足一个的时候不截取
 
