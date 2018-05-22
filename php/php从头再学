@@ -338,4 +338,8 @@ string(7) "foo+%7E" string(7) "foo%20~"
 urlencode()和rawurlencode()相同部分都是：返回字符串，此字符串中除了 -_. 之外的所有非字母数字字符都将被替换成百分号（%）后跟两位十六进制数
 不同的部分是对空格和波浪线的处理。
 
-38.
+38.addslashes，对插入数据库的数据进行反斜线转义，首先要看看关系数据库有没有自带的处理函数没有就可以使用这个函数
+http://php.net/manual/zh/function.addslashes.php
+
+39.
+
