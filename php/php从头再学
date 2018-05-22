@@ -304,4 +304,10 @@ http://php.net/manual/zh/regexp.reference.subpatterns.php
 (?i:saturday|sunday)
 (?:(?i)saturday|sunday)
 
-34.
+34.将一个字符串分割成组成的字符
+$str = 'string';
+$chars = preg_split('//', $str, -1, PREG_SPLIT_NO_EMPTY);
+print_r($chars);
+
+
+
