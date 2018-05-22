@@ -292,4 +292,16 @@ $phoneNum = '18782966000';
 var_dump(preg_replace('/^(\d{3})(\d{4})(\d{4,})/', '$1****$3', $phoneNum));
 //187****6000
 
-33.
+33.子组
+http://php.net/manual/zh/regexp.reference.subpatterns.php
+
+经常我们会有一种需求需要使用子组进行分组， 但又不需要(单独的)捕获它们。 在子组定义的左括号后面紧跟字符串 ”?:” 会使得该子组不被单独捕获，
+并且不会对其后子组序号的计算产生影响。比如, 如果字符串 "the white queen" 匹配模式 the ((?:red|white) (king|queen))，
+匹配到的子串是 "white queen" 和 "queen"， 他们的下标分别是 1 和 2。捕获子组的最大序号为 65535。然而，有可能我们并不能编译这么长的
+正则表达式，这取决于 libpcre 的配置。
+
+为了方便简写，如果需要在非捕获子组开始位置设置选项， 选项字母可以位于 ? 和 : 之间，比如：
+(?i:saturday|sunday)
+(?:(?i)saturday|sunday)
+
+34.
