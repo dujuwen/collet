@@ -47,3 +47,4 @@ Build phpdbg in debug mode:
 --with-bz2
 --with-curl
 --enable-mbstring
+--with-openssl
