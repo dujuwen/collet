@@ -393,4 +393,7 @@ header('Content-type: text/plain');
 /* 所以会发送什么头呢？ */
 var_dump(headers_list());
 
-44.
+44.http_response_code — 获取/设置响应的 HTTP 状态码
+http://php.net/manual/zh/function.http-response-code.php
+
+45.
