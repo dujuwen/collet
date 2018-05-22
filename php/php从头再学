@@ -324,3 +324,18 @@ parse_url() - 解析 URL，返回其组成部分
 pathinfo() - 返回文件路径的信息
 http_build_query() - 生成 URL-encode 之后的请求字符串
 urlencode — 编码 URL 字符串
+
+37.编码URL字符串
+http://php.net/manual/zh/function.urlencode.php
+
+urlencode — 编码 URL 字符串,此函数便于将字符串编码并将其用于 URL 的请求部分，同时它还便于将变量传递给下一页
+rawurlencode — 按照 RFC 3986 对 URL 进行编码
+
+$str = 'foo ~';
+var_dump(urlencode($str), rawurlencode($str));
+string(7) "foo+%7E" string(7) "foo%20~"
+
+urlencode()和rawurlencode()相同部分都是：返回字符串，此字符串中除了 -_. 之外的所有非字母数字字符都将被替换成百分号（%）后跟两位十六进制数
+不同的部分是对空格和波浪线的处理。
+
+38.
