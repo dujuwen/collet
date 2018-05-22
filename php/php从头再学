@@ -348,4 +348,12 @@ http://php.net/manual/zh/function.levenshtein.php
 Input word: carrrot
 Did you mean: carrot?
 
-40.
+40.生成随机字符串
+http://php.net/manual/zh/function.openssl-random-pseudo-bytes.php
+
+openssl_random_pseudo_bytes() — 生成一个伪随机字节串
+random_bytes() - Generates cryptographically secure pseudo-random bytes
+uniqid() - 生成一个唯一ID
+
+41.
+
