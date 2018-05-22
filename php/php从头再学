@@ -316,6 +316,11 @@ $url = 'https://xxx.com';
 print_r(get_meta_tags($url));
 从指定的url中获取页面的head头中的meta标签的content属性。可以用作第三方验证，比如给一个meta个第三方然后放在首页中可以进行授权验证。
 
-36.
+36.跟url相关的参数可以用parse_str解析参数和http_build_query构建参数，它们是一对互逆操作
+http://php.net/manual/zh/function.parse-str.php
 
-
+parse_str() — 将字符串解析成多个变量
+parse_url() - 解析 URL，返回其组成部分
+pathinfo() - 返回文件路径的信息
+http_build_query() - 生成 URL-encode 之后的请求字符串
+urlencode — 编码 URL 字符串
