@@ -370,4 +370,10 @@ int mb_strwidth ( string $str [, string $encoding = mb_internal_encoding() ] )
 
 多字节字符通常是单字节字符的两倍宽度。
 
-42.
+42.header_register_callback,如果需要统一处理header头的话可以注册header处理函数
+http://php.net/manual/zh/function.header-register-callback.php
+bool header_register_callback ( callable $callback )
+注册一个函数，在 PHP 开始发送输出时调用。
+PHP 准备好所有响应头，在发送内容之前执行 callback，创建了一个发送响应头的操作窗口。
+
+43.
