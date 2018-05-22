@@ -396,4 +396,8 @@ var_dump(headers_list());
 44.http_response_code — 获取/设置响应的 HTTP 状态码
 http://php.net/manual/zh/function.http-response-code.php
 
-45.
+45.string gethostname ( void )
+gethostname() 可以获取本地机器的标准主机名。
+http://php.net/manual/zh/function.gethostname.php
+
+46.
