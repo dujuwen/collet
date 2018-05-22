@@ -45,3 +45,4 @@ Build phpdbg in debug mode:
 --enable-opcache
 --with-zip
 --with-bz2
+--with-curl
