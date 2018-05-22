@@ -309,5 +309,13 @@ $str = 'string';
 $chars = preg_split('//', $str, -1, PREG_SPLIT_NO_EMPTY);
 print_r($chars);
 
+35.get_meta_tags — 从一个文件中提取所有的 meta 标签 content 属性，返回一个数组
+http://php.net/manual/zh/function.get-meta-tags.php
+
+$url = 'https://xxx.com';
+print_r(get_meta_tags($url));
+从指定的url中获取页面的head头中的meta标签的content属性。可以用作第三方验证，比如给一个meta个第三方然后放在首页中可以进行授权验证。
+
+36.
 
 
