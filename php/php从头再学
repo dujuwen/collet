@@ -233,5 +233,11 @@ http://php.net/manual/zh/function.parse-ini-file.php
 28.sys_getloadavg(),返回三个系统负载（系统运行队列中的进程数）的样本数据，分别是1分钟、5分钟和15分钟之前
 http://php.net/manual/zh/function.sys-getloadavg.php
 
-29.
+29.PCRE(Perl Compatible Regular Expressions)是一个Perl库，包括perl兼容的正规表达式库
+http://php.net/manual/zh/book.pcre.php
+
+这些函数中使用的模式语法非常类似perl。表达式必须用分隔符闭合，比如一个正斜杠(/)。 分隔符可以使任意非字母数字，除反斜杠(\)和空字节之外的非空白
+ascii 字符。 如果分隔符 在表达式中使用，需要使用反斜线进行转义。自php 4.0.4开始，可以使用 perl 样式的()、 {}、 [] 以及 <> 作为分隔符。
+
+
 
