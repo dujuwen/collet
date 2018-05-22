@@ -257,3 +257,34 @@ http://php.net/manual/zh/regexp.reference.meta.php
 ^ 仅在作为第一个字符(方括号内)时，表明字符类取反
 - 标记字符范围
 
+反斜线在单引号字符串和双引号字符串 中都有特殊含义，因此要匹配一个反斜线， 模式中必须写为 ”\\\\”。
+
+\d 任意十进制数字
+\D 任意非十进制数字
+\s 任意空白字符
+\S 任意非空白字符
+\w 任意单词字符
+\W 任意非单词字符
+
+
+31.字符类(方括号)
+http://php.net/manual/zh/regexp.reference.character-classes.php
+
+Perl 支持 POSIX 字符类符号。这种字符类使用[:和:]闭合。 PCRE 同样支持这些字符类， 比如，[01[:alpha:]%]匹配 ”0”、“1”、任意字母或”%”。 
+支持的字符类如下：
+alnum	字母和数字
+alpha	字母
+ascii	0 - 127的ascii字符
+blank	空格和水平制表符
+cntrl	控制字符
+digit	十进制数(same as \d)
+graph	打印字符, 不包括空格
+lower	小写字母
+print	打印字符,包含空格
+punct	打印字符, 不包括字母和数字
+space	空白字符 (比\s多垂直制表符)
+upper	大写字母
+word	单词字符(same as \w)
+xdigit	十六进制数字
+
+32.
