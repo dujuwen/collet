@@ -341,5 +341,11 @@ urlencode()和rawurlencode()相同部分都是：返回字符串，此字符串�
 38.addslashes，对插入数据库的数据进行反斜线转义，首先要看看关系数据库有没有自带的处理函数没有就可以使用这个函数
 http://php.net/manual/zh/function.addslashes.php
 
-39.
+39.levenshtein — 计算两个字符串之间的编辑距离
+http://php.net/manual/zh/function.levenshtein.php
 
+可以用于下面这种近视匹配:
+Input word: carrrot
+Did you mean: carrot?
+
+40.
