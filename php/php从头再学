@@ -289,7 +289,7 @@ xdigit	十六进制数字
 
 32.正则处理手机号
 $phoneNum = '18782966000';
-var_dump(preg_replace('/(\d{3})(\d{4})(\d{4,})/', '$1****$3', $phoneNum));
+var_dump(preg_replace('/^(\d{3})(\d{4})(\d{4,})/', '$1****$3', $phoneNum));
 //187****6000
 
 33.
