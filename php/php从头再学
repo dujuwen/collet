@@ -376,4 +376,21 @@ bool header_register_callback ( callable $callback )
 注册一个函数，在 PHP 开始发送输出时调用。
 PHP 准备好所有响应头，在发送内容之前执行 callback，创建了一个发送响应头的操作窗口。
 
-43.
+43.如何知道想要发送或者已经发送出去的header头?
+http://php.net/manual/zh/function.headers-list.php
+
+array headers_list ( void )
+headers_list() 会返回准备发送给浏览器/客户端的 HTTP 头列表。 检测这些头是否已经发送，使用 headers_sent()。
+
+
+/* setcookie() 会自己添加一个响应头 */
+setcookie('foo', 'bar');
+/* 添加自定义的响应头
+ 大多数客户端会主动忽略 */
+header("X-Sample-Test: foo");
+/* 响应中指定内容为明文 text */
+header('Content-type: text/plain');
+/* 所以会发送什么头呢？ */
+var_dump(headers_list());
+
+44.
