@@ -9,6 +9,12 @@ ONBOOT=no改为ONBOOT=yes
 [root@stackoverflowchina1 ~]# getconf LONG_BIT
 64
 
+hostname存放在哪里的?
+[root@stackoverflowchina1 ~]# hostname
+stackoverflowchina1
+[root@stackoverflowchina1 ~]# cat /etc/hostname
+stackoverflowchina1
+
 2.查看系统版本信息
 [root@stackoverflowchina1 yum.repos.d]# cat /proc/version
 Linux version 3.10.0-862.el7.x86_64 (builder@kbuilder.dev.centos.org) (gcc version 4.8.5 20150623 (Red Hat 4.8.5-28) (GCC) ) #1 SMP Fri Apr 20 16:44:24 UTC 2018
