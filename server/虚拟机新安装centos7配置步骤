@@ -1,11 +1,13 @@
 1.修改配置可以显示ip地址
-vi /etc/sysconfig/network-scripts/ifcfg-ens33 
-
+vi /etc/sysconfig/network-scripts/ifcfg-ens33 :
 ONBOOT=no改为ONBOOT=yes
 
 然后重启网络服务： sudo service network restart 
-
 然后我们再输入  ip addr 命令
+
+查看系统是32位还是64位:
+[root@stackoverflowchina1 ~]# getconf LONG_BIT
+64
 
 2.查看系统版本信息
 [root@stackoverflowchina1 yum.repos.d]# cat /proc/version
@@ -17,7 +19,7 @@ Linux stackoverflowchina1 3.10.0-862.el7.x86_64 #1 SMP Fri Apr 20 16:44:24 UTC 2
 [root@stackoverflowchina1 yum.repos.d]# cat /etc/redhat-release
 CentOS Linux release 7.5.1804 (Core)
 
-3.安装wget,从网易的镜像里面下载rpm包
+3.根据rpm包安装wget,从网易的镜像里面下载rpm包
 http://mirrors.163.com/centos/
 
 通过curl下载rpm包:
@@ -30,4 +32,26 @@ wget-1.14-15.el7_4.1.x86_64
 [root@stackoverflowchina1 ~]# rpm -q wget
 wget-1.14-15.el7_4.1.x86_64
 
-4.
+4.设置yum源地址为阿里的源地址
+1)备份原源
+mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup
+
+2)下载新的地址
+curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+或者
+wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+
+3)清除yum缓存
+yum clean all 
+
+4)生成源缓存
+yum makecache
+
+5)查看更新yum源（自动更新）
+yum repolis
+或
+yum -y update
+都会更新源信息
+
+5.
+
