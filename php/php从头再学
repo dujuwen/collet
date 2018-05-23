@@ -400,4 +400,49 @@ http://php.net/manual/zh/function.http-response-code.php
 gethostname() 可以获取本地机器的标准主机名。
 http://php.net/manual/zh/function.gethostname.php
 
-46.
+46.返回数组中指定的列(也可以返回所有列)，还可以同时更改返回数组键值
+array array_column ( array $input , mixed $column_key [, mixed $index_key = null ] )
+array_column() 返回input数组中键值为column_key的列， 如果指定了可选参数index_key，那么input数组中的这一列的值将作为返回数组中对应值的键。
+
+例如, 只改变数组的键值:
+$records = array(
+    array(
+        'id' => 2135,
+        'first_name' => 'John',
+        'last_name' => 'Doe',
+    ),
+    array(
+        'id' => 3245,
+        'first_name' => 'Sally',
+        'last_name' => 'Smith',
+    )
+);
+ 
+$first_names = array_column($records, null, 'id');
+var_dump($first_names);
+
+结果:
+array(2) {
+  [2135]=>
+  array(3) {
+    ["id"]=>
+    int(2135)
+    ["first_name"]=>
+    string(4) "John"
+    ["last_name"]=>
+    string(3) "Doe"
+  }
+  [3245]=>
+  array(3) {
+    ["id"]=>
+    int(3245)
+    ["first_name"]=>
+    string(5) "Sally"
+    ["last_name"]=>
+    string(5) "Smith"
+  }
+}
+
+47.
+
+
