@@ -1,2 +1,33 @@
 1.修改配置可以显示ip地址
+vi /etc/sysconfig/network-scripts/ifcfg-ens33 
 
+ONBOOT=no改为ONBOOT=yes
+
+然后重启网络服务： sudo service network restart 
+
+然后我们再输入  ip addr 命令
+
+2.查看系统版本信息
+[root@stackoverflowchina1 yum.repos.d]# cat /proc/version
+Linux version 3.10.0-862.el7.x86_64 (builder@kbuilder.dev.centos.org) (gcc version 4.8.5 20150623 (Red Hat 4.8.5-28) (GCC) ) #1 SMP Fri Apr 20 16:44:24 UTC 2018
+[root@stackoverflowchina1 yum.repos.d]# uname -a
+Linux stackoverflowchina1 3.10.0-862.el7.x86_64 #1 SMP Fri Apr 20 16:44:24 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux
+[root@stackoverflowchina1 yum.repos.d]# uname -r
+3.10.0-862.el7.x86_64
+[root@stackoverflowchina1 yum.repos.d]# cat /etc/redhat-release
+CentOS Linux release 7.5.1804 (Core)
+
+3.安装wget,从网易的镜像里面下载rpm包
+http://mirrors.163.com/centos/
+
+通过curl下载rpm包:
+curl -o wget-1.14-15.el7_4.1.x86_64.rpm http://mirrors.163.com/centos/7.5.1804/os/x86_64/Packages/wget-1.14-15.el7_4.1.x86_64.rpm
+
+[root@stackoverflowchina1 ~]# rpm -iv wget-1.14-15.el7_4.1.x86_64.rpm
+警告：wget-1.14-15.el7_4.1.x86_64.rpm: 头V3 RSA/SHA256 Signature, 密钥 ID f4a80eb5: NOKEY
+软件包准备中...
+wget-1.14-15.el7_4.1.x86_64
+[root@stackoverflowchina1 ~]# rpm -q wget
+wget-1.14-15.el7_4.1.x86_64
+
+4.
