@@ -92,8 +92,8 @@ yum -y update
 5.设置命令行快捷键
 vim ~/.bashrc
 末尾加入:
-alias l='ls -l'
-alias ll='ls -l
+alias l='ls -lh'
+alias ll='ls -lh'
 
 然后应用:
 source ~/.bashrc
@@ -143,5 +143,8 @@ getenforce
 
 9.安装php7
 [root@stackoverflowchina1 ~]# wget http://cn2.php.net/distributions/php-7.2.5.tar.gz
+下载太慢了 可以先在本地下载好然后通过scp上传
+$ scp ~/Documents/php-7.2.5.tar.gz root@192.168.242.128:/~
+
 
 
