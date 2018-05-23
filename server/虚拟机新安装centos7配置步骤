@@ -42,6 +42,9 @@ Units = 扇区 of 1 * 512 = 512 bytes
 扇区大小(逻辑/物理)：512 字节 / 512 字节
 I/O 大小(最小/最佳)：512 字节 / 512 字节
 
+centos下安装程序的三种方式：源码编译安装、rpm包安装和yum安装
+https://blog.csdn.net/enterprises01/article/details/77184727
+
 2.查看系统版本信息
 [root@stackoverflowchina1 yum.repos.d]# cat /proc/version
 Linux version 3.10.0-862.el7.x86_64 (builder@kbuilder.dev.centos.org) (gcc version 4.8.5 20150623 (Red Hat 4.8.5-28) (GCC) ) #1 SMP Fri Apr 20 16:44:24 UTC 2018
