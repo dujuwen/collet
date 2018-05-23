@@ -463,5 +463,13 @@ $numeric_string = '42';
 ctype_digit($numeric_string);  // true
 ctype_digit($integer);         // false (ASCII 42 is the * character)
 
-48.
+48.filter-has-var和array_key_exists的区别，前者是必须参数中有才行并且性能比较后者慢一点，最快的还是isset()
+http://php.net/manual/zh/function.filter-has-var.php
+
+$_GET['name'] = 'djw';
+var_dump(filter_has_var(INPUT_GET, 'name'), array_key_exists('name', $_GET));
+//请求url为: localhost/index.php => 值为false, true
+//请求url为: localhost/index.php?name=xxx => 值为true, true
+
+49.
 
