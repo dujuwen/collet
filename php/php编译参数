@@ -50,3 +50,7 @@ Build phpdbg in debug mode:
 --with-openssl
 --with-readline
 --enable-soap
+--enable-pdo 
+--with-pdo-mysql
+--enable-mysqlnd 
+--with-mysqli
