@@ -53,5 +53,33 @@ yum repolis
 yum -y update
 都会更新源信息
 
-5.
+5.设置命令行快捷键
+vim ~/.bashrc
+末尾加入:
+alias l='ls -l'
+alias ll='ls -l
+
+然后应用:
+source ~/.bashrc
+
+6.安装一系列常用工具
+yum -y install vim
+
+查看vim安装情况:
+[root@stackoverflowchina1 ~]# rpm -qa | grep vim
+vim-filesystem-7.4.160-4.el7.x86_64
+vim-common-7.4.160-4.el7.x86_64
+vim-enhanced-7.4.160-4.el7.x86_64
+vim-minimal-7.4.160-4.el7.x86_64
+[root@stackoverflowchina1 ~]# yum info vim
+已加载插件：fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirrors.aliyun.com
+ * extras: mirrors.aliyun.com
+ * updates: mirrors.aliyun.com
+错误：没有匹配的软件包可以列出
+
+7.
+
+
 
