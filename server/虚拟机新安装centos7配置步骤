@@ -227,5 +227,9 @@ make test
 测试没有问题就安装,一般需要超级用户权限:
 sudo make install
 
+添加环境变量:
+[root@stackoverflowchina1 ~]# vim .bashrc
+export PATH=$PATH:/usr/local/php/bin
 
+[root@stackoverflowchina1 ~]# source .bashrc
 
