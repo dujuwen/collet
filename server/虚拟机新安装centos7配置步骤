@@ -121,8 +121,18 @@ Loading mirror speeds from cached hostfile
 >  gmp gmp-devel libmcrypt libmcrypt-devel readline readline-devel libxslt libxslt-devel \
 >  httpd glibc krb5-libs pcre zlib gperftools-libs
 
-8.
+8.SELinux
+临时关闭SELinux:
+setenforce 0
 
+临时打开SELinux:
+setenforce 1
 
+查看SELinux状态:
+getenforce
 
+开机关闭SELinux:
+编辑/etc/selinux/config文件, 将SELINUX的值设置为disabled。下次开机SELinux就不会启动了。 
+
+9.
 
