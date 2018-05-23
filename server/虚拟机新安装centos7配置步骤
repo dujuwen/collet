@@ -98,8 +98,8 @@ alias ll='ls -l
 然后应用:
 source ~/.bashrc
 
-6.安装一系列常用工具
-yum -y install vim
+6.安装一系列常用工具，vim、git
+yum -y install vim git
 
 查看vim安装情况:
 [root@stackoverflowchina1 ~]# rpm -qa | grep vim
@@ -115,7 +115,13 @@ Loading mirror speeds from cached hostfile
  * updates: mirrors.aliyun.com
 错误：没有匹配的软件包可以列出
 
-7.
+7.安装一些php的依赖
+[root@stackoverflowchina1 ~]# yum -y install ifconfig libxml2 libxml2-devel openssl openssl-devel bzip2 bzip2-devel\
+>  libcurl libcurl-devel libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel \
+>  gmp gmp-devel libmcrypt libmcrypt-devel readline readline-devel libxslt libxslt-devel
+
+8.
+
 
 
 
