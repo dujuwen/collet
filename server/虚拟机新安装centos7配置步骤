@@ -218,4 +218,14 @@ $ scp ~/Documents/php-7.2.5.tar.gz root@192.168.242.128:/~
 --with-iconv-dir \
 --with-webp-dir
 
+编译:
+make 
+
+编译后测试:
+make test
+
+测试没有问题就安装,一般需要超级用户权限:
+sudo make install
+
+
 
