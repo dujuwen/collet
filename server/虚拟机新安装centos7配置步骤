@@ -5,6 +5,8 @@ ONBOOT=no改为ONBOOT=yes
 然后重启网络服务： sudo service network restart 
 然后我们再输入  ip addr 命令
 
+------------------------------------------------
+
 查看系统是32位还是64位:
 [root@stackoverflowchina1 ~]# getconf LONG_BIT
 64
@@ -14,6 +16,31 @@ hostname存放在哪里的?
 stackoverflowchina1
 [root@stackoverflowchina1 ~]# cat /etc/hostname
 stackoverflowchina1
+
+查看物理硬盘信息:
+[root@stackoverflowchina1 ~]# fdisk -l
+
+磁盘 /dev/sda：21.5 GB, 21474836480 字节，41943040 个扇区
+Units = 扇区 of 1 * 512 = 512 bytes
+扇区大小(逻辑/物理)：512 字节 / 512 字节
+I/O 大小(最小/最佳)：512 字节 / 512 字节
+磁盘标签类型：dos
+磁盘标识符：0x000a86d9
+
+   设备 Boot      Start         End      Blocks   Id  System
+/dev/sda1   *        2048     2099199     1048576   83  Linux
+/dev/sda2         2099200    41943039    19921920   8e  Linux LVM
+
+磁盘 /dev/mapper/centos-root：18.2 GB, 18249416704 字节，35643392 个扇区
+Units = 扇区 of 1 * 512 = 512 bytes
+扇区大小(逻辑/物理)：512 字节 / 512 字节
+I/O 大小(最小/最佳)：512 字节 / 512 字节
+
+
+磁盘 /dev/mapper/centos-swap：2147 MB, 2147483648 字节，4194304 个扇区
+Units = 扇区 of 1 * 512 = 512 bytes
+扇区大小(逻辑/物理)：512 字节 / 512 字节
+I/O 大小(最小/最佳)：512 字节 / 512 字节
 
 2.查看系统版本信息
 [root@stackoverflowchina1 yum.repos.d]# cat /proc/version
