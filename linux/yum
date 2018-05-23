@@ -1,0 +1,61 @@
+http://man.linuxde.net/yum
+http://www.runoob.com/linux/linux-yum.html
+
+部分常用的命令包括：
+
+自动搜索最快镜像插件：yum install yum-fastestmirror
+安装yum图形窗口插件：yum install yumex
+查看可能批量安装的列表：yum grouplist
+
+安装
+yum install              #全部安装
+yum install package1     #安装指定的安装包package1
+yum groupinsall group1   #安装程序组group1
+
+更新和升级
+yum update               #全部更新
+yum update package1      #更新指定程序包package1
+yum check-update         #检查可更新的程序
+yum upgrade package1     #升级指定程序包package1
+yum groupupdate group1   #升级程序组group1
+
+查找和显示
+yum info package1      #显示安装包信息package1
+yum list               #显示所有已经安装和可以安装的程序包
+yum list package1      #显示指定程序包安装情况package1
+yum groupinfo group1   #显示程序组group1信息yum search string 根据关键字string查找安装包
+
+删除程序
+yum remove &#124; erase package1   #删除程序包package1
+yum groupremove group1             #删除程序组group1
+yum deplist package1               #查看程序package1依赖情况
+
+清除缓存
+yum clean packages       #清除缓存目录下的软件包
+yum clean headers        #清除缓存目录下的 headers
+yum clean oldheaders     #清除缓存目录下旧的 headers
+
+yum 语法
+yum [options] [command] [package ...]
+options：可选，选项包括-h（帮助），-y（当安装过程提示选择全部为"yes"），-q（不显示安装的过程）等等。
+command：要进行的操作。
+package操作的对象。
+yum常用命令
+1.列出所有可更新的软件清单命令：yum check-update
+2.更新所有软件命令：yum update
+3.仅安装指定的软件命令：yum install <package_name>
+4.仅更新指定的软件命令：yum update <package_name>
+5.列出所有可安裝的软件清单命令：yum list
+6.删除软件包命令：yum remove <package_name>
+7.查找软件包 命令：yum search <keyword>
+8.清除缓存命令:
+yum clean packages: 清除缓存目录下的软件包
+yum clean headers: 清除缓存目录下的 headers
+yum clean oldheaders: 清除缓存目录下旧的 headers
+yum clean, yum clean all (= yum clean packages; yum clean oldheaders) :清除缓存目录下的软件包及旧的headers
+
+更新yum源,yum源位置:/etc/yum.repos.d/
+
+运行以下命令生成缓存
+yum clean all
+yum makecache
