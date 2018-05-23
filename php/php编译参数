@@ -49,3 +49,4 @@ Build phpdbg in debug mode:
 --enable-mbstring
 --with-openssl
 --with-readline
+--enable-soap
