@@ -120,8 +120,9 @@ Loading mirror speeds from cached hostfile
 >  libcurl libcurl-devel libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel \
 >  gmp gmp-devel libmcrypt libmcrypt-devel readline readline-devel libxslt libxslt-devel \
 >  httpd glibc krb5-libs pcre zlib gperftools-libs net-tools pcre-devel gcc-c++ zlib-devel ruby patch \
->  bash-completion lsof unzip zip
+>  bash-completion lsof unzip zip gcc
 
+下面这个有需要再安装
 yum -y groupinstall "Development Tools"
 
 在后面所有操作都完成之后记得执行一次:
@@ -140,5 +141,7 @@ getenforce
 开机关闭SELinux:
 编辑/etc/selinux/config文件, 将SELINUX的值设置为disabled。下次开机SELinux就不会启动了。 
 
-9.
+9.安装php7
+[root@stackoverflowchina1 ~]# wget http://cn2.php.net/distributions/php-7.2.5.tar.gz
+
 
