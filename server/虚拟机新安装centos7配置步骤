@@ -119,7 +119,7 @@ Loading mirror speeds from cached hostfile
 [root@stackoverflowchina1 ~]# yum -y install ifconfig libxml2 libxml2-devel openssl openssl-devel bzip2 bzip2-devel\
 >  libcurl libcurl-devel libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel \
 >  gmp gmp-devel libmcrypt libmcrypt-devel readline readline-devel libxslt libxslt-devel \
->  httpd glibc krb5-libs pcre zlib
+>  httpd glibc krb5-libs pcre zlib gperftools-libs
 
 8.
 
