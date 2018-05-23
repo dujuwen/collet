@@ -122,6 +122,8 @@ Loading mirror speeds from cached hostfile
 >  httpd glibc krb5-libs pcre zlib gperftools-libs net-tools pcre-devel gcc-c++ zlib-devel ruby patch \
 >  bash-completion lsof unzip zip
 
+yum -y groupinstall "Development Tools"
+
 在后面所有操作都完成之后记得执行一次:
 yum -y update
 
