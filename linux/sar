@@ -1,0 +1,4 @@
+linux下sar默认是没有安装的
+
+可以通过下列方式安装:
+[root@localhost ~]# yum -y install sysstat   
