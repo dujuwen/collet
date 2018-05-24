@@ -1,0 +1,115 @@
+安装一些php的依赖
+[root@stackoverflowchina1 ~]# yum -y install ifconfig libxml2 libxml2-devel openssl openssl-devel bzip2 bzip2-devel \
+libcurl libcurl-devel libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel libzip \
+gmp gmp-devel libmcrypt libmcrypt-devel readline readline-devel libxslt libxslt-devel tcl-devel \
+httpd glibc krb5-libs pcre zlib gperftools-libs net-tools pcre-devel gcc-c++ zlib-devel ruby patch \
+bash-completion lsof unzip zip gcc libicu-devel libc-client-devel openldap  openldap-devel curl-devel libwebp libwebp-devel \
+bzip2 bzip2-devel
+
+下面这个有需要再安装
+yum -y groupinstall "Development Tools"
+
+在后面所有操作都完成之后记得执行一次:
+yum -y update
+
+
+安装php7
+[root@stackoverflowchina1 ~]# wget http://cn2.php.net/distributions/php-7.2.5.tar.gz
+下载太慢了 可以先在本地下载好然后通过scp上传
+$ scp ~/Documents/php-7.2.5.tar.gz root@192.168.242.128:/root
+
+编译安装:
+./configure \
+--prefix=/usr/local/php \
+--with-config-file-path=/etc \
+--with-config-file-scan-dir=/etc/php.d \
+--enable-fpm \
+--with-fpm-user=nginx \
+--with-fpm-group=nginx \
+--enable-inline-optimization \
+--disable-debug \
+--disable-rpath \
+--enable-shared \
+--enable-soap \
+--with-libxml-dir \
+--with-xmlrpc \
+--with-openssl \
+--with-mhash \
+--with-pcre-regex \
+--with-sqlite3 \
+--with-zlib \
+--enable-bcmath \
+--with-iconv \
+--with-bz2 \
+--enable-calendar \
+--with-curl \
+--with-cdb \
+--enable-dom \
+--enable-exif \
+--enable-fileinfo \
+--enable-filter \
+--with-pcre-dir \
+--enable-ftp \
+--with-gd \
+--with-openssl-dir \
+--with-jpeg-dir \
+--with-png-dir \
+--with-zlib-dir \
+--with-freetype-dir \
+--enable-gd-jis-conv \
+--with-gettext \
+--with-gmp \
+--with-mhash \
+--enable-json \
+--enable-mbstring \
+--enable-mbregex \
+--enable-mbregex-backtrack \
+--with-libmbfl \
+--with-onig \
+--enable-pdo \
+--with-mysqli=mysqlnd \
+--with-pdo-mysql=mysqlnd \
+--with-pdo-sqlite \
+--with-readline \
+--enable-session \
+--enable-shmop \
+--enable-simplexml \
+--enable-sockets \
+--enable-sysvmsg \
+--enable-sysvsem \
+--enable-sysvshm \
+--enable-wddx \
+--with-libxml-dir \
+--with-xsl \
+--enable-zip \
+--enable-mysqlnd \
+--with-pear \
+--enable-opcache \
+--with-pcre-jit \
+--enable-intl \
+--with-iconv-dir \
+--with-webp-dir
+
+编译:
+make 
+
+编译后测试:
+make test
+
+测试没有问题就安装,一般需要超级用户权限:
+sudo make install
+
+添加环境变量:
+[root@stackoverflowchina1 ~]# vim .bashrc
+export PATH=$PATH:/usr/local/php/bin
+
+[root@stackoverflowchina1 ~]# source .bashrc
+
+编译后make clean:
+[root@stackoverflowchina2 php-7.2.5]# make clean
+find . -name \*.gcno -o -name \*.gcda | xargs rm -f
+find . -name \*.lo -o -name \*.o | xargs rm -f
+find . -name \*.la -o -name \*.a | xargs rm -f
+find . -name \*.so | xargs rm -f
+find . -name .libs -a -type d|xargs rm -rf
+rm -f libphp7.la sapi/cli/php sapi/cgi/php-cgi   sapi/fpm/php-fpm  modules/* libs/*
