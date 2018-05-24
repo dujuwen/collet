@@ -1,12 +1,10 @@
 https://blog.csdn.net/warnerwu/article/details/73381611
 
-创建php用户和组:
+1.创建php用户和组:
 [root@localhost ~]# groupadd -r php
 [root@localhost ~]# useradd -r -g php -s /sbin/nologin -d /usr/local/php -M php
 
-
-
-安装一些php的依赖
+2.安装一些php的依赖
 [root@stackoverflowchina1 ~]# yum -y install ifconfig libxml2 libxml2-devel openssl openssl-devel bzip2 bzip2-devel \
 libcurl libcurl-devel libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel libzip \
 gmp gmp-devel libmcrypt libmcrypt-devel readline readline-devel libxslt libxslt-devel tcl-devel \
@@ -20,8 +18,7 @@ yum -y groupinstall "Development Tools"
 在后面所有操作都完成之后记得执行一次:
 yum -y update
 
-
-安装php7
+3.安装php7
 [root@stackoverflowchina1 ~]# wget http://cn2.php.net/distributions/php-7.2.5.tar.gz
 下载太慢了 可以先在本地下载好然后通过scp上传
 $ scp ~/Documents/php-7.2.5.tar.gz root@192.168.242.128:/root
@@ -137,13 +134,17 @@ You may want to add: /usr/local/php/lib/php to your php.ini include_path
 ln -s -f phar.phar /usr/local/php/bin/phar
 Installing PDO headers:           /usr/local/php/include/php/ext/pdo/
 
-添加环境变量:
+4.添加环境变量:
 [root@stackoverflowchina1 ~]# vim ~/.bashrc
 export PATH=$PATH:/usr/local/php/bin
-
 [root@stackoverflowchina1 ~]# source ~/.bashrc
 
-编译后make clean:
+将php、php-config、php-fpm建立软连接
+ln -s /usr/local/php/bin/php /usr/local/bin/php
+ln -s /usr/local/php/bin/php-config /usr/local/bin/php-config
+ln -s /usr/local/php/sbin/php-fpm /usr/local/bin/php-fpm
+
+5.编译后make clean:
 [root@stackoverflowchina2 php-7.2.5]# make clean
 find . -name \*.gcno -o -name \*.gcda | xargs rm -f
 find . -name \*.lo -o -name \*.o | xargs rm -f
@@ -151,4 +152,6 @@ find . -name \*.la -o -name \*.a | xargs rm -f
 find . -name \*.so | xargs rm -f
 find . -name .libs -a -type d|xargs rm -rf
 rm -f libphp7.la sapi/cli/php sapi/cgi/php-cgi   sapi/fpm/php-fpm  modules/* libs/*
+
+6.移动或者添加配置文件
 
