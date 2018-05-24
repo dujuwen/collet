@@ -231,3 +231,12 @@ export PATH=$PATH:/usr/local/php/bin
 
 [root@stackoverflowchina1 ~]# source .bashrc
 
+编译后make clean:
+[root@stackoverflowchina2 php-7.2.5]# make clean
+find . -name \*.gcno -o -name \*.gcda | xargs rm -f
+find . -name \*.lo -o -name \*.o | xargs rm -f
+find . -name \*.la -o -name \*.a | xargs rm -f
+find . -name \*.so | xargs rm -f
+find . -name .libs -a -type d|xargs rm -rf
+rm -f libphp7.la sapi/cli/php sapi/cgi/php-cgi   sapi/fpm/php-fpm  modules/* libs/*
+
