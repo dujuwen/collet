@@ -1,4 +1,12 @@
+sar命令可以从文件的读写情况、系统调用的使用情况、磁盘I/O、CPU效率、内存使用状况、进程活动及IPC有关的活动等方面进行报告。
+
 linux下sar默认是没有安装的
 
 可以通过下列方式安装:
 [root@localhost ~]# yum -y install sysstat   
+
+要判断系统瓶颈问题，有时需几个 sar 命令选项结合起来
+
+怀疑CPU存在瓶颈，可用 sar -u和 sar -q 等来查看
+怀疑内存存在瓶颈，可用 sar -B、sar -r和 sar -W 等来查看
+怀疑I/O存在瓶颈，可用 sar -b、sar -u 和 sar -d等来查看
