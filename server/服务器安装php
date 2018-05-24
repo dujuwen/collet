@@ -173,8 +173,15 @@ Additional .ini files parsed:      (none)
 # cd /usr/local/php/etc
 # pwd
 /usr/local/php/etc
-# cp php-fpm.conf.default /etc/php-fpm.conf
-# cd /etc/
-# mkdir php-fpm.d
+# cp php-fpm.conf.default php-fpm.conf
+# cd php-fpm.d
+# l
+总用量 20K
+-rw-r--r-- 1 root root 19K 5月  24 18:17 www.conf.default
+# mv www.conf.default www.conf
+# php-fpm -t
+[24-May-2018 19:00:38] NOTICE: configuration file /usr/local/php/etc/php-fpm.conf test is successful
+
+7.修改配置文件
 
 
