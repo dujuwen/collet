@@ -1,0 +1,12 @@
+如何临时修改主机名称?
+$ hotname xxx //用hostname来临时修改更加方便
+或
+$ hostnamectl --transient set-hostname xxx
+
+如何永久修改主机名称?
+$ hostnamectl --static set-hostname xxx
+
+hostnamectl可以比hostname更加方便的永久修改主机名称，直接用命令修改了而不像hostname那样只能临时修改，要永久生效还必须手动修改文件
+
+主机名称存放地址:
+/etc/hostname
