@@ -154,4 +154,27 @@ find . -name .libs -a -type d|xargs rm -rf
 rm -f libphp7.la sapi/cli/php sapi/cgi/php-cgi   sapi/fpm/php-fpm  modules/* libs/*
 
 6.移动或者添加配置文件
+先添加php.ini配置文件:
+# pwd
+/root/php-7.2.5
+
+# l php.ini*
+-rw-rw-r--. 1 root root 69K 4月  24 23:10 php.ini-development
+-rw-rw-r--. 1 root root 69K 4月  24 23:10 php.ini-production
+
+# cp php.ini-production /etc/php.ini
+# php --ini
+Configuration File (php.ini) Path: /etc
+Loaded Configuration File:         /etc/php.ini
+Scan for additional .ini files in: /etc/php.d
+Additional .ini files parsed:      (none)
+
+在添加php-fpm.conf配置文件:
+# cd /usr/local/php/etc
+# pwd
+/usr/local/php/etc
+# cp php-fpm.conf.default /etc/php-fpm.conf
+# cd /etc/
+# mkdir php-fpm.d
+
 
