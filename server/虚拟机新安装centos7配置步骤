@@ -84,10 +84,7 @@ yum clean all
 yum makecache
 
 5)查看更新yum源（自动更新）
-yum repolist
-或
 yum -y update
-都会更新源信息
 
 5.设置命令行快捷键
 vim ~/.bashrc
