@@ -47,4 +47,8 @@ Installation successful!
 4.自动启动和暂停命令:
 /root/redis-4.0.9/utils/redis_init_script start|stop
 
-5.
+5.redis配置文件主要配置修改，vim /etc/redis/6379.conf:
+daemonize yes
+logfile /var/log/redis_6379.log
+dir /var/lib/redis/6379
+
