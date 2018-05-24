@@ -1,0 +1,25 @@
+https://blog.csdn.net/cds86333774/article/details/51165361
+
+service命令用于对系统服务进行管理，比如启动（start）、停止（stop）、重启（restart）、重新加载配置（reload）、查看状态（status）等
+chkconfig主要包括5个原始功能：为系统管理增加新的服务、为系统管理移除服务、列出单签服务的启动信息、改变服务的启动信息和检查特殊服务的启动状态。
+当单独运行chkconfig命令而不加任何参数时，他将显示服务的使用信息
+
+systemctl，主要负责控制systemd系统和服务管理器，用来替代service和chkconfig
+
+systemd是一个取代了SysV和LSB的初始化系统；
+现在的大多数Linux发行版本都进行了这个更新；
+systemd不仅仅只是个初始化系统，它还包括了还包括了管理系统各种的方面的 daemon；
+systemd是大势所趋又存在争议。
+
+启动一个服务：systemctl start postfix.service
+关闭一个服务：systemctl stop postfix.service
+重启一个服务：systemctl restart postfix.service
+显示一个服务的状态：systemctl status postfix.service
+在开机时启用一个服务：systemctl enable postfix.service
+在开机时禁用一个服务：systemctl disable postfix.service
+查看服务是否开机启动：systemctl is-enabled postfix.service
+查看已启动的服务列表：systemctl list-unit-files|grep enabled
+查看启动失败的服务列表：systemctl --failed
+
+系统相关的服务位于下:
+/etc/systemd/system
