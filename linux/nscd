@@ -2,7 +2,7 @@ https://blog.csdn.net/lufeisan/article/details/53416122
 
 linux本身是没有dns缓存的,想使用dns缓存的话需要自己安装一个服务程序NSCD(name service cache daemon).
 NSCD配置文件为/etc/nscd.conf，NSCD程序在启动的时候会读取/etc/nscd.conf文件，每一行指定一个属性和对应的值，或者指定一个服务和对应的值，
-#表示注释。有效的服务设定是：passwd,group,hosts,services,ornetgroup五个
+#表示注释。有效的服务设定是：passwd,group,hosts,services,netgroup五个
 
 安装：
 yum install nscd
@@ -11,19 +11,14 @@ yum install nscd
 enable-cache hosts yes。
 如果启用了nscd 服务，才有dns 缓存，否则是没有dns缓存的。
 
-
-
-
 开启 、停止、 重启服务
 service nscd start | stop | restart
 
 nscd的配置：
 通过编辑/etc/nscd.conf文件，在其中增加如下一行可以开启本地DNS cache：
-
 enable-cache hosts yes
 
 阿里云主机上的配置如下：
-
 [root@iZ2571ykq ~]# cat /etc/nscd.conf   
 #logfile        /var/log/nscd.log  
 threads         6  
