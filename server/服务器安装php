@@ -93,7 +93,8 @@ $ scp ~/Documents/php-7.2.5.tar.gz root@192.168.242.128:/root
 --with-pcre-jit \
 --enable-intl \
 --with-iconv-dir \
---with-webp-dir
+--with-webp-dir \
+--enable-fast-install
 
 编译:
 make 
