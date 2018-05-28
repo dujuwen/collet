@@ -1,7 +1,8 @@
-Linux的DNS
+https://blog.csdn.net/lufeisan/article/details/53416122
+
 linux本身是没有dns缓存的,想使用dns缓存的话需要自己安装一个服务程序NSCD(name service cache daemon).
-nscd缓存三种服务passwd group hosts，所以它会记录三个库，分别对应源/etc/passwd, /etc/hosts 和 /etc/resolv.conf每个库保存两份缓存，
-一份是找到记录的，一份是没有找到记录的。每一种缓存都保存有生存时间（TTL）.
+NSCD配置文件为/etc/nscd.conf，NSCD程序在启动的时候会读取/etc/nscd.conf文件，每一行指定一个属性和对应的值，或者指定一个服务和对应的值，
+#表示注释。有效的服务设定是：passwd,group,hosts,services,ornetgroup五个
 
 安装：
 yum install nscd
