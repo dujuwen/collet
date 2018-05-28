@@ -1,8 +1,8 @@
 https://blog.csdn.net/warnerwu/article/details/73381611
 
 1.创建php用户和组:
-[root@localhost ~]# groupadd -r php
-[root@localhost ~]# useradd -r -g php -s /sbin/nologin -d /usr/local/php -M php
+[root@localhost ~]# groupadd nginx
+[root@localhost ~]# useradd -g nginx -s /sbin/nologin -d /usr/local/php -M nginx
 
 2.安装一些php的依赖
 [root@stackoverflowchina1 ~]# yum -y install ifconfig libxml2 libxml2-devel openssl openssl-devel bzip2 bzip2-devel \
