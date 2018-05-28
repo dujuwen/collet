@@ -1,4 +1,5 @@
 https://blog.csdn.net/cds86333774/article/details/51165361
+http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-part-two.html
 
 service命令用于对系统服务进行管理，比如启动（start）、停止（stop）、重启（restart）、重新加载配置（reload）、查看状态（status）等
 chkconfig主要包括5个原始功能：为系统管理增加新的服务、为系统管理移除服务、列出单签服务的启动信息、改变服务的启动信息和检查特殊服务的启动状态。
@@ -23,3 +24,16 @@ systemd是大势所趋又存在争议。
 
 系统相关的服务位于下:
 /etc/systemd/system
+
+修改配置文件后要重新加载配置文件然后重启:
+# 重新加载配置文件
+$ sudo systemctl daemon-reload
+
+# 重启相关服务
+$ sudo systemctl restart foobar
+
+开机启动:
+$ sudo systemctl enable httpd
+上面的命令相当于在/etc/systemd/system目录添加一个符号链接，指向/usr/lib/systemd/system里面的httpd.service文件。
+
+这是因为开机时，Systemd只执行/etc/systemd/system目录里面的配置文件。这也意味着，如果把修改后的配置文件放在该目录，就可以达到覆盖原始配置的效果。
