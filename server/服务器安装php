@@ -184,5 +184,6 @@ Additional .ini files parsed:      (none)
 [24-May-2018 19:00:38] NOTICE: configuration file /usr/local/php/etc/php-fpm.conf test is successful
 
 7.修改配置文件
-
+参考php.ini和php-fpm.conf修改
+最好的是在本地修改生成统一的文件，然后通过ansible同步到服务器上
 
