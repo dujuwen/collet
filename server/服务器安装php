@@ -188,3 +188,35 @@ Additional .ini files parsed:      (none)
 参考php.ini和php-fpm.conf修改
 最好的是在本地修改生成统一的文件，然后通过ansible同步到服务器上
 
+8.添加php-fpm开机启动
+vim /etc/systemd/system/php-fpm.service:
+
+[Unit]
+Description=The PHP FastCGI Process Manager
+After=network.target
+
+[Service]
+Type=simple
+PIDFile=/run/php-fpm.pid
+ExecStart=/usr/local/bin/php-fpm --daemonize --fpm-config /etc/php-fpm.conf
+ExecReload=/usr/bin/kill -USR2 $MAINPID
+ExecStop=/usr/bin/kill -INT $MAINPID
+
+[Install]
+WantedBy=multi-user.target
+
+设置开机启动
+# systemctl enable php-fpm.service
+
+查看服务状态:
+# systemctl status php-fpm
+● php-fpm.service - The PHP FastCGI Process Manager
+   Loaded: loaded (/etc/systemd/system/php-fpm.service; enabled; vendor preset: disabled)
+   Active: active (running) since 一 2018-05-28 18:11:38 CST; 1min 39s ago
+  Process: 7651 ExecStop=/usr/bin/kill -INT $MAINPID (code=exited, status=0/SUCCESS)
+  Process: 7675 ExecReload=/usr/bin/kill -USR2 $MAINPID (code=exited, status=0/SUCCESS)
+ Main PID: 7677 (php-fpm)
+   CGroup: /system.slice/php-fpm.service
+           ├─7677 php-fpm: master process (/etc/php-fpm.conf)
+           ├─7678 php-fpm: pool www
+           └─7679 php-fpm: pool www
