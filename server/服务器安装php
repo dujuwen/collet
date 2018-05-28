@@ -143,6 +143,7 @@ export PATH=$PATH:/usr/local/php/bin
 将php、php-config、php-fpm建立软连接
 ln -s /usr/local/php/bin/php /usr/local/bin/php
 ln -s /usr/local/php/bin/php-config /usr/local/bin/php-config
+ln -s /usr/local/php/bin/phpize /usr/local/bin/phpize
 ln -s /usr/local/php/sbin/php-fpm /usr/local/bin/php-fpm
 
 5.编译后make clean:
