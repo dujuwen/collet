@@ -51,6 +51,7 @@ shell> sudo yum-config-manager --enable mysql57-community
 
 4.安装mysql服务端
 # yum -y install mysql-community-server
+如果需要安装客户端添加上
 
 5.
 
