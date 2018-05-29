@@ -98,7 +98,7 @@ mysql进程启动日志存放于:
 # vim /var/log/mysqld.log
 
 7.其他可安装的组件
-  yum --disablerepo=\* --enablerepo='mysql*-community*' list available
+# yum --disablerepo=\* --enablerepo='mysql*-community*' list available
 已加载插件：fastestmirror
 Loading mirror speeds from cached hostfile
 mysql-cluster-7.5-community                                                                                                                        | 2.5 kB  00:00:00
