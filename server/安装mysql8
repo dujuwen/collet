@@ -5,4 +5,44 @@ https://www.linuxidc.com/Linux/2016-09/134940.htm
 1.下载rpm
 wget https://repo.mysql.com/mysql80-community-release-el7-1.noarch.rpm
 
-2.
+2.安装刚刚下载的rpm包
+sudo rpm -Uvh mysql80-community-release-el7-1.noarch.rpm //存在就升级,不存在就安装
+或者
+sudo rpm -ivh mysql80-community-release-el7-1.noarch.rpm
+
+安装后存在:
+# l /etc/yum.repos.d/mysql*
+-rw-r--r-- 1 root root 1.9K 2月  22 16:49 /etc/yum.repos.d/mysql-community.repo
+-rw-r--r-- 1 root root 1.9K 2月  22 16:49 /etc/yum.repos.d/mysql-community-source.repo
+
+3.设置需要安装的包
+查看哪些是启用的:
+# yum repolist all | grep mysql
+mysql-cluster-7.5-community/x86_64 MySQL Cluster 7.5 Community       禁用
+mysql-cluster-7.5-community-source MySQL Cluster 7.5 Community - Sou 禁用
+mysql-cluster-7.6-community/x86_64 MySQL Cluster 7.6 Community       禁用
+mysql-cluster-7.6-community-source MySQL Cluster 7.6 Community - Sou 禁用
+mysql-connectors-community/x86_64  MySQL Connectors Community        启用:    51
+mysql-connectors-community-source  MySQL Connectors Community - Sour 禁用
+mysql-tools-community/x86_64       MySQL Tools Community             启用:    63
+mysql-tools-community-source       MySQL Tools Community - Source    禁用
+mysql-tools-preview/x86_64         MySQL Tools Preview               禁用
+mysql-tools-preview-source         MySQL Tools Preview - Source      禁用
+mysql55-community/x86_64           MySQL 5.5 Community Server        禁用
+mysql55-community-source           MySQL 5.5 Community Server - Sour 禁用
+mysql56-community/x86_64           MySQL 5.6 Community Server        禁用
+mysql56-community-source           MySQL 5.6 Community Server - Sour 禁用
+mysql57-community/x86_64           MySQL 5.7 Community Server        禁用
+mysql57-community-source           MySQL 5.7 Community Server - Sour 禁用
+mysql80-community/x86_64           MySQL 8.0 Community Server        启用:    17
+mysql80-community-source           MySQL 8.0 Community Server - Sour 禁用
+
+默认安装的是MySQL8.0相关的
+
+如果要安装其他版本可以用工具yum-config-manager来禁用不安装的，启用需要安装的
+如果这个工具没有安装的话可以通过命令安装:
+# yum -y install yum-utils
+
+shell> sudo yum-config-manager --disable mysql80-community
+shell> sudo yum-config-manager --enable mysql57-community
+
