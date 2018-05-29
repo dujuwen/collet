@@ -135,4 +135,24 @@ php-fpm.service                               enabled
 ps aux | grep -iE 'mysqld|php-fpm|redis-server|openresty'
 ps aux | egrep 'mysqld|php-fpm|redis-server|openresty'
 
+9.启用系统的Hugepage
+http://www.laruence.com/2015/10/02/3069.html
 
+开启php opcache的高速缓存:
+opcache.huge_code_pages=1
+
+分配系统缓存:
+sudo sysctl vm.nr_hugepages=128
+
+查看高速缓存
+# cat /proc/meminfo | grep -i huge
+AnonHugePages:    378880 kB
+HugePages_Total:     128
+HugePages_Free:      128
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+
+10.
+
+
+Hugepagesize:       2048 kB
