@@ -99,6 +99,11 @@ $ scp ~/Documents/php-7.2.5.tar.gz root@192.168.242.128:/root
 编译:
 make 
 
+在编译的时候可以启用gpo:
+首先, 要决定的就是拿什么场景去Feedback GCC, 我们一般都会选择,在你要优化的场景中: 访问量最大的, 耗时最多的, 资源消耗最重的一个页面.
+http://www.laruence.com/2015/06/19/3063.html
+make prof-gen
+
 编译后测试:
 make test
 
