@@ -46,3 +46,11 @@ mysql80-community-source           MySQL 8.0 Community Server - Sour 禁用
 shell> sudo yum-config-manager --disable mysql80-community
 shell> sudo yum-config-manager --enable mysql57-community
 
+查看需要安装的MySQL信息:
+# yum repolist enabled  |  grep mysql
+
+4.安装mysql服务端
+# yum -y install mysql-community-server
+
+5.
+
