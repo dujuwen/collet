@@ -53,5 +53,33 @@ shell> sudo yum-config-manager --enable mysql57-community
 # yum -y install mysql-community-server
 如果需要安装客户端添加上
 
-5.
+安装完成后查看是否有对应的service:
+# l /usr/lib/systemd/system/mysql*
+-rw-r--r-- 1 root root 2.1K 4月   8 15:13 /usr/lib/systemd/system/mysqld.service
+-rw-r--r-- 1 root root 2.1K 4月   8 15:13 /usr/lib/systemd/system/mysqld@.service
+
+5.添加开机启动和启动mysql
+添加开机启动:
+# systemctl enable mysqld.service
+
+启动mysql:
+# systemctl start mysqld.service
+
+查看mysql启动状态:
+# systemctl status mysqld.service
+● mysqld.service - MySQL Server
+   Loaded: loaded (/usr/lib/systemd/system/mysqld.service; enabled; vendor preset: disabled)
+   Active: active (running) since 二 2018-05-29 11:51:01 CST; 12s ago
+     Docs: man:mysqld(8)
+           http://dev.mysql.com/doc/refman/en/using-systemd.html
+  Process: 2888 ExecStartPre=/usr/bin/mysqld_pre_systemd (code=exited, status=0/SUCCESS)
+ Main PID: 2956 (mysqld)
+   Status: "SERVER_OPERATING"
+   CGroup: /system.slice/mysqld.service
+           └─2956 /usr/sbin/mysqld
+
+5月 29 11:50:57 stackoverflowchina2 systemd[1]: Starting MySQL Server...
+5月 29 11:51:01 stackoverflowchina2 systemd[1]: Started MySQL Server.
+
+6.
 
