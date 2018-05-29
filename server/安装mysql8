@@ -92,6 +92,8 @@ ERROR 1820 (HY000): You must reset your password using ALTER USER statement befo
 mysql> alter user 'root'@'localhost' identified by '123456qQ!';
 Query OK, 0 rows affected (0.08 sec）
 
+mysql密码校验插件默认是安装的，要求新密码是一个包含大小写字母、数字和特殊字符的长度至少为8个字符的字符串。
+
 mysql进程启动日志存放于:
 # vim /var/log/mysqld.log
 
