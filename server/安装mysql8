@@ -97,5 +97,93 @@ mysql密码校验插件默认是安装的，要求新密码是一个包含大小
 mysql进程启动日志存放于:
 # vim /var/log/mysqld.log
 
-
+7.其他可安装的组件
+  yum --disablerepo=\* --enablerepo='mysql*-community*' list available
+已加载插件：fastestmirror
+Loading mirror speeds from cached hostfile
+mysql-cluster-7.5-community                                                                                                                        | 2.5 kB  00:00:00
+mysql-cluster-7.5-community-source                                                                                                                 | 2.4 kB  00:00:00
+mysql-cluster-7.6-community                                                                                                                        | 2.5 kB  00:00:00
+mysql-cluster-7.6-community-source                                                                                                                 | 2.4 kB  00:00:00
+mysql-connectors-community-source                                                                                                                  | 2.4 kB  00:00:00
+mysql-tools-community-source                                                                                                                       | 2.4 kB  00:00:00
+mysql55-community                                                                                                                                  | 2.5 kB  00:00:00
+mysql55-community-source                                                                                                                           | 2.4 kB  00:00:00
+mysql56-community                                                                                                                                  | 2.5 kB  00:00:00
+mysql56-community-source                                                                                                                           | 2.4 kB  00:00:00
+mysql57-community                                                                                                                                  | 2.5 kB  00:00:00
+mysql57-community-source                                                                                                                           | 2.4 kB  00:00:00
+mysql80-community-source                                                                                                                           | 2.4 kB  00:00:00
+(1/13): mysql-cluster-7.5-community-source/primary_db                                                                                              | 5.0 kB  00:00:00
+(2/13): mysql-cluster-7.6-community-source/primary_db                                                                                              | 3.7 kB  00:00:00
+(3/13): mysql-connectors-community-source/primary_db                                                                                               | 6.7 kB  00:00:00
+(4/13): mysql-cluster-7.6-community/x86_64/primary_db                                                                                              |  46 kB  00:00:00
+(5/13): mysql-tools-community-source/primary_db                                                                                                    |  10 kB  00:00:00
+(6/13): mysql55-community-source/primary_db                                                                                                        | 9.5 kB  00:00:00
+(7/13): mysql-cluster-7.5-community/x86_64/primary_db                                                                                              |  56 kB  00:00:01
+(8/13): mysql56-community-source/primary_db                                                                                                        | 9.8 kB  00:00:00
+(9/13): mysql56-community/x86_64/primary_db                                                                                                        | 191 kB  00:00:00
+(10/13): mysql57-community-source/primary_db                                                                                                       | 7.9 kB  00:00:00
+(11/13): mysql80-community-source/primary_db                                                                                                       | 3.2 kB  00:00:00
+(12/13): mysql55-community/x86_64/primary_db                                                                                                       | 173 kB  00:00:01
+(13/13): mysql57-community/x86_64/primary_db                                                                                                       | 144 kB  00:00:01
+可安装的软件包
+mysql-cluster-community-auto-installer.x86_64                                            7.6.5-1.el7                                           mysql-cluster-7.6-community
+mysql-cluster-community-client.x86_64                                                    7.6.5-1.el7                                           mysql-cluster-7.6-community
+mysql-cluster-community-common.x86_64                                                    7.6.5-1.el7                                           mysql-cluster-7.6-community
+mysql-cluster-community-data-node.x86_64                                                 7.6.5-1.el7                                           mysql-cluster-7.6-community
+mysql-cluster-community-devel.x86_64                                                     7.6.5-1.el7                                           mysql-cluster-7.6-community
+mysql-cluster-community-embedded.x86_64                                                  7.6.5-1.el7                                           mysql-cluster-7.6-community
+mysql-cluster-community-embedded-compat.x86_64                                           7.6.5-1.el7                                           mysql-cluster-7.6-community
+mysql-cluster-community-embedded-devel.x86_64                                            7.6.5-1.el7                                           mysql-cluster-7.6-community
+mysql-cluster-community-java.x86_64                                                      7.6.5-1.el7                                           mysql-cluster-7.6-community
+mysql-cluster-community-libs.x86_64                                                      7.6.5-1.el7                                           mysql-cluster-7.6-community
+mysql-cluster-community-libs-compat.x86_64                                               7.6.5-1.el7                                           mysql-cluster-7.6-community
+mysql-cluster-community-management-server.x86_64                                         7.6.5-1.el7                                           mysql-cluster-7.6-community
+mysql-cluster-community-memcached.x86_64                                                 7.6.5-1.el7                                           mysql-cluster-7.6-community
+mysql-cluster-community-ndbclient.x86_64                                                 7.6.5-1.el7                                           mysql-cluster-7.6-community
+mysql-cluster-community-ndbclient-devel.x86_64                                           7.6.5-1.el7                                           mysql-cluster-7.6-community
+mysql-cluster-community-nodejs.x86_64                                                    7.6.5-1.el7                                           mysql-cluster-7.6-community
+mysql-cluster-community-server.x86_64                                                    7.6.5-1.el7                                           mysql-cluster-7.6-community
+mysql-cluster-community-test.x86_64                                                      7.6.5-1.el7                                           mysql-cluster-7.6-community
+mysql-community-bench.x86_64                                                             5.6.40-2.el7                                          mysql56-community
+mysql-community-client.i686                                                              8.0.11-1.el7                                          mysql80-community
+mysql-community-common.i686                                                              8.0.11-1.el7                                          mysql80-community
+mysql-community-devel.i686                                                               8.0.11-1.el7                                          mysql80-community
+mysql-community-devel.x86_64                                                             8.0.11-1.el7                                          mysql80-community
+mysql-community-embedded.i686                                                            5.7.22-1.el7                                          mysql57-community
+mysql-community-embedded.x86_64                                                          5.7.22-1.el7                                          mysql57-community
+mysql-community-embedded-compat.i686                                                     8.0.11-1.el7                                          mysql80-community
+mysql-community-embedded-compat.x86_64                                                   8.0.11-1.el7                                          mysql80-community
+mysql-community-embedded-devel.i686                                                      5.7.22-1.el7                                          mysql57-community
+mysql-community-embedded-devel.x86_64                                                    5.7.22-1.el7                                          mysql57-community
+mysql-community-libs.i686                                                                8.0.11-1.el7                                          mysql80-community
+mysql-community-libs-compat.i686                                                         8.0.11-1.el7                                          mysql80-community
+mysql-community-release.noarch                                                           el7-7                                                 mysql57-community
+mysql-community-test.x86_64                                                              8.0.11-1.el7                                          mysql80-community
+mysql-connector-java.noarch                                                              8.0.11-1.el7                                          mysql-connectors-community
+mysql-connector-odbc.x86_64                                                              8.0.11-1.el7                                          mysql-connectors-community
+mysql-connector-odbc-debuginfo.x86_64                                                    8.0.11-1.el7                                          mysql-connectors-community
+mysql-connector-odbc-setup.x86_64                                                        8.0.11-1.el7                                          mysql-connectors-community
+mysql-connector-python.noarch                                                            2.0.4-1.el7                                           mysql-connectors-community
+mysql-connector-python.x86_64                                                            8.0.11-1.el7                                          mysql-connectors-community
+mysql-connector-python-cext.x86_64                                                       8.0.11-1.el7                                          mysql-connectors-community
+mysql-connector-python-debuginfo.x86_64                                                  2.1.7-1.el7                                           mysql-connectors-community
+mysql-ref-manual-5.5-en-html-chapter.noarch                                              1-20180227                                            mysql55-community
+mysql-ref-manual-5.5-en-pdf.noarch                                                       1-20180227                                            mysql55-community
+mysql-ref-manual-5.6-en-html-chapter.noarch                                              1-20180227                                            mysql56-community
+mysql-ref-manual-5.6-en-pdf.noarch                                                       1-20180227                                            mysql56-community
+mysql-ref-manual-5.7-en-html-chapter.noarch                                              1-20180304                                            mysql57-community
+mysql-ref-manual-5.7-en-pdf.noarch                                                       1-20180304                                            mysql57-community
+mysql-ref-manual-8.0-en-html-chapter.noarch                                              1-20180420                                            mysql80-community
+mysql-ref-manual-8.0-en-pdf.noarch                                                       1-20180420                                            mysql80-community
+mysql-router.x86_64                                                                      8.0.11-1.el7                                          mysql-tools-community
+mysql-router-debuginfo.x86_64                                                            8.0.11-1.el7                                          mysql-tools-community
+mysql-shell.x86_64                                                                       8.0.11-1.el7                                          mysql-tools-community
+mysql-shell-debuginfo.x86_64                                                             8.0.11-1.el7                                          mysql-tools-community
+mysql-utilities.noarch                                                                   1.6.5-1.el7                                           mysql-tools-community
+mysql-utilities-extra.noarch                                                             1.5.6-1.el7                                           mysql-tools-community
+mysql-workbench-community.x86_64                                                         6.3.10-1.el7                                          mysql-tools-community
+mysql-workbench-community-debuginfo.x86_64                                               6.3.10-1.el7                                          mysql-tools-community
+mysql57-community-release.noarch                                                         el7-10                                                mysql-cluster-7.5-community
 
