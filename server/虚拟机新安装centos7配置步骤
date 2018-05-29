@@ -177,6 +177,8 @@ $ cat /proc/sys/fs/nr_open
 * soft nproc 10000
 * hard nproc 10000
 
+优化内核:
+
 调整完成后重启系统:
 reboot
 
