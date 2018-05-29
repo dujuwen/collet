@@ -152,7 +152,7 @@ HugePages_Free:      128
 HugePages_Rsvd:        0
 HugePages_Surp:        0
 
+其他php优化:
+http://www.laruence.com/2015/12/04/3086.html
+
 10.
-
-
-Hugepagesize:       2048 kB
