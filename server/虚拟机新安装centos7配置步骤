@@ -84,7 +84,7 @@ yum clean all
 yum makecache
 
 5)查看更新yum源（自动更新）
-yum -y update
+yum -y update //在安装完插件(rpm包)之后运行这个命令更新服务器
 
 5.设置命令行快捷键
 vim ~/.bashrc
