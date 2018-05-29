@@ -9,6 +9,8 @@ http://blog.51cto.com/qiuyt/2074641
 http://qkxue.net/info/152742/nginx
 https://yq.aliyun.com/articles/495622
 http://blog.xiayf.cn/2014/05/03/optimizing-nginx-and-php-fpm-for-high-traffic-sites/
+http://blog.51cto.com/blief/1738388
+https://www.jianshu.com/p/5e71f7159a85
 
 user nginx; 
 #这里在线上应该将nginx程序设置为root所有者,chown root /path/to/nginx,chmod u+s /path/to/nginx,然后这里设置了用户才不会出错
