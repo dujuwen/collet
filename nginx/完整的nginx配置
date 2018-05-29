@@ -1,6 +1,9 @@
 nginx安装配置完整版:
 https://segmentfault.com/a/1190000002797601
 
+申请并部署SSL证书:
+https://www.centos.bz/2017/07/nginx-config-ssl-force-301-https/
+
 nginx配置调优:
 http://www.z-dig.com/nginx-optimization-25.html
 https://renwole.com/archives/387
