@@ -1,0 +1,8 @@
+https://dev.mysql.com/doc/mysql-yum-repo-quick-guide/en/
+https://www.linuxidc.com/Linux/2016-09/135288.htm
+https://www.linuxidc.com/Linux/2016-09/134940.htm
+
+1.下载rpm
+wget https://repo.mysql.com/mysql80-community-release-el7-1.noarch.rpm
+
+2.
