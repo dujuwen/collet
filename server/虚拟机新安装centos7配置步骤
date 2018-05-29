@@ -125,4 +125,14 @@ getenforce
 开机关闭SELinux:
 编辑/etc/selinux/config文件, 将SELINUX的值设置为disabled。下次开机SELinux就不会启动了。 
 
-8.
+8.查看服务自动启动情况
+# systemctl list-unit-files --type=service | grep -iE 'mysql|php-fpm|redis|openresty'
+mysqld.service                                enabled
+mysqld@.service                               disabled
+php-fpm.service                               enabled
+
+查看mysqld|php-fpm|redis-server|openresty是否正在运行:
+ps aux | grep -iE 'mysqld|php-fpm|redis-server|openresty'
+ps aux | egrep 'mysqld|php-fpm|redis-server|openresty'
+
+
