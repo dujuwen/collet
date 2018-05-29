@@ -13,3 +13,13 @@
 
 或者在pc上下载,然后打开一个本地服务器在手机上下载:
 http://172.16.234.59:8100/c.pem
+
+安装证书之后如果charles上https请求是乱码的话进行下面设置:
+菜单 -> Proxy -> SSL Proxying Settings... -> SSL Proxing
+Enable SSL Proxying 打钩启用
+
+添加:
+Host: *
+Port: 443
+
+然后重启charles和手机再看看就不乱码了
