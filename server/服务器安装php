@@ -205,6 +205,9 @@ ExecStop=/usr/bin/kill -INT $MAINPID
 [Install]
 WantedBy=multi-user.target
 
+更改文件读写权限
+#chmod 0766 /etc/systemd/system/php-fpm.service
+
 设置开机启动
 # systemctl enable php-fpm.service
 
