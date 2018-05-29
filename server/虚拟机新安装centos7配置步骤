@@ -155,4 +155,14 @@ HugePages_Surp:        0
 其他php优化:
 http://www.laruence.com/2015/12/04/3086.html
 
-10.
+10.服务器调整
+清除iptables
+# iptables -L //查看
+# iptables -F //清除
+
+man中文版:
+$ yum search man | grep -i zh-cn
+man-pages-zh-CN.noarch : Chinese Man Pages from Chinese Man Pages Project
+$ yum -y install man-pages-zh-CN.noarch
+
+
