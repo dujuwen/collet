@@ -81,5 +81,19 @@ shell> sudo yum-config-manager --enable mysql57-community
 5月 29 11:50:57 stackoverflowchina2 systemd[1]: Starting MySQL Server...
 5月 29 11:51:01 stackoverflowchina2 systemd[1]: Started MySQL Server.
 
-6.
+6.通过yum安装的mysql server默认已经创建了一个超级用户 root@localhost，可以通过下列方法取回默认密码:
+# grep 'temporary password' /var/log/mysqld.log
+2018-05-29T03:50:59.100381Z 5 [Note] [MY-010454] [Server] A temporary password is generated for root@localhost: R2T%<ybxSsVG
+
+登录,第一登录的话要求重置密码:
+# mysql -uroot -p
+mysql> show databases;
+ERROR 1820 (HY000): You must reset your password using ALTER USER statement before executing this statement.
+mysql> alter user 'root'@'localhost' identified by '123456qQ!';
+Query OK, 0 rows affected (0.08 sec）
+
+mysql进程启动日志存放于:
+# vim /var/log/mysqld.log
+
+
 
