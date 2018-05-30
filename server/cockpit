@@ -12,4 +12,6 @@ $ sudo systemctl start cockpit.socket
 3.打开界面查看
 localhost:9090 or hostname:9090
 
-4.
+4.如何更改cockpit端口
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/getting_started_with_cockpit/using_cockpit
+
