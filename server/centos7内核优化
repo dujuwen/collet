@@ -87,10 +87,38 @@ NTP synchronized: yes
  RTC in local TZ: no
       DST active: n/a
 
-6.
+6.ssh配置文件位置
+/etc/ssh/sshd_config 
+在任何修改sshd配置之前都先备份一下:
+cp /etc/ssh/sshd_config /etc/ssh/sshd_config_origin.bak
 
-最后重启系统
-# reboot
+7.centos内核优化
+查看配置文件位置
+# cat /etc/sysctl.conf
 
+# l /usr/lib/sysctl.d/*
+-rw-r--r--. 1 root root  293 4月  11 13:09 /usr/lib/sysctl.d/00-system.conf
+-rw-r--r--. 1 root root 1.8K 4月  11 13:10 /usr/lib/sysctl.d/10-default-yama-scope.conf
+-rw-r--r--. 1 root root 1.2K 4月  11 15:36 /usr/lib/sysctl.d/50-default.conf
 
+# vim /usr/lib/sysctl.d/00-system.conf
+添加:
 
+#关闭ipv6
+net.ipv6.conf.all.disable_ipv6 = 1
+net.ipv6.conf.default.disable_ipv6 = 1
+# 避免放大攻击
+net.ipv4.icmp_echo_ignore_broadcasts = 1
+#修改消息队列长度
+kernel.msgmnb = 65536
+kernel.msgmax = 65536
+#设置最大内存共享段大小bytes
+kernel.shmmax = 68719476736
+kernel.shmall = 4294967296
+#每个网络接口接收数据包的速率比内核处理这些包的速率快时，允许送到队列的数据包的最大数目
+net.core.netdev_max_backlog = 262144
+#限制仅仅是为了防止简单的DoS 攻击
+net.ipv4.tcp_max_orphans = 3276800
+net.ipv4.tcp_syncookies = 1
+net.ipv4.tcp_fin_timeout = 30
+net.ipv4.tcp_tw_reuse = 1
