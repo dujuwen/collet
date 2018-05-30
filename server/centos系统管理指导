@@ -92,8 +92,43 @@ https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/sy
 6.log rotate
 https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/s1-basic_configuration_of_rsyslog
 
-7.
+7.定时器任务
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-automating_system_tasks#s1-Scheduling_a_Recurring_Job_Using_Cron
 
+The root user uses the cron table in /etc/crontab, or, preferably, creates a cron table file in /etc/cron.d/
 
+# cat /etc/crontab
+SHELL=/bin/bash
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+MAILTO=root
 
+# For details see man 4 crontabs
 
+# Example of job definition:
+# .---------------- minute (0 - 59)
+# |  .------------- hour (0 - 23)
+# |  |  .---------- day of month (1 - 31)
+# |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
+# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
+# |  |  |  |  |
+# *  *  *  *  * user-name  command to be executed
+
+in which minutes of an hour to execute the job. For example, use 0,10,20,30,40,50 or 0/10 to specify every 10 minutes of an hour.
+in which hours of a day to execute the job. For example, use 17-20 to specify time from 17:00 to 20:59.
+in which days of a month to execute the job. For example, use 15 to specify 15th day of a month.
+in which months of a year to execute the job. For example, use Jun,Jul,Aug or 6,7,8 to specify the summer months of the year.
+in which days of the week to execute the job. For example, use * for the job to execute independently of the day of week.
+
+Scheduling Hourly, Daily, Weekly, and Monthly Jobs
+To schedule an hourly, daily, weekly, or monthly job:
+Put the actions you want your job to execute into a shell script.
+Put the shell script into one of the following directories:
+/etc/cron.hourly/
+/etc/cron.daily/
+/etc/cron.weekly/
+/etc/cron.monthly/
+
+From now, your script will be executed - the crond service automatically executes any scripts present in
+/etc/cron.hourly, /etc/cron.daily, /etc/cron.weekly, and /etc/cron.monthly directories at their corresponding times.
+
+8.
