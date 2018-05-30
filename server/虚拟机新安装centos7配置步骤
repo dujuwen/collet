@@ -155,31 +155,4 @@ HugePages_Surp:        0
 其他php优化:
 http://www.laruence.com/2015/12/04/3086.html
 
-10.服务器调整
-清除iptables
-# iptables -L //查看
-# iptables -F //清除
-
-man中文版:
-$ yum search man | grep -i zh-cn
-man-pages-zh-CN.noarch : Chinese Man Pages from Chinese Man Pages Project
-$ yum -y install man-pages-zh-CN.noarch
-
-调整nofile值:
-/etc/security/limits.conf中指定的nofile的值，nofile有上限，不是无穷大。nofile由内核参数nr_open定义的
-使用cat /proc/sys/fs/nr_open 查看nr_open值，可通过修改/ect/sysct.conf 修改fs.nr_open值，sysctl -p生效
-$ cat /proc/sys/fs/nr_open
-1048576
-
-# vim /etc/security/limits.conf
-* soft nofile 500000
-* hard nofile 500000
-* soft nproc 10000
-* hard nproc 10000
-
-优化内核:
-
-调整完成后重启系统:
-reboot
-
-11.
+10.
