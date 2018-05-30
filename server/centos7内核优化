@@ -1,4 +1,7 @@
-1.清除iptables
+1.停用系统自带的防火墙和清除iptables
+# systemctl stop firewalld.service
+# systemctl disable firewalld.service
+
 # iptables -L //查看
 # iptables -F //清除
 
