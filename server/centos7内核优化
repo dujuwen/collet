@@ -1,25 +1,33 @@
-清除iptables
+1.清除iptables
 # iptables -L //查看
 # iptables -F //清除
 
-man中文版:
+2.man中文版:
 $ yum search man | grep -i zh-cn
 man-pages-zh-CN.noarch : Chinese Man Pages from Chinese Man Pages Project
 $ yum -y install man-pages-zh-CN.noarch
 
-调整nofile值:
+3.调整nofile、nproc值:
 /etc/security/limits.conf中指定的nofile的值，nofile有上限，不是无穷大。nofile由内核参数nr_open定义的
 使用cat /proc/sys/fs/nr_open 查看nr_open值，可通过修改/ect/sysct.conf 修改fs.nr_open值，sysctl -p生效
 $ cat /proc/sys/fs/nr_open
 1048576
 
 # vim /etc/security/limits.conf
-* soft nofile 500000
-* hard nofile 500000
-* soft nproc 10000
-* hard nproc 10000
+*       soft    nofile    1024000
+*       hard    nofile    1024000
+*       soft    nproc     100000
+*       hard    nproc     100000
 
-优化内核:
+# l /etc/security/limits.d/*
+-rw-r--r--. 1 root root 191 4月  11 11:22 /etc/security/limits.d/20-nproc.conf
+
+# vim /etc/security/limits.d/20-nproc.conf
+*       soft    nproc     100000
+*       hard    nproc     100000
+root       soft    nproc     unlimited
+
+4.
 
 调整完成后重启系统:
 reboot
