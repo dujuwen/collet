@@ -84,7 +84,13 @@ PasswordAuthentication no
 # chmod 0600 .ssh/authorized_keys
 # su root
 
-5.
+5.检查硬件错误
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/sec-checking_for_hardware_errors
+# yum install rasdaemon
+# ras-mc-ctl --summary
+
+6.
+
 
 
 
