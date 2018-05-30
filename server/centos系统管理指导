@@ -9,6 +9,8 @@ These settings can be made by modifying the /etc/locale.conf configuration file 
 2.设置日期和时区
 https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/chap-configuring_the_date_and_time
 
+Network Time Protocol(NTP，网络时间协议)
+
 # timedatectl
       Local time: 三 2018-05-30 16:28:31 CST
   Universal time: 三 2018-05-30 08:28:31 UTC
@@ -24,9 +26,13 @@ timedatectl set-time YYYY-MM-DD
 timedatectl set-time HH:MM:SS
 The command will fail if an NTP service is enabled.
 
-如果通过set-time错误的修改的时间，如何恢复回本地时间？
-timedatectl set-local-rtc 1
-timedatectl set-local-rtc 0
+如果通过set-time错误的修改的时间，如何恢复回本地时间？可以通过自动同步时间来修复:
+# yum -y install ntp
+# timedatectl set-ntp yes
+
+如果RTC time和Local time不一致可以通过下面命令同步:
+# timedatectl set-local-rtc 1
+# timedatectl set-local-rtc 0
 
 修改时区:
 # timedatectl list-timezones | grep -i shanghai //查看支持的时区
