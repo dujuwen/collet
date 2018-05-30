@@ -23,3 +23,6 @@ localhost:9090 or hostname:9090
 4.如何更改cockpit端口
 https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/getting_started_with_cockpit/using_cockpit
 
+5.在正式环境待调试完成后记得停止和禁止开机启动
+$ systemctl stop cockpit.socket
+$ systemctl disable cockpit.socket
