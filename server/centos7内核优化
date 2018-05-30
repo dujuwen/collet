@@ -76,6 +76,18 @@ inoremap < <><ESC>i
 inoremap " ""<ESC>i
 inoremap ' ''<ESC>i
 
+5.查看系统时间
+# timedatectl
+      Local time: 三 2018-05-30 10:59:17 CST
+  Universal time: 三 2018-05-30 02:59:17 UTC
+        RTC time: 三 2018-05-30 02:59:17
+       Time zone: Asia/Shanghai (CST, +0800)
+     NTP enabled: n/a
+NTP synchronized: yes
+ RTC in local TZ: no
+      DST active: n/a
+
+6.
 
 最后重启系统
 # reboot
