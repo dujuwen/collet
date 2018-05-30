@@ -47,7 +47,37 @@ $ ulimit -a
 系统总限制 > 单个进程限制
 系统总限制 > shell限制
 
-4.重启系统
+4.vim基本设置
+set history=1000
+autocmd InsertLeave * se cul
+autocmd InsertLeave * se nocul
+set nu
+set bs=2
+syntax on
+set laststatus=2
+set tabstop=4
+set go=
+set ruler
+set showcmd
+set cmdheight=1
+hi CursorLine   cterm=NONE ctermbg=blue ctermfg=white guibg=blue guifg=white
+set hls
+set cursorline
+set ignorecase
+set hlsearch
+set incsearch
+set helplang=cn
+ 
+ 
+inoremap ( ()<ESC>i       
+inoremap [ []<ESC>i
+inoremap { {}<ESC>i
+inoremap < <><ESC>i
+inoremap " ""<ESC>i
+inoremap ' ''<ESC>i
+
+
+最后重启系统
 # reboot
 
 
