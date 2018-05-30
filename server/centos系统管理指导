@@ -74,8 +74,15 @@ PasswordAuthentication no
 如果已经修改了禁止密码登录并且重启了sshd服务那么怎么添加新的用户免密登录呢?
 # cd /home/djw
 # cat ~/.ssh/id_rsa.pub
+# su wo
+# mkdir .ssh
+# stat .ssh //查看目录权限是不是0700
+# chmod 0700 .ssh
 # vim .ssh/authorized_keys
 把获取的公钥添加到这个文件里面就可以了
+# stat .ssh/authorized_keys //查看文件权限是不是0600不是的话修改为0600
+# chmod 0600 .ssh/authorized_keys
+# su root
 
 5.
 
