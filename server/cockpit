@@ -26,3 +26,6 @@ https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/ge
 5.在正式环境待调试完成后记得停止和禁止开机启动
 $ systemctl stop cockpit.socket
 $ systemctl disable cockpit.socket
+
+可以通过ab压测再观察CPU和内存来看系统的瓶颈在哪里:
+ab -c10 -n100 url
