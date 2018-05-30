@@ -134,4 +134,11 @@ Put the shell script into one of the following directories:
 From now, your script will be executed - the crond service automatically executes any scripts present in
 /etc/cron.hourly, /etc/cron.daily, /etc/cron.weekly, and /etc/cron.monthly directories at their corresponding times.
 
-8.
+8.Anacron
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/s1-scheduling_a_recurring_asynchronous_job_using_anacron
+
+对于不需要全天候运行的计算机来说，Anacron 是十分有用的工具。您可以将每日或更长时间执行的大部分或全部 Cron 作业转移到 Anacron 上，
+确保这些作业在系统每次启动时运行；或者通过 Cron 每小时（或其他时间间隔）运行 Anacron，以运行难以预测的作业。
+
+9.
+
