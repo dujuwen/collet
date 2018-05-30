@@ -59,3 +59,19 @@ chage命令是用来修改帐号和密码的有效期限,查看用户账户过�
 强制用户zt下次登录的时候必须修改密码:
 # chage -d 0 zt
 
+4.ssh禁止用户通过密码登录
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/s1-ssh-configuration
+
+# vim /etc/ssh/sshd_config
+PasswordAuthentication no
+
+重启服务，查看服务状态:
+# systemctl restart sshd
+# systemctl status sshd
+
+通过ssh-copy-id添加秘钥的用户不受影响
+
+5.
+
+
+
