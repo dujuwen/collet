@@ -71,6 +71,12 @@ PasswordAuthentication no
 
 通过ssh-copy-id添加秘钥的用户不受影响
 
+如果已经修改了禁止密码登录并且重启了sshd服务那么怎么添加新的用户免密登录呢?
+# cd /home/djw
+# cat ~/.ssh/id_rsa.pub
+# vim .ssh/authorized_keys
+把获取的公钥添加到这个文件里面就可以了
+
 5.
 
 
