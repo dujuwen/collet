@@ -89,8 +89,8 @@ yum -y update //在安装完插件(rpm包)之后运行这个命令更新服务�
 5.设置命令行快捷键
 vim ~/.bashrc
 末尾加入:
-alias l='ls -lh'
-alias ll='ls -lh'
+alias l='ls -lhA'
+alias ll='ls -lhA'
 
 然后应用:
 source ~/.bashrc
