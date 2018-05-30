@@ -9,6 +9,8 @@ $ sudo yum install cockpit cockpit-dashboard
 2.启用服务
 $ sudo systemctl enable cockpit.socket
 $ sudo systemctl start cockpit.socket
+或
+$ sudo systemctl restart cockpit.socket
 
 # ps aux | grep cock
 cockpit+   2978  0.2  0.6 670824  6756 ?        Ssl  14:23   0:02 /usr/libexec/cockpit-ws
