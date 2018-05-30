@@ -145,7 +145,10 @@ https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/sy
 
 跟cron不同的是at在某个时间执行一次某个任务
 
-10.
+10.编辑文件/etc/sudoers必须使用安全命令 visudo
+https://blog.csdn.net/a19881029/article/details/18730671
+
+11.
 
 
 
