@@ -10,8 +10,18 @@ $ yum -y install man-pages-zh-CN.noarch
 3.调整nofile、nproc值:
 /etc/security/limits.conf中指定的nofile的值，nofile有上限，不是无穷大。nofile由内核参数nr_open定义的
 使用cat /proc/sys/fs/nr_open 查看nr_open值，可通过修改/ect/sysct.conf 修改fs.nr_open值，sysctl -p生效
+
+file-max是系统所有进程一共可以打开的文件数量
+$ cat /proc/sys/fs/file-max
+echo  6553560 > /proc/sys/fs/file-max
+或修改 /etc/sysctl.conf, 加入
+fs.file-max = 6553560
+
+nr_open是单个进程可分配的最大文件数
 $ cat /proc/sys/fs/nr_open
 1048576
+
+ulimit设置当前shell以及由它启动的进程的资源限制
 
 # vim /etc/security/limits.conf
 *       soft    nofile    1024000
@@ -27,7 +37,15 @@ $ cat /proc/sys/fs/nr_open
 *       hard    nproc     100000
 root       soft    nproc     unlimited
 
-4.
+调整完成后重启系统，通过下面方式来确认:
+$ cat /proc/sys/fs/file-max
+$ cat /proc/sys/fs/nr_open
+$ ulimit -a
+系统总限制 > 单个进程限制
+系统总限制 > shell限制
 
-调整完成后重启系统:
-reboot
+4.重启系统
+# reboot
+
+
+
