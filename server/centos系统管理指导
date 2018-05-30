@@ -128,6 +128,9 @@ Put the shell script into one of the following directories:
 /etc/cron.weekly/
 /etc/cron.monthly/
 
+文件放到对应目录下面的时候记得添加执行权限:
+# chmod +x shell_file_name
+
 From now, your script will be executed - the crond service automatically executes any scripts present in
 /etc/cron.hourly, /etc/cron.daily, /etc/cron.weekly, and /etc/cron.monthly directories at their corresponding times.
 
