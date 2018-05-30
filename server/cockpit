@@ -1,0 +1,15 @@
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/getting_started_with_cockpit/installing_and_enabling_cockpit
+
+cockpit可以监控系统的CPU、内存、磁盘读写、网络流量，可以查看系统日志，管理用户、服务，还可以直接进行终端操作，适合系统管理员用
+
+1.安装
+$ sudo yum install cockpit cockpit-dashboard
+
+2.启用服务
+$ sudo systemctl enable cockpit.socket
+$ sudo systemctl start cockpit.socket
+
+3.打开界面查看
+localhost:9090 or hostname:9090
+
+4.
