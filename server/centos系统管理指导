@@ -12,11 +12,11 @@ https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/sy
 Network Time Protocol(NTP，网络时间协议)
 
 # timedatectl
-      Local time: 三 2018-05-30 16:28:31 CST
-  Universal time: 三 2018-05-30 08:28:31 UTC
-        RTC time: 三 2018-05-30 08:28:31
+      Local time: 三 2018-05-30 17:08:40 CST
+  Universal time: 三 2018-05-30 09:08:40 UTC
+        RTC time: 三 2018-05-30 09:08:40
        Time zone: Asia/Shanghai (CST, +0800)
-     NTP enabled: n/a
+     NTP enabled: yes
 NTP synchronized: yes
  RTC in local TZ: no
       DST active: n/a
