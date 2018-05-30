@@ -1,5 +1,6 @@
 http://man.linuxde.net/yum
 http://www.runoob.com/linux/linux-yum.html
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/installing-software
 
 部分常用的命令包括：
 
@@ -59,3 +60,34 @@ yum clean, yum clean all (= yum clean packages; yum clean oldheaders) :清除缓
 运行以下命令生成缓存
 yum clean all
 yum makecache
+
+Listing all available repositories:
+~]# subscription-manager repos --list
+
+Listing all currently enabled repositories:
+~]$ yum repolist
+
+Enabling or disabling a repository:
+~]# yum-config-manager --enable repository
+~]# yum-config-manager --disable repository
+
+Searching for packages matching a specific string:
+~]$ yum search string
+
+Installing a package:
+~]# yum install package_name
+
+Updating all packages and their dependencies:
+~]# yum update
+
+Updating a package:
+~]# yum update package_name
+
+Uninstalling a package and any packages that depend on it:
+~]# yum remove package_name
+
+Listing information on all installed and available packages:
+~]$ yum list all
+
+Listing information on all installed packages:
+~]$ yum list installed
