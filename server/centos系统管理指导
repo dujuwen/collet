@@ -42,4 +42,19 @@ ntp        7606  0.0  0.2  29940  2104 ?        Ss   17:00   0:00 /usr/sbin/ntpd
 # timedatectl list-timezones | grep -i shanghai //查看支持的时区
 # timedatectl set-timezone Asia/Shanghai //修改时区
 
-3.
+3.自动生成密码工具和更改用户密码过期信息
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/security_guide/chap-hardening_your_system_with_tools_and_services#sec-Password_Security
+
+# pwmake
+用法: pwmake <entropy-bits>
+例如生成64位密码:
+# pwmake 64 //可以多次生成直到自己满意为止
+0c,@JivOmvAtFy 
+
+root用户可以直接用passwd设置用户的新密码而不需要旧密码:
+# passwd user-name
+
+chage命令是用来修改帐号和密码的有效期限,查看用户账户过期情况:
+# chage -l root
+
+
