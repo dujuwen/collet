@@ -10,6 +10,11 @@ $ sudo yum install cockpit cockpit-dashboard
 $ sudo systemctl enable cockpit.socket
 $ sudo systemctl start cockpit.socket
 
+# ps aux | grep cock
+cockpit+   2978  0.2  0.6 670824  6756 ?        Ssl  14:23   0:02 /usr/libexec/cockpit-ws
+root       3178  0.0  0.3 115092  3076 ?        S    14:27   0:00 /usr/libexec/cockpit-session localhost
+root       3182  0.1  0.8 554484  8208 ?        Sl   14:27   0:00 cockpit-bridge
+
 3.打开界面查看
 localhost:9090 or hostname:9090
 
