@@ -1,0 +1,18 @@
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/sect-configuring_the_date_and_time-date
+
+%H	The hour in the HH format (for example, 17).
+%M	The minute in the MM format (for example, 30).
+%S	The second in the SS format (for example, 24).
+%d	The day of the month in the DD format (for example, 16).
+%m	The month in the MM format (for example, 09).
+%Y	The year in the YYYY format (for example, 2016).
+%Z	The time zone abbreviation (for example, CEST).
+%F	The full date in the YYYY-MM-DD format (for example, 2016-09-16). This option is equal to %Y-%m-%d.
+%T	The full time in the HH:MM:SS format (for example, 17:30:24). This option is equal to %H:%M:%S
+
+语法:
+date +"format"
+
+比如:
+# date +"%F %T"
+2018-05-30 17:14:30
