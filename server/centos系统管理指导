@@ -89,7 +89,10 @@ https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/sy
 # yum install rasdaemon
 # ras-mc-ctl --summary
 
-6.
+6.log rotate
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/s1-basic_configuration_of_rsyslog
+
+7.
 
 
 
