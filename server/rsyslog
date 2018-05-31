@@ -66,7 +66,7 @@ udp6       0      0 :::514                  :::*                                
 2.在发送端配置
 https://www.rsyslog.com/using-the-text-file-input-module/
 
-# vim /etc/rsyslog.conf
+$ vim /etc/rsyslog.conf
 
 # 加载文件模板并且定义每5秒检查一次文件
 #$ModLoad imfile
@@ -82,9 +82,15 @@ Facility="local6")
 local6.* @192.168.242.137:514
 
 3.在接收端
-# vim /etc/rsyslog.conf
+$ vim /etc/rsyslog.conf
 
+#local6.none不记录到/var/log/messages
 *.info;mail.none;authpriv.none;cron.none;local6.none           /var/log/messages
+
+#只记录获取到的信息其他不记录
+#$ActionFileDefaultTemplate RSYSLOG_TraditionalFileFormat
+$template myformat,"%msg%\n"
+$ActionFileDefaultTemplate myformat
 
 $template IpTemplate,"/var/log/zall/%FROMHOST-IP%.log"
 *.* ?IpTemplate
