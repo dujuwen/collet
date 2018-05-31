@@ -1,6 +1,7 @@
 https://www.rsyslog.com/doc/v8-stable/
 https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/sec-configuring_netconsole
 https://cnodejs.org/topic/598a6da62d4b0af4750353ae
+http://www.111cn.net/sys/CentOS/81133.htm
 
 rsyslog配置文件,修改之前最好备份下:
 /etc/rsyslog.conf
@@ -47,4 +48,46 @@ Severity:日志等级
 6 Informational
 7 Debug
 
+1. 在两台服务器上安装rsyslog，可以通过下列命令安装：
+# rpm -qa | grep rsyslog
+rsyslog-8.24.0-16.el7_5.4.x86_64
+
+两台机器都开启tcp和udp 514端口
+
+查看端口开启情况:
+# netstat -tulpn | grep rsyslog
+tcp        0      0 0.0.0.0:514             0.0.0.0:*               LISTEN      40213/rsyslogd
+tcp6       0      0 :::514                  :::*                    LISTEN      40213/rsyslogd
+udp        0      0 0.0.0.0:514             0.0.0.0:*                           40213/rsyslogd
+udp        0      0 0.0.0.0:37488           0.0.0.0:*                           40213/rsyslogd
+udp6       0      0 :::514                  :::*                                40213/rsyslogd
+
+
+2.在发送端配置
+# vim /etc/rsyslog.conf
+
+$ModLoad imfile
+
+:添加转发规则
+input(type="imfile"
+File="/tmp/yum.log"
+Tag="djwtest"
+Severity="info"
+Facility="local7")
+
+local7.* @192.168.242.137:514
+
+3.在接收端
+# vim /etc/rsyslog.conf
+
+$template IpTemplate,"/var/log/zall/%FROMHOST-IP%.log"
+*.* ?IpTemplate
+& ~
+#看需求选择不同模板
+$template RemoteLogs,"/tmp/djw_%HOSTNAME%_%PROGRAMNAME%.log" *
+local6.*;local7.*  ?RemoteLogs
+& ~""
+
+4.两端都重启
+# systemctl restart rsyslog
 
