@@ -1,0 +1,17 @@
+https://www.rsyslog.com/doc/v8-stable/
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/sec-configuring_netconsole
+
+rsyslog配置文件,修改之前最好备份下:
+/etc/rsyslog.conf
+
+修改配置文件支持UDP:
+$ModLoad imudp
+$UDPServerRun 514
+
+重启服务:
+# systemctl restart rsyslog
+
+验证端口:
+# netstat -l | grep syslog
+# cat /etc/services | grep syslog
+
