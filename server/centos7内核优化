@@ -98,6 +98,8 @@ NTP synchronized: yes
 cp /etc/ssh/sshd_config /etc/ssh/sshd_config_origin.bak
 
 7.centos内核优化
+https://access.redhat.com/documentation/zh-cn/red_hat_enterprise_linux/7/html/performance_tuning_guide/sect-red_hat_enterprise_linux-performance_tuning_guide-memory-configuration_tools
+
 查看配置文件位置
 # cat /etc/sysctl.conf
 
