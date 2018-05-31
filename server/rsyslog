@@ -1,5 +1,6 @@
 https://www.rsyslog.com/doc/v8-stable/
 https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/sec-configuring_netconsole
+https://cnodejs.org/topic/598a6da62d4b0af4750353ae
 
 rsyslog配置文件,修改之前最好备份下:
 /etc/rsyslog.conf
@@ -14,4 +15,36 @@ $UDPServerRun 514
 验证端口:
 # netstat -l | grep syslog
 # cat /etc/services | grep syslog
+
+acility(设备)和Severity(日志等级):
+Facility:有0-23种设备
+0 kernel messages 
+1 user-level messages 
+2 mail system 
+3 system daemons 
+4 security/authorization messages 
+5 messages generated internally by syslogd 
+6 line printer subsystem 
+7 network news subsystem 
+8 UUCP subsystem 
+9 clock daemon 
+10 security/authorization messages 
+11 FTP daemon 
+12 NTP subsystem 
+13 log audit 
+14 log alert 
+15 clock daemon 
+16-23 　　　　local0 - local7
+
+Severity:日志等级
+
+0 Emergency
+1 Alert
+2 Critical
+3 Error
+4 Warning
+5 Notice
+6 Informational
+7 Debug
+
 
