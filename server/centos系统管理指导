@@ -157,5 +157,15 @@ as well as many connection-specific parameters.
 
 可以使用命令nmtui通过简单的文本界面来修改用户主机名称跟hostnamectl效果一样的
 
+12.netconsole
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/sec-configuring_netconsole
+
+netconsole可以通过UDP将消息发送到其他电脑上，在调试设备的时候很有用。
+
+
+
+
+
+
 
 
