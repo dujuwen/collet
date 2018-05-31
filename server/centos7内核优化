@@ -23,7 +23,7 @@ fs.file-max = 6553560
 如果有修改文件的话可以通过命令 sysctl -p 来使修改文件生效
 
 也可以通过命令来修改:
-sysctl fs.file-max=fs.file-max
+sysctl fs.file-max=6553560
 
 nr_open是单个进程可分配的最大文件数
 $ cat /proc/sys/fs/nr_open
