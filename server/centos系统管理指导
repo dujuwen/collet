@@ -148,7 +148,14 @@ https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/sy
 10.编辑文件/etc/sudoers必须使用安全命令 visudo
 https://blog.csdn.net/a19881029/article/details/18730671
 
-11.
+11.NetworkManager
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/sec-introduction_to_networkmanager
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/sec-networking_config_using_nmtui
+
+NetworkManager can configure network aliases, IP addresses, static routes, DNS information, and VPN connections,
+as well as many connection-specific parameters. 
+
+可以使用命令nmtui通过简单的文本界面来修改用户主机名称跟hostnamectl效果一样的
 
 
 
