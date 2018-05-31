@@ -76,9 +76,9 @@ input(type="imfile"
 File="/tmp/yum.log"
 Tag="djwtest"
 Severity="info"
-Facility="local7")
+Facility="local6")
 
-local7.* @192.168.242.137:514
+local6.* @192.168.242.137:514
 
 3.在接收端
 # vim /etc/rsyslog.conf
@@ -87,11 +87,11 @@ $template IpTemplate,"/var/log/zall/%FROMHOST-IP%.log"
 *.* ?IpTemplate
 & ~
 #看需求选择不同模板
-$template RemoteLogs,"/tmp/djw_%HOSTNAME%_%PROGRAMNAME%.log" *
-local6.*;local7.*  ?RemoteLogs
-& ~""
+$template RemoteLogs,"/tmp/djw_%HOSTNAME%_%PROGRAMNAME%.log"
+local6.*  ?RemoteLogs
+& ~
 
-4.两端都重启
+4.两端都重启，任何一方配置文件有改变都需要重启服务
 # systemctl restart rsyslog
 
 /////////////////////////////////////////
