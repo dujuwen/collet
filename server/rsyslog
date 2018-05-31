@@ -64,11 +64,14 @@ udp6       0      0 :::514                  :::*                                
 
 
 2.在发送端配置
+https://www.rsyslog.com/using-the-text-file-input-module/
+
 # vim /etc/rsyslog.conf
 
 $ModLoad imfile
+$InputFilePollingInterval 5
 
-:添加转发规则
+#添加转发规则
 input(type="imfile"
 File="/tmp/yum.log"
 Tag="djwtest"
@@ -90,4 +93,10 @@ local6.*;local7.*  ?RemoteLogs
 
 4.两端都重启
 # systemctl restart rsyslog
+
+/////////////////////////////////////////
+发送方设置转发地址规则:
+设施.日志等级 [@|@@]ip:port
+@代表udp协议
+@@代表tcp协议
 
