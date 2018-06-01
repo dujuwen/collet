@@ -7,4 +7,17 @@ Nmap可测试最常见网络通信端口，以用于侦听或等待服务。这�
 例如，扫描机器的主机名 foo.example.com，用 shell 提示输入以下命令：
 ~]$ nmap foo.example.com
 
-2.
+2.Nikto
+https://access.redhat.com/documentation/zh-cn/red_hat_enterprise_linux/7/html/security_guide/sec-vulnerability_assessment
+
+Nikto 是一款杰出的“ 通用网关接口 ”(CGI，common gateway interface) 脚本扫描器。 Nikto 不仅可用于检查 CGI 漏洞，还可以躲避的方式运行，
+以便躲避入侵探测系统。Nikto 所提供完整的文档资料，在运行程序前，应当仔细查核。如果您有提供 CGI 脚本的网络服务器，那么Nikto 
+就是用于检查此类服务器安全的最佳资源。
+
+安装:
+# yum -y install nikto
+
+检测指定主机:
+# nikto -h 172.16.20.28/www.xxx.com
+
+3.
