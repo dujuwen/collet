@@ -191,3 +191,10 @@ mysql57-community-release.noarch                                                
 # rpm -qa | grep -i mysql
 # yum -y remove mysql-community
 # yum -y remove mysql80-community-release
+
+9.安装后忘记了mysql用户的密码怎么办?
+
+以root用户登录并且跳过授权校验:
+# mysqld --skip-grant-tables --user=root
+
+接着可以登录进去修改用户密码了
