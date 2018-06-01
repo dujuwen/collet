@@ -20,4 +20,7 @@ Nikto 是一款杰出的“ 通用网关接口 ”(CGI，common gateway interfac
 检测指定主机:
 # nikto -h 172.16.20.28/www.xxx.com
 
-3.
+3.自动进行安全更新
+# yum check-update --security
+
+4.
