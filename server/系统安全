@@ -62,4 +62,8 @@ faillock --user <username> --reset
 # vlock -a
 在本例中， vlock 锁定了当前活动的控制台，而 -a 选项则是防止切换到其他虚拟控制台。
 
-7.
+7.限制root用户登录系统
+https://access.redhat.com/documentation/zh-cn/red_hat_enterprise_linux/7/html/security_guide/sec-controlling_root_access
+
+8.
+
