@@ -1,0 +1,10 @@
+1.nmap
+http://www.nmap.com.cn/
+https://blog.csdn.net/redmoon729/article/details/53282947
+https://access.redhat.com/documentation/zh-cn/red_hat_enterprise_linux/7/html/security_guide/sec-vulnerability_assessment
+
+Nmap可测试最常见网络通信端口，以用于侦听或等待服务。这个常识对于想关闭不必要或未使用的服务的管理员来说，是非常有用的。
+例如，扫描机器的主机名 foo.example.com，用 shell 提示输入以下命令：
+~]$ nmap foo.example.com
+
+2.
