@@ -39,5 +39,18 @@ maxsequence=3
 maxrepeat=3
 在本例中，输入的密码不能够含有超过 3 个连续字符，如“abcd” 或“1234”。此外，完全相同的连续字符也不能超过 3 个。
 
-5.
+5.登录尝试失败后锁定用户账户
+https://access.redhat.com/documentation/zh-cn/red_hat_enterprise_linux/7/html/security_guide/chap-hardening_your_system_with_tools_and_services
 
+查看尝试失败后锁定用户:
+# faillock
+djw:
+When                Type  Source                                           Valid
+2018-06-01 14:26:48 RHOST 192.168.242.1                                        V
+2018-06-01 14:27:00 RHOST 192.168.242.1                                        V
+2018-06-01 14:27:04 RHOST 192.168.242.1                                        V
+
+要解锁一个用户的账户，则须作为 root 用户运行以下命令行：
+faillock --user <username> --reset
+
+6.
