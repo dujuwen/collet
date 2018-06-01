@@ -187,3 +187,7 @@ mysql-workbench-community.x86_64                                                
 mysql-workbench-community-debuginfo.x86_64                                               6.3.10-1.el7                                          mysql-tools-community
 mysql57-community-release.noarch                                                         el7-10                                                mysql-cluster-7.5-community
 
+8.如何删除安装的mysql
+# rpm -qa | grep -i mysql
+# yum -y remove mysql-community
+# yum -y remove mysql80-community-release
