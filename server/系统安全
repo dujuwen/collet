@@ -23,4 +23,21 @@ Nikto 是一款杰出的“ 通用网关接口 ”(CGI，common gateway interfac
 3.自动进行安全更新
 # yum check-update --security
 
-4.
+4.在 pwquality.conf 中密码强度检查的参数配置
+https://access.redhat.com/documentation/zh-cn/red_hat_enterprise_linux/7/html/security_guide/chap-hardening_your_system_with_tools_and_services
+
+为了能够使用 pam_quality ，须在/etc/pam.d/passwd 文件下的 password 堆叠中添加以下命令行：
+password    required    pam_pwquality.so retry=3
+
+选择这些检查步骤有明确的要求，要每行一项。例如，要求一个密码的长度至少有８个字符，包含全部四种字符，
+则须添加以下命令行到/etc/security/pwquality.conf 文档：
+minlen=8 
+minclass=4
+
+要设置一个密码强度检查以检测是否有连续或重复的字符，则须在 /etc/security/pwquality.conf 中添加以下命令行：
+maxsequence=3 
+maxrepeat=3
+在本例中，输入的密码不能够含有超过 3 个连续字符，如“abcd” 或“1234”。此外，完全相同的连续字符也不能超过 3 个。
+
+5.
+
