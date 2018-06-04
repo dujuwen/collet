@@ -250,3 +250,14 @@ use mysql;
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'new password';
 FLUSH PRIVILEGES;
 
+12.在这一步操作之前应该先配置好服务器的时间(datetimectl)
+https://dev.mysql.com/doc/refman/8.0/en/mysql-tzinfo-to-sql.html
+
+mysql_tzinfo_to_sql工具可以加载时区表:
+# l /usr/share/zoneinfo/Asia/Shanghai
+-rw-r--r--. 5 root root 388 5月   9 21:11 /usr/share/zoneinfo/Asia/Shanghai
+
+# mysql_tzinfo_to_sql /usr/share/zoneinfo/Asia/Shanghai | mysql -uroot -p mysql
+
+如果没有时区表的可以从下面下载(有一定不要下载):
+https://dev.mysql.com/downloads/timezones.html
