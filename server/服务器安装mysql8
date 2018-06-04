@@ -81,6 +81,9 @@ shell> sudo yum-config-manager --enable mysql57-community
 5月 29 11:50:57 stackoverflowchina2 systemd[1]: Starting MySQL Server...
 5月 29 11:51:01 stackoverflowchina2 systemd[1]: Started MySQL Server.
 
+查看mysql启动状态如果启动失败的话可以执行:
+chown mysql:mysql -R /var/lib/mysql
+
 6.通过yum安装的mysql server默认已经创建了一个超级用户 root@localhost，可以通过下列方法取回默认密码:
 # grep 'temporary password' /var/log/mysqld.log
 2018-05-29T03:50:59.100381Z 5 [Note] [MY-010454] [Server] A temporary password is generated for root@localhost: R2T%<ybxSsVG
@@ -198,3 +201,7 @@ mysql57-community-release.noarch                                                
 # mysqld --skip-grant-tables --user=root
 
 接着可以登录进去修改用户密码了
+
+mysql> flush privileges;
+mysql> alter user 'root'@'localhost'IDENTIFIED BY 'MyNewPass'; //修改用户密码
+mysql > CREATE USER user@localhost IDENTIFIED BY 'NewPass'; //新增用户
