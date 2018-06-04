@@ -31,11 +31,14 @@ https://dev.mysql.com/doc/refman/8.0/en/example-maximum-column-group-row.html
 
 SELECT article, MAX(price) AS price FROM shop GROUP BY article;
 
-要查询其他字段怎么办?
-LEFT JOIN:
+要查询其他字段怎么办?LEFT JOIN:
 SELECT s1.article, s1.dealer, s1.price
 FROM shop s1
 LEFT JOIN shop s2 ON s1.article = s2.article AND s1.price < s2.price
 WHERE s2.article IS NULL;
 
-6.
+6.使用用户自定义变量
+mysql> SELECT @min_price:=MIN(price),@max_price:=MAX(price) FROM shop;
+mysql> SELECT * FROM shop WHERE price=@min_price OR price=@max_price;
+
+7.
