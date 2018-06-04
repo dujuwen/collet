@@ -103,6 +103,7 @@ https://dev.mysql.com/doc/refman/8.0/en/mysql-commands.html
 [mysql]
 user=root
 password=xxxxxxx
+default-character-set=utf8
 prompt="(\\u@\\h) [\\d] \\R:\\m:\\s >" #登录后有提示类似这样: (root@localhost) [djw] 21:04:51 >
 tee=/tmp/mysql_client.log #操作日志记录到/tmp/mysql_client.log
 
@@ -133,4 +134,46 @@ categories:
    User-Defined Functions
    Utility
    
-15.
+15.mysqladmin
+https://dev.mysql.com/doc/refman/8.0/en/mysqladmin.html
+
+A client that performs administrative operations, such as creating or dropping databases, reloading the grant tables,
+flushing tables to disk, and reopening log files. mysqladmin can also be used to retrieve version, process, and
+status information from the server.
+
+Where command is a one or more of: (Commands may be shortened)
+  create databasename	Create a new database
+  debug			Instruct server to write debug information to log
+  drop databasename	Delete a database and all its tables
+  extended-status       Gives an extended status message from the server
+  flush-hosts           Flush all cached hosts
+  flush-logs            Flush all logs
+  flush-status		Clear status variables
+  flush-tables          Flush all tables
+  flush-threads         Flush the thread cache
+  flush-privileges      Reload grant tables (same as reload)
+  kill id,id,...	Kill mysql threads
+  password [new-password] Change old password to new-password in current format
+  ping			Check if mysqld is alive
+  processlist		Show list of active threads in server
+  reload		Reload grant tables
+  refresh		Flush all tables and close and open logfiles
+  shutdown		Take server down
+  status		Gives a short status message from the server
+  start-slave		Start slave
+  stop-slave		Stop slave
+  variables             Prints variables available
+  version		Get version info from server
+
+查看服务器状态信息:
+# mysqladmin proc stat
++----+-----------------+-----------+----+---------+------+------------------------+------------------+
+| Id | User            | Host      | db | Command | Time | State                  | Info             |
++----+-----------------+-----------+----+---------+------+------------------------+------------------+
+| 4  | event_scheduler | localhost |    | Daemon  | 217  | Waiting on empty queue |                  |
+| 12 | root            | localhost |    | Query   | 0    | starting               | show processlist |
++----+-----------------+-----------+----+---------+------+------------------------+------------------+
+Uptime: 217  Threads: 2  Questions: 13  Slow queries: 0  Opens: 110  Flush tables: 2  Open tables: 86  Queries per second avg: 0.059
+
+16.
+
