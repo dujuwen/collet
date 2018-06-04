@@ -79,6 +79,7 @@ password="my password"
 [mysql]
 no-auto-rehash
 connect_timeout=2
+max_allowed_packet=64M # 等价于 mysql> SET GLOBAL max_allowed_packet=64M;
 
 重启服务:
 # systemctl restart mysqld
