@@ -77,9 +77,11 @@ https://dev.mysql.com/doc/refman/8.0/en/option-files.html
 password="my password"
 
 [mysql]
-no-auto-rehash
 connect_timeout=2
 max_allowed_packet=64M # 等价于 mysql> SET GLOBAL max_allowed_packet=64M;
+database=test
+user=root
+# password="my password" #这里的password是针对mysql命令行而言的
 
 重启服务:
 # systemctl restart mysqld
