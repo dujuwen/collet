@@ -4,7 +4,21 @@
 2.通过mysql客户端登录和退出
 shell> mysql -h host -u user -p
 
+shell> mysql -h host -u user -p dbname
+Enter password: *
+
+shell> mysql -h host -u user -ppassword dbname
+Enter password: *
+
 mysql> QUIT/exit/crtl+D
 Bye
 
-3.
+3.mysql查询语句字母大小写不敏感,数据库名称和表名称是大小写敏感的
+mysql> select VERSION(), version(), now(), user(), current_date;
++-----------+-----------+---------------------+----------------+--------------+
+| VERSION() | version() | now()               | user()         | current_date |
++-----------+-----------+---------------------+----------------+--------------+
+| 8.0.11    | 8.0.11    | 2018-06-04 10:11:50 | root@localhost | 2018-06-04   |
++-----------+-----------+---------------------+----------------+--------------+
+
+4.
