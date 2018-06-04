@@ -1,0 +1,16 @@
+https://www.jianshu.com/p/6146736e7fbd
+http://netsecurity.51cto.com/art/201704/537925.htm
+https://raw.githubusercontent.com/Nyr/openvpn-install/master/openvpn-install.sh
+https://blog.csdn.net/skymanwww/article/details/63707082
+
+从GitHub页面下载openvpn-install脚本:
+wget https://git.io/vpn -O openvpn-install.sh
+
+然后，使用下列命令，以root用户的身份运行该脚本：
+bash openvpn-install.sh 
+
+安装成功后客户端配置文件保存在:
+/root/client.ovpn
+
+将ovpn拷贝到客户端然后用tunnelblick打开
+
