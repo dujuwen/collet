@@ -11,7 +11,7 @@ ssl-cert=/var/lib/mysql2/server-cert.pem
 ssl-key=/var/lib/mysql2/server-key.pem
 
 如果/var/lib/mysql2下没有认证文件的话可以使用命令生成:
-# /usr/bin/mysql_ssl_rsa_setup --datadir=/var/lib/mysql
+# /usr/bin/mysql_ssl_rsa_setup --datadir=/var/lib/mysql2
 
 修改后重新启动:
 # systemctl restart mysqld
