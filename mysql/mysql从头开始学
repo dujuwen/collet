@@ -109,4 +109,28 @@ tee=/tmp/mysql_client.log #操作日志记录到/tmp/mysql_client.log
 重启数据库:
 # systemctl restart mysqld 
 
-14.
+14.mysql服务端帮助
+(root@localhost) [(none)] 21:14:29 >help contents;
+You asked for help about help category: "Contents"
+For more information, type 'help <item>', where <item> is one of the following
+categories:
+   Account Management
+   Administration
+   Components
+   Compound Statements
+   Data Definition
+   Data Manipulation
+   Data Types
+   Functions
+   Functions and Modifiers for Use with GROUP BY
+   Geographic Features
+   Help Metadata
+   Language Structure
+   Plugins
+   Storage Engines
+   Table Maintenance
+   Transactions
+   User-Defined Functions
+   Utility
+   
+15.
