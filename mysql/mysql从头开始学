@@ -55,4 +55,11 @@ SELECT year,month,count(distinct day) AS days FROM t1 GROUP BY year,month;
    得到二进制数 100 和 100000000000000000000000 。然后再OR运算。即 100 OR 10000000000000000000000 OR 10000000000000000000000 
    = 100000000000000000000100；这样再用BIT_COUNT处理得出的值就是2，自动去除了重复的日期。
    
-8.
+8.mysql批处理数据,可以用于查询数据也可以批量导入数据
+https://dev.mysql.com/doc/refman/8.0/en/batch-mode.html
+# mysql -uroot -p -A test < /root/batch.sql
+# mysql -uroot -p -A test < /root/batch.sql  > ./batch.out
+mysql> source filename;
+mysql> \. filename
+
+9.
