@@ -65,5 +65,6 @@ mysql> \. filename
 9.修改自增长id
 mysql> ALTER TABLE tbl AUTO_INCREMENT = 100;
 
-10.
+10.mysql的选项 -N, --skip-column-names 在查询结果中不输出字段名称，在有些查询输出还是有用的
 
+11.
