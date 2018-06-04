@@ -1,0 +1,56 @@
+以下操作环节mysql 8.0.11
+https://dev.mysql.com/doc/refman/8.0/en/mysql-ssl-rsa-setup.html
+https://dev.mysql.com/doc/refman/8.0/en/using-encrypted-connections.html
+https://dev.mysql.com/doc/refman/8.0/en/alter-user.html
+https://blog.csdn.net/hrbhanyu/article/details/61196443
+
+1.修改mysqld配置文件
+[mysqld]
+ssl-ca=/var/lib/mysql2/ca.pem
+ssl-cert=/var/lib/mysql2/server-cert.pem
+ssl-key=/var/lib/mysql2/server-key.pem
+
+如果/var/lib/mysql2下没有认证文件的话可以使用命令生成:
+# /usr/bin/mysql_ssl_rsa_setup --datadir=/var/lib/mysql
+
+修改后重新启动:
+# systemctl restart mysqld
+# systemctl status mysqld
+
+2.在服务器创建支持ssl登录的用户
+mysql> create user djw identified by 'pssword';
+mysql> alter user djw require x509;
+mysql> flush privileges;
+
+查看支持状态:
+mysql> show global variables like '%ssl%';
++--------------------+---------------------------------+
+| Variable_name      | Value                           |
++--------------------+---------------------------------+
+| have_openssl       | YES                             |
+| have_ssl           | YES                             |
+| mysqlx_ssl_ca      |                                 |
+| mysqlx_ssl_capath  |                                 |
+| mysqlx_ssl_cert    |                                 |
+| mysqlx_ssl_cipher  |                                 |
+| mysqlx_ssl_crl     |                                 |
+| mysqlx_ssl_crlpath |                                 |
+| mysqlx_ssl_key     |                                 |
+| ssl_ca             | /var/lib/mysql2/ca.pem          |
+| ssl_capath         |                                 |
+| ssl_cert           | /var/lib/mysql2/server-cert.pem |
+| ssl_cipher         |                                 |
+| ssl_crl            |                                 |
+| ssl_crlpath        |                                 |
+| ssl_fips_mode      | OFF                             |
+| ssl_key            | /var/lib/mysql2/server-key.pem  |
++--------------------+---------------------------------+
+
+3.将CA文件、公钥、私钥分发到客户端，然后可以使用下面命令登录:
+~ mysql -h192.168.242.142 -udjw -p  --ssl-key=~/soc3_ssl/client-key.pem --ssl-cert=~/soc3_ssl/client-cert.pem
+
+如果直接登录会报错:
+➜  ~ mysql -h192.168.242.142 -udjw -p
+Enter password:
+ERROR 1045 (28000): Access denied for user 'djw'@'192.168.242.1' (using password: YES)
+
