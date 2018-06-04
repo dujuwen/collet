@@ -205,3 +205,38 @@ mysql57-community-release.noarch                                                
 mysql> flush privileges;
 mysql> alter user 'root'@'localhost'IDENTIFIED BY 'MyNewPass'; //修改用户密码
 mysql > CREATE USER user@localhost IDENTIFIED BY 'NewPass'; //新增用户
+
+10.mysql远程连接报错
+https://www.cnblogs.com/mindouer-2016/p/7685821.html
+
+mysql>use mysql;
+mysql>update user set host = '%' where user = 'root';
+mysql>select host, user from user;
+mysql>FLUSH RIVILEGES
+
+(1)例如，你想myuser使用mypassword从任何主机连接到mysql服务器的话。
+
+第一步：root用户登录；mysql>mysql -u root -p rootpassword;
+第二步：赋予权限；mysql>GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'mypassword' WITH GRANT OPTION;
+第三步：mysql>FLUSH   PRIVILEGES;
+
+(2)如果你想允许用户myuser从ip为192.168.1.3的主机连接到mysql服务器，并使用mypassword作为密码
+mysql>GRANT ALL PRIVILEGES ON *.* TO 'root'@'192.168.1.3' IDENTIFIED BY 'mypassword' WITH GRANT OPTION;
+mysql>FLUSH   PRIVILEGES;
+
+(3)如果你想允许用户myuser从ip为192.168.1.3的主机连接到mysql服务器的dk数据库，并使用mypassword作为密码
+mysql>GRANT ALL PRIVILEGES ON dk.* TO 'root'@'192.168.1.3' IDENTIFIED BY 'mypassword' WITH GRANT OPTION;
+mysql>FLUSH   PRIVILEGES;
+
+11.连接mysql 8提示2059 - authentication plugin 'caching_sha2_password
+https://blog.csdn.net/airt_xiang/article/details/80261674
+
+1、由于myslq8不支持动态修改密码验证方式，所以要先停止mysql
+systemctl stop mysqld.service
+2、在my.cnf文件中默认有下面的语句，删除前面的#号即可，没有的话就把它添加到my.cnf中
+default-authentication-plugin=mysql_native_password
+3、 修改root用户密码，以启用新的验证方式
+use mysql;
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'new password';
+FLUSH PRIVILEGES;
+
