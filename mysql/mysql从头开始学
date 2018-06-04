@@ -21,4 +21,9 @@ mysql> select VERSION(), version(), now(), user(), current_date;
 | 8.0.11    | 8.0.11    | 2018-06-04 10:11:50 | root@localhost | 2018-06-04   |
 +-----------+-----------+---------------------+----------------+--------------+
 
-4.
+4.创建数据库和查看当前数据库
+mysql> create database test;
+mysql> use test
+mysql> select database(); //查看当前数据库
+
+5.
