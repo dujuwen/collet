@@ -165,8 +165,8 @@ Where command is a one or more of: (Commands may be shortened)
   variables             Prints variables available
   version		Get version info from server
 
-查看服务器状态信息:
-# mysqladmin proc stat
+查看服务器状态信息,All commands can be shortened to any unique prefix.:
+# mysqladmin proc stat  //是mysqladmin procsslist status的缩写
 +----+-----------------+-----------+----+---------+------+------------------------+------------------+
 | Id | User            | Host      | db | Command | Time | State                  | Info             |
 +----+-----------------+-----------+----+---------+------+------------------------+------------------+
