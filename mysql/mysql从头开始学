@@ -41,4 +41,18 @@ WHERE s2.article IS NULL;
 mysql> SELECT @min_price:=MIN(price),@max_price:=MAX(price) FROM shop;
 mysql> SELECT * FROM shop WHERE price=@min_price OR price=@max_price;
 
-7.
+7.计算用户访问天数
+https://dev.mysql.com/doc/refman/8.0/en/calculating-days.html
+
+SELECT year,month,BIT_COUNT(BIT_OR(1<<day)) AS days FROM t1 GROUP BY year,month;
+SELECT year,month,count(distinct day) AS days FROM t1 GROUP BY year,month;
+
+1、BIT_COUNT( expr )：返回 expr 的二进制表达式中”1“的个数。
+     例如：29 = 11101 则：BIT_COUNT（29）= 4；
+
+2、BIT_OR( expr )：返回 expr 中所有比特的bitwise OR。计算执行的精确度为64比特(BIGINT) 。
+　  例如：上面例子中，2000年02月中有一条2号的记录两条23号的记录，所以"1<<day"表示出来就是 “1＜＜2”和“1＜＜23”，
+   得到二进制数 100 和 100000000000000000000000 。然后再OR运算。即 100 OR 10000000000000000000000 OR 10000000000000000000000 
+   = 100000000000000000000100；这样再用BIT_COUNT处理得出的值就是2，自动去除了重复的日期。
+   
+8.
