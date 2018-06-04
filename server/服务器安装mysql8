@@ -58,6 +58,16 @@ shell> sudo yum-config-manager --enable mysql57-community
 -rw-r--r-- 1 root root 2.1K 4月   8 15:13 /usr/lib/systemd/system/mysqld.service
 -rw-r--r-- 1 root root 2.1K 4月   8 15:13 /usr/lib/systemd/system/mysqld@.service
 
+在进行安全设置之前需要先添加一个root用户:
+> grant all privileges on *.* to 'backroot'@'%' identified by 'xxx' with grant option;
+
+安装完成后可以进行安全设置:
+https://dev.mysql.com/doc/refman/8.0/en/mysql-secure-installation.html
+shell> mysql_secure_installation
+
+记得才开始的时候不要删除掉root用户
+
+
 5.添加开机启动和启动mysql
 添加开机启动:
 # systemctl enable mysqld.service
