@@ -68,6 +68,8 @@ mysql> ALTER TABLE tbl AUTO_INCREMENT = 100;
 10.mysql的选项 -N, --skip-column-names 在查询结果中不输出字段名称，在有些查询输出还是有用的
 
 11.在mysql命令行登录的时候每次都要输入密码,可以修改配置文件不用输入密码:
+https://dev.mysql.com/doc/refman/8.0/en/option-files.html
+
 # vim /etc/my.conf
 
 [client]
@@ -80,6 +82,11 @@ connect_timeout=2
 
 重启服务:
 # systemctl restart mysqld
+
+修改了配置文件后可以通过命令查看默认配置：
+# mysql --print-defaults
+mysql would have been started with the following arguments:
+--password=*****
 
 12.
 
