@@ -54,3 +54,6 @@ mysql> show global variables like '%ssl%';
 Enter password:
 ERROR 1045 (28000): Access denied for user 'djw'@'192.168.242.1' (using password: YES)
 
+4.如何去掉用户的x509认证?
+mysql> alter user djw require none;
+mysql> flush privileges;
