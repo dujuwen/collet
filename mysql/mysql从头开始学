@@ -96,4 +96,17 @@ https://dev.mysql.com/doc/refman/8.0/en/mysql.html
 
 shell> mysql db_name < script.sql > output.tab
 
-13.
+13.修改配置文件my.conf添加mysql命令行配置:
+https://dev.mysql.com/doc/refman/8.0/en/mysql-commands.html
+
+# vim /etc/my.cnf
+[mysql]
+user=root
+password=xxxxxxx
+prompt="(\\u@\\h) [\\d] \\R:\\m:\\s >" #登录后有提示类似这样: (root@localhost) [djw] 21:04:51 >
+tee=/tmp/mysql_client.log #操作日志记录到/tmp/mysql_client.log
+
+重启数据库:
+# systemctl restart mysqld 
+
+14.
