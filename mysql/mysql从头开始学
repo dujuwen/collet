@@ -26,4 +26,16 @@ mysql> create database test;
 mysql> use test
 mysql> select database(); //查看当前数据库
 
-5.
+5.聚合查询除聚合字段之外的字段
+https://dev.mysql.com/doc/refman/8.0/en/example-maximum-column-group-row.html
+
+SELECT article, MAX(price) AS price FROM shop GROUP BY article;
+
+要查询其他字段怎么办?
+LEFT JOIN:
+SELECT s1.article, s1.dealer, s1.price
+FROM shop s1
+LEFT JOIN shop s2 ON s1.article = s2.article AND s1.price < s2.price
+WHERE s2.article IS NULL;
+
+6.
