@@ -2,6 +2,7 @@ https://www.jianshu.com/p/6146736e7fbd
 http://netsecurity.51cto.com/art/201704/537925.htm
 https://raw.githubusercontent.com/Nyr/openvpn-install/master/openvpn-install.sh
 https://blog.csdn.net/skymanwww/article/details/63707082
+http://blog.163.com/wei_chaoren/blog/static/2351761452015015103423277/
 
 从GitHub页面下载openvpn-install脚本:
 wget https://git.io/vpn -O openvpn-install.sh
