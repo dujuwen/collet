@@ -80,3 +80,8 @@ On Server 12:
 shell> mysqladmin create db1
 shell> mysql db1 < dump.sql
 
+6.只备份数据库结构或者数据
+https://dev.mysql.com/doc/refman/8.0/en/mysqldump-definition-data-dumps.html
+
+shell> mysqldump --no-data test > dump-defs.sql
+shell> mysqldump --no-create-info test > dump-data.sql
