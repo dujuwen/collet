@@ -1,0 +1,50 @@
+https://dev.mysql.com/doc/refman/8.0/en/mysqlslap.html
+http://smilejay.com/2013/04/mysqlslap-mysql-stress-test/
+
+shell> mysqlslap [options]
+
+--create-schema 代表自定义的测试库名称，测试的schema，MySQL中schema也就是database。
+(没指定使用哪个数据库时，可能会遇到错误mysqlslap: Error when connecting to server: 1049 Unknown database 'mysqlslap')
+
+--query=name,-q 使用自定义脚本执行测试（可以是SQL字符串或脚本），例如可以调用自定义的一个存储过程或者sql语句来执行测试。
+ 
+--concurrency=N, -c N 表示并发量，也就是模拟多少个客户端同时执行query。
+可指定多个值，以逗号或者--delimiter参数指定的值做为分隔符。例如：--concurrency=100,200,500（分别执行100、200、500个并发）。
+
+--iterations=N, -i N   测试执行的迭代次数，代表要在不同的并发环境中，各自运行测试多少次；多次运行以便让结果更加准确。
+
+--number-of-queries=N 总的测试查询次数(并发客户数×每客户查询次数)
+
+压测某sql并发执行时数据库性能，在数据库调优后可以执行压测查看调整的效果(可以配合MysqlWorkbench查看性能):
+# mysqlslap -uroot -p  --engine=innodb --concurrency=100,200 --iterations=1 
+--number-of-queries=10000 --create-schema=djw --query="select * from users;"
+
+临时修改修改最大连接数:
+(root) [(none)] 19:25:30 >show variables like "max_connections";
++-----------------+-------+
+| Variable_name   | Value |
++-----------------+-------+
+| max_connections | 1000  |
++-----------------+-------+
+1 row in set (0.02 sec)
+
+(root) [(none)] 19:25:31 >set global max_connections=2000;
+Query OK, 0 rows affected (0.00 sec)
+
+(root) [(none)] 19:25:46 >show variables like "max_connections";
++-----------------+-------+
+| Variable_name   | Value |
++-----------------+-------+
+| max_connections | 2000  |
++-----------------+-------+
+1 row in set (0.00 sec)
+
+永久修改:
+vim /etc/my.conf
+
+[mysqld]
+max_connections=5000
+
+重启
+重启服务器
++-----------------+-------+
