@@ -218,5 +218,14 @@ auto-increment-offset=2
 auto_increment_increment=2
 自增长id依次为:2,4,6,8,10......
 
-19.
+19.mysqlpump
+https://dev.mysql.com/doc/refman/8.0/en/mysqlpump.html
+
+mysqlpump可以多线程备份数据，跟mysqldump比较大不同之处是：先创建表导入数据后再创建索引
+备份所有的用户:
+shell> mysqlpump --exclude-databases=% --users
+
+20.
+
+
 
