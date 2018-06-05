@@ -1,0 +1,17 @@
+vim /etc/my.conf 添加:
+[mysqldump]
+user=root
+password=R2T%<ybxSsVG
+host=192.168.242.142
+max-allowed-packet=256M
+add-drop-table=0
+no-create-db=1
+no-create-info=1
+replace
+quick
+disable-keys
+skip-extended-insert #insert/replace INTO table VALUES ();就是每行插入一条数,在数据比较多的时候启用,少的时候禁用
+skip-triggers
+
+打印默认配置信息
+~ mysqldump --print-defaults
