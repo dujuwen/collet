@@ -7,10 +7,19 @@ socket=/var/lib/mysql/mysql.sock
 
 log-error=/var/log/mysqld.log
 pid-file=/var/run/mysqld/mysqld.pid
+
 user=mysql
+
 ssl-ca=/var/lib/mysql2/ca.pem
 ssl-cert=/var/lib/mysql2/server-cert.pem
 ssl-key=/var/lib/mysql2/server-key.pem
+
+secure-file-priv= #Limit LOAD DATA, SELECT ... OUTFILE, and LOAD_FILE() tofiles within specified directory
+#auto-increment-offset=2
+#auto_increment_increment=2
+daemonize #以守护进程运行
+
+default-time-zone='+8:00' #默认时区
 
 [mysql] #这一块客户端有需要的都可以添加
 user=root
