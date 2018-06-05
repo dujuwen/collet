@@ -34,10 +34,6 @@ shell> mysqldump [options] db_name [tbl_name ...]
 shell> mysqldump [options] --databases db_name ...
 shell> mysqldump [options] --all-databases
 
-shell> mysqldump db_name > backup-file.sql
-shell> mysql db_name < backup-file.sql
-shell> mysql -e "source /path-to-backup/backup-file.sql" db_name
-
 mysqldump is also very useful for populating databases by copying data from one MySQL server to another:
 shell> mysqldump --opt db_name | mysql --host=remote_host -C db_name
 
@@ -47,3 +43,24 @@ shell> mysqldump --all-databases > all_databases.sql
 定点备份:
 shell> mysqldump --all-databases --master-data --single-transaction > all_databases.sql
 
+mysqldump备份分为两种:有--tab和没有--tab的
+
+没有--tab的是纯sql通过mysqldump备份，通过mysqld来恢复:
+https://dev.mysql.com/doc/refman/8.0/en/mysqldump-sql-format.html
+
+shell> mysqldump db_name > backup-file.sql
+shell> mysql db_name < backup-file.sql
+shell> mysql -e "source /path-to-backup/backup-file.sql" db_name
+
+有--tab的是纯sql通过mysqldump备份，通过mysqld来恢复表，通过mysqlimport或者LOAD DATA INFILE来恢复数据:
+https://dev.mysql.com/doc/refman/8.0/en/reloading-delimited-text-dumps.html
+
+shell> mysqldump --tab=/tmp/db_bak --fields-terminated-by=,--fields-enclosed-by='"' --lines-terminated-by=0x0d0a dbname
+shell> mysql dbname < tablename.sql
+shell> mysqlimport --fields-terminated-by=,--fields-enclosed-by='"' --lines-terminated-by=0x0d0a dbname tablename.txt
+或者
+mysql> USE db1;
+mysql> LOAD DATA INFILE '/tmp/db_bak/tablename.txt' INTO TABLE tablename;
+
+
+或者
