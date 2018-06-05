@@ -204,4 +204,19 @@ https://dev.mysql.com/doc/refman/8.0/en/mysqlimport.html
 The mysqlimport client provides a command-line interface to the LOAD DATA INFILE SQL statement.
 shell> mysqlimport [options] db_name textfile1 [textfile2 ...]
 
-18.
+18.mysqld 自增长值:
+auto_increment_offset + (N - 1) × auto_increment_increment (N从1开始)
+默认 1 + (n-1) * 1 = n;
+
+[mysqld]
+auto-increment-offset=1
+auto_increment_increment=2
+自增长id依次为:1,3,5,7,9......
+
+[mysqld]
+auto-increment-offset=2
+auto_increment_increment=2
+自增长id依次为:2,4,6,8,10......
+
+19.
+
