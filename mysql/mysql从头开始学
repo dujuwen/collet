@@ -100,12 +100,29 @@ shell> mysql db_name < script.sql > output.tab
 https://dev.mysql.com/doc/refman/8.0/en/mysql-commands.html
 
 # vim /etc/my.cnf
-[mysql]
+[mysqld]
+default-authentication-plugin=mysql_native_password
+
+datadir=/var/lib/mysql
+socket=/var/lib/mysql/mysql.sock
+
+log-error=/var/log/mysqld.log
+pid-file=/var/run/mysqld/mysqld.pid
+user=mysql
+ssl-ca=/var/lib/mysql2/ca.pem
+ssl-cert=/var/lib/mysql2/server-cert.pem
+ssl-key=/var/lib/mysql2/server-key.pem
+
+[mysql] #这一块客户端有需要的都可以添加
 user=root
 password=xxxxxxx
 default-character-set=utf8
 prompt="(\\u@\\h) [\\d] \\R:\\m:\\s >" #登录后有提示类似这样: (root@localhost) [djw] 21:04:51 >
 tee=/tmp/mysql_client.log #操作日志记录到/tmp/mysql_client.log
+
+[mysqladmin]
+user=root
+password=R2T%<ybxSsVG
 
 重启数据库:
 # systemctl restart mysqld 
