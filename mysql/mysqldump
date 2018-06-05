@@ -35,6 +35,8 @@ shell> mysqldump [options] --databases db_name ...
 shell> mysqldump [options] --all-databases
 
 mysqldump is also very useful for populating databases by copying data from one MySQL server to another:
+跨服务器拷贝整个数据库这个方法爽歪歪:
+shell> mysqldump --opt djw | mysql --host=192.168.242.140 -C djw
 shell> mysqldump --opt db_name | mysql --host=remote_host -C db_name
 
 shell> mysqldump --databases db_name1 [db_name2 ...] > my_databases.sql
