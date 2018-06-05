@@ -45,6 +45,5 @@ vim /etc/my.conf
 [mysqld]
 max_connections=5000
 
-重启
-重启服务器
-+-----------------+-------+
+重启服务器:
+# systemctl restart mysqld.service
