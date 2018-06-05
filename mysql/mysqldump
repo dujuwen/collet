@@ -62,5 +62,5 @@ shell> mysqlimport --fields-terminated-by=,--fields-enclosed-by='"' --lines-term
 mysql> USE db1;
 mysql> LOAD DATA INFILE '/tmp/db_bak/tablename.txt' INTO TABLE tablename;
 
+十六进制的0x0d0a对应的是\r\n
 
-或者
