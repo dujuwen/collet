@@ -225,6 +225,10 @@ mysqlpump可以多线程备份数据，跟mysqldump比较大不同之处是：�
 备份所有的用户:
 shell> mysqlpump --exclude-databases=% --users
 
+Wildcard characters are permitted in the object names:
+% matches any sequence of zero or more characters.
+_ matches any single character.
+
 20.
 
 
