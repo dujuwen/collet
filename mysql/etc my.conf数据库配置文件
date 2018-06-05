@@ -26,6 +26,7 @@ password=xxxxxxx
 default-character-set=utf8
 prompt="(\\u@\\h) [\\d] \\R:\\m:\\s >" #登录后有提示类似这样: (root@localhost) [djw] 21:04:51 >
 tee=/tmp/mysql_client.log #操作日志记录到/tmp/mysql_client.log
+#login-path=client
 
 [mysqladmin]
 user=root
@@ -34,3 +35,78 @@ password=R2T%<ybxSsVG
 -------------------------------------
 重启数据库:
 # systemctl restart mysqld 
+
+mysql_config_editor，客户端敏感信息配置工具，配置信息会加密保存到文件~/.mylogin.cnf中，可以代替/etc/my.conf中的客户端敏感信息:
+https://dev.mysql.com/doc/refman/8.0/en/mysql-config-editor.html
+
+显示配置：
+mysql_config_editor print --login-path=client #显示执行的login-path配置
+mysql_config_editor print --all             #显示所有的login-path信息
+
+删除配置：
+mysql_config_editor remove --login-path=client
+
+例如在本地数据库用户名、地址和密码:
+➜  ~ mysql_config_editor --help
+Variables (--variable-name=value)
+and boolean options {FALSE|TRUE}  Value (after reading options)
+--------------------------------- ----------------------------------------
+verbose                           FALSE
+
+Where command can be any one of the following :
+       set [command options]     Sets user name/password/host name/socket/port
+                                 for a given login path (section).
+       remove [command options]  Remove a login path from the login file.
+       print [command options]   Print all the options for a specified
+                                 login path.
+       reset [command options]   Deletes the contents of the login file.
+       help                      Display this usage/help information.
+
+
+➜  ~ mysql_config_editor set --help
+mysql_config_editor Ver 1.0 Distrib 5.7.21, for osx10.13 on x86_64
+Copyright (c) 2012, 2018, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+MySQL Configuration Utility.
+
+Description: Write a login path to the login file.
+Usage: mysql_config_editor [program options] [set [command options]]
+  -?, --help          Display this help and exit.
+  -h, --host=name     Host name to be entered into the login file.
+  -G, --login-path=name
+                      Name of the login path to use in the login file. (Default
+                      : client)
+  -p, --password      Prompt for password to be entered into the login file.
+  -u, --user=name     User name to be entered into the login file.
+  -S, --socket=name   Socket path to be entered into login file.
+  -P, --port=name     Port number to be entered into login file.
+  -w, --warn          Warn and ask for confirmation if set command attempts to
+                      overwrite an existing login path (enabled by default).
+                      (Defaults to on; use --skip-warn to disable.)
+
+Variables (--variable-name=value)
+and boolean options {FALSE|TRUE}  Value (after reading options)
+--------------------------------- ----------------------------------------
+host                              (No default value)
+login-path                        client
+user                              (No default value)
+socket                            (No default value)
+port                              (No default value)
+warn                              TRUE
+
+例如:
+➜  ~ mysql_config_editor set --host=192.168.242.143 --user=root -p
+Enter password:
+
+➜  ~ mysql_config_editor print --all
+[client]
+user = root
+password = *****
+host = 192.168.242.143
+
+登录的时候使用login-path选项指定path，有需要可以用mysql_config_editor配置多个login-path:
+➜  ~ mysql --login-path=client
