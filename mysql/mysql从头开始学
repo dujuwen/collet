@@ -234,6 +234,7 @@ https://dev.mysql.com/doc/refman/8.0/en/mysqlshow.html
 
 shell> mysqlshow [options] [db_name [tbl_name [col_name]]]
 
+--count	Show the number of rows per table
 --keys	Show table indexes
 --status	Display extra information about each table
 
