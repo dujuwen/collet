@@ -229,7 +229,16 @@ Wildcard characters are permitted in the object names:
 % matches any sequence of zero or more characters.
 _ matches any single character.
 
-20.
+20.mysqlshow — Display Database, Table, and Column Information
+https://dev.mysql.com/doc/refman/8.0/en/mysqlshow.html
+
+shell> mysqlshow [options] [db_name [tbl_name [col_name]]]
+
+--keys	Show table indexes
+--status	Display extra information about each table
+
+21.
+
 
 
 
