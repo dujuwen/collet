@@ -21,31 +21,25 @@ skip-extended-insert #insert/replace INTO table VALUES ();就是每行插入一�
 skip-triggers
 single-transaction
 
-打印默认配置信息
+1.打印默认配置信息:
 ~ mysqldump --print-defaults
 
 --single-transaction
-
 在备份前设置事务隔离级别为REPEATABLE READ并向server发送START TRANSACTION语句。仅对事务型表如InnoDB有用。
 与--ock-tables互斥。对于大文件备份--single-transaction与--quick结合使用。
 
-备份语法:
+2.备份语法:
 shell> mysqldump [options] db_name [tbl_name ...]
 shell> mysqldump [options] --databases db_name ...
 shell> mysqldump [options] --all-databases
 
-mysqldump is also very useful for populating databases by copying data from one MySQL server to another:
-跨服务器拷贝整个数据库这个方法爽歪歪:
-shell> mysqldump --opt djw | mysql --host=192.168.242.140 -C djw
-shell> mysqldump --opt db_name | mysql --host=remote_host -C db_name
-
 shell> mysqldump --databases db_name1 [db_name2 ...] > my_databases.sql
 shell> mysqldump --all-databases > all_databases.sql
 
-定点备份:
+3.定点备份:
 shell> mysqldump --all-databases --master-data --single-transaction > all_databases.sql
 
-mysqldump备份分为两种:有--tab和没有--tab的
+4.mysqldump备份分为两种:有--tab和没有--tab的
 
 没有--tab的是纯sql通过mysqldump备份，通过mysqld来恢复:
 https://dev.mysql.com/doc/refman/8.0/en/mysqldump-sql-format.html
@@ -65,4 +59,24 @@ mysql> USE db1;
 mysql> LOAD DATA INFILE '/tmp/db_bak/tablename.txt' INTO TABLE tablename;
 
 十六进制的0x0d0a对应的是\r\n
+
+5.跨服务器拷贝整个数据库
+https://dev.mysql.com/doc/refman/8.0/en/mysqldump-copying-to-other-server.html
+https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html#option_mysqldump_master-data
+
+mysqldump is also very useful for populating databases by copying data from one MySQL server to another:
+shell> mysqldump --opt djw | mysql --host=192.168.242.140 -C djw
+shell> mysqldump --opt db_name | mysql --host=remote_host -C db_name
+
+还可以通过:
+On Server 1:
+shell> mysqldump --databases db1 > dump.sql
+On Server 2:
+shell> mysql < dump.sql
+
+On Server 1:
+shell> mysqldump db1 > dump.sql
+On Server 12:
+shell> mysqladmin create db1
+shell> mysql db1 < dump.sql
 
