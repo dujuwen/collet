@@ -44,3 +44,6 @@ shell> mysqldump --opt db_name | mysql --host=remote_host -C db_name
 shell> mysqldump --databases db_name1 [db_name2 ...] > my_databases.sql
 shell> mysqldump --all-databases > all_databases.sql
 
+定点备份:
+shell> mysqldump --all-databases --master-data --single-transaction > all_databases.sql
+
