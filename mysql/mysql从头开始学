@@ -198,4 +198,10 @@ secure-file-priv参数是用来限制LOAD DATA, SELECT ... OUTFILE, and LOAD_FIL
 当secure_file_priv的值为/tmp/ ，表示限制mysqld 的导入|导出只能发生在/tmp/目录下
 当secure_file_priv的值没有具体值时，表示不对mysqld 的导入|导出做限制
 
-17.
+17.mysqlimport
+https://dev.mysql.com/doc/refman/8.0/en/mysqlimport.html
+
+The mysqlimport client provides a command-line interface to the LOAD DATA INFILE SQL statement.
+shell> mysqlimport [options] db_name textfile1 [textfile2 ...]
+
+18.
