@@ -192,5 +192,10 @@ Where command is a one or more of: (Commands may be shortened)
 +----+-----------------+-----------+----+---------+------+------------------------+------------------+
 Uptime: 217  Threads: 2  Questions: 13  Slow queries: 0  Opens: 110  Flush tables: 2  Open tables: 86  Queries per second avg: 0.059
 
-16.
+16.mysqld secure-file-priv特性
+secure-file-priv参数是用来限制LOAD DATA, SELECT ... OUTFILE, and LOAD_FILE()传到哪个指定目录的。
+当seure_file_priv的值为null ，表示限制mysqld 不允许导入|导出
+当secure_file_priv的值为/tmp/ ，表示限制mysqld 的导入|导出只能发生在/tmp/目录下
+当secure_file_priv的值没有具体值时，表示不对mysqld 的导入|导出做限制
 
+17.
