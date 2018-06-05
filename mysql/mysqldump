@@ -1,3 +1,10 @@
+https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html
+https://dev.mysql.com/doc/refman/8.0/en/using-mysqldump.html
+https://blog.csdn.net/zyz511919766/article/details/12853133
+http://www.cnblogs.com/qq78292959/p/3637135.html
+企业备份:
+https://dev.mysql.com/doc/mysql-enterprise-backup/8.0/en/
+
 vim /etc/my.conf 添加:
 [mysqldump]
 user=root
@@ -12,6 +19,28 @@ quick
 disable-keys
 skip-extended-insert #insert/replace INTO table VALUES ();就是每行插入一条数,在数据比较多的时候启用,少的时候禁用
 skip-triggers
+single-transaction
 
 打印默认配置信息
 ~ mysqldump --print-defaults
+
+--single-transaction
+
+在备份前设置事务隔离级别为REPEATABLE READ并向server发送START TRANSACTION语句。仅对事务型表如InnoDB有用。
+与--ock-tables互斥。对于大文件备份--single-transaction与--quick结合使用。
+
+备份语法:
+shell> mysqldump [options] db_name [tbl_name ...]
+shell> mysqldump [options] --databases db_name ...
+shell> mysqldump [options] --all-databases
+
+shell> mysqldump db_name > backup-file.sql
+shell> mysql db_name < backup-file.sql
+shell> mysql -e "source /path-to-backup/backup-file.sql" db_name
+
+mysqldump is also very useful for populating databases by copying data from one MySQL server to another:
+shell> mysqldump --opt db_name | mysql --host=remote_host -C db_name
+
+shell> mysqldump --databases db_name1 [db_name2 ...] > my_databases.sql
+shell> mysqldump --all-databases > all_databases.sql
+
