@@ -17,7 +17,6 @@ ssl-key=/var/lib/mysql2/server-key.pem
 secure-file-priv= #Limit LOAD DATA, SELECT ... OUTFILE, and LOAD_FILE() tofiles within specified directory
 #auto-increment-offset=2
 #auto_increment_increment=2
-daemonize #以守护进程运行
 
 default-time-zone='+8:00' #默认时区
 
