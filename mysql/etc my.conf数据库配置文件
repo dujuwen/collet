@@ -111,3 +111,5 @@ host = 192.168.242.143
 ➜  ~ mysql --login-path=client
 
 重要的密码还可以保存在Iterm2中!
+
+还可以通过定义alias来登录mysql!
