@@ -1,4 +1,5 @@
 https://catchchallenger.first-world.info/wiki/Quick_Benchmark:_Gzip_vs_Bzip2_vs_LZMA_vs_XZ_vs_LZ4_vs_LZO#Compression_time
+https://blog.csdn.net/chenggong2dm/article/details/50731062
 
 Compression ratio:
 gzip	bzip2	lzma	lzma -e	xz	xz -e	lz4	lzop
@@ -21,3 +22,7 @@ gzip	bzip2	lzma	lzma -e	xz	xz -e	lz4	lzop
 gzip	bzip2	lzma	lzma -e	xz	xz -e	lz4	lzop
 
 lz4压缩和解压是非常快的，压缩文件大概是原来的三分之一
+
+gzip和zlib压缩率最低，相差不多，同时所消耗资源和时间也是最多的，但他俩都能在python和c#中实现并能互相解压缩。
+lzo，lz4，snappy三个压缩率比gzip，zlib高，但是所消耗的资源远小于gzip和zlib。lzo和lz4不能跨语言解压缩而snappy可以。
+snappy为所找能跨语言压缩解压缩，同时消耗资源较小的压缩算法。
