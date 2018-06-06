@@ -23,6 +23,14 @@ mysqld reads options from the [mysqld] and [server] groups.
 if you assign a value of 0 to an option for which the minimal value is 1024, the server will set the value to 1024.
 Values for buffer sizes, lengths, and stack sizes are given in bytes unless otherwise specified.
 
+vim /etc/my.conf
+[mysqld]
+bind-address=127.0.0.1 #只允许本机连接到这台数据库
 
+binlog_format=MIXED
+expire_logs_days=7
+max_binlog_size=100m
+binlog_cache_size=4m
+max_binlog_cache_size=256m
 
 
