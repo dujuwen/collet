@@ -8,20 +8,25 @@ HugePages_Rsvd:        0
 HugePages_Surp:        0
 Hugepagesize:       2048 kB
 
-系统支持
-sysctl -w vm.nr_hugepages=128
-
-# id mysql
+系统支持:
+shell> sysctl -w vm.nr_hugepages=128
+shell> id mysql
 uid=27(mysql) gid=27(mysql) 组=27(mysql)
+shell> sysctl -w vm.hugetlb_shm_group=27
+shell> ulimit -l unlimited
 
-sysctl -w vm.hugetlb_shm_group=27
-
-#ulimit -l unlimited
+# cat /proc/meminfo | grep -i huge
+AnonHugePages:    157696 kB
+HugePages_Total:      32
+HugePages_Free:       32
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
 
 [mysqld]
 large-pages
 
 重启服务:
-systemctl restart mysqld
+shell> systemctl restart mysqld
 
 2.
