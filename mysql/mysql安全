@@ -9,6 +9,13 @@ https://dev.mysql.com/doc/refman/8.0/en/security-guidelines.html
 shell> mysql -uroot
 如果不需要密码(在什么都没有配置的情况下)都可以登录的话是不行的
 使用SHOW GRANTS检查访问用户的权限，用REVOKE命令收回不必要的权限
-3)
+3) 不能存储明文密码，不要从密码字典里面选取密码
+4) 安装(投资)防火墙，使用nmap工具扫描所有端口，关闭不必要的端口
+shell> telnet server_host 3306
+如果拒绝连接或者挂起的话是没有问题的，其他情况表明端口是开放的应该使用防火墙或者路由
+5) 不信任任何程序的输入数据，应该进行一定的防护
+6) 不要让数据在网络上裸奔，应该使用加密协议，如 SSL or SSH
+7) 学会使用 tcpdump 和 strings，使用它们可以检查mysql数据流是否加密
+shell> tcpdump -l -i eth0 -w - src or dst port 3306 | strings
 
-
+2.
