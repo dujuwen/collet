@@ -268,7 +268,9 @@ zlib_decompress Decompress mysqlpump ZLIB-Compressed Output:
 shell> mysqlpump --compress-output=ZLIB > dump.zlib
 shell> zlib_decompress dump.zlib dump.txt
 
-24.
+24.perror，根据数据库错误码打印出错误信息
+shell> perror [options] errorcode ...
 
+25.
 
 
