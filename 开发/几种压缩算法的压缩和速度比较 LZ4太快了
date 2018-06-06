@@ -1,0 +1,23 @@
+https://catchchallenger.first-world.info/wiki/Quick_Benchmark:_Gzip_vs_Bzip2_vs_LZMA_vs_XZ_vs_LZ4_vs_LZO#Compression_time
+
+Compression ratio:
+gzip	bzip2	lzma	lzma -e	xz	xz -e	lz4	lzop
+1	26.8%	20.2%	18.4%	15.5%	18.4%	15.5%	35.6%	36.0%
+2	25.5%	18.8%	17.5%	15.1%	17.5%	15.1%	35.6%	35.8%
+3	24.7%	18.2%	17.1%	14.8%	17.1%	14.8%	35.6%	35.8%
+5	22.0%	17.6%	14.9%	14.6%	14.9%	14.6%	-	35.8%
+7	21.5%	17.2%	14.4%	14.3%	14.4%	14.3%	-	24.9%
+9	21.4%	16.9%	14.1%	14.0%	14.1%	14.0%	-	24.6%
+gzip	bzip2	lzma	lzma -e	xz	xz -e	lz4	lzop
+
+Compression time:
+gzip	bzip2	lzma	lzma -e	xz	xz -e	lz4	lzop
+1	8.1s	58.3s	31.7s	4m37s	32.2s	4m40s	1.3s	1.6s
+2	8.5s	58.4s	40.7s	4m49s	41.9s	4m53s	1.4s	1.6s
+3	9.6s	59.1s	1m2s	4m36s	1m1s	4m39s	1.3s	1.5s
+5	14s	1m1s	3m5s	5m	3m6s	4m53s	-	1.5s
+7	21s	1m2s	4m14s	5m52s	4m13s	5m57s	-	35s
+9	33s	1m3s	4m48s	6m40s	4m51s	6m40s	-	1m5s
+gzip	bzip2	lzma	lzma -e	xz	xz -e	lz4	lzop
+
+lz4压缩和解压是非常快的，压缩文件大概是原来的三分之一
