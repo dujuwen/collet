@@ -255,4 +255,20 @@ user = root
 password = *****
 host = 192.168.242.143
 
-23.
+23.lz4_decompress，解压mysqlpump lz4压缩输出文件
+https://dev.mysql.com/doc/refman/8.0/en/lz4-decompress.html
+
+shell> lz4_decompress input_file output_file
+
+Example:
+shell> mysqlpump --compress-output=LZ4 > dump.lz4
+shell> lz4_decompress dump.lz4 dump.txt
+
+zlib_decompress Decompress mysqlpump ZLIB-Compressed Output:
+shell> mysqlpump --compress-output=ZLIB > dump.zlib
+shell> zlib_decompress dump.zlib dump.txt
+
+24.
+
+
+
