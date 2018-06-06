@@ -19,5 +19,18 @@ Queries that took more than long_query_time seconds to execute
 DDL log
 (metadata log)	Metadata operations performed by DDL statements
 
-2.
+2.二进制日志格式
+https://dev.mysql.com/doc/refman/8.0/en/binary-log-formats.html
+动态设置二进制日志格式
+https://dev.mysql.com/doc/refman/8.0/en/binary-log-setting.html
+
+mysql> SET GLOBAL binlog_format = 'STATEMENT';
+mysql> SET GLOBAL binlog_format = 'ROW';
+mysql> SET GLOBAL binlog_format = 'MIXED';
+
+mysql> SET SESSION binlog_format = 'STATEMENT';
+mysql> SET SESSION binlog_format = 'ROW';
+mysql> SET SESSION binlog_format = 'MIXED';
+
+3.
 
