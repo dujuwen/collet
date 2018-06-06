@@ -41,13 +41,26 @@ PORT     STATE SERVICE
 3306/tcp open  mysql
 9090/tcp open  zeus-admin
 
-3.只有指定的ip可以访问
-单机运行MySQL使用skip-networking关闭MySQL的TCP/IP连接方式
-skip-networking
-开启该选项后就不能远程访问MySQL
+3.配置防火墙只有指定的ip才能访问数据库，通过配置iptables来实现
+shell> iptables -A INPUT -p tcp -s 192.168.242.144 --dport 3306 -j ACCEPT
+shell> iptables -A INPUT -p tcp -s 192.168.242.141 --dport 3306 -j ACCEPT
+...有需要可以增加多条
+shell> iptables -A INPUT -p tcp --dport 3306 -j DROP //这条是必须要的，将其他都拒绝访问
 
-为安全考虑希望指定的IP访问MySQL，可以在配置文件中增加bind-address=IP，前提是关闭skip-networking
-bind-address=192.168.1.100
+shell> iptables -L
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination
+ACCEPT     tcp  --  192.168.242.144      anywhere             tcp dpt:mysql
+ACCEPT     tcp  --  192.168.242.141      anywhere             tcp dpt:mysql
+DROP       tcp  --  anywhere             anywhere             tcp dpt:mysql
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination
+
+如果配置错了的话可以删除重新配置，或者清空整个表: iptables -F
 
 4.
 
