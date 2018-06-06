@@ -110,3 +110,5 @@ host = 192.168.242.143
 
 登录的时候使用login-path选项指定path，有需要可以用mysql_config_editor配置多个login-path:
 ➜  ~ mysql --login-path=client
+
+重要的密码还可以保存在Iterm2中!
