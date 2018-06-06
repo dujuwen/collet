@@ -35,6 +35,10 @@ max_binlog_cache_size=256m
 
 #general_log
 
+max_connections=5000
+table_open_cache=50000
+open_files_limit=65535 #the value cannot be set greater than ulimit -n
+
 有需要的话可以开启general_log，general_log会把所有客户端的操作记录下来
 >show variables like 'general%';
 +------------------+----------------------------------------+
