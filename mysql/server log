@@ -32,5 +32,9 @@ mysql> SET SESSION binlog_format = 'STATEMENT';
 mysql> SET SESSION binlog_format = 'ROW';
 mysql> SET SESSION binlog_format = 'MIXED';
 
-3.
+3.重命名日志文件
+shell> cd mysql-data-directory
+shell> mv mysql.log mysql.old
+shell> mv mysql-slow.log mysql-slow.old
+shell> mysqladmin flush-logs
 
