@@ -10,7 +10,7 @@ HugePages_Surp:        0
 Hugepagesize:       2048 kB
 
 系统支持:
-shell> sysctl -w vm.nr_hugepages=128
+shell> sysctl -w vm.nr_hugepages=512
 shell> id mysql
 uid=27(mysql) gid=27(mysql) 组=27(mysql)
 shell> sysctl -w vm.hugetlb_shm_group=27 //如果有其他用户需要使用的话,比如php将对应用户加入mysql所在组
@@ -23,6 +23,11 @@ large-pages
 
 重启服务:
 shell> systemctl restart mysqld
+
+在启动mysql的时候，最容易报的错误是,tail -f /var/log/mysqld.log：
+InnoDB: HugeTLB: Warning: Failed to allocate 274726912 bytes. errno 12
+InnoDB HugeTLB: Warning: Using conventional memory pool
+说明内存页分配太小了，调整一下/proc/sys/vm/nr_hugepages大小
 
 如果重启服务后日志/var/log/mysqld.log没有报错的话就说明有利用大内存页
 # cat /proc/meminfo | grep -i huge
