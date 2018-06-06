@@ -11,4 +11,9 @@ mysql> SHOW STATUS;
 shell> mysqladmin variables
 shell> mysqladmin extended-status
 
-2.
+2.mysql server选项、系统变量列表
+https://dev.mysql.com/doc/refman/8.0/en/server-option-variable-reference.html
+https://dev.mysql.com/doc/refman/8.0/en/server-system-variable-reference.html
+https://dev.mysql.com/doc/refman/8.0/en/server-status-variable-reference.html
+
+3.
