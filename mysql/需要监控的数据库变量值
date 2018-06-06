@@ -1,0 +1,4 @@
+status值,show status like 'xxx';
+
+Open_files //=> open_files_limit,innodb_open_files
+Open_tables //=> table_open_cache
