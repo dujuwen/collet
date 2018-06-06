@@ -16,4 +16,13 @@ https://dev.mysql.com/doc/refman/8.0/en/server-option-variable-reference.html
 https://dev.mysql.com/doc/refman/8.0/en/server-system-variable-reference.html
 https://dev.mysql.com/doc/refman/8.0/en/server-status-variable-reference.html
 
-3.
+3.mysqld命令行选项
+https://dev.mysql.com/doc/refman/8.0/en/server-options.html
+
+mysqld reads options from the [mysqld] and [server] groups.
+if you assign a value of 0 to an option for which the minimal value is 1024, the server will set the value to 1024.
+Values for buffer sizes, lengths, and stack sizes are given in bytes unless otherwise specified.
+
+
+
+
