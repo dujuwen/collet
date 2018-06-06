@@ -1,1 +1,14 @@
 https://www.cnblogs.com/yuwensong/archive/2013/03/26/2981965.html
+
+1.安全指导
+https://dev.mysql.com/doc/refman/8.0/en/security-guidelines.html
+
+1) 不要给root以外的用户访问mysql.user表的权限
+2) 了解mysql权限控制系统是如何工作的。使用 GRANT 和 REVOKE 控制权限，只授予必要的权限，永远不要授予权限给所有的主机
+必要检查:
+shell> mysql -uroot
+如果不需要密码(在什么都没有配置的情况下)都可以登录的话是不行的
+使用SHOW GRANTS检查访问用户的权限，用REVOKE命令收回不必要的权限
+3)
+
+
