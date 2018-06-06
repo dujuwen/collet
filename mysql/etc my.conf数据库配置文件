@@ -26,7 +26,6 @@ password=xxxxxxx
 default-character-set=utf8
 prompt="(\\u@\\h) [\\d] \\R:\\m:\\s >" #登录后有提示类似这样: (root@localhost) [djw] 21:04:51 >
 tee=/tmp/mysql_client.log #操作日志记录到/tmp/mysql_client.log
-#login-path=client
 
 [mysqladmin]
 user=root
