@@ -9,7 +9,7 @@ https://dev.mysql.com/doc/refman/8.0/en/server-options.html#option_mysqld_open-f
    
 The server attempts to obtain the number of file descriptors using the maximum of those three values. 
 (这里有个前提是service不限制的情况下)
-# systemctl status mysqld.service
+shell> systemctl status mysqld.service
 ● mysqld.service - MySQL Server
    Loaded: loaded (/usr/lib/systemd/system/mysqld.service; enabled; vendor preset: disabled)
  
@@ -19,16 +19,22 @@ vim /usr/lib/systemd/system/mysqld.service:
 LimitNOFILE = 30000
    
 如果service有修改的话需要执行:
-# systemctl daemon-reload //Reload systemd manager configuration
+shell> systemctl daemon-reload //Reload systemd manager configuration
 
 vim /etc/my.conf:
 [mysqld]
-max_connections=3000 #默认是151太小了
-table_open_cache=10000
-innodb_open_files=30000
-open_files_limit=30000 #the value cannot be set greater than ulimit -n
+#max_connections默认是151太小了
+max_connections=3000 
 
-# ulimit -n
+# If the value of Opened_tables is large and you do not use FLUSH TABLES often (which just forces all tables to be closed 
+# and reopened), then you should increase the value of the table_open_cache variable. 
+table_open_cache=10000
+
+innodb_open_files=30000
+#the value cannot be set greater than ulimit -n
+open_files_limit=30000 
+
+shell> ulimit -n
 1024000
 
 如何查看mysqld进程打开文件数：
