@@ -1,0 +1,41 @@
+https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_open_files_limit
+https://dev.mysql.com/doc/refman/8.0/en/server-options.html#option_mysqld_open-files-limit
+
+1) 10 + max_connections + (table_open_cache * 2)
+2) max_connections * 5
+3) operating system limit if positive
+4) if operating system limit is Infinity:
+   open_files_limit value specified at startup, 5000 if none
+   
+The server attempts to obtain the number of file descriptors using the maximum of those three values. 
+(这里有个前提是service不限制的情况下)
+# systemctl status mysqld.service
+● mysqld.service - MySQL Server
+   Loaded: loaded (/usr/lib/systemd/system/mysqld.service; enabled; vendor preset: disabled)
+ 
+如果有需要的话先要修改service中的LimitNOFILE限制
+vim /usr/lib/systemd/system/mysqld.service:
+# Sets open_files_limit
+LimitNOFILE = 30000
+   
+如果service有修改的话需要执行:
+# systemctl daemon-reload //Reload systemd manager configuration
+
+vim /etc/my.conf:
+[mysqld]
+max_connections=3000
+table_open_cache=10000
+innodb_open_files=30000
+open_files_limit=30000 #the value cannot be set greater than ulimit -n
+
+# ulimit -n
+1024000
+
+如何查看mysqld进程打开文件数：
+可以命令查看大概打开的文件数:
+shell> lsof -p `pidof mysqld` | wc -l
+
+查看详细打开文件数:
+shell> ls /proc/`pidof mysqld`/fd | wc -l
+
+查看mysqld的
