@@ -271,6 +271,22 @@ shell> zlib_decompress dump.zlib dump.txt
 24.perror，根据数据库错误码打印出错误信息
 shell> perror [options] errorcode ...
 
-25.
+25.如何kill掉某个处理进程?
+shell> mysqladmin ping
+mysqld is alive
+shell> mysqladmin processlist
++----+-----------------+---------------------+-----+---------+------+------------------------+------------------+
+| Id | User            | Host                | db  | Command | Time | State                  | Info             |
++----+-----------------+---------------------+-----+---------+------+------------------------+------------------+
+| 4  | event_scheduler | localhost           |     | Daemon  | 1259 | Waiting on empty queue |                  |
+| 9  | root            | 192.168.242.1:62352 | djw | Sleep   | 707  |                        |                  |
+| 12 | root            | localhost           |     | Query   | 0    | starting               | show processlist |
++----+-----------------+---------------------+-----+---------+------+------------------------+------------------+
+shell> mysqladmin kill 9
 
+
+mysql> show processlist;
+mysql> kill 进程id;
+
+26.
 
