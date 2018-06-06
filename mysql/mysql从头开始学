@@ -238,8 +238,8 @@ shell> mysqlshow [options] [db_name [tbl_name [col_name]]]
 --keys	Show table indexes
 --status	Display extra information about each table
 
-21.
+21.mysqldumpslow解析和总结慢日志
+Usage: mysqldumpslow [ OPTS... ] [ LOGS... ]
 
-
-
+22.
 
