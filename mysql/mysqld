@@ -33,4 +33,16 @@ max_binlog_size=100m
 binlog_cache_size=4m
 max_binlog_cache_size=256m
 
+#general_log
+
+有需要的话可以开启general_log，general_log会把所有客户端的操作记录下来
+>show variables like 'general%';
++------------------+----------------------------------------+
+| Variable_name    | Value                                  |
++------------------+----------------------------------------+
+| general_log      | ON                                     |
+| general_log_file | /var/lib/mysql/stackoverflowchina3.log |
++------------------+----------------------------------------+
+
+4.
 
