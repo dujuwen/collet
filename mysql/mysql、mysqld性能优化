@@ -1,0 +1,27 @@
+1.使用大内存页
+https://dev.mysql.com/doc/refman/8.0/en/large-page-support.html
+
+shell> cat /proc/meminfo | grep -i huge
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+
+系统支持
+sysctl -w vm.nr_hugepages=128
+
+# id mysql
+uid=27(mysql) gid=27(mysql) 组=27(mysql)
+
+sysctl -w vm.hugetlb_shm_group=27
+
+#ulimit -l unlimited
+
+[mysqld]
+large-pages
+
+重启服务:
+systemctl restart mysqld
+
+2.
