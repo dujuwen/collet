@@ -241,5 +241,18 @@ shell> mysqlshow [options] [db_name [tbl_name [col_name]]]
 21.mysqldumpslow解析和总结慢日志
 Usage: mysqldumpslow [ OPTS... ] [ LOGS... ]
 
-22.
+22.显示配置文件中的自定义选项
+https://dev.mysql.com/doc/refman/8.0/en/my-print-defaults.html
 
+例如显示配置文件中的[client]和[mysql]配置:
+shell> my_print_defaults  client mysql
+--show, -s选项可以显示明文密码
+
+mysql_config_editor显示本地配置:
+➜  ~ mysql_config_editor print --all
+[client]
+user = root
+password = *****
+host = 192.168.242.143
+
+23.
