@@ -38,4 +38,13 @@ shell> mysql -u root -p -e "source /tmp/statements.sql"
 
 在需要的时候可以添加--rewrite-db、--start-datetime、--stop-datetime这些选项来过滤数据
 
-4.
+4.备份原生的binlog
+https://dev.mysql.com/doc/refman/8.0/en/mysqlbinlog-backup.html
+
+# mysqlbinlog --read-from-remote-server --host=192.168.242.143 --raw --to-last-log \
+-uroot -p --result-file=/tmp/djw/ binlog.000003
+
+运行这个命令后会在/tmp/djw/备份从binlog.000003开始的所有binlog文件
+
+
+
