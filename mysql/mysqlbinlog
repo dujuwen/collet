@@ -1,0 +1,41 @@
+https://dev.mysql.com/doc/refman/8.0/en/mysqlbinlog.html
+https://dev.mysql.com/doc/refman/8.0/en/mysqlbinlog-row-events.html
+
+1.预览一个日志文件内容
+shell> mysqlbinlog -v --base64-output=DECODE-ROWS log_file
+
+注意在需要处理导入到数据库的的时候不需要加-v --base64-output
+
+2.显示指定时间后的日志内容
+shell> mysqlbinlog --start-datetime="2018-6-6 9:01:01" -v --base64-output=DECODE-ROWS binlog.000006
+
+3.从binlog导出数据到其他数据库,可以将mysqlbinlog的输出通过管道输送给mysql作为输入
+
+shell> mysqlbinlog --start-datetime="2018-6-6 9:01:01" --rewrite-db='djw->djw2' binlog.000006 | mysql
+当数据库不同的时候可以重写数据库--rewrite-db，这个选项可以多次使用
+
+shell> mysqlbinlog --rewrite-db='dbcurrent->dbold' --rewrite-db='dbtest->dbcurrent' binlog.00001 > /tmp/statements.sql
+
+shell> mysqlbinlog binlog.000001 | mysql -u root -p
+shell> mysqlbinlog binlog.[0-9]* | mysql -u root -p
+
+在需要的时候也可以编辑文件:
+shell> mysqlbinlog binlog.000001 > tmpfile
+shell> ... edit tmpfile ...
+shell> mysql -u root -p < tmpfile
+
+If you have more than one binary log to execute on the MySQL server, the safe method is to process them all using a 
+single connection to the server. Here is an example that demonstrates what may be unsafe:
+shell> mysqlbinlog binlog.000001 | mysql -u root -p # DANGER!!
+shell> mysqlbinlog binlog.000002 | mysql -u root -p # DANGER!!
+
+要通过一个mysql来处理所有的输入数据，可以通过下面方法操作：
+shell> mysqlbinlog binlog.000001 binlog.000002 | mysql -u root -p
+
+shell> mysqlbinlog binlog.000001 >  /tmp/statements.sql
+shell> mysqlbinlog binlog.000002 >> /tmp/statements.sql
+shell> mysql -u root -p -e "source /tmp/statements.sql"
+
+在需要的时候可以添加--rewrite-db、--start-datetime、--stop-datetime这些选项来过滤数据
+
+4.
