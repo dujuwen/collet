@@ -24,11 +24,11 @@ shell> systemctl daemon-reload //Reload systemd manager configuration
 vim /etc/my.conf:
 [mysqld]
 #max_connections默认是151太小了
-max_connections=3000 
+max_connections=2000 
 
 # If the value of Opened_tables is large and you do not use FLUSH TABLES often (which just forces all tables to be closed 
 # and reopened), then you should increase the value of the table_open_cache variable. 
-table_open_cache=10000
+table_open_cache=20000
 
 innodb_open_files=30000
 #the value cannot be set greater than ulimit -n
