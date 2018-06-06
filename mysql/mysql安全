@@ -18,4 +18,14 @@ shell> telnet server_host 3306
 7) 学会使用 tcpdump 和 strings，使用它们可以检查mysql数据流是否加密
 shell> tcpdump -l -i eth0 -w - src or dst port 3306 | strings
 
+数据库用户密码可以使用命令来生成:
+shell> pwmake 96
+YnotD@v;4PZ@fw0tBoBS
+
+shell> pwmake 96
+oMUB,oR83JM@jn@SkexE
+
+64生成的密码长度是14，96生成长度是20，128生成长度是27
+
 2.
+
