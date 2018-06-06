@@ -288,5 +288,13 @@ shell> mysqladmin kill 9
 mysql> show processlist;
 mysql> kill 进程id;
 
-26.
+26.下面两个是等价的
+SET GLOBAL max_connections = 1000;
+SET @@global.max_connections = 1000;
+
+select @@global.max_connections;
+show global variables like 'max_connections';
+
+
+27.
 
