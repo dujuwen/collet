@@ -41,10 +41,16 @@ shell> mysql -u root -p -e "source /tmp/statements.sql"
 4.备份原生的binlog
 https://dev.mysql.com/doc/refman/8.0/en/mysqlbinlog-backup.html
 
+运行这个命令后会在/tmp/djw/备份从binlog.000003开始的所有binlog文件:
 # mysqlbinlog --read-from-remote-server --host=192.168.242.143 --raw --to-last-log \
 -uroot -p --result-file=/tmp/djw/ binlog.000003
 
-运行这个命令后会在/tmp/djw/备份从binlog.000003开始的所有binlog文件
+还可以使用选项--stop-never代替--to-last-log来进行持续的备份
 
+使用 mysqldump + mysqlbinlog 进行备份和恢复:
+1) mysqldump --host=host_name --all-databases --events --routines --master-data=2> dump_file
+mysql --host=host_name -u root -p < dump_file
 
+2) -- CHANGE MASTER TO MASTER_LOG_FILE='binlog.001002', MASTER_LOG_POS=27284;
+mysqlbinlog --start-position=27284 binlog.001002 binlog.001003 binlog.001004 | mysql --host=host_name -u root -p
 
