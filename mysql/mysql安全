@@ -1,3 +1,4 @@
+https://dev.mysql.com/doc/refman/8.0/en/security.html
 https://www.cnblogs.com/yuwensong/archive/2013/03/26/2981965.html
 
 1.安全指导
@@ -27,5 +28,26 @@ oMUB,oR83JM@jn@SkexE
 
 64生成的密码长度是14，96生成长度是20，128生成长度是27
 
-2.
+2.nmap扫描域名或者ip查看端口开放情况
+➜  ~ nmap 192.168.242.145
+Starting Nmap 7.70 ( https://nmap.org ) at 2018-06-06 21:27 CST
+Nmap scan report for 192.168.242.145
+Host is up (0.10s latency).
+Not shown: 995 closed ports
+PORT     STATE SERVICE
+22/tcp   open  ssh
+80/tcp   open  http
+514/tcp  open  shell
+3306/tcp open  mysql
+9090/tcp open  zeus-admin
+
+3.只有指定的ip可以访问
+单机运行MySQL使用skip-networking关闭MySQL的TCP/IP连接方式
+skip-networking
+开启该选项后就不能远程访问MySQL
+
+为安全考虑希望指定的IP访问MySQL，可以在配置文件中增加bind-address=IP，前提是关闭skip-networking
+bind-address=192.168.1.100
+
+4.
 
