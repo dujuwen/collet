@@ -1,5 +1,6 @@
 1.使用大内存页
 https://dev.mysql.com/doc/refman/8.0/en/large-page-support.html
+https://www.linuxidc.com/Linux/2016-12/138159.htm
 
 shell> cat /proc/meminfo | grep -i huge
 HugePages_Total:       0
@@ -12,21 +13,24 @@ Hugepagesize:       2048 kB
 shell> sysctl -w vm.nr_hugepages=128
 shell> id mysql
 uid=27(mysql) gid=27(mysql) 组=27(mysql)
-shell> sysctl -w vm.hugetlb_shm_group=27
+shell> sysctl -w vm.hugetlb_shm_group=27 //如果有其他用户需要使用的话,比如php将对应用户加入mysql所在组
 shell> ulimit -l unlimited
 
-# cat /proc/meminfo | grep -i huge
-AnonHugePages:    157696 kB
-HugePages_Total:      32
-HugePages_Free:       32
-HugePages_Rsvd:        0
-HugePages_Surp:        0
-Hugepagesize:       2048 kB
+shell> ulimit -a //把不合适的限制给改掉
 
 [mysqld]
 large-pages
 
 重启服务:
 shell> systemctl restart mysqld
+
+如果重启服务后日志/var/log/mysqld.log没有报错的话就说明有利用大内存页
+# cat /proc/meminfo | grep -i huge
+AnonHugePages:    155648 kB
+HugePages_Total:     105
+HugePages_Free:       95
+HugePages_Rsvd:       56
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
 
 2.
