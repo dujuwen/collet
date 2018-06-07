@@ -5,6 +5,9 @@ ONBOOT=no改为ONBOOT=yes
 然后重启网络服务： sudo service network restart 
 然后我们再输入  ip addr 命令
 
+如果没有ip命令的话可以安装:
+shell> yum -y install iproute
+
 ------------------------------------------------
 
 查看系统是32位还是64位:
