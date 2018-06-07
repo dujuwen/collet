@@ -3,19 +3,45 @@ http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-part-two.html
 http://jeremyxu2010.github.io/2016/07/04/Systemd-%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89/
 https://www.cnblogs.com/tsdxdx/p/7288490.html
 http://www.361way.com/systemctl/3709.html
+https://blog.csdn.net/u012486840/article/details/53161574
 https://access.redhat.com/articles/1189123  (推荐)
 
-chkconfig、service 命令与 systemctl 命令的区别见下表：
+systemctl 后的服务名可以到 /usr/lib/systemd/system 目录查看（opensuse 下），其他发行版是位于 /lib/systemd/system/ 下。
 
-任务	旧指令	新指令
-使某服务自动启动	  chkconfig --level 3 httpd on	       systemctl enable httpd.service
-使某服务不自动启动	 chkconfig --level 3 httpd off	      systemctl disable httpd.service
-检查服务状态	      service httpd status	               systemctl status httpd.service （服务详细信息）
-                                                        systemctl is-active httpd.service （仅显示是否 Active)
-加入自定义服务	chkconfig --add  test	                    systemctl   load test.service
-删除服务	chkconfig --del  xxx	                        停掉应用，删除相应的配置文件
-显示所有已启动的服务	chkconfig --list	                 systemctl list-units --type=service
-启动某服务	service httpd start	                         systemctl start httpd.service
-停止某服务	service httpd stop	                          systemctl stop httpd.service
-重启某服务	service httpd restart	                       systemctl restart httpd.service
-注：systemctl 后的服务名可以到 / usr/lib/systemd/system 目录查看（opensuse 下），其他发行版是位于 / lib/systemd/system/ 下。
+daemon命令	               systemctl命令	                     说明
+service [服务] start	     systemctl start [unit type]	      启动服务
+service [服务] stop	       systemctl stop [unit type]	        停止服务
+service [服务] restart	   systemctl restart [unit type]	    重启服务
+
+
+设置开机启动/不启动:
+daemon命令	               systemctl命令	                      说明
+chkconfig [服务] on	       systemctl enable [unit type]	       设置服务开机启动
+chkconfig [服务] off	     systemctl disable [unit type]	     设备服务禁止开机启动
+
+查看系统上上所有的服务
+命令格式：
+systemctl [command] [–type=TYPE] [–all]
+
+参数详解：
+command - list-units：依据unit列出所有启动的unit。加上 –all 才会列出没启动的unit; 
+-list-unit-files:依据/usr/lib/systemd/system/ 内的启动文件，列出启动文件列表
+
+–type=TYPE - 为unit type, 主要有service, socket, target
+
+应用举例：
+systemctl命令	                           说明
+systemctl	                              列出所有的系统服务
+systemctl list-units	                  列出所有启动unit
+systemctl list-unit-files	              列出所有启动文件
+systemctl list-units –type=service –all	列出所有service类型的unit
+systemctl list-units –type=service –all | grep cpu	列出cpu电源管理机制的服务
+systemctl list-units –type=target –all	列出所有target
+
+
+systemctl命令	                   说明
+systemctl is-active [unit type]	查看服务是否运行
+systemctl is-enable [unit type]	查看服务是否设置为开机启动
+systemctl mask [unit type]	     注销指定服务
+systemctl unmask [unit type]	   取消注销指定服务
+
