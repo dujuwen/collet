@@ -1,5 +1,6 @@
 http://man.linuxde.net/netstat
 https://blog.csdn.net/freeking101/article/details/53520974
+https://yq.aliyun.com/ziliao/79467
 
 netstat - 显示网络连接，路由表，接口状态，伪装连接，网络链路信息和组播成员组
 
@@ -70,3 +71,7 @@ CLOSING：     等待远程TCP对连接中断的确认
 LAST-ACK：    等待原来的发向远程TCP的连接中断请求的确认（不是什么好东西，此项出现，检查是否被攻击）  
 TIME-WAIT：   等待足够的时间以确保远程TCP接收到连接中断请求的确认  
 CLOSED：      没有任何连接状态  
+
+
+可以通过下面这个命令来统计当前连接数:
+# netstat -n | awk '/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}'
