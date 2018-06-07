@@ -158,4 +158,18 @@ HugePages_Surp:        0
 其他php优化:
 http://www.laruence.com/2015/12/04/3086.html
 
-10.
+10.安装邮箱
+https://forums.fedoraforum.org/archive/index.php/t-85365.html
+
+yun -y install mailx sendmail
+
+/etc/hosts
+-----------
+127.0.0.1 localhost.localdomain localhost myhostname <--- order matters!!!
+
+systemctl enable sendmail
+systemctl start sendmail
+
+11.
+
+
