@@ -16,3 +16,11 @@ shell>
 
 有需要的话永久保存
 iptables-save > /path/iptables
+
+
+https://blog.csdn.net/fly2749/article/details/51354696
+DDoS-Deflate
+
+# wget http://www.inetbase.com/scripts/ddos/install.sh
+# chmod +x install.sh
+# ./install.sh
