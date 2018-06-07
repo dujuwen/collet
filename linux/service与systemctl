@@ -45,3 +45,29 @@ systemctl is-enable [unit type]	查看服务是否设置为开机启动
 systemctl mask [unit type]	     注销指定服务
 systemctl unmask [unit type]	   取消注销指定服务
 
+systemctl poweroff 系统关机
+systemctl reboot 重新启动
+systemctl suspend	进入睡眠模式
+systemctl hibernate	进入休眠模式
+systemctl rescue	强制进入救援模式
+systemctl emergency	强制进入紧急救援模式
+
+
+init级别	systemctl target
+0	shutdown.target
+1	emergency.target
+2	rescure.target
+3	multi-user.target
+4	无
+5	graphical.target
+6	无
+
+使用systemctl分析各服务之前的依赖关系: systemctl list-dependencies mysqld
+
+yum -y install net-tools
+查看是否关闭22端口:
+netstat -lnp |grep sshd
+
+systemctl stop firewalld.service
+systemctl disable firewalld.service
+
