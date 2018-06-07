@@ -25,5 +25,11 @@ shell> hping3 --help
 shell> sudo hping3 -V -c 100 -d 120 -S -w 64 -p 80 --flood ip
 
 
+内核防护:
+对于SYN flood攻击内核参数调整
+增大net.ipv4.tcp_max_syn_backlog和net.core.somaxconn
+减小net.ipv4.tcp_synack_retries 必要的时候可以设置为0
+启用net.ipv4.tcp_syncookies
 
+防护墙防护:
 
