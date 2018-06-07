@@ -175,4 +175,6 @@ ww%
 0000000    s   s   s  \n   s   s  \n   a  \n   w   w
 0000013
 
-6.
+6.pktgen，Linux 内核发包工具 pktgen, 如果没有安装的话可以通过modprobe pktgen来安装
+https://www.jianshu.com/p/6ca3858caef5
+
