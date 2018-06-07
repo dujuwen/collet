@@ -17,7 +17,23 @@ shell> ./configure
 shell> make
 shell> cp hping3 /usr/local/bin/hping3
 shell> hping3 --help
-
+usage: hping host [options]
+  -h  --help      show this help
+  -v  --version   show version
+  -c  --count     packet count
+  -i  --interval  wait (uX for X microseconds, for example -i u1000)
+      --fast      alias for -i u10000 (10 packets for second)
+      --faster    alias for -i u1000 (100 packets for second)
+      --flood	   sent packets as fast as possible. Don't show replies.
+  -n  --numeric   numeric output
+  -q  --quiet     quiet
+  -I  --interface interface name (otherwise default routing interface)
+  -V  --verbose   verbose mode
+  -D  --debug     debugging info
+  -z  --bind      bind ctrl+z to ttl           (default to dst port)
+  -Z  --unbind    unbind ctrl+z
+      --beep      beep for every matching packet received
+      
 2.SYN Flooding攻击
 产生SYN Flooding攻击的明显特征是使用命令netstat -i -c查看网卡的RX-OK和TX-OK包跟正常情况相比大幅度上升，也可以用netstat -s查看接收包信息
 
@@ -39,4 +55,18 @@ shell> netstat -na | grep -i SYN_RECV | more
 启用net.ipv4.tcp_syncookies
 
 防护墙防护:
+
+3.DOS Land Attack
+http://0daysecurity.com/articles/hping3_examples.html
+
+shell> sudo hping3 -V -c 1000000 -d 120 -S -w 64 -p 445 -s 445 --flood --rand-source VICTIM_IP ip地址
+--flood: sent packets as fast as possible. Don't show replies.
+--rand-dest: random destionation address mode. see the man.
+-V <-- Verbose
+-c --count: packet count
+-d --data: data size
+-S --syn: set SYN flag
+-w --win: winsize (default 64)
+-p --destport [+][+]<port> destination port(default 0) ctrl+z inc/dec
+-s --baseport: base source port (default random)
 
