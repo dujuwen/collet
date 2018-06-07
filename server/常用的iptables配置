@@ -4,11 +4,13 @@ shell> iptables -I INPUT -i eth1 -p udp -j ACCEPT //其他可以接收
 shell> iptables -A INPUT -m state --state INVALID -j DROP //扔掉无用的状态包
 shell> iptables -A INPUT -s 127.0.0.1 -p icmp -j ACCEPT //允许本机ping不允许其他机器ping
 shell> iptables -A INPUT -p icmp -j DROP
-shell> 
-shell> 
-shell> 
-shell> 
-shell> 
+
+配置防火墙只有指定的ip才能访问数据库，通过配置iptables来实现
+shell> iptables -A INPUT -p tcp -s 127.0.0.1 --dport 3306 -j ACCEPT
+shell> iptables -A INPUT -p tcp -s 192.168.242.144 --dport 3306 -j ACCEPT
+shell> iptables -A INPUT -p tcp -s 192.168.242.141 --dport 3306 -j ACCEPT
+...有需要可以增加多条
+shell> iptables -A INPUT -p tcp --dport 3306 -j DROP //这条是必须要的，将其他都拒绝访问 
 shell> 
 shell> 
 
