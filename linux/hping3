@@ -18,4 +18,12 @@ shell> make
 shell> cp hping3 /usr/local/bin/hping3
 shell> hping3 --help
 
-2.
+2.SYN Flooding攻击
+产生SYN Flooding攻击的明显特征是使用命令netstat -i -c查看网卡的RX-OK和TX-OK包跟正常情况相比大幅度上升，也可以用netstat -s查看接收包信息
+
+例如模拟SYN Flooding攻击:
+shell> sudo hping3 -V -c 100 -d 120 -S -w 64 -p 80 --flood ip
+
+
+
+
