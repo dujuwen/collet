@@ -1,9 +1,9 @@
 
 shell> iptables -I INPUT -i eth1 -p udp --dport 80 -j DROP //到80端口的UDP直接丢弃掉
 shell> iptables -I INPUT -i eth1 -p udp -j ACCEPT //其他可以接收
-shell> 
-shell> 
-shell> 
+shell> iptables -A INPUT -m state --state INVALID -j DROP //扔掉无用的状态包
+shell> iptables -A INPUT -s 127.0.0.1 -p icmp -j ACCEPT //允许本机ping不允许其他机器ping
+shell> iptables -A INPUT -p icmp -j DROP
 shell> 
 shell> 
 shell> 
