@@ -111,9 +111,9 @@ https://access.redhat.com/documentation/zh-cn/red_hat_enterprise_linux/7/html/pe
 -rw-r--r--. 1 root root 1.2K 4月  11 15:36 /usr/lib/sysctl.d/50-default.conf
 
 # vim /usr/lib/sysctl.d/00-system.conf
-也可以通过命令sysctl -w 来修改
-添加:
+也可以通过命令sysctl -w 来修改，但是想永久生效的话必须修改配置文件
 
+添加:
 #关闭ipv6
 net.ipv6.conf.all.disable_ipv6 = 1
 net.ipv6.conf.default.disable_ipv6 = 1
