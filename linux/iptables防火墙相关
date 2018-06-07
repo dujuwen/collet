@@ -12,7 +12,24 @@ https://www.digitalocean.com/community/tutorials/how-to-choose-an-effective-fire
 https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-using-firewalld-on-centos-7
 https://www.linuxprobe.com/chapter-08.html
 
-Iptalbes 是用来设置、维护和检查Linux内核的IP包过滤规则的。
+iptalbes 是用来设置、维护和检查Linux内核的IP包过滤规则的。
+
+使用iptables而不是firewall来管理防火墙:
+systemctl stop firewalld  
+systemctl mask firewalld 
+
+yum -y install iptables-services  
+
+设置开机启动：
+systemctl enable iptables 
+
+systemctl stop iptables  
+systemctl start iptables  
+systemctl restart iptables  
+systemctl reload iptables  
+
+保存设置：
+service iptables save  
 
 1. 通用匹配：源地址目标地址的匹配
 -s：指定作为源地址匹配，这里不能指定主机名称，必须是 IP
