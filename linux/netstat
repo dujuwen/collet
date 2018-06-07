@@ -1,3 +1,57 @@
+http://man.linuxde.net/netstat
+
+netstat - 显示网络连接，路由表，接口状态，伪装连接，网络链路信息和组播成员组
+
+netstat  [address_family_options]  [--tcp|-t]  [--udp|-u]  [--raw|-w] [--listening|-l] [--all|-a] [--numeric|-n] 
+[--numeric-hosts][--numeric-ports][--numeric-ports] [--symbolic|-N] [--extend|-e[--extend|-e]] [--timers|-o] 
+[--program|-p] [--verbose|-v] [--continuous|-c] [delay]
+
+netstat {--route|-r} [address_family_options] [--extend|-e[--extend|-e]] [--verbose|-v] [--numeric|-n]  
+[--numeric-hosts][--numeric-ports][--numeric-ports]  [--con‐tinuous|-c] [delay]
+       
+netstat  {--interfaces|-i}  [iface] [--all|-a] [--extend|-e[--extend|-e]] [--verbose|-v] [--program|-p] 
+[--numeric|-n] [--numeric-hosts][--numeric-ports][--numeric-ports] [--continuous|-c] [delay]
+       
+netstat {--groups|-g} [--numeric|-n] [--numeric-hosts][--numeric-ports][--numeric-ports] [--continuous|-c] [delay]
+
+netstat {--masquerade|-M} [--extend|-e] [--numeric|-n] [--numeric-hosts][--numeric-ports][--numeric-ports] 
+[--continuous|-c] [delay]
+
+netstat {--statistics|-s} [--tcp|-t] [--udp|-u] [--raw|-w] [delay]
+
+netstat {--version|-V}
+
+netstat {--help|-h}
+
+address_family_options:
+[--protocol={inet,unix,ipx,ax25,netrom,ddp}[,...]]  [--unix|-x] [--inet|--ip] [--ax25] [--ipx] [--netrom] [--ddp]
+       
 # netstat -lntp          # 查看所有监听端口
 # netstat -antp          # 查看所有已经建立的连接
 # netstat -s             # 查看网络统计信息
+
+# netstat -a     #列出所有端口
+# netstat -at    #列出所有tcp端口
+# netstat -au    #列出所有udp端口  
+
+当你不想让主机，端口和用户名显示，使用:
+# netstat -n
+
+持续输出netstat信息:
+# netstat -c   #默认每隔一秒输出网络信息
+# netstat -c 5 #每隔5秒输出网络信息
+
+找出运行在指定端口的进程：
+# netstat -an | grep ':80'
+
+显示网络接口列表:
+# netstat -i
+
+netstat -ie显示内容等价于ifconfig
+
+查看php-fpm进程数:
+# netstat -anpo | grep -i "php-fpm" | wc -l
+# ps aux | grep -i "php-fpm" | wc -l
+
+
+
