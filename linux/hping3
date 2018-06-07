@@ -35,7 +35,7 @@ usage: hping host [options]
       --beep      beep for every matching packet received
       
 2.SYN Flooding攻击
-产生SYN Flooding攻击的明显特征是接口(网关)发送和接收数据大幅度上升!!
+产生SYN Flooding攻击的明显特征是接口(网关)发送和接收数据大幅度上升!!而CPU、内存和磁盘IO不会有明显的变化。
 使用命令netstat -i -c查看网卡的RX-OK和TX-OK包跟正常情况相比大幅度上升，也可以用netstat -s查看接收包信息
 
 例如模拟SYN Flooding攻击:
