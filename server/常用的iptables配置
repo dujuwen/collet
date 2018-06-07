@@ -1,0 +1,16 @@
+
+shell> iptables -I INPUT -i eth1 -p udp --dport 80 -j DROP //到80端口的UDP直接丢弃掉
+shell> iptables -I INPUT -i eth1 -p udp -j ACCEPT //其他可以接收
+shell> 
+shell> 
+shell> 
+shell> 
+shell> 
+shell> 
+shell> 
+shell> 
+shell> 
+shell> 
+
+有需要的话永久保存
+iptables-save > /path/iptables
