@@ -111,6 +111,7 @@ https://access.redhat.com/documentation/zh-cn/red_hat_enterprise_linux/7/html/pe
 -rw-r--r--. 1 root root 1.2K 4月  11 15:36 /usr/lib/sysctl.d/50-default.conf
 
 # vim /usr/lib/sysctl.d/00-system.conf
+也可以通过命令sysctl -w 来修改
 添加:
 
 #关闭ipv6
@@ -131,6 +132,16 @@ net.ipv4.tcp_max_orphans = 3276800
 net.ipv4.tcp_syncookies = 1
 net.ipv4.tcp_fin_timeout = 30
 net.ipv4.tcp_tw_reuse = 1
+net.ipv4.tcp_synack_retries = 1
+net.ipv4.tcp_max_syn_backlog = 512
+net.core.somaxconn = 512
+#fin_wait1状态是在发起端主动要求关闭tcp连接，并且主动发送fin以后，等待接收端回复ack时候的状态。对于本端断开的socket连接，
+#TCP保持在FIN-WAIT-2状态的时间。对方可能会断开连接或一直不结束连接或不可预料的进程死亡。
+net.ipv4.tcp_keepalive_time = 1200 #表示当keepalive起用的时候,TCP发送keepalive消息的频度。缺省是2小时
+net.ipv4.ip_local_port_range = 1024 65000
+
+使设置生效:
+sysctl -p
 
 8.overcommit_memory
 https://access.redhat.com/documentation/zh-cn/red_hat_enterprise_linux/7/html/performance_tuning_guide/sect-red_hat_enterprise_linux-performance_tuning_guide-memory-configuration_tools
