@@ -1,3 +1,5 @@
+https://blog.csdn.net/wwh578867817/article/details/46707389
+
 1.停用系统自带的防火墙和清除iptables
 # systemctl stop firewalld.service
 # systemctl disable firewalld.service
