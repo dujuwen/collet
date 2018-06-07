@@ -147,6 +147,11 @@ iptables -A OUTPUT -f -d 192.168.1.1 -j DROP
 iptables相关的配置文件保存在：/etc/sysconfig/iptables-config
 iptables定义的过滤规则保存在：/etc/sysconfig/iptables
 
+如果通过service iptables save 保存失败的话可以通过:
+shell> vim /etc/sysconfig/iptables
+修改配置文件然后重新启动来永久修改防火墙规则
+systemctl restart iptables.service #最后重启防火墙使配置生效
+
 3.配置保存和恢复
 保存到系统文件中：
 service iptables save
