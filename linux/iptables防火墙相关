@@ -10,6 +10,8 @@ https://www.digitalocean.com/community/tutorials/how-to-choose-an-effective-fire
 https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-using-firewalld-on-centos-7
 https://www.linuxprobe.com/chapter-08.html
 
+Iptalbes 是用来设置、维护和检查Linux内核的IP包过滤规则的。
+
 1. 通用匹配：源地址目标地址的匹配
 -s：指定作为源地址匹配，这里不能指定主机名称，必须是 IP
 IP | IP/MASK | 0.0.0.0/0.0.0.0
@@ -53,10 +55,8 @@ echo-reply （响应的数据包）一般用 0 来表示
 
 详解 - j ACTION
 
-常用的 ACTION：
-
-DROP：悄悄丢弃
-一般我们多用 DROP 来隐藏我们的身份，以及隐藏我们的链表
+常用的ACTION(TARGETS):
+DROP：悄悄丢弃,一般我们多用 DROP 来隐藏我们的身份，以及隐藏我们的链表
 REJECT：明示拒绝
 ACCEPT：接受
 custom_chain：转向一个自定义的链
@@ -94,22 +94,35 @@ iptables 1.4.21 内置了5个表，优先级从高到低是(就是man手册中�
 iptables -t [tablename] -L
 比如:
 ~ $ iptables -L -t security
-Chain INPUT (policy ACCEPT)
-target     prot opt source               destination
-
-Chain FORWARD (policy ACCEPT)
-target     prot opt source               destination
-
-Chain OUTPUT (policy ACCEPT)
-target     prot opt source               destination
 
 查看某个协议的帮助，-p后跟协议名称(不区分大小写)：
-iptables -p icmp --help
+如需某個延伸的求助資料﹐可以使用選項後接 `-h' 或 `--help' 將之載入(`-p'﹑ `-j'﹑或 `-m')﹐例如﹕
+shell> iptables -p tcp --help
+tcp match options:
+[!] --tcp-flags mask comp	match when TCP flags & mask == comp
+				(Flags: SYN ACK FIN RST URG PSH ALL NONE)
+[!] --syn			match when only SYN flag set
+				(equivalent to --tcp-flags SYN,RST,ACK,FIN SYN)
+[!] --source-port port[:port]
+ --sport ...
+				match source port(s)
+[!] --destination-port port[:port]
+ --dport ...
+				match destination port(s)
+[!] --tcp-option number        match if TCP option set
 
-对于 127.0.0.1 比较特殊，我们需要明确定义它
-
+对于 127.0.0.1 比较特殊，我们需要明确定义它:
 iptables -A INPUT -s 127.0.0.1 -d 127.0.0.1 -j ACCEPT
 iptables -A OUTPUT -s 127.0.0.1 -d 127.0.0.1 -j ACCEPT
+
+禁止本机ping:
+shell> iptables -A INPUT -s 127.0.0.1 -p icmp -j DROP
+
+例如 `-p ! TCP' 則指定了所有非 TCP 的封包。
+
+丢弃任何送给192.168.1.1的碎片:
+iptables -A OUTPUT -f -d 192.168.1.1 -j DROP
+
 
 2.配置文件
 iptables相关的配置文件保存在：/etc/sysconfig/iptables-config
