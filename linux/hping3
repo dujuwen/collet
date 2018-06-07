@@ -1,7 +1,21 @@
 http://www.hping.org
 http://wiki.hping.org/home
+http://wiki.hping.org/94
 https://github.com/antirez/hping
 http://0daysecurity.com/articles/hping3_examples.html
 
 hping是用于生成和解析TCPIP协议数据包的开源工具。创作者是Salvatore Sanfilippo。目前最新版是hping3，支持使用tcl脚本自动化地调用其API。
 hping是安全审计、防火墙测试等工作的标配工具。hping优势在于能够定制数据包的各个部分，因此用户可以灵活对目标机进行细致地探测。
+
+1.安装方法
+可以下载压缩包或者从GitHub上下载编译安装
+
+mac下安装:
+shell> git clone https://github.com/antirez/hping.git
+shell> cd hping
+shell> ./configure
+shell> make
+shell> cp hping3 /usr/local/bin/hping3
+shell> hping3 --help
+
+2.
