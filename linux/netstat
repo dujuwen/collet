@@ -1,4 +1,5 @@
 http://man.linuxde.net/netstat
+https://blog.csdn.net/freeking101/article/details/53520974
 
 netstat - 显示网络连接，路由表，接口状态，伪装连接，网络链路信息和组播成员组
 
@@ -44,7 +45,7 @@ address_family_options:
 找出运行在指定端口的进程：
 # netstat -an | grep ':80'
 
-显示网络接口列表:
+显示网络接口(网卡)列表:
 # netstat -i
 
 netstat -ie显示内容等价于ifconfig
