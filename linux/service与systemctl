@@ -5,6 +5,7 @@ https://www.cnblogs.com/tsdxdx/p/7288490.html
 http://www.361way.com/systemctl/3709.html
 https://blog.csdn.net/u012486840/article/details/53161574
 https://access.redhat.com/articles/1189123  (推荐)
+https://linux.cn/article-5926-1.html
 
 systemctl 后的服务名可以到 /usr/lib/systemd/system 目录查看（opensuse 下），其他发行版是位于 /lib/systemd/system/ 下。
 
