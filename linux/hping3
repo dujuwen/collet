@@ -24,6 +24,13 @@ shell> hping3 --help
 例如模拟SYN Flooding攻击:
 shell> sudo hping3 -V -c 100 -d 120 -S -w 64 -p 80 --flood ip
 
+应急处理:
+shell> sysctl -w net.ipv4.tcp_synack_retries=0 //平时可以设置为1或者2
+shell> netstat -na | grep -i SYN_RECV | more
+利用iptables临时封掉最大嫌疑攻击的IP或IP号段，例如对方假冒173.*.*.*号段来攻击，
+短期禁用173.*.*.*这个大号段（要确认小心不要封掉自己的本地IP了！）
+# iptables -A INPUT -s 173.0.0.0/8  -p tcp  –dport 80 -j DROP
+这样应急处理很容易误伤，甚至可能因为封错了导致ssh登陆不了服务器，并不是理想方式。
 
 内核防护:
 对于SYN flood攻击内核参数调整
