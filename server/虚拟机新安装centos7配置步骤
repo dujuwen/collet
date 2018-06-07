@@ -161,7 +161,7 @@ http://www.laruence.com/2015/12/04/3086.html
 10.安装邮箱
 https://forums.fedoraforum.org/archive/index.php/t-85365.html
 
-yun -y install mailx sendmail
+yun -y install mailx sendmail [sharutils]
 
 /etc/hosts
 -----------
@@ -169,6 +169,16 @@ yun -y install mailx sendmail
 
 systemctl enable sendmail
 systemctl start sendmail
+
+如果需要的话可以配置客户端
+vim /etc/mail.rc:
+set from=myname@163.com 
+set smtp=smtp.163.com
+set smtp-auth-user=myname 
+set smtp-auth-password=password （客户端授权密码）
+set smtp-auth=login
+
+uuencode /home/yfang/a.gif a.gif|mail -s pictest myname@163.com [other email] //发送附件
 
 11.
 
