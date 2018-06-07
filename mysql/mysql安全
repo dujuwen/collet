@@ -19,6 +19,9 @@ shell> telnet server_host 3306
 7) 学会使用 tcpdump 和 strings，使用它们可以检查mysql数据流是否加密
 shell> tcpdump -l -i eth0 -w - src or dst port 3306 | strings
 
+使用抓包命令，抓取访问服务器80的IP数  
+shell> tcpdump -tnn dst port 80 -c 100 | awk -F"." '{print $1"."$2"."$3"."$4}' | sort | uniq -c | sort -n -r |head -20
+
 数据库用户密码可以使用命令来生成:
 shell> pwmake 96
 YnotD@v;4PZ@fw0tBoBS
