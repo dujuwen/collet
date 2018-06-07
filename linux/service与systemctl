@@ -42,8 +42,8 @@ systemctl list-units –type=target –all	列出所有target
 systemctl命令	                   说明
 systemctl is-active [unit type]	查看服务是否运行
 systemctl is-enable [unit type]	查看服务是否设置为开机启动
-systemctl mask [unit type]	     注销指定服务
-systemctl unmask [unit type]	   取消注销指定服务
+systemctl mask [unit type]	     注销指定服务,屏蔽服务（让它不能启动）
+systemctl unmask [unit type]	   取消注销指定服务,取消屏蔽
 
 systemctl poweroff 系统关机
 systemctl reboot 重新启动
