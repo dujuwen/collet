@@ -8,7 +8,41 @@ https://dev.mysql.com/doc/refman/8.0/en/account-names.html
 'me' is equivalent to 'me'@'%'
 最好给用户名和主机名都带上引号
 
-2.CREATE USER Syntax
+2.role，是一些权限的集合
+https://dev.mysql.com/doc/refman/8.0/en/create-role.html
+https://dev.mysql.com/doc/refman/8.0/en/drop-role.html
+https://dev.mysql.com/doc/refman/8.0/en/roles.html
+
+CREATE ROLE [IF NOT EXISTS] role [, role ] ...
+例如:
+CREATE ROLE 'administrator', 'developer';
+CREATE ROLE 'webapp'@'localhost';
+
+DROP ROLE [IF EXISTS] role [, role ] ...
+Roles named in the mandatory_roles system variable value cannot be dropped.
+DROP ROLE 'administrator', 'developer';
+DROP ROLE 'webapp'@'localhost';
+
+Creating Roles and Granting Privileges to Them:
+CREATE ROLE 'app_developer', 'app_read', 'app_write';
+GRANT ALL ON app_db.* TO 'app_developer';
+GRANT SELECT ON app_db.* TO 'app_read';
+GRANT INSERT, UPDATE, DELETE ON app_db.* TO 'app_write';
+
+GRANT 'app_developer' TO 'dev1'@'localhost';
+GRANT 'app_read' TO 'read_user1'@'localhost', 'read_user2'@'localhost';
+GRANT 'app_read', 'app_write' TO 'rw_user1'@'localhost';
+
+检查角色权限:
+mysql> SHOW GRANTS FOR 'rw_user1'@'localhost' USING 'app_read', 'app_write';
+
+收回角色权限:
+REVOKE role FROM user;
+REVOKE INSERT, UPDATE, DELETE ON app_db.* FROM 'app_write';
+
+如果centos系统时间不正确的话执行命令: systemctl restart ntpd
+
+3.CREATE USER Syntax
 https://dev.mysql.com/doc/refman/8.0/en/create-user.html
 
 CREATE USER [IF NOT EXISTS]
