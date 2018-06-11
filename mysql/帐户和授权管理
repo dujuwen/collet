@@ -1,0 +1,34 @@
+https://dev.mysql.com/doc/refman/8.0/en/account-management-sql.html
+
+1.user,帐户名规则
+https://dev.mysql.com/doc/refman/8.0/en/account-names.html
+
+帐户名语法:
+'user_name'@'host_name'
+'me' is equivalent to 'me'@'%'
+最好给用户名和主机名都带上引号
+
+2.CREATE USER Syntax
+https://dev.mysql.com/doc/refman/8.0/en/create-user.html
+
+CREATE USER [IF NOT EXISTS]
+    user [auth_option] [, user [auth_option]] ...
+    DEFAULT ROLE role [, role ] ...
+    [REQUIRE {NONE | tls_option [[AND] tls_option] ...}]
+    [WITH resource_option [resource_option] ...]
+    [password_option | lock_option] ...
+    
+在命令行中获取帮助:
+mysql> help create user;
+
+
+
+
+
+
+
+
+
+
+
+
