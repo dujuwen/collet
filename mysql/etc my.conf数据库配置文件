@@ -20,6 +20,8 @@ secure-file-priv= #Limit LOAD DATA, SELECT ... OUTFILE, and LOAD_FILE() tofiles 
 
 default-time-zone='+8:00' #默认时区
 
+skip_show_database #只有有SHOW DATABASES权限的用户才可以执行目录show databases;
+
 [mysql] #这一块客户端有需要的都可以添加
 user=root
 password=xxxxxxx
