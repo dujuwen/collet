@@ -34,6 +34,8 @@ The command will fail if an NTP service is enabled.
 # ps uax | grep ntpd
 ntp        7606  0.0  0.2  29940  2104 ?        Ss   17:00   0:00 /usr/sbin/ntpd -u ntp:ntp -g
 
+#timedatectl status/is-enabled ntpd可以查看它是否启动
+
 如果RTC time和Local time不一致可以通过下面命令同步:
 # timedatectl set-local-rtc 1
 # timedatectl set-local-rtc 0
