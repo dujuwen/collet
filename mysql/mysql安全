@@ -19,6 +19,8 @@ shell> telnet server_host 3306
 7) 学会使用 tcpdump 和 strings，使用它们可以检查mysql数据流是否加密
 shell> tcpdump -l -i eth0 -w - src or dst port 3306 | strings
 8) 确保/var/lib/mysql目录的所有者和组是mysql，并且目录权限为0711，只有mysql这个用户才能读写数据
+shell> chown -RL mysql /path/to/mysql/datadir
+-L选项将符号链接也修改所有者了
 9) 不要以root允许mysqld程序
 [mysqld]
 user=mysql
