@@ -84,12 +84,14 @@ ALTER USER ... IDENTIFIED BY ...
 SET PASSWORD ...
 SLAVE START ... PASSWORD = ...
 CREATE SERVER ... OPTIONS(... PASSWORD ...)
+ALTER SERVER ... OPTIONS(... PASSWORD ...)
 
 上面的这些语句修改的用户密码不会以明文的形式存在，在修改完成密码之后应该清理一下日志，general query log, slow query log, and binary log
 
-5.
+5.安全相关的mysqld选项和系统变量
+https://dev.mysql.com/doc/refman/8.0/en/security-options.html
 
+[mysqld]
+skip_show_database #只有有SHOW DATABASES权限的用户才可以执行目录show databases;
 
-
-ALTER SERVER ... OPTIONS(... PASSWORD ...)
 
