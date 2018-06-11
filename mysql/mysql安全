@@ -67,5 +67,20 @@ target     prot opt source               destination
 
 如果配置错了的话可以删除重新配置，或者清空整个表: iptables -F
 
-4.
+4.要在数据库正式启用之前配置好用户名
+https://dev.mysql.com/doc/refman/8.0/en/password-logging.html
+
+CREATE USER ... IDENTIFIED BY ...
+ALTER USER ... IDENTIFIED BY ...
+SET PASSWORD ...
+SLAVE START ... PASSWORD = ...
+CREATE SERVER ... OPTIONS(... PASSWORD ...)
+
+上面的这些语句修改的用户密码不会以明文的形式存在，在修改完成密码之后应该清理一下日志，general query log, slow query log, and binary log
+
+5.
+
+
+
+ALTER SERVER ... OPTIONS(... PASSWORD ...)
 
