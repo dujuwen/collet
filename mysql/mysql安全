@@ -18,6 +18,8 @@ shell> telnet server_host 3306
 6) 不要让数据在网络上裸奔，应该使用加密协议，如 SSL or SSH
 7) 学会使用 tcpdump 和 strings，使用它们可以检查mysql数据流是否加密
 shell> tcpdump -l -i eth0 -w - src or dst port 3306 | strings
+8) 确保/var/lib/mysql目录的所有者和组是mysql，并且目录权限为0711，只有mysql这个用户才能读写数据
+
 
 使用抓包命令，抓取访问服务器80的IP数  
 shell> tcpdump -tnn dst port 80 -c 100 | awk -F"." '{print $1"."$2"."$3"."$4}' | sort | uniq -c | sort -n -r |head -20
