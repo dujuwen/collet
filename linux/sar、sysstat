@@ -57,3 +57,35 @@ sa相关的是安装在/usr/lib64/sa下的
 -rwxr-xr-x 1 root root 2.1K 4月  11 11:33 sa2
 -rwxr-xr-x 1 root root  84K 4月  11 11:33 sadc
 
+每隔2秒输出网络统计
+# sar -n DEV 2
+
+With the DEV keyword, statistics from the network devices are reported.  The following values are displayed:
+IFACE:Name of the network interface for which statistics are reported.
+rxpck/s:Total number of packets received per second.
+txpck/s:Total number of packets transmitted per second.
+rxkB/s:Total number of kilobytes received per second.
+txkB/s:Total number of kilobytes transmitted per second.
+rxcmp/s:Number of compressed packets received per second (for cslip etc.).
+txcmp/s:Number of compressed packets transmitted per second.
+rxmcst/s:Number of multicast packets received per second.
+
+With the EDEV keyword, statistics on failures (errors) from the network devices are reported.  The following values are displayed:
+IFACE:Name of the network interface for which statistics are reported.
+rxerr/s:Total number of bad packets received per second.
+txerr/s:Total number of errors that happened per second while transmitting packets.
+coll/s:Number of collisions that happened per second while transmitting packets.
+rxdrop/s:Number of received packets dropped per second because of a lack of space in linux buffers.
+txdrop/s:Number of transmitted packets dropped per second because of a lack of space in linux buffers.
+txcarr/s:Number of carrier-errors that happened per second while transmitting packets.
+rxfram/s:Number of frame alignment errors that happened per second on received packets.
+rxfifo/s:Number of FIFO overrun errors that happened per second on received packets.
+txfifo/s:Number of FIFO overrun errors that happened per second on transmitted packets.
+
+With the NFS keyword, statistics about NFS client activity are reported.  The following values are displayed:
+call/s:Number of RPC requests made per second.
+retrans/s:Number of RPC requests per second, those which needed to be retransmitted (for example because of a server timeout).
+read/s:Number of 'read' RPC calls made per second.
+write/s:Number of 'write' RPC calls made per second.
+access/s:Number of 'access' RPC calls made per second.
+getatt/s:Number of 'getattr' RPC calls made per second.
