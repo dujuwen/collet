@@ -46,7 +46,10 @@ REVOKE INSERT, UPDATE, DELETE ON app_db.* FROM 'app_write';
 https://dev.mysql.com/doc/refman/8.0/en/grant.html
 https://dev.mysql.com/doc/refman/8.0/en/revoke.html
 
-在grant子句中有on关键词表示是授予权限，没有表示是授予角色，例如；
+3.1) 获取grant帮助
+mysql> help grant;
+
+在grant子句中有on关键词表示是授予权限，没有表示是授予角色，例如:
 GRANT ALL ON db1.* TO 'jeffrey'@'localhost'; 
 GRANT 'role1', 'role2' TO 'user1'@'localhost', 'user2'@'localhost';
 GRANT SELECT ON world.* TO 'role3';
@@ -57,6 +60,14 @@ From the mysql program, GRANT responds with Query OK, 0 rows affected when execu
 
 由于_符号有特殊含义所有在设计数据库的时候不用_而用驼峰式:
 GRANT ... ON `foo\_bar`.* TO ....
+
+3.2) 获取revoke帮助
+mysql> help revoke;
+
+REVOKE INSERT ON *.* FROM 'jeffrey'@'localhost';
+REVOKE 'role1', 'role2' FROM 'user1'@'localhost', 'user2'@'localhost';
+REVOKE SELECT ON world.* FROM 'role3';
+REVOKE ALL PRIVILEGES, GRANT OPTION FROM user_or_role [, user_or_role] ...
 
 4.show grants
 https://dev.mysql.com/doc/refman/8.0/en/show-grants.html
