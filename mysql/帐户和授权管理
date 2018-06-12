@@ -188,3 +188,8 @@ SET PASSWORD [FOR user] = 'auth_string'
 
 SET PASSWORD不推荐使用，最好使用alter user修改用户密码:
 ALTER USER user IDENTIFIED BY 'auth_string';
+
+8.显示用户权限
+SHOW GRANTS FOR 'bob'@'pc84.example.com';
+SHOW CREATE USER 'bob'@'pc84.example.com';
+
