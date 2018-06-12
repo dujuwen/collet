@@ -295,6 +295,11 @@ SET @@global.max_connections = 1000;
 select @@global.max_connections;
 show global variables like 'max_connections';
 
+27.mandatory_roles，在启动时或者运行时配置所有用户的默认角色
+https://dev.mysql.com/doc/refman/8.0/en/roles.html
 
-27.
+[mysqld]
+mandatory_roles='role1,role2@localhost,r3@%.example.com'
 
+To set and persist mandatory_roles at runtime, use a statement like this:
+SET PERSIST mandatory_roles = 'role1,role2@localhost,r3@%.example.com';
