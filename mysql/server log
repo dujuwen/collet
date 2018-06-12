@@ -1,5 +1,8 @@
 https://dev.mysql.com/doc/refman/8.0/en/server-logs.html
 
+https://dev.mysql.com/doc/refman/8.0/en/password-logging.html
+https://dev.mysql.com/doc/refman/8.0/en/mysql-logging.html
+
 1.日志类型
 Error log
 Problems encountered starting, running, or stopping mysqld
