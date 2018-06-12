@@ -6,9 +6,9 @@ create role 'app_write'@'localhost';
 grant all on djw.* to 'app_developer'@'localhost';
 grant select on djw.* to 'app_read'@'localhost';
 grant insert,update,delete to 'app_write'@'localhost';
-create user djw1 identified by 'R2T%<ybxSsVG';
-grant 'app_read'@'localhost' to djw1;
-grant 'app_write'@'localhost' to djw1;
+create user djw1 identified by 'R2T%<ybxSsVG' default role 'app_read'@'localhost', 'app_write'@'localhost';
+#grant 'app_read'@'localhost' to djw1;
+#grant 'app_write'@'localhost' to djw1;
 
 #如果mysqld中没有配置activate_all_roles_on_login=true，set default role默认角色,set role在会话的时候激活角色
 set default role 'app_developer'@'localhost' to djw1; //注意这里要设置多个默认角色的话用逗号分隔设置，不能一次设置一个这样会覆盖的
