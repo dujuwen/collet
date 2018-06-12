@@ -29,6 +29,8 @@ user=mysql
 12）如果不信任DNS的话在用户授权的时候使用ip地址
 13）如果想限制一个用户的最大连接数可以设置系统变量max_user_connections 
 14) 插件目录确保只读
+15) 删除匿名用户
+SELECT Host, User FROM mysql.user WHERE User='';DROP USER ''@'localhost';
 
 使用抓包命令，抓取访问服务器80的IP数  
 shell> tcpdump -tnn dst port 80 -c 100 | awk -F"." '{print $1"."$2"."$3"."$4}' | sort | uniq -c | sort -n -r |head -20
