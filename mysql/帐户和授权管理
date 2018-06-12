@@ -42,7 +42,18 @@ REVOKE INSERT, UPDATE, DELETE ON app_db.* FROM 'app_write';
 
 如果centos系统时间不正确的话执行命令: systemctl restart ntpd
 
-3.CREATE USER Syntax
+3.grant和revoke
+https://dev.mysql.com/doc/refman/8.0/en/grant.html
+https://dev.mysql.com/doc/refman/8.0/en/revoke.html
+
+在grant子句中有on关键词表示是授予权限，没有表示是授予角色，例如；
+GRANT ALL ON db1.* TO 'jeffrey'@'localhost'; 
+GRANT 'role1', 'role2' TO 'user1'@'localhost', 'user2'@'localhost';
+GRANT SELECT ON world.* TO 'role3';
+
+From the mysql program, GRANT responds with Query OK, 0 rows affected when executed successfully.
+
+4.CREATE USER Syntax
 https://dev.mysql.com/doc/refman/8.0/en/create-user.html
 
 CREATE USER [IF NOT EXISTS]
@@ -55,8 +66,7 @@ CREATE USER [IF NOT EXISTS]
 在命令行中获取帮助:
 mysql> help create user;
 
-
-
+5.
 
 
 
