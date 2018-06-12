@@ -79,7 +79,34 @@ The active roles for an account can differ across and within sessions, depending
 activate_all_roles_on_login system variable, the account default roles, and whether SET ROLE has been 
 executed within a session.
 
-5.CREATE USER Syntax
+5.set role, set default role
+https://dev.mysql.com/doc/refman/8.0/en/set-role.html
+https://dev.mysql.com/doc/refman/8.0/en/set-default-role.html
+
+SET DEFAULT ROLE specifies which account roles are active by default. //指定默认激活的角色
+SET ROLE changes the active roles within the current session. //在会话期间动态修改角色
+
+SET ROLE
+    {
+        DEFAULT
+      | NONE
+      | ALL
+      | ALL EXCEPT role [, role ] ...
+      | role [, role ] ...
+    }
+    
+SET ROLE DEFAULT;
+SET ROLE 'role1', 'role2';
+SET ROLE ALL;
+SET ROLE ALL EXCEPT 'role1', 'role2';
+
+SET DEFAULT ROLE
+    {NONE | ALL | role [, role ] ...}
+    TO user [, user ] ...
+    
+SET DEFAULT ROLE administrator, developer TO 'joe'@'10.0.0.1';
+
+6.CREATE USER Syntax
 https://dev.mysql.com/doc/refman/8.0/en/create-user.html
 
 CREATE USER [IF NOT EXISTS]
@@ -91,8 +118,6 @@ CREATE USER [IF NOT EXISTS]
     
 在命令行中获取帮助:
 mysql> help create user;
-
-6.
 
 
 
