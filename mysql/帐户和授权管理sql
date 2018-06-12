@@ -1,0 +1,5 @@
+mysql>
+
+create role 'app_developer'@'localhost';
+create role 'app_read'@'localhost';
+create role 'app_write'@'localhost';
