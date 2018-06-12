@@ -20,7 +20,7 @@ secure-file-priv= #Limit LOAD DATA, SELECT ... OUTFILE, and LOAD_FILE() tofiles 
 
 default-time-zone='+8:00' #默认时区
 
-skip_show_database #只有有SHOW DATABASES权限的用户才可以执行目录show databases;
+#skip_show_database #只有有SHOW DATABASES权限的用户才可以执行目录show databases;可以在权限/角色里面限制
 log_timestamps=SYSTEM
 
 log-bin=/var/lib/mysql/logbin/binlog #目录权限0744
