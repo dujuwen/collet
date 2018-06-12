@@ -3,3 +3,20 @@ mysql>
 create role 'app_developer'@'localhost';
 create role 'app_read'@'localhost';
 create role 'app_write'@'localhost';
+grant all on djw.* to 'app_developer'@'localhost';
+grant select on djw.* to 'app_read'@'localhost';
+grant insert,update,delete to 'app_write'@'localhost';
+
+
+
+
+
+
+show grants for app_developer@'localhost';
++----------------------------------------------------------------+
+| Grants for app_developer@localhost                             |
++----------------------------------------------------------------+
+| GRANT USAGE ON *.* TO `app_developer`@`localhost`              |
+| GRANT ALL PRIVILEGES ON `djw`.* TO `app_developer`@`localhost` |
++----------------------------------------------------------------
+
