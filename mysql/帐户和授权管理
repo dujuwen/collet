@@ -53,7 +53,33 @@ GRANT SELECT ON world.* TO 'role3';
 
 From the mysql program, GRANT responds with Query OK, 0 rows affected when executed successfully.
 
-4.CREATE USER Syntax
+一般流程是：创建角色--给角色授予权限--创建带有密码的用户--将角色授予用户
+
+4.show grants
+https://dev.mysql.com/doc/refman/8.0/en/show-grants.html
+
+SHOW GRANTS
+    [FOR user_or_role
+        [USING role [, role] ...]]
+
+user_or_role: {
+    user
+  | role
+}
+
+mysql> help show grants; //可以显示帮助授权命令
+
+显示当前登录用户授权:
+SHOW GRANTS;
+SHOW GRANTS FOR CURRENT_USER;
+SHOW GRANTS FOR CURRENT_USER();
+
+A privileges granted an an account is always in effect, but a role is not. 
+The active roles for an account can differ across and within sessions, depending on the value of the 
+activate_all_roles_on_login system variable, the account default roles, and whether SET ROLE has been 
+executed within a session.
+
+5.CREATE USER Syntax
 https://dev.mysql.com/doc/refman/8.0/en/create-user.html
 
 CREATE USER [IF NOT EXISTS]
@@ -66,7 +92,7 @@ CREATE USER [IF NOT EXISTS]
 在命令行中获取帮助:
 mysql> help create user;
 
-5.
+6.
 
 
 
