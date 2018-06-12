@@ -23,6 +23,19 @@ default-time-zone='+8:00' #默认时区
 skip_show_database #只有有SHOW DATABASES权限的用户才可以执行目录show databases;
 log_timestamps=SYSTEM
 
+log-bin=/var/lib/mysql/logbin/binlog #目录权限0744
+max_connections=3000
+table_open_cache=10000
+innodb_open_files=30000
+open_files_limit=30000 #the value cannot be set greater than ulimit -n
+local_infile=1
+
+log_output=TABLE
+general_log=0
+long_query_time=2 #超过2秒的为慢日志
+binlog-format=MIXED
+activate_all_roles_on_login=true
+
 [mysql] #这一块客户端有需要的都可以添加
 user=root
 password=xxxxxxx
