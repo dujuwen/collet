@@ -314,6 +314,11 @@ ALTER USER 'old_app_dev'@'localhost' ACCOUNT LOCK;
 CREATE USER 'new_app_dev1'@'localhost' IDENTIFIED BY 'new_password';
 GRANT 'old_app_dev'@'localhost' TO 'new_app_dev1'@'localhost';
 
-29.
+29.访问控制
+https://dev.mysql.com/doc/refman/8.0/en/privilege-system.html
+
+访问控制第一阶段认证用户名、host、密码和用户帐户是否被锁定
+访问控制第一阶段认证该连接发出的每个请求：user, db, tables_priv, columns_priv, or procs_priv
+
 
 
