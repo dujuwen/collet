@@ -30,3 +30,6 @@ show grants for app_developer@'localhost';
 | GRANT USAGE ON *.* TO `app_developer`@`localhost`              |
 | GRANT ALL PRIVILEGES ON `djw`.* TO `app_developer`@`localhost` |
 +----------------------------------------------------------------
+
+最后刷新权限:
+flush privileges;
