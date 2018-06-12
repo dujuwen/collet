@@ -320,5 +320,19 @@ https://dev.mysql.com/doc/refman/8.0/en/privilege-system.html
 访问控制第一阶段认证用户名、host、密码和用户帐户是否被锁定
 访问控制第一阶段认证该连接发出的每个请求：user, db, tables_priv, columns_priv, or procs_priv
 
+30.权限变化
+https://dev.mysql.com/doc/refman/8.0/en/privilege-changes.html
+
+在mysqld启动的时候它会读取所有的权限表到内存中，有些操作是立即生效的有些操作是要手动执行刷新权限操作才会生效的，如果不确定是否生效在
+涉及到权限的修改之后可以手动更新内存中的权限信息：
+mysql> FLUSH PRIVILEGES;
+sehll> mysqladmin flush-privileges
+shell> mysqladmin reload
+
+一般直接修改权限表是需要手动刷新权限的。
+
+31.
+
+
 
 
