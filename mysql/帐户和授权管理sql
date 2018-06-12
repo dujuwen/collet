@@ -7,15 +7,21 @@ grant all on djw.* to 'app_developer'@'localhost';
 grant select on djw.* to 'app_read'@'localhost';
 grant insert,update,delete to 'app_write'@'localhost';
 create user djw1 identified by 'R2T%<ybxSsVG';
+grant 'app_read'@'localhost' to djw1;
+grant 'app_write'@'localhost' to djw1;
 
 #如果mysqld中没有配置activate_all_roles_on_login=true，来激活默认角色
 set default role 'app_developer'@'localhost' to djw1;
 
 
-
-
-
-
+show grants for djw1 using `app_read`@`localhost`,`app_write`@`localhost`;
++--------------------------------------------------------------------+
+| Grants for djw1@%                                                  |
++--------------------------------------------------------------------+
+| GRANT USAGE ON *.* TO `djw1`@`%`                                   |
+| GRANT SELECT, INSERT, UPDATE, DELETE ON `djw`.* TO `djw1`@`%`      |
+| GRANT `app_read`@`localhost`,`app_write`@`localhost` TO `djw1`@`%` |
++--------------------------------------------------------------------+
 
 show grants for app_developer@'localhost';
 +----------------------------------------------------------------+
@@ -24,4 +30,3 @@ show grants for app_developer@'localhost';
 | GRANT USAGE ON *.* TO `app_developer`@`localhost`              |
 | GRANT ALL PRIVILEGES ON `djw`.* TO `app_developer`@`localhost` |
 +----------------------------------------------------------------
-
