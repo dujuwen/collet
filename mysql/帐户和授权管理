@@ -120,10 +120,11 @@ SET DEFAULT ROLE
     
 SET DEFAULT ROLE administrator, developer TO 'joe'@'10.0.0.1';
 
-6.CREATE USER Syntax
+6.CREATE USER 和 ALTER USER
 https://dev.mysql.com/doc/refman/8.0/en/create-user.html
+https://dev.mysql.com/doc/refman/8.0/en/alter-user.html
 
-CREATE USER [IF NOT EXISTS]
+6.1) CREATE USER [IF NOT EXISTS]
     user [auth_option] [, user [auth_option]] ...
     DEFAULT ROLE role [, role ] ...
     [REQUIRE {NONE | tls_option [[AND] tls_option] ...}]
@@ -133,11 +134,45 @@ CREATE USER [IF NOT EXISTS]
 在命令行中获取帮助:
 mysql> help create user;
 
+CREATE USER 'name'@'localhost' IDENTIFIED BY 'password' [default role app_read@localhost ...];
+CREATE USER 'jeffrey'@'localhost'IDENTIFIED WITH sha256_password BY 'new_password' [default role app_read@localhost ...];
 
+在用户从本地客户端登录数据库的时候一定要加x509认证!!!
 
+6.2) ALTER USER [IF EXISTS]
+    user [auth_option] [, user [auth_option]] ...
+    [REQUIRE {NONE | tls_option [[AND] tls_option] ...}]
+    [WITH resource_option [resource_option] ...]
+    [password_option | lock_option] ...
 
+ALTER USER [IF EXISTS]
+    USER() IDENTIFIED BY 'auth_string'
+    
+ALTER USER [IF EXISTS]
+    user DEFAULT ROLE
+    {NONE | ALL | role [, role ] ...}
 
+修改密码后可能存在历史记录中，比如：~/.mysql_history，所以执行完修改用户密码后可以清空日志：echo > ~/.mysql_history
 
+修改用户密码:
+ALTER USER USER() IDENTIFIED BY 'auth_string';
+ALTER USER 'jeffrey'@'localhost' IDENTIFIED WITH sha256_password BY 'new_password'
+
+帐户锁定和解锁:
+ALTER USER 'jeffrey'@'localhost' ACCOUNT LOCK;
+ALTER USER 'jeffrey'@'localhost' ACCOUNT UNLOCK;
+
+可以设置hash过后的密码这样不怕密码泄露:
+ALTER USER 'jeffrey'@'localhost' IDENTIFIED WITH mysql_native_password AS '*6C8989366EAF75BB670AD8EA7A7FC1176A95CEF4';
+hash值可以在本地测试后取得
+
+修改用户需要x509证书认证:
+ALTER USER 'jeffrey'@'localhost' REQUIRE X509;
+
+修改用户的默认角色:
+ALTER USER 'joe'@'10.0.0.1' DEFAULT ROLE administrator, developer;
+
+7.
 
 
 
