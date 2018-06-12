@@ -31,6 +31,8 @@ user=mysql
 14) 插件目录确保只读
 15) 删除匿名用户
 SELECT Host, User FROM mysql.user WHERE User='';DROP USER ''@'localhost';
+16) 修改用户密码后记得清空各种日志，比如：
+echo > ~/.mysql_history
 
 使用抓包命令，抓取访问服务器80的IP数  
 shell> tcpdump -tnn dst port 80 -c 100 | awk -F"." '{print $1"."$2"."$3"."$4}' | sort | uniq -c | sort -n -r |head -20
