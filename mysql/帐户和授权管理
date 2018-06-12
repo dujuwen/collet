@@ -55,6 +55,9 @@ From the mysql program, GRANT responds with Query OK, 0 rows affected when execu
 
 一般流程是：创建角色--给角色授予权限--创建带有密码的用户--将角色授予用户
 
+由于_符号有特殊含义所有在设计数据库的时候不用_而用驼峰式:
+GRANT ... ON `foo\_bar`.* TO ....
+
 4.show grants
 https://dev.mysql.com/doc/refman/8.0/en/show-grants.html
 
