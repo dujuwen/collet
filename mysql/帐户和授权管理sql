@@ -10,7 +10,7 @@ create user djw1 identified by 'R2T%<ybxSsVG';
 grant 'app_read'@'localhost' to djw1;
 grant 'app_write'@'localhost' to djw1;
 
-#如果mysqld中没有配置activate_all_roles_on_login=true，来激活默认角色
+#如果mysqld中没有配置activate_all_roles_on_login=true，set default role默认角色,set role在会话的时候激活角色
 set default role 'app_developer'@'localhost' to djw1;
 
 
