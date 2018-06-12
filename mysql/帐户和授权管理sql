@@ -6,6 +6,11 @@ create role 'app_write'@'localhost';
 grant all on djw.* to 'app_developer'@'localhost';
 grant select on djw.* to 'app_read'@'localhost';
 grant insert,update,delete to 'app_write'@'localhost';
+create user djw1 identified by 'R2T%<ybxSsVG';
+
+#如果mysqld中没有配置activate_all_roles_on_login=true，来激活默认角色
+set default role 'app_developer'@'localhost' to djw1;
+
 
 
 
