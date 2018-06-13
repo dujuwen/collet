@@ -18,3 +18,6 @@ http://www.cnblogs.com/cloudgamer/archive/2010/02/01/LazyLoad.html
 http://www.cnblogs.com/cloudgamer/archive/2010/03/03/ImagesLazyLoad.html
 
 图片优化，无非压缩、合并、CDN、缓存、延时加载、独立域名
+
+先显示低清图片然后加载高清图片:
+https://blog.csdn.net/qq_15936309/article/details/76144942
