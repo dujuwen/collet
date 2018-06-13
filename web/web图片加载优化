@@ -36,3 +36,18 @@ guetzli有哪些劣势？
 guetzli处理类型局限性，并不能应对全部类型的图片。只能处理YUV颜色编码的图片。
 时效性较差，图片越大处理越慢。1MB的图片处理需要291秒，本次测试平均23KB的图片需要8秒。
 
+mac安装:
+brew install libpng guetzli
+
+guetzli --help
+Unknown commandline flag: --help
+Guetzli JPEG compressor. Usage:
+guetzli [flags] input_filename output_filename
+
+Flags:
+  --verbose    - Print a verbose trace of all attempts to standard output.
+  --quality Q  - Visual quality to aim for, expressed as a JPEG quality value.
+  --memlimit M - Memory limit in MB. Guetzli will fail if unable to stay under
+                 the limit. Default is 6000 MB
+  --nomemlimit - Do not limit memory usage.
+  
