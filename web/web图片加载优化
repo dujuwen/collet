@@ -21,3 +21,18 @@ http://www.cnblogs.com/cloudgamer/archive/2010/03/03/ImagesLazyLoad.html
 
 先显示低清图片然后加载高清图片:
 https://blog.csdn.net/qq_15936309/article/details/76144942
+
+
+1.guetzli
+https://my.oschina.net/qcloudcommunity/blog/863997
+https://github.com/google/guetzli
+
+guetzli的优势在哪?
+实测对质量在90或以下的jpg图片，guetzli输出的新图质量不会降低。而实际压缩率能够达到平均压缩率29%。
+兼容性比较好，输出的jpeg格式图片通用性非常高。没有webp、sharpp那种协议不兼容的困扰。
+在客户端jpeg格式的图片编解码速度比其他私有协议快很多。
+
+guetzli有哪些劣势？
+guetzli处理类型局限性，并不能应对全部类型的图片。只能处理YUV颜色编码的图片。
+时效性较差，图片越大处理越慢。1MB的图片处理需要291秒，本次测试平均23KB的图片需要8秒。
+
