@@ -60,3 +60,12 @@ ERROR 1045 (28000): Access denied for user 'djw'@'192.168.242.1' (using password
 4.如何去掉用户的x509认证?
 mysql> alter user djw require none;
 mysql> flush privileges;
+
+5.查看证书过期时间
+https://dev.mysql.com/doc/refman/8.0/en/creating-ssl-rsa-files-using-mysql.html
+
+SHOW STATUS LIKE 'Ssl_server_not%';
+
+openssl x509 -text -in ca.pem
+openssl x509 -text -in server-cert.pem
+openssl x509 -text -in client-cert.pem
