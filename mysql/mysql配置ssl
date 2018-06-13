@@ -10,6 +10,9 @@ ssl-ca=/var/lib/mysql2/ca.pem
 ssl-cert=/var/lib/mysql2/server-cert.pem
 ssl-key=/var/lib/mysql2/server-key.pem
 
+https://dev.mysql.com/doc/refman/8.0/en/creating-ssl-rsa-files-using-mysql.html
+在选项auto_generate_certs设置为true的时候，mysqld在启动的时候会自动生成服务器端和客户端证书和文件，可以不用手动调用mysql_ssl_rsa_setup
+
 如果/var/lib/mysql2下没有认证文件的话可以使用命令生成:
 # /usr/bin/mysql_ssl_rsa_setup --datadir=/var/lib/mysql2
 
