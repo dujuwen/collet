@@ -11,6 +11,21 @@ shell> mysqldump --single-transaction --flush-logs --master-data=2 --all-databas
 
 --delete-master-logs此选项的作用是在备份后删除无效的二进制日志，但是在有主从同步的时候要慎用，因为此时有可能从数据库还没有同步完成!!!
 
+2.利用上面的逻辑备份加增量二进制日志进行恢复
+https://dev.mysql.com/doc/refman/8.0/en/recovery-from-backups.html
 
-2.
+在任何时候恢复数据的时候都要注意当前恢复数据操作是否需要写binlog，可以选择不写在完全恢复完成后再开启写binlog。
 
+2.1) shell> cd path_to_back_sql_dir
+shell> sed -i '1i\set session sql_log_bin=0;' 
+shell> head -n 5 backup_djw.sql //检查
+shell> echo "set session sql_log_bin=1;" >> backup_djw.sql
+shell> mysql < backup_djw.sql
+
+2.2) shell> cd path_to_binlog
+shell> mysqlbinlog --disable-log-bin gbichot2-bin.000007 gbichot2-bin.000008 | mysql
+
+--disable-log-bin, you will need a SUPER privilege to use thisoption.
+mysqlbinlog还可以指定开始时间和结束时间
+
+3.
