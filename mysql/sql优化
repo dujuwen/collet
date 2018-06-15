@@ -1,3 +1,30 @@
+https://dev.mysql.com/doc/refman/8.0/en/statement-optimization.html
+
+1.查询主要考虑方向
+https://dev.mysql.com/doc/refman/8.0/en/select-optimization.html
+
+1) 使select..where更快的第一反应是添加索引
+2) 调整(避免)耗时函数的使用
+3) 最小化的全表扫码特别是对于大表
+4) 对于不同的存储引擎调参、调索引、调配置
+5) 周期性的优化表 ANALYZE TABLE 
+6) 使用只读来优化单查询事务
+7) 不要写对于数据库来说难优化的语句
+8) 使用explain分析sql
+9) 合适的缓存空间
+10) 在利用内存更快的同时应该考虑能否使用更少的内存空间达到同样的效果
+11) 使用适当的锁
+
+2.
+
+
+
+
+
+
+
+
+
 https://mp.weixin.qq.com/s/dGcgts4NNTmVQNRT-j2MZw
 
 一、一些常见的SQL实践
