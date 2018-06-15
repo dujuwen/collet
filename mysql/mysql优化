@@ -16,4 +16,9 @@ https://dev.mysql.com/doc/refman/8.0/en/optimize-overview.html
 CPU
 内存和带宽
 
-2.
+2.sql优化
+https://github.com/dujuwen/collet/blob/master/mysql/sql%E4%BC%98%E5%8C%96
+https://dev.mysql.com/doc/refman/8.0/en/statement-optimization.html
+
+3.
+
