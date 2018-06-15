@@ -28,4 +28,28 @@ shell> mysqlbinlog --disable-log-bin gbichot2-bin.000007 gbichot2-bin.000008 | m
 --disable-log-bin, you will need a SUPER privilege to use thisoption.
 mysqlbinlog还可以指定开始时间和结束时间
 
-3.
+3.下面两种方式可以刷新日志，刷新的同时二进制日志会在新文件中开始记录
+mysql> FLUSH LOGS
+shell> mysqladmin flush-logs
+
+会话变量sql_log_bin可以决定是否记录二进制日志，打开的时候会记录，关闭的时候不记录
+(root) [djw] 15:10:53 >show variables like 'sql_log_bin';
++---------------+-------+
+| Variable_name | Value |
++---------------+-------+
+| sql_log_bin   | OFF   |
++---------------+-------+
+1 row in set (0.00 sec)
+
+(root) [djw] 15:13:33 >set session sql_log_bin=1;
+Query OK, 0 rows affected (0.00 sec)
+
+(root) [djw] 15:13:43 >show variables like 'sql_log_bin';
++---------------+-------+
+| Variable_name | Value |
++---------------+-------+
+| sql_log_bin   | ON    |
++---------------+-------+
+
+4.
+
