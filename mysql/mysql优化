@@ -3,6 +3,17 @@ https://dev.mysql.com/doc/refman/8.0/en/optimization.html
 1.优化概述
 https://dev.mysql.com/doc/refman/8.0/en/optimize-overview.html
 
-从表结构、sql查询、配置到服务器CPU、I/O，学会使用时钟测量性能
+从表结构、sql查询、配置到服务器CPU、I/O，学会使用时钟测量性能。数据库的优化不应该脱离软件本身和所在的硬件平台。
 
+软件数据库优化：
+合适的数据库表结构
+合适的索引
+锁机制
+数据缓存
 
+硬件优化:
+硬盘性能，比如读写性能
+CPU
+内存和带宽
+
+2.
