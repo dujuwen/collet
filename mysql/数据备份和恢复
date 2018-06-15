@@ -101,3 +101,11 @@ shell> mysqlbinlog --stop-position=368312 /var/log/mysql/bin.123456 \
 shell> mysqlbinlog --start-position=368315 /var/log/mysql/bin.123456 \
          | mysql -u root -p
          
+8.备份方式总结
+使用cp、scp、tar等方式将mysql物理文件备份
+mysqldump和mysqldump --tab备份
+binlog备份
+触发器等备份
+配置文件备份
+
+恢复方式优先采用逻辑备份恢复和二进制日志增量恢复
