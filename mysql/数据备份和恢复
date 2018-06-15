@@ -59,11 +59,16 @@ https://dev.mysql.com/doc/refman/8.0/en/backup-strategy-summary.html
 定期使用刷新日志来进行二进制日志的增量备份
 定期刷新日志的好处在于可以将二进制日志切割的很小这样在处理问题的时候掌控更加方便，在实际操作的时候可以每8个小时刷新一次!
 
-5.
+5.备份数据为分割文件而不是sql，好处是每个表单独备份速度快，坏处是要手动恢复每个，可以写shell来完成这个操作
+https://dev.mysql.com/doc/refman/8.0/en/mysqldump-delimited-text.html
+也可以参见:
+https://github.com/dujuwen/collet/blob/master/mysql/mysqldump
 
+要注意的是 mysqlimport 如果服务器/etc/my.cnf里面有设置secure-file-priv那么导入的时候必须把路径前缀加上!!
+mysqlimport 选项 dbname /var/lib/mysql-files/tablename.txt
 
-
-
+查看secure_file_priv:
+mysql> show variables like 'secure_file_priv';
 
 
 
