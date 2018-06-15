@@ -15,11 +15,12 @@ https://dev.mysql.com/doc/refman/8.0/en/select-optimization.html
 10) 在利用内存更快的同时应该考虑能否使用更少的内存空间达到同样的效果
 11) 使用适当的锁
 
-2.
+2.EXPLAIN key_len
+https://dev.mysql.com/doc/refman/8.0/en/range-optimization.html
+The key_len column in the EXPLAIN output indicates the maximum length of the key prefix used.
+In some cases, key_len may indicate that a key part was used, but that might be not what you would expect.
 
-
-
-
+3.
 
 
 
