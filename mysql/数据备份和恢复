@@ -78,3 +78,26 @@ https://dev.mysql.com/doc/refman/8.0/en/mysqldump-stored-programs.html
 --routines: Dump stored procedures and functions
 --triggers: Dump triggers for tables
 
+7.定点恢复
+https://dev.mysql.com/doc/refman/8.0/en/point-in-time-recovery.html
+
+查看所有binlog:
+mysql> SHOW BINARY LOGS;
+
+To determine the name of the current binary log file, issue the following statement:
+mysql> SHOW MASTER STATUS;
+
+shell> mysqlbinlog --stop-datetime="2005-04-20 9:59:59" \
+         /var/log/mysql/bin.123456 | mysql -u root -p
+shell> mysqlbinlog --start-datetime="2005-04-20 10:01:00" \
+         /var/log/mysql/bin.123456 | mysql -u root -p
+shell> mysqlbinlog /var/log/mysql/bin.123456 > /tmp/mysql_restore.sql   
+shell> mysqlbinlog --start-datetime="2005-04-20 9:55:00" \
+         --stop-datetime="2005-04-20 10:05:00" \
+         /var/log/mysql/bin.123456 > /tmp/mysql_restore.sql
+
+shell> mysqlbinlog --stop-position=368312 /var/log/mysql/bin.123456 \
+         | mysql -u root -p
+shell> mysqlbinlog --start-position=368315 /var/log/mysql/bin.123456 \
+         | mysql -u root -p
+         
