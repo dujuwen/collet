@@ -9,4 +9,5 @@ shell> chmod 0600 id_ed25519
 ssh登录检测:
 ssh -v user@ip
 
-2.
+2.安装php
+https://github.com/dujuwen/collet/blob/master/server/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E8%A3%85php
