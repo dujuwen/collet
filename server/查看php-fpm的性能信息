@@ -1,5 +1,6 @@
 1.配置php-fpm
 vim /etc/php-fpm.d/www.conf
+或者 vim /usr/local/php/etc/php-fpm.d/www.conf
 pm.status_path = /status
 
 2.配置nginx
