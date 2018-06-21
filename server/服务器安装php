@@ -202,7 +202,7 @@ After=network.target
 
 [Service]
 Type=simple
-PIDFile=/run/php-fpm.pid
+PIDFile=/run/php-fpm/php-fpm.pid
 ExecStart=/usr/local/bin/php-fpm --daemonize --fpm-config /usr/local/php/etc/php-fpm.conf
 ExecReload=/usr/bin/kill -USR2 $MAINPID
 ExecStop=/usr/bin/kill -INT $MAINPID
@@ -210,6 +210,8 @@ ExecStop=/usr/bin/kill -INT $MAINPID
 [Install]
 WantedBy=multi-user.target
 
+-------------------------------------
+PIDFile与php-fpm.conf配置文件中的pid路径一致、ExecStart、ExecReload、ExecStop这些都可以单独执行
 更改文件读写权限
 #chmod 0766 /etc/systemd/system/php-fpm.service
 
