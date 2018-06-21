@@ -77,7 +77,7 @@ http {
     
     proxy_buffer_size 16k;
     proxy_buffers 4 32k;
-    proxy_busy_buffers_size 256k;
+    proxy_busy_buffers_size 64k;
 
     fastcgi_buffer_size 16k;
     fastcgi_buffers 8 32k;
@@ -86,7 +86,7 @@ http {
 
     #将无用的连接尽快设置为超时,可以保护服务器的系统资源（CPU、内存、磁盘）
     client_header_timeout 15;
-    clietn_body_timeout 15;
+    client_body_timeout 15;
     #send_timeout 15;
     
     #client_max_body_size 10m;      #具体数字要根据业务需求决定
