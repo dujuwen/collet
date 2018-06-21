@@ -230,3 +230,4 @@ PIDFile与php-fpm.conf配置文件中的pid路径一致、ExecStart、ExecReload
            ├─7677 php-fpm: master process (/etc/php-fpm.conf)
            ├─7678 php-fpm: pool www
            └─7679 php-fpm: pool www
+
