@@ -6,4 +6,7 @@ shell> chmod 0600 id_ed25519
 
 配置好之后就可以进行ssh安全登录了
 
+ssh登录检测:
+ssh -v user@ip
+
 2.
