@@ -55,6 +55,8 @@ $ ulimit -a
 系统总限制 > shell限制
 
 4.vim基本设置
+vim ~/.vimrc:
+
 set history=1000
 autocmd InsertLeave * se cul
 autocmd InsertLeave * se nocul
