@@ -28,4 +28,27 @@ CentOS
 2.openresty最佳实践
 https://www.kancloud.cn/allanyu/openresty-best-practices/82570
 
-3.
+3.开机自动启动
+vim /etc/systemd/system/openresty.service:
+
+[Unit]
+Description=Nginx
+
+[Service]
+Type=forking
+PIDFile=/run/nginx.pid
+ExecStartPre=/usr/bin/openresty -t
+ExecStart=/usr/bin/openresty
+ExecReload=/usr/bin/kill -s HUP $MAINPID
+ExecStop=/usr/bin/kill -s QUIT $MAINPID
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.targe
+
+
+shell> systemctl daemon-reload
+shell> systemctl enable openresty.service
+shell> systemctl start openresty.service
+
+
