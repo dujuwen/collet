@@ -52,5 +52,35 @@ shell> systemctl daemon-reload
 shell> systemctl enable openresty.service
 shell> systemctl start openresty.service
 
-4.openresty最佳实践
+4. 测试nginx和php-fpm是否打通
+shell> openresty -t
+nginx: the configuration file /usr/local/openresty/nginx/conf/nginx.conf syntax is ok
+nginx: configuration file /usr/local/openresty/nginx/conf/nginx.conf test is successful
+
+shell> mkdir -p /data/phptest
+shell> cd /data/phptest
+shell> vim index.php
+<?php
+phpinfo();
+
+shell> vim /usr/local/openresty/nginx/conf/nginx.conf
+root /data/phptest;
+location / {
+    try_files $uri $uri/ /index.php?$args;
+}
+
+location ~ "^(.+\.php)$" {
+    try_files $uri /index.php?$args =404;
+    include        fastcgi_params;
+    fastcgi_param  SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    fastcgi_pass unix:/var/run/php-fpm.sock;
+}
+
+说明:
+fastcgi_pass这里配置应该和php-fpm配置中的www.conf配置中的listen一样/var/run/php-fpm.sock
+
+查看是否能访问:
+shell> curl localhost
+
+5.openresty最佳实践
 https://www.kancloud.cn/allanyu/openresty-best-practices/82570
