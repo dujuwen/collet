@@ -21,7 +21,7 @@ LimitNOFILE = 30000
 如果service有修改的话需要执行:
 shell> systemctl daemon-reload //Reload systemd manager configuration
 
-vim /etc/my.conf:
+vim /etc/my.cnf:
 [mysqld]
 #max_connections默认是151太小了
 max_connections=2000 
