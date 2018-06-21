@@ -1,0 +1,9 @@
+1.在控制台配置ssh秘钥然后下载
+
+shell> mv sof2 /Users/dujunwen/.ssh/id_ed25519
+shell> cd /Users/dujunwen/.ssh 
+shell> chmod 0600 id_ed25519
+
+配置好之后就可以进行ssh安全登录了
+
+2.
