@@ -1,4 +1,4 @@
-1.在控制台配置ssh秘钥然后下载
+1.在本地控制台配置ssh秘钥然后下载
 
 shell> mv sof2 /Users/dujunwen/.ssh/id_ed25519
 shell> cd /Users/dujunwen/.ssh 
@@ -15,3 +15,7 @@ https://github.com/dujuwen/collet/blob/master/server/%E6%9C%8D%E5%8A%A1%E5%99%A8
 3.Linux 常用操作及命令
 https://cloud.tencent.com/document/product/213/2150
 
+4.域名检测工具
+https://cloud.tencent.com/product/tools?domain=stackoverflowchina.com
+
+5.
