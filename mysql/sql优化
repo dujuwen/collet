@@ -20,7 +20,16 @@ https://dev.mysql.com/doc/refman/8.0/en/range-optimization.html
 The key_len column in the EXPLAIN output indicates the maximum length of the key prefix used.
 In some cases, key_len may indicate that a key part was used, but that might be not what you would expect.
 
-3.
+3.范围优化
+https://dev.mysql.com/doc/refman/8.0/en/range-optimization.html
+
+Only IN() predicates are used, not NOT IN().
+只有in()范围才会优化，not in()不会
+
+4.
+
+
+
 
 
 
