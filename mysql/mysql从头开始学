@@ -334,5 +334,15 @@ shell> mysqladmin reload
 31.语言结构
 https://dev.mysql.com/doc/refman/8.0/en/language-structure.html
 
+datetime取值范围
+'1000-01-01 00:00:00.000000' to '9999-12-31 23:59:59.999999'
+timestamp取值范围
+'1970-01-01 00:00:01.000000' UTC to '2038-01-19 03:14:07.999999'
+
+
+
+
+
+
 
 
