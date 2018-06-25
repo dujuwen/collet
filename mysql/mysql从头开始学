@@ -339,6 +339,24 @@ datetime取值范围
 timestamp取值范围
 '1970-01-01 00:00:01.000000' UTC to '2038-01-19 03:14:07.999999'
 
+32.字符集合和排序规则
+https://dev.mysql.com/doc/refman/8.0/en/charset-mysql.html
+https://dev.mysql.com/doc/refman/8.0/en/charset-database.html
+
+查看支持的字符集合:
+mysql> SHOW CHARACTER SET;
+查看支持的排序规则:
+mysql> SHOW COLLATION
+系统元字符变量:
+mysql> SHOW VARIABLES LIKE 'character_set_system';
+
+CREATE DATABASE db_name
+    [[DEFAULT] CHARACTER SET charset_name]
+    [[DEFAULT] COLLATE collation_name]
+
+ALTER DATABASE db_name
+    [[DEFAULT] CHARACTER SET charset_name]
+    [[DEFAULT] COLLATE collation_name]
 
 
 
