@@ -30,9 +30,8 @@ Only IN() predicates are used, not NOT IN().
 outer_expr IN (SELECT inner_expr FROM ... WHERE subquery_where)
 EXISTS (SELECT 1 FROM ... WHERE subquery_where AND outer_expr=inner_expr)
 
-5.
-
-
+5.EXPLAIN Output Columns
+https://dev.mysql.com/doc/refman/8.0/en/explain-output.html
 
 
 
