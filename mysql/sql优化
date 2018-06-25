@@ -26,8 +26,11 @@ https://dev.mysql.com/doc/refman/8.0/en/range-optimization.html
 Only IN() predicates are used, not NOT IN().
 只有in()范围才会优化，not in()不会
 
-4.
+4.https://dev.mysql.com/doc/refman/8.0/en/subquery-optimization-with-exists.html
+outer_expr IN (SELECT inner_expr FROM ... WHERE subquery_where)
+EXISTS (SELECT 1 FROM ... WHERE subquery_where AND outer_expr=inner_expr)
 
+5.
 
 
 
