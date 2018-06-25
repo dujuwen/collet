@@ -342,6 +342,7 @@ timestamp取值范围
 32.字符集合和排序规则
 https://dev.mysql.com/doc/refman/8.0/en/charset-mysql.html
 https://dev.mysql.com/doc/refman/8.0/en/charset-database.html
+https://dev.mysql.com/doc/refman/8.0/en/charset-applications.html
 
 查看支持的字符集合:
 mysql> SHOW CHARACTER SET;
@@ -350,6 +351,10 @@ mysql> SHOW COLLATION
 系统元字符变量:
 mysql> SHOW VARIABLES LIKE 'character_set_system';
 
+CREATE DATABASE mydb
+  CHARACTER SET latin1
+  COLLATE latin1_swedish_ci;
+  
 CREATE DATABASE db_name
     [[DEFAULT] CHARACTER SET charset_name]
     [[DEFAULT] COLLATE collation_name]
@@ -358,9 +363,24 @@ ALTER DATABASE db_name
     [[DEFAULT] CHARACTER SET charset_name]
     [[DEFAULT] COLLATE collation_name]
 
+列字符集:
+https://dev.mysql.com/doc/refman/8.0/en/charset-column.html
 
+col_name {CHAR | VARCHAR | TEXT} (col_length)
+    [CHARACTER SET charset_name]
+    [COLLATE collation_name]
+    
+col_name {ENUM | SET} (val_list)
+    [CHARACTER SET charset_name]
+    [COLLATE collation_name]
 
+ALTER TABLE t MODIFY col1 CHAR(50) CHARACTER SET utf8;
 
+33.字符集
+https://dev.mysql.com/doc/refman/8.0/en/charset-unicode-sets.html
 
+utf8mb4: A UTF-8 encoding of the Unicode character set using one to four bytes per character.
+utf8mb3: A UTF-8 encoding of the Unicode character set using one to three bytes per character.
+utf8: An alias for utf8mb3.
 
-
+34.
