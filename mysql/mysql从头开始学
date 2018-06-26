@@ -388,6 +388,7 @@ https://dev.mysql.com/doc/refman/8.0/en/data-types.html
 
 35.数字型
 https://dev.mysql.com/doc/refman/8.0/en/numeric-type-overview.html
+https://dev.mysql.com/doc/refman/8.0/en/numeric-types.html
 
 M indicates the maximum display width for integer types. The maximum display width is 255. 
 Display width is unrelated to the range of values a type can contain, as described in Section 11.2, “Numeric Types”.
@@ -432,9 +433,15 @@ A variable-length string. M represents the maximum column length in characters. 
 For example, utf8 characters can require up to three bytes per character, so a VARCHAR column that uses the 
 utf8 character set can be declared to be a maximum of 21,844 characters
 
+38.货币类型
+https://dev.mysql.com/doc/refman/8.0/en/fixed-point-types.html
 
+The DECIMAL and NUMERIC types store exact numeric data values. These types are used when it is important to preserve exact precision, for example with monetary data.
 
+例如:
+salary DECIMAL(5,2)
+Standard SQL requires that DECIMAL(5,2) be able to store any value with five digits and two decimals, 
+so values that can be stored in the salary column range from -999.99 to 999.99.
 
-
-38.
+39.
 
