@@ -81,3 +81,20 @@ ALTER TABLE old_table RENAME new_table;
 1.8)TRUNCATE TABLE Syntax
 TRUNCATE [TABLE] tbl_name
 
+1.9)drop相关语法
+DROP {DATABASE | SCHEMA} [IF EXISTS] db_name
+
+DROP INDEX index_name ON tbl_name
+    [algorithm_option | lock_option] ...
+
+algorithm_option:
+    ALGORITHM [=] {DEFAULT|INPLACE|COPY}
+
+lock_option:
+    LOCK [=] {DEFAULT|NONE|SHARED|EXCLUSIVE}
+
+DROP [TEMPORARY] TABLE [IF EXISTS]
+    tbl_name [, tbl_name] ...
+    [RESTRICT | CASCADE]
+    
+2.
