@@ -455,5 +455,7 @@ salary DECIMAL(5,2)
 Standard SQL requires that DECIMAL(5,2) be able to store any value with five digits and two decimals, 
 so values that can be stored in the salary column range from -999.99 to 999.99.
 
-39.
+39.各种数据需要的存储空间
+https://dev.mysql.com/doc/refman/8.0/en/storage-requirements.html
+
 
