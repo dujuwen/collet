@@ -51,11 +51,22 @@ CREATE TABLE `jemp` (
   KEY `i` (`g`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-1.5)
+1.5)ALTER DATABASE Syntax
+ALTER {DATABASE | SCHEMA} [db_name]
+    alter_specification ...
+ALTER {DATABASE | SCHEMA} db_name
+    UPGRADE DATA DIRECTORY NAME
 
+alter_specification:
+    [DEFAULT] CHARACTER SET [=] charset_name
+  | [DEFAULT] COLLATE [=] collation_name
 
+1.6)ALTER TABLE Syntax
+https://dev.mysql.com/doc/refman/5.7/en/alter-table.html
 
+比如重命名列:
+ALTER TABLE newcate CHANGE name namen varchar(5) DEFAULT NULL
 
-
-
+ALTER TABLE Examples
+https://dev.mysql.com/doc/refman/5.7/en/alter-table-examples.html
 
