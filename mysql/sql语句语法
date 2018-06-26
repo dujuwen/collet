@@ -70,3 +70,14 @@ ALTER TABLE newcate CHANGE name namen varchar(5) DEFAULT NULL
 ALTER TABLE Examples
 https://dev.mysql.com/doc/refman/5.7/en/alter-table-examples.html
 
+1.7)RENAME TABLE Syntax
+RENAME TABLE
+    tbl_name TO new_tbl_name
+    [, tbl_name2 TO new_tbl_name2] ...
+    
+RENAME TABLE old_table TO new_table;
+ALTER TABLE old_table RENAME new_table;
+
+1.8)TRUNCATE TABLE Syntax
+TRUNCATE [TABLE] tbl_name
+
