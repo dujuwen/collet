@@ -97,4 +97,41 @@ DROP [TEMPORARY] TABLE [IF EXISTS]
     tbl_name [, tbl_name] ...
     [RESTRICT | CASCADE]
     
-2.
+2.数据操作语句
+https://dev.mysql.com/doc/refman/5.7/en/sql-syntax-data-manipulation.html
+https://dev.mysql.com/doc/refman/5.7/en/insert.html
+
+INSERT [LOW_PRIORITY | DELAYED | HIGH_PRIORITY] [IGNORE]
+    [INTO] tbl_name
+    [PARTITION (partition_name [, partition_name] ...)]
+    [(col_name [, col_name] ...)]
+    {VALUES | VALUE} (value_list) [, (value_list)] ...
+    [ON DUPLICATE KEY UPDATE assignment_list]
+
+INSERT [LOW_PRIORITY | DELAYED | HIGH_PRIORITY] [IGNORE]
+    [INTO] tbl_name
+    [PARTITION (partition_name [, partition_name] ...)]
+    SET assignment_list
+    [ON DUPLICATE KEY UPDATE assignment_list]
+
+INSERT [LOW_PRIORITY | HIGH_PRIORITY] [IGNORE]
+    [INTO] tbl_name
+    [PARTITION (partition_name [, partition_name] ...)]
+    [(col_name [, col_name] ...)]
+    SELECT ...
+    [ON DUPLICATE KEY UPDATE assignment_list]
+
+value:
+    {expr | DEFAULT}
+
+value_list:
+    value [, value] ...
+
+assignment:
+    col_name = value
+
+assignment_list:
+    assignment [, assignment] ...
+
+3.JOIN Syntax
+https://dev.mysql.com/doc/refman/5.7/en/join.html
