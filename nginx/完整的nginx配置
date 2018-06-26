@@ -99,6 +99,11 @@ http {
 
         root /Users/dujunwen/project/github/LieToMe/public;
         
+        #http://laravelacademy.org/post/8689.html
+        add_header X-Frame-Options "SAMEORIGIN";
+        add_header X-XSS-Protection "1; mode=block";
+        add_header X-Content-Type-Options "nosniff";
+    
         # 必选规则
         location = / {
             #直接跳转到php代码首页处理
@@ -107,6 +112,9 @@ http {
         location / {
            try_files $uri $uri/ /index.php?$args;
         }
+        
+        location = /favicon.ico { access_log off; log_not_found off; }
+        location = /robots.txt  { access_log off; log_not_found off; }
 
         #还可以将静态文件特殊处理
         location /assets/(js|css|images)/ {
@@ -117,6 +125,8 @@ http {
         location = /404.html {
             root /usr/local/Cellar/nginx/1.6.2/html;
         }
+        #或者
+        #error_page 404 /index.php;
 
         error_page   500 502 503 504  /50x.html;
         location = /50x.html {
@@ -161,6 +171,10 @@ http {
             #fastcgi_param SCRIPT_FILENAME /path/to/php$fastcgi_script_name;
             #fastcgi_param PATH_INFO       $fastcgi_path_info;
         #}
+        
+        location ~ /\.(?!well-known).* {
+            deny all;
+        }
     }
     
     #下面这个配置是防止恶意解析
