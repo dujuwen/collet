@@ -139,5 +139,6 @@ https://dev.mysql.com/doc/refman/5.7/en/join.html
 4.子查询语法
 https://dev.mysql.com/doc/refman/5.7/en/subqueries.html
 
-
+优化子查询
+https://dev.mysql.com/doc/refman/5.7/en/optimizing-subqueries.html
 
