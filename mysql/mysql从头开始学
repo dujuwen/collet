@@ -383,4 +383,36 @@ utf8mb4: A UTF-8 encoding of the Unicode character set using one to four bytes p
 utf8mb3: A UTF-8 encoding of the Unicode character set using one to three bytes per character.
 utf8: An alias for utf8mb3.
 
-34.
+34.数据类型
+https://dev.mysql.com/doc/refman/8.0/en/data-types.html
+
+35.数字型
+https://dev.mysql.com/doc/refman/8.0/en/numeric-type-overview.html
+
+M indicates the maximum display width for integer types. The maximum display width is 255. 
+Display width is unrelated to the range of values a type can contain, as described in Section 11.2, “Numeric Types”.
+For floating-point and fixed-point types, M is the total number of digits that can be stored.
+
+TINYINT[(M)] [UNSIGNED] [ZEROFILL]
+A very small integer. The signed range is -128 to 127. The unsigned range is 0 to 255.
+
+BOOL, BOOLEAN
+These types are synonyms for TINYINT(1)
+
+SMALLINT[(M)] [UNSIGNED] [ZEROFILL]
+A small integer. The signed range is -32768 to 32767. The unsigned range is 0 to 65535.
+
+MEDIUMINT[(M)] [UNSIGNED] [ZEROFILL]
+A medium-sized integer. The signed range is -8388608 to 8388607. The unsigned range is 0 to 16777215.
+
+INT[(M)] [UNSIGNED] [ZEROFILL]
+A normal-size integer. The signed range is -2147483648 to 2147483647. The unsigned range is 0 to 4294967295.
+
+BIGINT[(M)] [UNSIGNED] [ZEROFILL]
+A large integer. The signed range is -9223372036854775808 to 9223372036854775807. The unsigned range is 0 to 18446744073709551615.
+
+DECIMAL[(M[,D])] [UNSIGNED] [ZEROFILL]
+A packed “exact” fixed-point number. M is the total number of digits (the precision) and D is the number of digits after the decimal point (the scale). 
+
+36.
+
