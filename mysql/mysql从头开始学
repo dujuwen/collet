@@ -458,4 +458,8 @@ so values that can be stored in the salary column range from -999.99 to 999.99.
 39.各种数据需要的存储空间
 https://dev.mysql.com/doc/refman/8.0/en/storage-requirements.html
 
+40.函数和操作符
+https://dev.mysql.com/doc/refman/8.0/en/functions.html
+
+41.
 
