@@ -414,5 +414,27 @@ A large integer. The signed range is -9223372036854775808 to 9223372036854775807
 DECIMAL[(M[,D])] [UNSIGNED] [ZEROFILL]
 A packed “exact” fixed-point number. M is the total number of digits (the precision) and D is the number of digits after the decimal point (the scale). 
 
-36.
+36.日期
+https://dev.mysql.com/doc/refman/8.0/en/date-and-time-type-overview.html
+
+DATETIME[(fsp)]
+A date and time combination. The supported range is '1000-01-01 00:00:00.000000' to '9999-12-31 23:59:59.999999'.
+
+TIMESTAMP[(fsp)]
+A timestamp. The range is '1970-01-01 00:00:01.000000' UTC to '2038-01-19 03:14:07.999999' UTC. 
+
+37.对于类型括号里面的数字比如:varchar(5)，整形是显示形式不影响取值范围，浮点型限制了数字最大长度，字符型也限制了字符最大长度
+https://dev.mysql.com/doc/refman/8.0/en/string-type-overview.html
+
+[NATIONAL] VARCHAR(M) [CHARACTER SET charset_name] [COLLATE collation_name]
+A variable-length string. M represents the maximum column length in characters. The range of M is 0 to 65,535.
+
+For example, utf8 characters can require up to three bytes per character, so a VARCHAR column that uses the 
+utf8 character set can be declared to be a maximum of 21,844 characters
+
+
+
+
+
+38.
 
