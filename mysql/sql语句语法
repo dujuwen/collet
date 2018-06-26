@@ -1,7 +1,7 @@
-https://dev.mysql.com/doc/refman/8.0/en/sql-syntax.html
+https://dev.mysql.com/doc/refman/5.7/en/sql-syntax-data-definition.html
 
 1.数据定义
-https://dev.mysql.com/doc/refman/8.0/en/sql-syntax-data-definition.html
+https://dev.mysql.com/doc/refman/5.7/en/create-index.html
 
 1.1)CREATE DATABASE Syntax
 CREATE {DATABASE | SCHEMA} [IF NOT EXISTS] db_name
@@ -26,7 +26,6 @@ index_option:
   | index_type
   | WITH PARSER parser_name
   | COMMENT 'string'
-  | {VISIBLE | INVISIBLE}
 
 index_type:
     USING {BTREE | HASH}
