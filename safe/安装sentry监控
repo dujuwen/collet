@@ -1,0 +1,11 @@
+laravel引入sentry
+https://docs.sentry.io/clients/php/integrations/laravel/
+
+https://laravel-china.org/articles/4285/build-your-own-sentry-service
+
+centos搭建sentry过程:
+1. 获取最新版本的 Docker 安装包
+shell> wget -qO- https://get.docker.com/ | sh
+
+
+
