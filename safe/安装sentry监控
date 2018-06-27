@@ -75,9 +75,9 @@ systemctl status docker
 //////////////////////////////////////////////////////
 
 
-使用docker安装sentry:
+推荐使用docker安装sentry:
 https://docs.sentry.io/server/installation/docker/
-
+https://laravel-china.org/articles/4285/build-your-own-sentry-service
 https://github.com/getsentry/onpremise
 
 
