@@ -13,6 +13,7 @@ $ tar -xzvf redis-4.0.9.tar.gz
 3.编译
 $ cd redis-4.0.9
 $ make
+当出现错误的时候可以尝试make MALLOC=libc
 $ make test
 $ make install
 $ cd /root/redis-4.0.9/utils
