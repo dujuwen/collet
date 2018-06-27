@@ -17,7 +17,37 @@ Pip 8.1+
 python-setuptools, python-dev, libxslt1-dev, gcc, libffi-dev, libjpeg-dev, libxml2-dev, libxslt-dev, libyaml-dev, libpq-dev
 推荐 yum 安装。
 
-1. 
+1. 安装必要软件
+yum -y instll python-setuptools python-dev libxslt1-dev gcc libffi-dev libjpeg-dev libxml2-dev libxslt-dev libyaml-dev libpq-dev
+
+2.安装PostgreSQL
+$ cd ~
+$ wget https://download.postgresql.org/pub/repos/yum/9.6/redhat/rhel-6-x86_64/pgdg-redhat96-9.6-3.noarch.rpm
+$ rpm -ivh ./pgdg-redhat96-9.6-3.noarch.rpm
+
+移除之前的版本
+$ rpm -qa | grep postgre
+postgresql84-devel-8.4.3-2PGDG.rhel6.x86_64
+postgresql84-libs-8.4.3-2PGDG.rhel6.x86_64
+postgresql84-contrib-8.4.3-2PGDG.rhel6.x86_64
+postgresql84-server-8.4.3-2PGDG.rhel6.x86_64
+postgresql84-8.4.3-2PGDG.rhel6.x86_64
+
+$ yum remove postgresql84 postgresql84-devel postgresql84-libs postgresql84-contrib postgresql84-server
+
+查看安装新版 yum 源后可以安装的版本
+$ yum list postgres* | grep 96
+
+$ yum -y install postgresql96 postgresql96-devel postgresql96-libs postgresql96-server
+$ # 初始化数据库
+$ /etc/init.d/postgresql-9.6 initdb
+$ # 开启数据库
+$ /etc/init.d/postgresql-9.6 start
+
+3.安装redis，参考server下安装redis
+
+4.
+
 
 
 
