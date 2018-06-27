@@ -1,11 +1,24 @@
 laravel引入sentry
 https://docs.sentry.io/clients/php/integrations/laravel/
 
+https://laravel-china.org/articles/4295/centos6-install-python-based-on-sentry#reply22542
 https://laravel-china.org/articles/4285/build-your-own-sentry-service
 
-centos搭建sentry过程:
-1. 获取最新版本的 Docker 安装包
-shell> wget -qO- https://get.docker.com/ | sh
+基于 Python 安装 Sentry,centos搭建sentry过程:
+
+安装Sentry需要以下满足以下条件：
+
+基于UNIX的操作系统
+PostgreSQL：版本 9.5 以上，推荐最新版本 9.6
+Redis：最低版本 2.8.9, 推荐 2.8.18, 3.0
+Python 2.7
+Pip 8.1+
+安装下列软件：
+python-setuptools, python-dev, libxslt1-dev, gcc, libffi-dev, libjpeg-dev, libxml2-dev, libxslt-dev, libyaml-dev, libpq-dev
+推荐 yum 安装。
+
+1. 
+
 
 
 
