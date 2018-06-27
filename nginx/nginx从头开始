@@ -873,6 +873,9 @@ real_ip_header    X-Forwarded-For;
 real_ip_recursive on;
 这个配置的意思是说192.168.2.1和ip段192.168.1.0/24都是信任地址(代理服务器地址，不是真实地址)，真实地址来自于头X-Forwarded-For。
 
+ip段类似/24的含义
+http://www.bubuko.com/infodetail-1268866.html
+
 48.可以通过referers头限制访问,虽然捏造头很容易但是能添加一层限制就要添加
 http://nginx.org/en/docs/http/ngx_http_referer_module.html
 
