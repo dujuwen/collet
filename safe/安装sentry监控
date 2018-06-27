@@ -46,7 +46,37 @@ $ /etc/init.d/postgresql-9.6 start
 
 3.安装redis，参考server下安装redis
 
-4.
+//////////////////////////////////////////////////////
+
+先安装docker
+1.安装Docker：
+
+yum  -y install docker docker-compose
+运行docker --version可以查看版本号并确认是否安装成功。
+
+Compose是用于定义和运行复杂Docker应用的工具。你可以在一个文件中定义一个多容器的应用，然后使用一条命令来启动你的应用，然后所有相关的操作都会被自动完成。
+运行docker-compose --version查看版本号并确定是否安装成功
+
+2.启动Docker服务：
+systemctl status docker
+systemctl enable docker
+systemctl start docker
+systemctl status docker
+
+3.常用Docker命令：
+查看docker版本:docker version  
+显示docker系统的信息:docker info  
+检索image:docker search image_name  
+下载image  : docker pull image_name  
+已下载镜像列表: docker images  
+删除镜像: docker rmi image_name  
+启动容器:docker run image_name
+
+//////////////////////////////////////////////////////
+
+
+使用docker安装sentry:
+https://docs.sentry.io/server/installation/docker/
 
 
 
