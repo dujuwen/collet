@@ -3,6 +3,10 @@ https://oauth.net/2/
 http://www.ruanyifeng.com/blog/2014/05/oauth_2_0.html
 http://wiki.open.qq.com/wiki/website/OAuth2.0%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3
 
+rfc文档:
+https://tools.ietf.org/html/rfc6749
+https://tools.ietf.org/html/rfc6750
+
 oAuth： 
 oAuth（开放授权）是一个开放标准，允许用户授权第三方网站访问他们存储在另外的服务提供者上的信息，而不需要将用户名和密码
 提供给第三方网站或分享他们数据的所有内容。
