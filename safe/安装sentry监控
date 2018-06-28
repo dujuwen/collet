@@ -133,5 +133,7 @@ services:
 保存之后重启docker:
 docker-compose down && docker-compose up -d
 
+邮箱配置好之后需要在admin和account中验证邮箱是否正常!
+
 docker sentry配置:
 https://github.com/getsentry/onpremise/blob/master/sentry.conf.py#L4
