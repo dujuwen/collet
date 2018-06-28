@@ -84,3 +84,7 @@ https://chrome.google.com/webstore/detail/http-headers/hplfkkmefamockhligfdcfgfn
 20.chrome截屏插件
 
 https://chrome.google.com/webstore/search/FireShot?utm_source=chrome-ntp-icon
+
+21.vue devtools
+
+https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd
