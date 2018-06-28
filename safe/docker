@@ -1,0 +1,13 @@
+1.查看docker所有容器
+docker ps
+
+2.查看某个容器日志
+docker logs 容器id
+
+查看某个容器最后10行日志
+docker logs -f -t --tail 10 容器id
+
+3.暂停docker和启动docker
+docker-compose down && docker-compose up -d
+
+4.
