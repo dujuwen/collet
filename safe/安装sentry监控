@@ -133,6 +133,5 @@ services:
 保存之后重启docker:
 docker-compose down && docker-compose up -d
 
-
-
-
+docker sentry配置:
+https://github.com/getsentry/onpremise/blob/master/sentry.conf.py#L4
