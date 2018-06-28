@@ -1,0 +1,11 @@
+1.vue-devtools
+vue-devtools是一款基于chrome游览器的插件，用于调试vue应用，这可以极大地提高我们的调试效率。
+
+可以通过chrome直接安装:
+https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd
+
+也可以下载代码手动编译安装:
+https://github.com/vuejs/vue-devtools
+
+2.
+
