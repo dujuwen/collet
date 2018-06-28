@@ -135,5 +135,7 @@ docker-compose down && docker-compose up -d
 
 邮箱配置好之后需要在admin和account中验证邮箱是否正常!
 
+腾讯云服务器默认是把25端口禁用的，云主机 TCP 25 端口出方向被封禁!
+
 docker sentry配置:
 https://github.com/getsentry/onpremise/blob/master/sentry.conf.py#L4
