@@ -445,6 +445,9 @@ props: {
   author: Object
 }
 
-23.
+23.动态组件和异步话组件
+https://cn.vuejs.org/v2/guide/components-dynamic-async.html
+https://jsfiddle.net/chrisvfritz/Lp20op9o/
 
+24.
 
