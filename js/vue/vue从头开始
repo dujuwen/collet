@@ -60,8 +60,28 @@ https://cn.vuejs.org/v2/guide/instance.html
 vue的{{}}分解符和laravel中的balde模板引擎的分解符会产生冲突
 解决方法：使用vue的{{}}分解符的时候在前面加上@，【@{{  }}】
 
-8.
+8.vue的计算属性会缓存而方法不会缓存结果
+https://cn.vuejs.org/v2/guide/computed.html
 
+var vm = new Vue({
+  el: '#example',
+  data: {
+    message: 'Hello'
+  },
+  computed: {
+    // 计算属性的 getter
+    reversedMessage: function () {
+      // `this` 指向 vm 实例
+      return this.message.split('').reverse().join('')
+    }
+  }，
+  // 方法
+  methods: {
+    reversedMessage: function () {
+      return this.message.split('').reverse().join('')
+    }
+  }
+})
 
-
+9.
 
