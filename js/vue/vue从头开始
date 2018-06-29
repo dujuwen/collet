@@ -83,5 +83,14 @@ var vm = new Vue({
   }
 })
 
-9.
+9.class与style绑定
+https://cn.vuejs.org/v2/guide/class-and-style.html
+
+例如:
+<div v-bind:class="[isActive ? activeClass : '', errorClass]"></div>
+<div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }"></div>
+
+10.
+
+
 
