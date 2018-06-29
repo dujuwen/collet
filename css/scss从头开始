@@ -1,3 +1,4 @@
+https://www.sass.hk/docs/
 https://blog.csdn.net/leadn/article/details/78562873?locationNum=6&fps=1
 
 1.scss/sass安装
@@ -26,14 +27,130 @@ sass内置有四种编译格式:nested``expanded``compact``compressed。
 --sourcemap表示开启sourcemap调试。开启sourcemap调试后，会生成一个后缀名为.css.map文件。
 
 本地开发选用:expanded，线上选用:compressed
+如:sass --style expanded test.scss out.test.css
 
-2.注释
-（1）//comment：该注释只是在.scss源文件中有，编译后的css文件中没有。
-（2）/! /：重要注释，任何style的css文件中都会有，一般放置css文件版权说明等信息。
-（3）/ /：该注释在compressed的style的css中没有，其他style的css文件都会含有。
+2.注释 /* */ 与 //
+Sass 支持标准的 CSS 多行注释 /* */，以及单行注释 //，前者会 被完整输出到编译后的 CSS 文件中，而后者则不会
 
-3.
+3.嵌套规则
+#main p {
+  color: #00ff00;
+  width: 97%;
 
+  .redbox {
+    background-color: #ff0000;
+    color: #000000;
+  }
+}
 
+4.父选择器 &
+a {
+  font-weight: bold;
+  text-decoration: none;
+  &:hover { text-decoration: underline; }
+  body.firefox & { font-weight: normal; }
+}
+
+5.属性嵌套
+.funky {
+  font: {
+    family: fantasy;
+    size: 30em;
+    weight: bold;
+  }
+}
+
+6.变量 $
+$width: 5em;
+
+#main {
+  $width: 5em !global; //将局部变量转成全局变量
+  width: $width;
+}
+
+#sidebar {
+  width: $width;
+}
+
+7.数据类型
+数字，1, 2, 13, 10px
+字符串，有引号字符串与无引号字符串，"foo", 'bar', baz
+颜色，blue, #04a3f9, rgba(255,0,0,0.5)
+布尔型，true, false
+空值，null
+数组 (list)，用空格或逗号作分隔符，1.5em 1em 0 2em, Helvetica, Arial, sans-serif
+maps, 相当于 JavaScript 的 object，(key1: value1, key2: value2)
+
+使用 #{} (interpolation) 时，有引号字符串将被编译为无引号字符串，这样便于在 mixin 中引用选择器名
+@mixin firefox-message($selector) {
+  body.firefox #{$selector}:before {
+    content: "Hi, Firefox users!";
+  }
+}
+
+@include firefox-message(".header");
+编译为
+
+body.firefox .header:before {
+  content: "Hi, Firefox users!"; }
+
+如果需要使用变量，同时又要确保 / 不做除法运算而是完整地编译到 CSS 文件中，只需要用 #{} 插值语句将变量包裹。
+p {
+  $font-size: 12px;
+  $line-height: 30px;
+  font: #{$font-size}/#{$line-height};
+}
+
+8.字符串运算
+p {
+  cursor: e + -resize;
+}
+编译为
+
+p {
+  cursor: e-resize; }
+  
+  p:before {
+  content: "Foo " + Bar;
+  font-family: sans- + "serif";
+}
+编译为
+
+p:before {
+  content: "Foo Bar";
+  font-family: sans-serif; }
+运算表达式与其他值连用时，用空格做连接符：
+
+p {
+  margin: 3px + 4px auto;
+}
+编译为
+
+p {
+  margin: 7px auto; }
+  
+在有引号的文本字符串中使用 #{} 插值语句可以添加动态的值：
+
+p:before {
+  content: "I ate #{5 + 10} pies!";
+}
+编译为
+
+p:before {
+  content: "I ate 15 pies!"; }
+空的值被视作插入了空字符串：
+
+$value: null;
+p:before {
+  content: "I ate #{$value} pies!";
+}
+编译为
+
+p:before {
+  content: "I ate pies!"; }
+  
+9.
+
+10.
 
 
