@@ -415,7 +415,34 @@ Vue.component('alert-box', {
   Something bad happened.
 </alert-box>
 
-21.
+21.组件名
+https://cn.vuejs.org/v2/guide/components-registration.html
 
+当直接在 DOM 中使用一个组件 (而不是在字符串模板或单文件组件) 的时候，我们强烈推荐遵循 W3C 规范中的自定义组件名 
+(字母全小写且必须包含一个连字符)。这会帮助你避免和当前以及未来的 HTML 元素相冲突。
+
+22.Prop 的大小写
+https://cn.vuejs.org/v2/guide/components-props.html
+
+HTML 中的特性名是大小写不敏感的，所以浏览器会把所有大写字符解释为小写字符。这意味着当你使用 DOM 中的模板时，camelCase (驼峰命名法) 
+的 prop 名需要使用其等价的 kebab-case (短横线分隔命名) 命名：
+Vue.component('blog-post', {
+  // 在 JavaScript 中是 camelCase 的
+  props: ['postTitle'],
+  template: '<h3>{{ postTitle }}</h3>'
+})
+
+<!-- 在 HTML 中是 kebab-case 的 -->
+<blog-post post-title="hello!"></blog-post>
+
+props: {
+  title: String,
+  likes: Number,
+  isPublished: Boolean,
+  commentIds: Array,
+  author: Object
+}
+
+23.
 
 
