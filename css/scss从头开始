@@ -1,0 +1,39 @@
+https://blog.csdn.net/leadn/article/details/78562873?locationNum=6&fps=1
+
+1.scss/sass安装
+https://www.sass.hk/install/
+安装成功后确认版本信息:
+shell> sass -v
+Ruby Sass 3.5.6
+shell> compass -v
+
+//查看sass帮助
+shell> sass -h
+
+命令行编译:
+//单文件转换命令
+sass input.scss output.css
+
+//单文件监听命令
+sass --watch input.scss:output.css
+
+//如果你有很多的sass文件的目录，你也可以告诉sass监听整个目录：
+sass --watch app/sass:public/stylesheets
+
+命令行编译配置选项:
+--style表示解析后的css是什么排版格式;
+sass内置有四种编译格式:nested``expanded``compact``compressed。
+--sourcemap表示开启sourcemap调试。开启sourcemap调试后，会生成一个后缀名为.css.map文件。
+
+本地开发选用:expanded，线上选用:compressed
+
+2.注释
+（1）//comment：该注释只是在.scss源文件中有，编译后的css文件中没有。
+（2）/! /：重要注释，任何style的css文件中都会有，一般放置css文件版权说明等信息。
+（3）/ /：该注释在compressed的style的css中没有，其他style的css文件都会含有。
+
+3.
+
+
+
+
