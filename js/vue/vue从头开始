@@ -456,5 +456,19 @@ props: {
 https://cn.vuejs.org/v2/guide/components-dynamic-async.html
 https://jsfiddle.net/chrisvfritz/Lp20op9o/
 
-24.
+24.自定义指令
+https://cn.vuejs.org/v2/guide/custom-directive.html
+
+// 注册一个全局自定义指令 `v-focus`
+Vue.directive('focus', {
+  // 当被绑定的元素插入到 DOM 中时……
+  inserted: function (el) {
+    // 聚焦元素
+    el.focus()
+  }
+})
+
+<input v-focus>
+
+25.
 
