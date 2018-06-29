@@ -149,8 +149,54 @@ p:before {
 p:before {
   content: "I ate pies!"; }
   
-9.
+9.插值语句 #{}
+$name: foo;
+$attr: border;
+p.#{$name} {
+  #{$attr}-color: blue;
+}
+编译为
 
-10.
+p.foo {
+  border-color: blue; }
+  
+10.if
+p {
+  @if 1 + 1 == 2 { border: 1px solid; }
+  @if 5 < 3 { border: 2px dotted; }
+  @if null  { border: 3px double; }
+}
 
+$type: monster;
+p {
+  @if $type == ocean {
+    color: blue;
+  } @else if $type == matador {
+    color: red;
+  } @else if $type == monster {
+    color: green;
+  } @else {
+    color: black;
+  }
+}
 
+11.for
+@for $i from 1 through 3 {
+  .item-#{$i} { width: 2em * $i; }
+}
+
+12.@each
+@each 指令的格式是 $var in <list>, $var 可以是任何变量名
+
+@each $animal in puma, sea-slug, egret, salamander {
+  .#{$animal}-icon {
+    background-image: url('/images/#{$animal}.png');
+  }
+}
+
+13.@while
+$i: 6;
+@while $i > 0 {
+  .item-#{$i} { width: 2em * $i; }
+  $i: $i - 2;
+}
