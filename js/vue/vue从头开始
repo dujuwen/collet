@@ -311,5 +311,51 @@ new Vue({ el: '#components-demo' })
 
 组件的复用没有次数的限制!!!
 
-17.
+17.如何向组件传递参数? props属性
+一个组件默认可以拥有任意数量的 prop，任何值都可以传递给任何 prop
+
+Vue.component('blog-post', {
+  props: ['title'],
+  template: '<h3>{{ title }}</h3>'
+})
+
+<blog-post title="My journey with Vue"></blog-post>
+<blog-post title="Blogging with Vue"></blog-post>
+<blog-post title="Why Vue is so fun"></blog-post>
+
+new Vue({
+  el: '#blog-post-demo',
+  data: {
+    posts: [
+      { id: 1, title: 'My journey with Vue' },
+      { id: 2, title: 'Blogging with Vue' },
+      { id: 3, title: 'Why Vue is so fun' }
+    ]
+  }
+})
+
+<blog-post
+  v-for="post in posts"
+  v-bind:key="post.id"
+  v-bind:title="post.title"
+></blog-post>
+
+18.组件单个根元素
+Vue.component('blog-post', {
+  props: ['post'],
+  template: `
+    <div class="blog-post">   //单个根元素
+      <h3>{{ post.title }}</h3>
+      <div v-html="post.content"></div>
+    </div>
+  `
+})
+
+<blog-post
+  v-for="post in posts"
+  v-bind:key="post.id"
+  v-bind:post="post"
+></blog-post>
+
+19.
 
