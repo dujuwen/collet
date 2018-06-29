@@ -341,21 +341,64 @@ new Vue({
 ></blog-post>
 
 18.组件单个根元素
+<div id="djw">
+    <div :style="{ fontSize: postFontSize + 'em' }">
+    <blog-post
+      v-for="post in posts"
+      v-bind:key="post.id"
+      v-bind:post="post"
+    ></blog-post>
+  </div>
+</div>
+
 Vue.component('blog-post', {
   props: ['post'],
   template: `
-    <div class="blog-post">   //单个根元素
+    <div class="blog-post">
       <h3>{{ post.title }}</h3>
+      <button>
+        Enlarge text
+      </button>
       <div v-html="post.content"></div>
     </div>
   `
 })
 
-<blog-post
-  v-for="post in posts"
-  v-bind:key="post.id"
-  v-bind:post="post"
-></blog-post>
+new Vue({
+  el: '#blog-posts-events-demo',
+  data: {
+    posts: [/* ... */],
+    postFontSize: 1
+  }
+})
 
-19.
+19.v-model
+https://cn.vuejs.org/v2/guide/components.html#%E5%9C%A8%E7%BB%84%E4%BB%B6%E4%B8%8A%E4%BD%BF%E7%94%A8-v-model
+
+<input v-model="searchText">
+等价于:
+<input
+  v-bind:value="searchText"
+  v-on:input="searchText = $event.target.value"
+>
+
+当用在组件上时，v-model 则会这样：
+<custom-input
+  v-bind:value="searchText"
+  v-on:input="searchText = $event"
+></custom-input>
+
+Vue.component('custom-input', {
+  props: ['value'],
+  template: `
+    <input
+      v-bind:value="value"
+      v-on:input="$emit('input', $event.target.value)"
+    >
+  `
+})
+
+20.
+
+
 
