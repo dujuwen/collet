@@ -90,7 +90,46 @@ https://cn.vuejs.org/v2/guide/class-and-style.html
 <div v-bind:class="[isActive ? activeClass : '', errorClass]"></div>
 <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }"></div>
 
-10.
+10.v-for可以渲染数组或者对象列表
+https://cn.vuejs.org/v2/guide/list.html
 
+<ul id="djw">
+  <li v-for="item in items">
+    {{ item.message }}
+  </li>
+</ul>
+
+var djw = new Vue({
+  el: '#djw',
+  data: {
+  	parentMessage: 'Parent',
+  	items: [
+  		{id:1, message: 'hahah1'},
+  		{id:2, message: 'hahah2'},
+  		{id:3, message: 'hahah13'},
+  		{id:4, message: 'hahah4'}
+  	]
+  }
+})
+
+<div v-for="item in items" :key="item.id">
+  <!-- 内容 -->
+</div>
+
+11.数组更新检测
+https://cn.vuejs.org/v2/guide/list.html
+
+Vue 包含一组观察数组的变异方法，所以它们也将会触发视图更新。这些方法如下：
+
+push()
+pop()
+shift()
+unshift()
+splice()
+sort()
+reverse()
+你打开控制台，然后用前面例子的 items 数组调用变异方法：example1.items.push({ message: 'Baz' }) 。
+
+12.
 
 
