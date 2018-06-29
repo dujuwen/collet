@@ -200,3 +200,38 @@ $i: 6;
   .item-#{$i} { width: 2em * $i; }
   $i: $i - 2;
 }
+
+14.代码重用
+.class1{
+    font-size:19px;
+}
+.class2{
+    @extend .class1;
+    color:black;
+}
+
+15.宏与引用
+@mixin rounded($vert, $horz, $radius: 10px) {
+  border-#{$vert}-#{$horz}-radius: $radius;
+  -moz-border-radius-#{$vert}#{$horz}: $radius;
+  -webkit-border-#{$vert}-#{$horz}-radius: $radius;
+}
+  
+#navbar li { @include rounded(top, left); }
+#footer { @include rounded(top, left, 5px); }
+
+16.函数
+@function double($n) {
+  @return $n * 2;
+}
+
+#sidebar {
+  width: double(5px);
+}
+
+17.颜色函数
+
+lighten(#cc3, 10%)  // #d6d65c
+darken(#cc3, 10%)  //  #a3a329
+grayscale(#cc3) // #808080
+complement(#cc3) // #33c
