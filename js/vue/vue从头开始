@@ -1,3 +1,8 @@
+vue api：
+https://cn.vuejs.org/v2/api/#%E9%80%89%E9%A1%B9-%E6%95%B0%E6%8D%AE
+文档:
+https://cn.vuejs.org/v2/guide/instance.html
+
 1.vue-devtools
 vue-devtools是一款基于chrome游览器的插件，用于调试vue应用，这可以极大地提高我们的调试效率。
 
@@ -28,5 +33,22 @@ https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3
 如果只有一个参数，可以省略括号:
 parameters => { statements }
 
-5.
+5.vue实例
+var data = { a: 1 }
+
+// 直接创建一个实例
+var vm = new Vue({
+  data: data
+})
+vm.a // => 1
+vm.$data === data // => true
+
+// Vue.extend() 中 data 必须是函数
+var Component = Vue.extend({
+  data: function () {
+    return { a: 1 }
+  }
+})
+
+6.
 
