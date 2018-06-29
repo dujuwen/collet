@@ -14,5 +14,19 @@ http://www.bootcdn.cn/vue/
 3.安装
 https://cn.vuejs.org/v2/guide/installation.html
 
-4.
+4.箭头函数
+https://www.cnblogs.com/fundebug/p/6904753.html
+https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/001438565969057627e5435793645b7acaee3b6869d1374000
+
+箭头函数写代码拥有更加简洁的语法；
+不会绑定this。
+
+箭头函数的语法：
+(parameters) => { statements }
+如果没有参数，那么可以进一步简化：
+() => { statements }
+如果只有一个参数，可以省略括号:
+parameters => { statements }
+
+5.
 
