@@ -13,6 +13,8 @@ icon动态化:
 https://cn.vuejs.org/v2/guide/transitioning-state.html
 css作用域:
 https://vue-loader-v14.vuejs.org/zh-cn/features/scoped-css.html
+Nuxt.js:
+https://zh.nuxtjs.org/guide
 
 1.vue-devtools
 vue-devtools是一款基于chrome游览器的插件，用于调试vue应用，这可以极大地提高我们的调试效率。
