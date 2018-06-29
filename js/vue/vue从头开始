@@ -55,6 +55,12 @@ var Component = Vue.extend({
 6.vue对象的生命周期
 https://cn.vuejs.org/v2/guide/instance.html
 
+7.vue在laravel中的使用问题
+
+vue的{{}}分解符和laravel中的balde模板引擎的分解符会产生冲突
+解决方法：使用vue的{{}}分解符的时候在前面加上@，【@{{  }}】
+
+8.
 
 
 
