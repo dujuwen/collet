@@ -2,6 +2,8 @@ vue api：
 https://cn.vuejs.org/v2/api/#%E9%80%89%E9%A1%B9-%E6%95%B0%E6%8D%AE
 文档:
 https://cn.vuejs.org/v2/guide/instance.html
+API:
+https://cn.vuejs.org/v2/api/#silent
 
 1.vue-devtools
 vue-devtools是一款基于chrome游览器的插件，用于调试vue应用，这可以极大地提高我们的调试效率。
