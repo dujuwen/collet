@@ -12,6 +12,10 @@ httpd glibc krb5-libs pcre zlib gperftools-libs net-tools pcre-devel gcc-c++ zli
 bash-completion lsof unzip zip gcc libicu-devel libc-client-devel openldap  openldap-devel curl-devel libwebp libwebp-devel \
 bzip2 bzip2-devel libXpm-devel
 
+yum -y install freetype-devel libxml2-devel openssl-devel pcre-devel curl-devel libjpeg-devel libpng-devel \
+libmcrypt-devel libmcrypt mhash-devel mhash bzip2-devel libtidy-devel libtidy aspell-devel libxslt-devel libxslt \
+libtool-ltdl-devel glibc-utils
+
 下面这个有需要再安装
 yum -y groupinstall "Development Tools"
 
