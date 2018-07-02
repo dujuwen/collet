@@ -236,3 +236,13 @@ PIDFile与php-fpm.conf配置文件中的pid路径一致、ExecStart、ExecReload
 
 9.安装composer
 https://github.com/dujuwen/collet/blob/master/composer/composer%E5%AE%89%E8%A3%85%E5%8F%8A%E9%95%9C%E5%83%8F%E8%AE%BE%E7%BD%AE
+
+10.如果没有更换源的话先安装新的源然后安装autoconf
+mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup_
+l
+wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+yum clean all
+yum makecache
+yum -y update
+yum -y install autoconf
+
