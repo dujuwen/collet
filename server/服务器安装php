@@ -10,7 +10,7 @@ libcurl libcurl-devel libjpeg libjpeg-devel libpng libpng-devel freetype freetyp
 gmp gmp-devel libmcrypt libmcrypt-devel readline readline-devel libxslt libxslt-devel tcl-devel \
 httpd glibc krb5-libs pcre zlib gperftools-libs net-tools pcre-devel gcc-c++ zlib-devel ruby patch \
 bash-completion lsof unzip zip gcc libicu-devel libc-client-devel openldap  openldap-devel curl-devel libwebp libwebp-devel \
-bzip2 bzip2-devel
+bzip2 bzip2-devel libXpm-devel
 
 下面这个有需要再安装
 yum -y groupinstall "Development Tools"
@@ -98,19 +98,12 @@ $ scp ~/Documents/php-7.2.5.tar.gz root@192.168.242.128:/root
 --enable-pcntl \
 --enable-dba \
 --with-xpm-dir \
---with-imap   \
---with-kerberos \
---with-imap-ssl \
---with-interbase \
---with-icu-dir \
 --with-ldap   \
 --with-pdo-odbc \
 --with-pgsql  \
 --with-libedit \
---with-pspell \
 --with-recode \
 --with-snmp   \
---with-sodium \
 --with-password-argon2 \
 --with-tidy   \
 --with-libzip
