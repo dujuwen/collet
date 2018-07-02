@@ -113,7 +113,7 @@ $ scp ~/Documents/php-7.2.5.tar.gz root@192.168.242.128:/root
 --with-sodium \
 --with-password-argon2 \
 --with-tidy   \
---with-libzip \
+--with-libzip
 
 编译:
 make 
