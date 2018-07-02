@@ -96,7 +96,7 @@ $ scp ~/Documents/php-7.2.5.tar.gz root@192.168.242.128:/root
 --with-webp-dir \
 --enable-fast-install \
 --enable-pcntl \
---enable-calendar \
+--enable-dba \
 
 编译:
 make 
