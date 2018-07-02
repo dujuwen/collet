@@ -97,6 +97,23 @@ $ scp ~/Documents/php-7.2.5.tar.gz root@192.168.242.128:/root
 --enable-fast-install \
 --enable-pcntl \
 --enable-dba \
+--with-xpm-dir \
+--with-imap   \
+--with-kerberos \
+--with-imap-ssl \
+--with-interbase \
+--with-icu-dir \
+--with-ldap   \
+--with-pdo-odbc \
+--with-pgsql  \
+--with-libedit \
+--with-pspell \
+--with-recode \
+--with-snmp   \
+--with-sodium \
+--with-password-argon2 \
+--with-tidy   \
+--with-libzip \
 
 编译:
 make 
