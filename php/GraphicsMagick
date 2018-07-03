@@ -1,0 +1,15 @@
+GraphicsMagick 图片处理软件
+
+http://elf8848.iteye.com/blog/382528
+http://www.graphicsmagick.org/
+http://www.imagemagick.org/api/MagickCore/
+
+php扩展:
+http://pecl.php.net/package/gmagick
+
+php支持的扩展列表:
+http://pecl.php.net/packages.php
+
+本地下载安装gm扩展之后，phpinfo()显示:
+gmagick version	2.0.5RC1
+
