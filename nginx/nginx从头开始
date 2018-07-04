@@ -627,7 +627,7 @@ location / {
     index index.$geo.html index.html; # index指令中可以包含变量
 }
 
-打开目录浏览功能,如果需要的话可以单独开启一个端口配置授权来查看
+文件列表,打开目录浏览功能,如果需要的话可以单独开启一个端口配置授权来查看
 location / {
     autoindex on;
     autoindex_exact_size off;
