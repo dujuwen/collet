@@ -1,0 +1,26 @@
+1.undefined symbols 
+
+首先明确定位是libiconv的动态库没有找到某些结构的问题
+
+首先用对比结构:
+nm /usr/local/opt/libiconv/lib/libiconv.dylib
+和
+nm /usr/lib/libiconv.dylib
+比较看哪个动态库里面有缺少的结构,记录下绝对路径备用
+
+cd /path/php7.1.17
+vim Makefile:
+找到类似下面这行,将-liconv去掉 替换成绝对路径!!
+
+修改后:
+EXTRA_LIBS = -lz -lresolv -lmcrypt -lltdl -lpng -lz -lcurl -lbz2 -lz -lm -lxml2 -lz -licucore -lm 
+-lcurl -lxml2 -lz -licucore -lm -lfreetype -lxml2 -lz -licucore -lm -lxml2 -lz -licucore -lm -lxml2 -lz -licucore -lm 
+-lxml2 -lz -licucore -lm /usr/local/opt/libiconv/lib/libiconv.dylib
+
+修改后直接sudo make即可!
+
+具体可以参考:
+https://upliu.net/compile-php-with-openssl-on-max-osx-error.html
+
+2.
+
