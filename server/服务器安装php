@@ -104,18 +104,12 @@ $ scp ~/Documents/php-7.2.5.tar.gz root@192.168.242.128:/root
 --with-xpm-dir
 
 
-
---prefix=/usr/local/php --with-config-file-path=/etc --with-config-file-scan-dir=/etc/php.d --enable-fpm \
---with-fpm-user=nginx --with-fpm-group=nginx --enable-inline-optimization --disable-debug --disable-rpath --enable-shared \
---enable-soap --with-xmlrpc --with-openssl --with-pcre-regex --with-sqlite3 --with-zlib --enable-bcmath --with-iconv \
---with-bz2 --enable-calendar --with-curl --with-cdb --enable-dom --enable-exif --enable-fileinfo --enable-filter \
---with-pcre-dir --enable-ftp --with-gd --with-openssl-dir --with-jpeg-dir --with-png-dir --with-zlib-dir \
---with-freetype-dir --enable-gd-jis-conv --with-gettext --with-gmp --with-mhash --enable-json --enable-mbstring \
---enable-mbregex --enable-mbregex-backtrack --with-libmbfl --with-onig --enable-pdo --with-mysqli=mysqlnd \
---with-pdo-mysql=mysqlnd --with-pdo-sqlite --with-readline --enable-session --enable-shmop --enable-simplexml \
---enable-sockets --enable-sysvmsg --enable-sysvsem --enable-sysvshm --enable-wddx --with-libxml-dir --with-xsl \
---enable-zip --enable-mysqlnd --with-pear --enable-opcache --with-pcre-jit --enable-intl --with-iconv-dir --with-webp-dir \
---enable-fast-install
+本地编译安装
+./configure --prefix=/Users/xxxx/Desktop/test/after_build/php7.1.17 --with-config-file-path=/etc 
+--with-config-file-scan-dir=/etc/php.d --enable-fpm --with-gd --with-freetype-dir --with-libxml-dir --with-pcre-jit 
+--with-zlib --with-zlib-dir --enable-bcmath --with-bz2  --enable-calendar --with-curl --with-libxml-dir --enable-exif 
+--with-pcre-dir --enable-ftp --with-zlib-dir --with-freetype-dir --with-mhash  --with-mcrypt --with-mysqli --with-pdo-mysql 
+--with-zlib-dir  --enable-zip --with-zlib-dir 
 
 
 编译:
