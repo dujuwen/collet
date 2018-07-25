@@ -105,15 +105,16 @@ $ scp ~/Documents/php-7.2.5.tar.gz root@192.168.242.128:/root
 
 
 本地编译安装
-./configure --prefix=/Users/xxxx/Desktop/test/after_build/php7.1.17 --with-config-file-path=/etc 
---with-config-file-scan-dir=/etc/php.d --enable-fpm --with-gd --with-freetype-dir --with-libxml-dir --with-pcre-jit 
---with-zlib --with-zlib-dir --enable-bcmath --with-bz2  --enable-calendar --with-curl --with-libxml-dir --enable-exif 
---with-pcre-dir --enable-ftp --with-zlib-dir --with-freetype-dir --with-mhash  --with-mcrypt --with-mysqli --with-pdo-mysql 
---with-zlib-dir  --enable-zip --with-zlib-dir 
+./configure --prefix=/Users/dujunwen/Desktop/test/after_build/php7.1.17 --with-config-file-path=/etc 
+--with-config-file-scan-dir=/etc/php.d --enable-fpm --with-gd --with-freetype-dir --with-zlib-dir 
+--with-iconv-dir=/usr/local/opt/libiconv --with-libxml-dir --with-pcre-jit --with-zlib --enable-bcmath 
+--with-bz2 --enable-calendar --with-curl --with-libxml-dir --enable-exif --with-pcre-dir --enable-ftp  
+--with-freetype-dir --with-mhash  --with-mcrypt --with-mysqli --with-pdo-mysql --enable-zip 
+--with-openssl=/usr/local/Cellar/openssl/1.0.2o_2
 
 
 编译:
-make 
+sudo make 
 
 在编译的时候可以启用gpo:
 首先, 要决定的就是拿什么场景去Feedback GCC, 我们一般都会选择,在你要优化的场景中: 访问量最大的, 耗时最多的, 资源消耗最重的一个页面.
