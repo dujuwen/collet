@@ -1,0 +1,19 @@
+https://www.cnblogs.com/always-fight/p/8966963.html
+
+
+linux系统下会有一个hash表，当你刚开机时这个hash表为空，每当你执行过一条命令时，hash表会记录下这条命令的路径，就相当于缓存一样。
+第一次执行命令shell解释器默认的会从PATH路径下寻找该命令的路径，当你第二次使用该命令时，shell解释器首先会查看hash表，
+没有该命令才会去PATH路径下寻找
+
+hash -l #参数-l 既可以看到hash表命令的路径，也可以看到它的名字，结果如下
+#builtin hash -p /bin/rm rm
+#builtin hash -p /usr/bin/wget wget
+#builtin hash -p /usr/bin/awk awk
+#builtin hash -p /usr/bin/man man
+ 
+hash -p #
+hash -p /usr/bin/grep grep#将grep 添加到hash表中
+ 
+hash -r #清空hash表
+ 
+hash -d grep#清除hash表中的grep记录
