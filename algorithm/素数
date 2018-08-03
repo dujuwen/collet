@@ -31,5 +31,24 @@ function myPow(int $a,int $b){
 
 var_dump(pow(7, 8), myPow(7, 8));die;
 
+//a的b次方对c进行模运算
+function quickMod(int $a, int $b, int $c){
+    $re = 1;
+    $a = $a % $c;
+    while ($b) {
+        if ($b & 1) {
+            $re = ($re * $a) % $c;
+        }
+
+        $a = ($a * $a) % $c;
+        $b >>= 1;
+    }
+
+    return $re;
+}
+
+var_dump(quickMod(20, 17, 9));die;
+
+
 蒙哥马利幂模运算
 https://baike.baidu.com/item/%E8%92%99%E5%93%A5%E9%A9%AC%E5%88%A9%E5%B9%82%E6%A8%A1%E8%BF%90%E7%AE%97/10566438
