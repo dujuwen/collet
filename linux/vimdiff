@@ -1,0 +1,8 @@
+对比两个问题
+vimdiff file1 file2
+
+对比文件的目的是消除差异:
+dp  (diff put)
+切换窗口
+ctrl+w w
+
