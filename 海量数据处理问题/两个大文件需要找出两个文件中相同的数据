@@ -24,3 +24,10 @@ cat t1 t2 | sort | uniq -d
 awk '{mod = $0 % 10}{print >> "a_"mod}{close("a_"mod)}' t1
 awk '{mod = $0 % 10}{print >> "b_"mod}{close("b_"mod)}' t2
 
+
+给定a、b两个文件，各存放50亿个url，每个url各占64字节，内存限制是4G，让你找出a、b文件共同的url?
+核心：分而治之
+
+https://blog.csdn.net/tiankong_/article/details/77234726
+
+
