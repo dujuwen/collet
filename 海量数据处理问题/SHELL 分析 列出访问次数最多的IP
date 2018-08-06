@@ -9,6 +9,29 @@ head:
 head -n 20 filename //列出文件的前20行
 head -n -20 filename //列出文件除去最后20行的所有内容
 
+sort:
+选项与参数：
+-f  ：忽略大小写的差异，例如 A 与 a 视为编码相同；
+-b  ：忽略最前面的空格符部分；
+-M  ：以月份的名字来排序，例如 JAN, DEC 等等的排序方法；
+-n  ：使用『纯数字』进行排序(默认是以文字型态来排序的)；
+-r  ：反向排序；
+-u  ：就是 uniq ，相同的数据中，仅出现一行代表；
+-t  ：分隔符，默认是用 [tab] 键来分隔；
+-k  ：以那个区间 (field) 来进行排序的意思
+
+/etc/passwd 内容是以 : 来分隔的，我想以第三栏来排序，该如何？
+[root@www ~]# cat /etc/passwd | sort -t ':' -k 3
+root:x:0:0:root:/root:/bin/bash
+uucp:x:10:14:uucp:/var/spool/uucp:/sbin/nologin
+operator:x:11:0:operator:/root:/sbin/nologin
+bin:x:1:1:bin:/bin:/sbin/nologin
+games:x:12:100:games:/usr/games:/sbin/nologin
+# 看到特殊字体的输出部分了吧？怎么会这样排列啊？呵呵！没错啦～
+# 如果是以文字型态来排序的话，原本就会是这样，想要使用数字排序：
+# cat /etc/passwd | sort -t ':' -k 3 -n
+# 这样才行啊！用那个 -n 来告知 sort 以数字来排序啊！
+
 
 1.列出当天访问次数最多的ip
 
