@@ -1,0 +1,8 @@
+1.列出当天访问次数最多的ip
+
+根据访问日志过滤，访问日志的第二行是ip地址:
+cut -d' ' -f2 access.log | uniq -c | sort -rn | head -20
+或者:
+cut -d' ' -f2 access.log | uniq -c | sort -n | tail -20
+
+2.
