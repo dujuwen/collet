@@ -1,0 +1,34 @@
+1.用awk分割字符串
+
+echo 'this is test' | awk -F'' '{print $1}'
+
+2.Shell 脚本中字符串的相关操作
+https://blog.csdn.net/u010003835/article/details/80749220
+
+${parameter//pattern/string} 
+用string来替换parameter变量中所有匹配的pattern
+
+3.shell 使用指定的分割符来分割字符串
+
+方法一
+#!/bin/bash
+string="hello,shell,haha"  
+array=(${string//,/ })  
+for var in ${array[@]}
+do
+   echo $var
+done 
+
+方法二
+#!/bin/bash
+string="hello,shell,haha"
+OLD_IFS="$IFS"
+IFS=","
+array=($string)
+IFS="$OLD_IFS"
+for var in ${array[@]}
+do
+   echo $var
+done
+
+4.
