@@ -1,3 +1,15 @@
+head:
+  -c, --bytes=[-]K         print the first K bytes of each file;
+                             with the leading '-', print all but the last
+                             K bytes of each file
+  -n, --lines=[-]K         print the first K lines instead of the first 10;
+                             with the leading '-', print all but the last
+                             K lines of each file
+例如:
+head -n 20 filename //列出文件的前20行
+head -n -20 filename //列出文件除去最后20行的所有内容
+
+
 1.列出当天访问次数最多的ip
 
 根据访问日志过滤，访问日志的第二行是ip地址:
