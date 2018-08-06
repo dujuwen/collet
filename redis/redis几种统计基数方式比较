@@ -1,3 +1,4 @@
 http://blog.huangz.me/diary/2016/redis-count-online-users.html
+https://blog.csdn.net/crasheye/article/details/51323024
 
 结论：在结果精确且内存使用较小的情况使用bitmap最合适
