@@ -1,0 +1,27 @@
+PHP Taint 一个用来检测 XSS/SQL/Shell 注入漏洞的扩展，只能在开发、测试环境使用
+
+github:
+https://github.com/laruence/taint
+
+
+http://pecl.php.net/package/taint
+
+
+手动编译安装后修改配置,增加Tain的配置项到php.ini文件当中，参考配置如下：
+[taint]
+
+extension=/path/to/taint.so
+
+taint.enable=1
+
+taint.error_level=E_WARNING
+
+重启php-fpm,查看是否生效:
+php -i | grep taint
+php-fpm -i | grep taint
+
+测试：
+echo $_GET['xx'];
+
+出现类似表示扩展taint生效:
+Warning: main() [echo]: Attempt to echo a string that might be tainted in xxx.php on line 5
