@@ -15,3 +15,12 @@ http://www.bugscan.net/combbs/topics/433/template/
 接收邮件方会根据你的SPF记录来判断连接过来的IP地址是否被包含在SPF记录里面，如果在，则认为是一封正确的邮件，否则则认为是一封伪造的邮件
 。现在绝大部份反垃圾邮件系统都支持SPF过滤，这种过滤一般不会有误判，除非是邮件系统管理员自己把SPF记录配置错误或遗漏。 增加SPF记录非常简单，
 在DNS里面添加TXT记录即可。 以下网站可以对SPF的设置有帮助：http://www.bugscan.net/combbs/topics/433/template/
+
+
+在域名解析下面添加:
+@ TXT v=spf1 a mx ip4:xxx -all
+. TXT v=spf1 a mx ip4:xxx -all
+
+测试地址:
+https://emkei.cz/
+
