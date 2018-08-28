@@ -1,7 +1,15 @@
 
-1.多并发时支付如何保持账户余额的一致性？
+1.如何保证数据一致性?
+https://yq.aliyun.com/articles/73542
+https://blog.csdn.net/meilong_whpu/article/details/77987412
+https://blog.csdn.net/zheng0518/article/details/51194942
+
+2.多并发时支付如何保持账户余额的一致性？
 
 http://costlend.com/2016/03/14/dispatch-pay-balance-keep-consistence/
 https://blog.csdn.net/quliuwuyiz/article/details/79659183
 https://blog.csdn.net/chenbo19867758/article/details/78809708
+
+3.如何保证数据库和缓存的一致性?
+https://blog.csdn.net/sinat_16712671/article/details/76130829
 
