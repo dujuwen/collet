@@ -1,0 +1,9 @@
+https://www.oschina.net/question/12_26843
+
+如:
+## Only allow these request methods (GET|HEAD|POST)
+
+if ($request_method !~ ^(GET|HEAD|POST)$ ) { 
+   return 444; 
+}
+   
