@@ -1,0 +1,5 @@
+NAME
+       pwmake - simple tool for generating random relatively easily pronounceable passwords
+
+SYNOPSIS
+       pwmake <entropy-bits>
