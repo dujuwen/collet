@@ -1,5 +1,10 @@
 1.perlre - Perl regular expressions
 
+
+入门和快速开始:
+http://perldoc.perl.org/perlretut.html
+http://perldoc.perl.org/perlrequick.html
+
 perl正则表达式官网:
 http://perldoc.perl.org/perlre.html
 
