@@ -1,0 +1,23 @@
+1.perlre - Perl regular expressions
+
+perl正则表达式官网:
+http://perldoc.perl.org/perlre.html
+
+perlre PDF下载:
+http://perldoc.perl.org/perlre.pdf
+
+2.PCRE - Perl Compatible Regular Expressions
+http://www.pcre.org/
+
+PCRE - Perl-compatible regular expressions (original API):
+https://www.pcre.org/pcre.txt
+
+PCRE2 - Perl-compatible regular expressions (revised API):
+https://www.pcre.org/pcre2.txt
+
+PCRE2 API:
+https://www.pcre.org/current/doc/html/
+
+3.其他正则表达式学习网站
+https://www.regular-expressions.info/tutorial.html
+https://www.regular-expressions.info/posixbrackets.html
