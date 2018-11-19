@@ -40,3 +40,7 @@ Hugepagesize:       2048 kB
 $ size /usr/sbin/php-fpm
    text	   data	    bss	    dec	    hex	filename
 4301267	 543798	 119656	4964721	 4bc171	/usr/sbin/php-fpm
+
+将vm.nr_hugepages的值写到配置文件中:
+echo vm.nr_hugepages=512 >> /etc/sysctl.conf
+
