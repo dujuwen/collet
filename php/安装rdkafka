@@ -1,0 +1,22 @@
+https://segmentfault.com/a/1190000016310618
+
+https://arnaud-lb.github.io/php-rdkafka/phpdoc/rdkafka.installation.manual.html
+
+$ git clone https://github.com/edenhill/librdkafka.git
+$ cd librdkafka
+$ ./configure
+$ make && make install
+
+$ git clone https://github.com/arnaud-lb/php-rdkafka.git
+$ cd php-rdkafka
+$ phpize
+$ ./configure --with-config-path=/path/php-config
+$ make all -j 5
+$ make install
+
+vim /etc/php.d/rdkafka.ini:
+[rdkafka]
+extension=rdkafka.s
+
+获取扩展目录:
+$ php -i | grep extension_dir
