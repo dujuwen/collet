@@ -1,0 +1,21 @@
+1.先在所在机器上本地调试
+
+vim /etc/hosts:
+127.0.0.1  www.xxx.com
+
+curl -I www.xxx.com
+curl www.xxx.com
+
+查看header和响应数据是否正确
+可以修改数据以区别正式环境
+
+2.在开发环境调试(本地)，局域网映射
+
+sudo vim /etc/hosts:
+10.x.x.xx www.xxx.com
+
+同:
+curl -I www.xxx.com
+curl www.xxx.com
+
+3.所在机器和局域网都调试成功后可以放开进行外网测试,记得将/etc/hosts下面的临时域名映射给去掉
