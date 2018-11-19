@@ -1,0 +1,20 @@
+https://time-track.cn/systemd-introduction.html
+https://www.ibm.com/developerworks/cn/linux/1407_liuming_init3/
+
+systemctl  list-unit-files
+
+systemctl status nginx.service
+
+journalctl -u nginx.service    # 还可以配合`-b`一起使用，只查看自本次系统启动以来的日志
+
+# 查看unix文件
+systemctl cat nginx.service
+
+# 查看unit所有依赖
+systemctl list-dependencies nginx
+
+# 递归的列出所有依赖
+systemctl list-dependencies --all nginx.service
+
+# 列出unit的详细信息
+systemctl show nginx.service
