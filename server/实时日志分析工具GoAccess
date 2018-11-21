@@ -17,7 +17,7 @@ https://segmentfault.com/a/1190000011025155
 配置:
 GoAccess 的配置文件在 /etc/goaccess.conf
 
-~/.goaccessrc
+修改配置/etc/goaccess.conf中的time-format、date-format、和log-format就可以访问了
 
 time-format %H:%M:%S
 date-format %d/%b/%Y
