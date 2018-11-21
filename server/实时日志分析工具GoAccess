@@ -1,0 +1,38 @@
+https://github.com/allinurl/goaccess
+
+https://goaccess.io/get-started
+
+https://goaccess.io/man#configuration
+
+https://segmentfault.com/a/1190000011025155
+
+下载安装:
+https://goaccess.io/download
+
+# yum install goaccess
+
+使用:
+https://segmentfault.com/a/1190000011025155
+
+配置:
+GoAccess 的配置文件在 /etc/goaccess.conf
+
+~/.goaccessrc
+
+time-format %H:%M:%S
+date-format %d/%b/%Y
+log-format %h %^[%d:%t %^] "%r" %s %b "%R" "%u"
+
+real-time-html true
+ssl-cert <cert.crt>
+ssl-key <priv.key>
+ws-url wss://<your-domain>
+port <port>
+output /var/www/<xxx>/stat/index.html
+
+配置一些语法可以参考strftime:
+https://www.cnblogs.com/likwo/archive/2012/08/30/2663242.html
+
+$ goaccess --config-file=.goaccessrc /var/log/nginx/access.log
+
+可以看到实时访问，比如请求总数和带宽消耗等等...
