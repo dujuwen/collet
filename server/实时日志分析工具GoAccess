@@ -30,6 +30,10 @@ ws-url wss://<your-domain>
 port <port>
 output /var/www/<xxx>/stat/index.html
 
+配置注意:
+1) nginx日志中的每一个字段都要和log format中的一一对应，如果log format中不需要nginx中的某一个信息，则用%^跳过该信息。 
+2) 对于nginx日志中的每一个 -， log format都需要一个%^来跳过， 如果是“-”， 则用“%^” 
+
 配置一些语法可以参考strftime:
 https://www.cnblogs.com/likwo/archive/2012/08/30/2663242.html
 
