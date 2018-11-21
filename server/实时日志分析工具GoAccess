@@ -38,3 +38,9 @@ $ goaccess --config-file=.goaccessrc /var/log/nginx/access.log
 可以看到实时访问，比如请求总数和带宽消耗等等...
 
 goaccess的统计信息是分析访问日志access.log得到的!
+
+生成分析html:
+goaccess access.log -a > xxx.html
+
+把html下载到本地可以慢慢分析!!
+
