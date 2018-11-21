@@ -36,3 +36,5 @@ https://www.cnblogs.com/likwo/archive/2012/08/30/2663242.html
 $ goaccess --config-file=.goaccessrc /var/log/nginx/access.log
 
 可以看到实时访问，比如请求总数和带宽消耗等等...
+
+goaccess的统计信息是分析访问日志access.log得到的!
