@@ -1,0 +1,10 @@
+https://segmentfault.com/a/1190000011328038
+
+centos安装:
+yum install the_silver_searcher
+
+mac安装:
+brew install ag
+
+搜索示例:
+ag -i foo /bar/
