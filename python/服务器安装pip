@@ -1,0 +1,11 @@
+安装python相关依赖
+$ yum install python-pip python-devel
+$ pip install mycli
+
+查看python版本:
+$ python -V
+
+通过pip安装mycli
+$ pip install mycli
+或
+$ pip install --ignore-installed mycli
