@@ -1,0 +1,14 @@
+https://www.jianshu.com/p/e4ca3030a9d5
+
+mac安装:
+brew install tig
+
+centos安装:
+yum install tig
+
+tig 提供了一种直观, 方便快捷的 Git 操作
+
+进入有git库的文件目录:
+tig
+
+输入h可以快速查看帮助,q退出帮助
