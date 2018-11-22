@@ -12,3 +12,21 @@ tig 提供了一种直观, 方便快捷的 Git 操作
 tig
 
 输入h可以快速查看帮助,q退出帮助
+如:
+Quick reference for tig keybindings:
+
+[-] generic bindings
+View switching
+                           m view-main           Show main view
+                           d view-diff           Show diff view
+                           l view-log            Show log view
+                           t view-tree           Show tree view
+                           f view-blob           Show blob view
+                           b view-blame          Show blame view
+                           r view-refs           Show refs view
+                       	s, S view-status         Show status view
+                           c view-stage          Show stage view
+                           y view-stash          Show stash view
+                           g view-grep           Show grep view
+                           p view-pager          Show pager view
+                           h view-help           Show help view
