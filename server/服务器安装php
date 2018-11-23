@@ -35,6 +35,7 @@ $ scp ~/Documents/php-7.2.5.tar.gz root@192.168.242.128:/root
 --enable-fpm \
 --with-fpm-user=nginx \
 --with-fpm-group=nginx \
+--with-fpm-systemd \
 --enable-inline-optimization \
 --disable-debug \
 --disable-rpath \
