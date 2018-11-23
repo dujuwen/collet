@@ -1,0 +1,10 @@
+https://www.imooc.com/article/26971?block_id=tuijian_wz
+
+http://www.cnblogs.com/apexchu/p/6790241.html
+
+如查看域名解析过程:
+dig www.baidu.com +trace
+
+根据ip地址反查域名:
+~ dig -x 8.8.8.8 +short
+google-public-dns-a.google.com.
