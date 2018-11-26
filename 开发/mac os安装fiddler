@@ -31,3 +31,10 @@ https://www.telerik.com/download/fiddler
 cd 解压路径下
 
 sudo mono Fiddler.exe
+
+如果出现异常
+WARNING: The Carbon driver has not been ported to 64bits, and very few parts of Windows.Forms will work properly, or at all
+
+用下面方式启动:
+sudo mono --arch=32 Fiddler.exe
+
