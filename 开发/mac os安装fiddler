@@ -4,6 +4,7 @@ https://www.jianshu.com/p/c8f3ee2fa9aa
 
 下载安装:
 http://www.mono-project.com/download/#download-mac
+https://www.mono-project.com/download/stable/
 
 /Library/Frameworks/Mono.framework/Versions/<mono version>/bin/mozroots --import --sync
 
