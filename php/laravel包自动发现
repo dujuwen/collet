@@ -1,0 +1,18 @@
+https://medium.com/@taylorotwell/package-auto-discovery-in-laravel-5-5-ea9e3ab20518?_blank
+
+https://laravel-news.com/package-auto-discovery
+
+https://github.com/barryvdh/laravel-debugbar/pull/643/files
+
+将下面的添加到 composer.json 中
+
+"extra": {
+    "laravel": {
+        "providers": [
+            "Foo\\Bar\\ServiceProvider"
+        ],
+        "aliases": {
+            "Bar": "Foo\\Bar\\Facade"
+        }
+    }
+}
