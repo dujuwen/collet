@@ -1,0 +1,32 @@
+https://www.jianshu.com/p/c8f3ee2fa9aa
+
+1.Mac下需要使用.Net编译后的程序，需要用到跨平台的方案Mono
+
+下载安装:
+http://www.mono-project.com/download/#download-mac
+
+/Library/Frameworks/Mono.framework/Versions/<mono version>/bin/mozroots --import --sync
+
+➜  bin ./mozroots --import --sync
+Mozilla Roots Importer - version 5.16.0.0
+Download and import trusted root certificates from Mozilla's MXR.
+Copyright 2002, 2003 Motus Technologies. Copyright 2004-2008 Novell. BSD licensed.
+
+WARNING: mozroots is deprecated, please move to cert-sync instead.
+
+Downloading from 'https://hg.mozilla.org/releases/mozilla-release/raw-file/default/security/nss/lib/ckfw/builtins/certdata.txt'...
+Importing certificates into user store...
+151 new root certificates were added to your trust store.
+Import process completed.
+
+2. vim ~/.zshrc
+export PATH=$PATH:/Library/Frameworks/Mono.framework/Versions/5.16.0/bin
+
+source ~/.zshrc
+
+3.下载fiddler
+https://www.telerik.com/download/fiddler
+
+cd 解压路径下
+
+sudo mono Fiddler.exe
