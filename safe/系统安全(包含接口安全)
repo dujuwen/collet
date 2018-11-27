@@ -8,3 +8,6 @@ Token授权机制
 时间戳超时机制
 签名机制
 拒绝重复调用(非必须)
+
+完全符合RFC的api参考:
+http://clojure-liberator.github.io/liberator/assets/img/decision-graph.svg
