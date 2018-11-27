@@ -17,3 +17,5 @@ Token授权机制
 
 完全符合RFC的api参考:
 http://clojure-liberator.github.io/liberator/assets/img/decision-graph.svg
+
+HMAC (Hash Message Authentication Code)
