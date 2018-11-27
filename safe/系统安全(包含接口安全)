@@ -7,6 +7,9 @@ https://docs.open.alipay.com/399/106918/
 亚马逊签署和对 REST 请求进行身份验证:
 https://docs.aws.amazon.com/zh_cn/AmazonS3/latest/dev/RESTAuthentication.html
 
+Authenticating Requests (AWS Signature Version 4):
+https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html
+
 Token授权机制
 时间戳超时机制
 签名机制
