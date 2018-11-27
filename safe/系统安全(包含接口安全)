@@ -4,3 +4,7 @@ https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=23_3
 蚂蚁金服开放平台第三方应用安全开发指南:
 https://docs.open.alipay.com/399/106918/
 
+Token授权机制
+时间戳超时机制
+签名机制
+拒绝重复调用(非必须)
