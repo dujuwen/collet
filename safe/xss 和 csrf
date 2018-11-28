@@ -58,8 +58,19 @@ JWT的使用场景：
 能够标识用户，该链接具有时效性（通常只允许几小时之内激活），不能被篡改以激活其他可能的账户… 这种场景就和 jwt 的特性非常贴近，
 jwt 的 payload 中固定的参数：iss 签发者和 exp 过期时间正是为其做准备的。
 
-2. restful api 的无状态认证
+2. restful api 的无状态认证(一次性使用)
 使用 jwt 来做 restful api 的身份认证也是值得推崇的一种使用方案。客户端和服务端共享 secret；
 过期时间由服务端校验，客户端定时刷新；签名信息不可被修改… spring security oauth jwt 提供了一套完整的 jwt 认证体系
 。使用 oauth2 或 jwt 来做 restful api 的认证都没有大问题，oauth2 功能更多，支持的场景更丰富，后者实现简单。
+
+
+http://cryto.net/~joepie91/blog/2016/06/13/stop-using-jwt-for-sessions/
+
+JWT主要的缺点是在token生成后不能被废弃或者更新并且会引入大小问题和安全问题(取决于如何存储这些token)
+结论: JWT适合用于无状态单次使用，并且token的有效时间应该尽可能的短。
+
+有状态的应该还是会使用session。
+
+
+
 
