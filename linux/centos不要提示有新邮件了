@@ -1,0 +1,16 @@
+You have new mail in /var/spool/mail/root
+
+关闭提示：
+[root@check1 ~]# echo "unset MAILCHECK">> /etc/profile
+[root@check1 ~]# source /etc/profile
+　　
+
+查看：
+[root@check1 ~]# ls -lth /var/spool/mail/
+total 49M
+-rw------- 1 root mail 49M Jul 4 13:43 root
+-rw-rw---- 1 nginx mail 0 May 21 11:46 nginx
+-rw-rw---- 1 zabbix mail 0 May 16 15:48 zabbix
+
+清空:
+[root@check1 ~]# cat /dev/null > /var/spool/mail/root
