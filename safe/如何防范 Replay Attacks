@@ -1,4 +1,5 @@
 https://blog.csdn.net/koastal/article/details/53456696
+http://www.cnblogs.com/jay54520/p/6181604.html?utm_source=itdadao&utm_medium=referral
 
 所谓重放攻击就是攻击者发送一个目的主机已接收过的包，来达到欺骗系统的目的，主要用于身份认证过程。
 
@@ -18,3 +19,8 @@ https://blog.csdn.net/koastal/article/details/53456696
 3.签名的有效性
 
 如果是登录的话还可以加上前端验证码验证和后端登录失败次数限制
+
+问：如何确保存到 redis 就足够快？
+
+不确保。我本地测试的时候没发现能够多次签到。
+储存到 redis 的速度大于两次请求的速度就能够确保。
