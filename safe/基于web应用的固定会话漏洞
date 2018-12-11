@@ -1,2 +1,15 @@
 http://www.acros.si/papers/session_fixation.pdf
 
+会话劫持防御方法:
+1.更改Session名称
+2.关闭透明化Session ID
+3.设置HttpOnly
+4.关闭所有phpinfo类dump request信息的页面
+5.加入Token校验。
+同样是用于检测请求的一致性，给攻击者制造一些麻烦，使攻击者即使获取了Session ID，也无法进行破坏，能够减少对系统造成的损失。
+但Token需要存放在客户端，如果攻击者有办法获取到Session ID，那么也同样可以获取到Token。
+
+会话固定劫持防御方法:
+1.每当用户登陆的时候就进行重置sessionID
+2.sessionID闲置过久时，进行重置sessionID
+3.大部分防止会话劫持的方法对会话固定攻击同样有效。如设置HttpOnly，关闭透明化Session ID，User-Agent验证，Token校验等
