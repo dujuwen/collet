@@ -1,0 +1,30 @@
+安装
+https://blog.csdn.net/wojiushiwo945you/article/details/74011381
+
+文档
+https://www.percona.com/software/mysql-database/percona-tokudb
+http://blog.jobbole.com/109104/
+
+总结
+TokuDB的优点:
+高压缩比，默认使用zlib进行压缩，尤其是对字符串(varchar,text等)类型有非常高的压缩比，比较适合存储日志、原始数据等。官方宣称可以达到1：12。
+在线添加索引，不影响读写操作
+HCADER 特性，支持在线字段增加、删除、扩展、重命名操作，（瞬间或秒级完成）
+支持完整的ACID特性和事务机制
+非常快的写入性能， Fractal-tree在事务实现上有优势,无undo log，官方称至少比innodb高9倍。
+支持show processlist 进度查看
+数据量可以扩展到几个TB；
+不会产生索引碎片；
+支持hot column addition,hot indexing,mvcc
+
+TokuDB缺点：
+不支持外键(foreign key)功能，如果您的表有外键，切换到 TokuDB引擎后，此约束将被忽略。
+TokuDB 不适大量读取的场景，因为压缩解压缩的原因。CPU占用会高2-3倍，但由于压缩后空间小，IO开销低，平均响应时间大概是2倍左右。
+online ddl 对text,blob等类型的字段不适用
+没有完善的热备工具，只能通过mysqldump进行逻辑备份
+
+适用场景：
+访问频率不高的数据或历史数据归档
+数据表非常大并且时不时还需要进行DDL操作
+
+一句话,用来存放访问线上访问日志不错
