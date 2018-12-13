@@ -7,3 +7,36 @@ https://gitee.com/swoole/swoole
 
 中文文档:
 https://wiki.swoole.com/wiki/page/1.html
+
+编译安装:
+Swoole扩展是按照PHP标准扩展构建的。使用phpize来生成编译检测脚本，./configure来做编译配置检测，make进行编译，make install进行安装。
+
+请下载releases版本的swoole，直接从github主干上拉取最新代码可能会编译不过
+如无特殊需求, 请务必编译安装swoole的最新版本
+如果当前用户不是root，可能没有PHP安装目录的写权限，安装时需要sudo或者su
+如果是在git分支上直接git pull更新代码，重新编译前务必要执行make clean
+安装准备
+安装前必须保证系统已经安装了下列软件
+
+php-7.0 或更高版本
+gcc-4.8 或更高版本
+make
+autoconf
+pcre (CentOS系统可以执行命令：yum install pcre-devel)
+下载地址
+https://github.com/swoole/swoole-src/releases
+http://pecl.php.net/package/swoole
+http://git.oschina.net/swoole/swoole
+下载源代码包后，在终端进入源码目录，执行下面的命令进行编译和安装
+
+新手编译示例:
+cd swoole
+sudo phpize (ubuntu 没有安装phpize可执行命令：sudo apt-get install php-dev来安装phpize)
+sudo ./configure
+sudo make 
+sudo make install
+
+配置php.ini:
+安装完成之后修改php.ini配置文件加入扩展:
+extension=swoole.so
+通过php -m或phpinfo()来查看是否成功加载了swoole.so
