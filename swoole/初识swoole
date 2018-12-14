@@ -1,0 +1,47 @@
+1.Server
+https://wiki.swoole.com/wiki/page/p-server.html
+
+支持TCP、UDP、UnixSocket三种协议
+请勿在使用Server创建之前调用其他异步IO的API，否则将会创建失败。可以在Server启动后onWorkerStart回调函数中使用。
+Server只能用于php-cli环境，在其他环境下会抛出致命错误
+
+$host参数用来指定监听的ip地址，如127.0.0.1，或者外网地址，或者0.0.0.0监听全部地址
+0.0.0.0作用等价于127.0.0.1+本机ip
+
+2.SYSTEMD监听端口
+https://wiki.swoole.com/wiki/page/14.html
+
+swoole.socket:
+[Unit]
+Description=Swoole Socket
+
+[Socket]
+ListenStream=9501
+Accept=false
+[Install]
+WantedBy = sockets.target
+
+swoole.service:
+[Service]
+Type=forking
+PIDFile=/var/run/swoole.pid
+ExecStart=/usr/bin/php /var/www/swoole/server.php
+ExecStop=/bin/kill $MAINPID
+ExecReload=/bin/kill -USR1 $MAINPID
+
+[Install]
+WantedBy = multi-user.target
+
+代码关键部分:
+$server->set([
+    'daemonize' => true,
+    'pid_file' => '/var/run/swoole.pid', //这里
+]);
+
+启动服务:
+sudo systemctl enable swoole.socket
+sudo systemctl start swoole.socket
+sudo systemctl start swoole.service
+
+3.
+
