@@ -88,3 +88,7 @@ https://chrome.google.com/webstore/search/FireShot?utm_source=chrome-ntp-icon
 21.vue devtools
 
 https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd
+
+22.新媒体插件 可以查看微信公众号发的文章源代码
+
+https://xmt.cn/index
