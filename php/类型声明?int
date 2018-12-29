@@ -1,0 +1,8 @@
+function getModel(?int $id) {
+    var_dump($id);
+}
+
+getModel(null);
+
+当参数和返回值类型有可能是null时，类型前以问号（?）修饰，可以解决null值问题（与默认参数不冲突）
+
