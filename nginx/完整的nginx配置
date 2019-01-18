@@ -68,8 +68,8 @@ http {
     #gzip压缩功能设置
     gzip on;
     gzip_min_length 1k;
-    gzip_buffers    4 16k;
-    gzip_comp_level 1;
+    gzip_buffers 64 4k;
+    gzip_comp_level 3;
     gzip_types text/html text/plain text/css text/javascript application/json application/javascript application/x-javascript application/xml;
     gzip_vary on;
     gzip_proxied   expired no-cache no-store private auth;
