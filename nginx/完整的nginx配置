@@ -15,6 +15,11 @@ http://blog.xiayf.cn/2014/05/03/optimizing-nginx-and-php-fpm-for-high-traffic-si
 http://blog.51cto.com/blief/1738388
 https://www.jianshu.com/p/5e71f7159a85
 
+https://github.com/openresty/headers-more-nginx-module#more_clear_headers
+如果是openresty的话怎么去掉响应的Server头呢?
+在http级别加:
+more_clear_headers 'Server';
+
 user nginx; 
 #这里在线上应该将nginx程序设置为root所有者,chown root /path/to/nginx,chmod u+s /path/to/nginx,然后这里设置了用户才不会出错
 
@@ -192,4 +197,3 @@ http {
 
     #Nginx站点目录及文件URL访问控制,判断给定目录或url用allow deny internal和return等来限制访问
 }
-
