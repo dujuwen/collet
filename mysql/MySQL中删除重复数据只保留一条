@@ -1,0 +1,31 @@
+https://www.cnblogs.com/jiangxiaobo/p/6589541.html
+
+删除表中多余的重复记录（多个字段），只留有rowid最小的记录:
+
+DELETE
+FROM
+    vitae a
+WHERE
+    (a.peopleId, a.seq) IN (
+        SELECT
+            peopleId,
+            seq
+        FROM
+            vitae
+        GROUP BY
+            peopleId,
+            seq
+        HAVING
+            count(*) > 1
+    )
+AND rowid NOT IN (
+    SELECT
+        min(rowid)
+    FROM
+        vitae
+    GROUP BY
+        peopleId,
+        seq
+    HAVING
+        count(*) > 1
+)
