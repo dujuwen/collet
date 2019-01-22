@@ -1,0 +1,16 @@
+1.Hadoop
+
+2.HDFS、MapReduce
+HDFS:
+Hadoop的分布式文件系统
+
+MapReduce:
+一种针对海量数据的并行计算模型，可以简单理解为对多个数据分片的数据转换和合并
+
+3.Hive
+
+4.InfoBright
+
+5.数据仓库
+
+6.
