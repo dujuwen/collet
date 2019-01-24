@@ -1,0 +1,6 @@
+检测端口是否运行
+
+lsof -i:3306
+netstat -tunlp|grep 3306
+ss -tulnp|grep 3306
+
