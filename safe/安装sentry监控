@@ -4,6 +4,13 @@ https://docs.sentry.io/clients/php/integrations/laravel/
 https://laravel-china.org/articles/4295/centos6-install-python-based-on-sentry#reply22542
 https://laravel-china.org/articles/4285/build-your-own-sentry-service
 
+如果已经安装好了的话可以直接拷贝onpromise目录:
+1.docker-compose run --rm web config generate-secret-key
+2.vim docker-compose.yml
+3.docker-compose run --rm web upgrade
+4.docker-compose down && docker-compose up -d
+
+
 基于 Python 安装 Sentry,centos搭建sentry过程:
 
 安装Sentry需要以下满足以下条件：
