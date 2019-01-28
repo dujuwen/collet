@@ -1,6 +1,4 @@
-先安装docker
 1.安装Docker：
-
 yum  -y install docker docker-compose
 运行docker --version可以查看版本号并确认是否安装成功。
 
