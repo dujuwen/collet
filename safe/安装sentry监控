@@ -123,3 +123,6 @@ https://github.com/getsentry/onpremise/blob/master/sentry.conf.py#L4
 2.在{{url}}/account/settings/appearance/ 外观中
 设置本地化语言为简体中文
 设置时区为(UTC+0800) Asia/Shanghai 24小时制
+
+3.在{{url}}/settings/sentry/项目/alerts/里面
+警报设置 最小发送间隔 为1分钟，最大发送间隔 为10分钟
