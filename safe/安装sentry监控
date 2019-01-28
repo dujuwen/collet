@@ -59,8 +59,9 @@ $ /etc/init.d/postgresql-9.6 start
 推荐使用docker安装sentry:
 https://docs.sentry.io/server/installation/docker/
 https://laravel-china.org/articles/4285/build-your-own-sentry-service
-https://github.com/getsentry/onpremise
 
+可以直接看这里的安装说明:
+https://github.com/getsentry/onpremise
 
 Requirements
 Docker 1.10.0+
