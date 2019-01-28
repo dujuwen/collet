@@ -108,12 +108,18 @@ services:
 保存之后重启docker:
 docker-compose down && docker-compose up -d
 
-邮箱配置好之后需要在admin和account中验证邮箱是否正常!
-在{{url}}/manage/status/mail/中可以测试邮箱配置是否正常!!
-
 安装github文档安装 => 配置 docker-compose.yml
 
 腾讯云服务器默认是把25端口禁用的，云主机 TCP 25 端口出方向被封禁!
 
 docker sentry配置:
 https://github.com/getsentry/onpremise/blob/master/sentry.conf.py#L4
+
+在页面上进行的配置:
+
+1.邮箱配置好之后需要在admin和account中验证邮箱是否正常!
+在{{url}}/manage/status/mail/中可以测试邮箱配置是否正常!!
+
+2.在{{url}}/account/settings/appearance/ 外观中
+设置本地化语言为简体中文
+设置时区为(UTC+0800) Asia/Shanghai 24小时制
