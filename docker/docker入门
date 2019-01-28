@@ -23,6 +23,8 @@ systemctl status docker
 启动容器:docker run image_name
 
 4.解决镜像无法删除的问题multiple repositories
+https://www.cnblogs.com/youreyebows/p/8064280.html
+
 mage is referenced in multiple repositories
 
 查看所有镜像:
