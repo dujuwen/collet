@@ -1,0 +1,50 @@
+sentry_dsn怎么来?
+登录sentry之后新建laravel项目可以得到.
+
+This is a quick getting started guide. For in-depth instructions on integrating Sentry with Laravel, view our complete documentation.
+
+Installation
+There are various ways to install the PHP integration for Sentry. The recommended way is to use Composer:
+
+$ composer require "sentry/sentry"
+Alternatively you can manually install it:
+
+Download and extract the latest sentry-php archive to your PHP project.
+
+Require the autoloader in your application:
+
+require_once '/path/to/Raven/library/Raven/Autoloader.php';
+Raven_Autoloader::register();
+Laravel 5.x
+Install the sentry/sentry-laravel package:
+
+$ composer require sentry/sentry-laravel
+If you’re on Laravel 5.4 or earlier, you’ll need to add the following to your config/app.php (for Laravel 5.5+ these will be auto-discovered by Laravel):
+
+'providers' => array(
+    // ...
+    Sentry\SentryLaravel\SentryLaravelServiceProvider::class,
+)
+
+'aliases' => array(
+    // ...
+    'Sentry' => Sentry\SentryLaravel\SentryFacade::class,
+)
+Add Sentry reporting to App/Exceptions/Handler.php:
+
+public function report(Exception $exception)
+{
+    if (app()->bound('sentry') && $this->shouldReport($exception)) {
+        app('sentry')->captureException($exception);
+    }
+
+    parent::report($exception);
+}
+Create the Sentry configuration file (config/sentry.php):
+
+$ php artisan vendor:publish --provider="Sentry\SentryLaravel\SentryLaravelServiceProvider"
+Add your DSN to .env:
+
+SENTRY_DSN=********  //这里就是了
+
+Finally, if you wish to wire up User Feedback, you can do so by creating a custom error view in resources/views/errors/500.blade.php.
