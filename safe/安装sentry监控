@@ -109,6 +109,9 @@ services:
 docker-compose down && docker-compose up -d
 
 邮箱配置好之后需要在admin和account中验证邮箱是否正常!
+在{{url}}/manage/status/mail/中可以测试邮箱配置是否正常!!
+
+安装github文档安装 => 配置 docker-compose.yml
 
 腾讯云服务器默认是把25端口禁用的，云主机 TCP 25 端口出方向被封禁!
 
