@@ -1,3 +1,7 @@
 https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS
 
 cors = cross-origin sharing standard
+
+https://fetch.spec.whatwg.org/
+
+fetch规范，包含了cors定义!
