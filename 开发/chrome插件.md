@@ -1,3 +1,7 @@
+插件/扩展管理地址:
+chrome://extensions/
+
+要先打开开发者模式再添加插件!
 
 https://wdd.js.org/my-chrome-extensions-collection.html
 
