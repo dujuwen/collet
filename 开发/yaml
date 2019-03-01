@@ -1,0 +1,6 @@
+https://www.jianshu.com/p/667961cdf9c4
+https://www.jianshu.com/p/97222440cd08
+https://www.jianshu.com/p/b01b271fc64a
+
+适合人类编写：ini > toml > yaml > json > xml > plist
+可以存储的数据复杂度：xml > yaml > toml ~ json ~ plist > ini
