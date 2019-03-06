@@ -1,0 +1,19 @@
+https://brew.sh/index_zh-cn
+
+安装 Homebrew:
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+使用 Homebrew 安装 Apple 没有预装但 你需要的东西。
+$ brew install wget
+
+Homebrew 会将软件包安装到独立目录，并将其文件软链接至 /usr/local
+$ cd /usr/local
+$ find Cellar | grep wget
+Cellar/wget/1.16.1
+Cellar/wget/1.16.1/bin/wget
+Cellar/wget/1.16.1/share/man/man1/wget.1
+
+$ ls -l bin
+bin/wget -> ../Cellar/wget/1.16.1/bin/wget
+
+homebrew 不会将文件安装到它本身目录之外，所以您可将 Homebrew 安装到任意位置。
