@@ -1,0 +1,16 @@
+http://docs.redisdesktop.com/en/latest/install/
+
+https://github.com/uglide/RedisDesktopManager
+
+下载源码:
+git clone --recursive https://github.com/uglide/RedisDesktopManager.git -b 0.9 rdm && cd ./rdm
+
+Build on OS X:
+1.Install XCode with Xcode build tools
+2.Install Homebrew
+3.Copy cd ./src && cp ./resources/Info.plist.sample ./resources/Info.plist
+4.Building RDM dependencies require i.a. openssl and cmake. Install them: brew install openssl cmake
+5.Build RDM dependencies ./configure
+6.Install Qt 5.9. Add Qt Creator and under Qt 5.9.x add Qt Charts module.
+7.Open ./src/rdm.pro in Qt Creator
+8.Run build
