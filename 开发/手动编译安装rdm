@@ -14,3 +14,7 @@ Build on OS X:
 6.Install Qt 5.9. Add Qt Creator and under Qt 5.9.x add Qt Charts module.
 7.Open ./src/rdm.pro in Qt Creator
 8.Run build
+
+
+自己编译太烦了，还是来编译好的吧:
+https://github.com/onewe/RedisDesktopManager-Mac/releases
