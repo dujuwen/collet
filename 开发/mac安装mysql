@@ -28,3 +28,18 @@ Or, if you don't want/need a background service you can just run:
   
 2.brew install mysql-client
 
+mysql-client is keg-only, which means it was not symlinked into /usr/local,
+because conflicts with mysql.
+
+If you need to have mysql-client first in your PATH run:
+  echo 'export PATH="/usr/local/opt/mysql-client/bin:$PATH"' >> ~/.zshrc
+
+For compilers to find mysql-client you may need to set:
+  export LDFLAGS="-L/usr/local/opt/mysql-client/lib"
+  export CPPFLAGS="-I/usr/local/opt/mysql-client/include"
+  
+➜  ~ echo 'export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"' >> ~/.zshrc
+➜  ~ echo 'export PATH="/usr/local/opt/mysql-client/bin:$PATH"' >> ~/.zshrc
+➜  ~ source ~/.zshrc
+➜  ~ which mysql
+/usr/local/opt/mysql-client/bin/mysql
