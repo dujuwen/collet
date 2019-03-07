@@ -1,0 +1,12 @@
+https://www.oschina.net/question/2539126_2286056?sort=default
+
+https://help.aliyun.com/knowledge_detail/39631.html#%E6%89%B9%E9%87%8F%E4%B8%8A%E4%BC%A0%E6%93%8D%E4%BD%9C
+
+https://help.aliyun.com/document_detail/50561.html?spm=a2c4g.11186623.6.1318.9010245f26VSyG
+
+官方推荐的其他几种批量上传文件的方法，或者工具（包括上传文件夹及子目录文件）
+
+OSSimport工具：支持从服务器本地、第三方云存储（S3、Azure、腾讯COS等）、OSS某Bucket等数据源批量上传到OSS，特别适合数据量很大的情况
+OSSUtil工具：使用OSSUtil cp命令上传文件到OSS，通过-r（—recursive）选项，将指定路径（比如文件夹）的文件，循环递归地都上传到OSS
+OSSBrowser工具：使用OSSBrowser工具，将文件夹批量上传到OSS
+OSS网页控制台：您可以使用控制台，将文件夹批量上传到OSS
