@@ -43,3 +43,17 @@ For compilers to find mysql-client you may need to set:
 ➜  ~ source ~/.zshrc
 ➜  ~ which mysql
 /usr/local/opt/mysql-client/bin/mysql
+
+添加用户:
+$ mysql -uroot
+mysql> alter user 'root'@'localhost'IDENTIFIED BY '123456';
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> create user 'xxxx'@'%' IDENTIFIED BY '123456';
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'xxxx'@'%' ;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> flush privileges;
+Query OK, 0 rows affected (0.00 sec)
