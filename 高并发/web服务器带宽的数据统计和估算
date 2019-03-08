@@ -1,1 +1,11 @@
 https://blog.csdn.net/kk1946n/article/details/79113016
+
+如何计算视频服务器带宽、与在线人数的关系？
+https://server.zzidc.com/fwqcjwt/1364.html
+
+“下行带宽”和“上行带宽”:
+下行带宽：粗略的解释就是下载数据的最大带宽大小。准确一点的描述是，数据进入本机的最大带宽
+上行带宽：粗略的解释从本地上传数据的最大带宽大小。准确一点描述，就是数据从本机出去的最大带宽大小
+
+阿里云ECS的1M带宽能干嘛?
+https://blog.csdn.net/opengps/article/details/78439802
