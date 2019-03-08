@@ -1,0 +1,43 @@
+https://www.yiichina.com/doc/guide/2.0/tutorial-performance-tuning
+
+1.优化PHP环境
+使用最新稳定版本的 PHP。 PHP 的主要版本可能带来显著的性能提升。
+启用字节码缓存 Opcache（PHP 5.5或更高版本） 或 APC （PHP 5.4或更早版本）。字节码缓存省去了每次解析和加载 PHP 脚本所带来的开销。
+Tune realpath() cache.
+
+PHP的realpath cache:
+https://blog.csdn.net/daiyan_csdn/article/details/51880879
+https://github.com/samdark/realpath_cache_tuner
+
+2.对于运行在生产环境中的应用程序，你应该禁用调试模式。
+defined('YII_DEBUG') or define('YII_DEBUG', false);
+
+3.开启 Schema 缓存
+
+4.合并和压缩资源文件
+
+5.优化数据库
+一般来说，提高数据库查询的性能是创建索引。例如，如果你需要找一个用户表的“用户名”， 你应该为“用户名”创建一个索引。
+注意，尽管索引可以使选择查询的速度快得多，但它会减慢插入、更新和删除的查询。
+
+对于复杂的数据库查询，建议你创建数据库视图来保存查询分析和准备的时间。
+
+最后，在“SELECT”中使用“LIMIT”查询。 这可以避免从数据库中取出大量数据。
+
+6.使用普通数组
+尽管活动记录对象使用起来非常方便， 但当你需要从数据库中检索大量数据时它的效率不如使用普通的数组。 
+在这种情况下，你可以考虑在使用活动记录查询数据时调用 asArray()， 使检索到的数据被表示为数组而不是笨重的活动记录对象。
+
+7.优化Composer自动加载
+composer dumpautoload -o
+
+8.处理离线数据
+当一个请求涉及到一些资源密集操作， 你应该想办法在无需用户等待他们完成脱机模式时来执行这些操作。
+有两种方法可以离线数据处理：推和拉。
+
+9.性能分析
+你应该配置你的代码来找出性能缺陷，并相应地采取适当措施。 以下分析工具可能是有用的:
+Yii debug toolbar and debugger
+Blackfire
+XHProf
+XDebug profiler
