@@ -1,0 +1,15 @@
+https://www.jianshu.com/p/49678c66eccd
+
+https://blog.csdn.net/u010320108/article/details/60878085
+
+https://segmentfault.com/a/1190000008205145
+
+// 计算32位二进制的汉明重量
+int32_t swar(int32_t i)
+{    
+    i = (i & 0x55555555) + ((i >> 1) & 0x55555555);
+    i = (i & 0x33333333) + ((i >> 2) & 0x33333333);
+    i = (i & 0x0F0F0F0F) + ((i >> 4) & 0x0F0F0F0F);
+    i = (i * (0x01010101) >> 24);
+    return i
+}
