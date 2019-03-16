@@ -1,2 +1,6 @@
 Qualys SSL Labs 的 SSL Server Test 工具，可以帮你查出 HTTPS 很多配置上的问题:
 https://www.ssllabs.com/ssltest/analyze.html
+
+如:
+https://www.ssllabs.com/ssltest/analyze.html?d=www.stackoverflowchina.com
+https://www.ssllabs.com/ssltest/analyze.html?d=imququ.com
