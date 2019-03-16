@@ -1,7 +1,9 @@
 https://www.jianshu.com/p/7158568e4867
 
-SSL/TLS 握手的目的是为了安全地协商出一份对称加密的秘钥
+SSL/TLS协议运行机制的概述:
+http://www.ruanyifeng.com/blog/2014/02/ssl_tls.html
 
+SSL/TLS 握手的目的是为了安全地协商出一份对称加密的秘钥
 
 为什么要使用三个随机数呢？
 Random1 + Random2 + Random3
