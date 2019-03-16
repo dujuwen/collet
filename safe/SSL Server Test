@@ -4,3 +4,7 @@ https://www.ssllabs.com/ssltest/analyze.html
 如:
 https://www.ssllabs.com/ssltest/analyze.html?d=www.stackoverflowchina.com
 https://www.ssllabs.com/ssltest/analyze.html?d=imququ.com
+
+https://blog.myssl.com/ocsp-must-staple/
+OCSP Must Staple	No
+浏览器是否必须检测OCSP响应
