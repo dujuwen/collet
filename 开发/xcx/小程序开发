@@ -1,13 +1,11 @@
 
 页面跳转:
 需求：从 index.wxml 页面,跳转到 aaa.wxml 页面
+
 方法一：WXML页面实现
 1.<navigator url = "/pages/aaa/aaa">跳转到新页面</navigator>
-
 2.<navigator url = "/pages/aaa/aaa" open-type = "redirect">跳转到新页面</navigator>
-
 3.<navigator url = "/pages/aaa/aaa" open-type = "switchTab">跳转到新页面</navigator>
- 
 
 方法二：js页面实现
 bindViewTab:function(){
