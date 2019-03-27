@@ -1,0 +1,19 @@
+FFmpeg是一个自由软件，可以运行音频和视频多种格式的录影、转换、流功能
+
+ffmpeg is a command line toolbox to manipulate, convert and stream multimedia content.
+ffplay is a minimalistic multimedia player.
+ffprobe is a simple analysis tool to inspect multimedia content.
+Additional small tools such as aviocat, ismindex and qt-faststart.
+
+ffmpeg的官网地址是:
+https://www.ffmpeg.org/
+
+ffmpeg的Github项目地址是:
+https://github.com/FFmpeg/FFmpeg
+
+1.使用说明
+https://www.jianshu.com/p/7ed3be01228b
+https://www.jianshu.com/p/ddafe46827b7
+
+2.如何全自动下载知乎上的视频到本地
+https://baijiahao.baidu.com/s?id=1595252673329058399&wfr=spider&for=pc
