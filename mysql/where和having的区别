@@ -1,0 +1,7 @@
+select * from [xx] where [xx] group by [xx] having [xx]
+
+该语句执行顺序是：where > select > group by > having
+
+1. where是对原始数据进行过滤，having是对分组后的数据进行过滤
+2. where后面不能用聚合函数，having能
+3. where后面不能用字段别名(where是最开始执行)，having和group by后面能用字段别名
