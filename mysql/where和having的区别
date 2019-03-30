@@ -1,6 +1,6 @@
 select * from [xx] where [xx] group by [xx] having [xx]
 
-该语句执行顺序是：where > select > group by > having
+sql查询的关键字顺序为: from -> where -> group by-> having ->order by
 
 1. where是对原始数据进行过滤，having是对分组后的数据进行过滤
 2. where后面不能用聚合函数，having能
