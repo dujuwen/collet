@@ -1,0 +1,17 @@
+https://www.jianshu.com/p/bbfc343f3a8f
+https://github.com/sequelpro/sequelpro/issues/1988#issuecomment-60658598
+
+打开菜单 Bundles -> Bundle Editor
+
+左边栏选择 Input field (Show) -> Format (Show) -> Format SQL (Show)
+
+在 "Command" 区域(最后)找到类似代码:
+<input type="hidden" name="clientid" value="4149-9094-8133-2031" /> 
+
+改成:
+<input type="hidden" name="clientid" value="dpriver-9094-8133-2031" /> 
+
+保存就可以了!
+
+格式化sql api:
+https://sqlformat.org/
