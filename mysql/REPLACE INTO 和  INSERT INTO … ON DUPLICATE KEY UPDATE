@@ -1,0 +1,26 @@
+https://www.cnblogs.com/joeblackzqq/p/4702933.html
+https://www.cnblogs.com/liaojie970/p/6824773.html
+
+replace into 跟 insert 功能类似，不同点在于：
+replace into 首先尝试插入数据到表中
+1. 如果发现表中已经有此行数据（根据主键或者唯一索引判断）则先删除此行数据，然后插入新的数据。 
+2. 否则，直接插入新数据。
+
+比较常见的需求是存在更新对应字段，其他字段值保持不变，这种情况更适合用:
+INSERT INTO … ON DUPLICATE KEY UPDATE
+
+insert多条记录:
+INSERT INTO clients
+(client_id, client_name, client_type)
+SELECT supplier_id, supplier_name, 'advertising'
+FROM suppliers
+WHERE not exists (select * from clients
+where clients.client_id = suppliers.supplier_id);
+
+insert单条记录:
+INSERT INTO clients
+(client_id, client_name, client_type)
+SELECT 10345, 'IBM', 'advertising'
+FROM dual
+WHERE not exists (select * from clients
+where clients.client_id = 10345);
