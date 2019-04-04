@@ -1,0 +1,7 @@
+redis本身提供的是del来删除key, 这个可以精确批量删除，借助Linux命令xargs和redis-cli keys结合可以批量删除，注意不要在线上使用!!!
+
+redis为默认端口号6379，无连接密码，删除命令如下:
+redis-cli keys "*xxxx*" | xargs redis-cli del
+
+redis不为默认端口号6379，连接密码为"password"，删除命令如下:
+redis-cli -p 6380 -a "password" keys "key*" | xargs redis-cli -p 6380 -a "password" del
