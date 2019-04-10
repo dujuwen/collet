@@ -6,3 +6,13 @@ https://nsq.io/
 github:
 https://github.com/nsqio/nsq
 
+1.PHP扩展
+https://github.com/yunnian/php-nsq
+
+2.安装
+https://nsq.io/deployment/installing.html
+
+MAC安装:
+$ brew install nsq
+
+3.
