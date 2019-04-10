@@ -28,4 +28,11 @@ nsqd –lookupd-tcp-address=127.0.0.1:4160 --broadcast-address=127.0.0.1
 nsqlookupd 主要负责服务发现，负责nsqd的心跳、状态监测，给客户端、nsqadmin提供nsqd地址与状态。
 
 nsqadmin是一个web管理界面 启动方式如下：
-nsqadmin –lookupd-http-address=127.0.0.1:4161
+
+~ nsqadmin -nsqd-http-address=127.0.0.1:4150
+[nsqadmin] 2019/04/10 15:57:42.257169 INFO: nsqadmin v1.1.0 (built w/go1.11)
+[nsqadmin] 2019/04/10 15:57:42.259594 INFO: HTTP: listening on [::]:4171
+
+现在可以通过浏览器输入地址：127.0.0.1:4171来访问。
+
+4.
