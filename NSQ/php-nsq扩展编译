@@ -1,0 +1,39 @@
+1.下载https://github.com/yunnian/php-nsq
+git clone https://github.com/yunnian/php-nsq.git
+
+2.编译
+Dependencies: libevent  (apt-get install libevent-dev ,yum install libevent-devel)
+
+1. sudo phpize
+2. ./configure 
+3. make  
+4. make install  
+
+3.添加so扩展
+$ php --ini
+Configuration File (php.ini) Path: /usr/local/etc/php/7.2
+Loaded Configuration File:         /usr/local/etc/php/7.2/php.ini
+Scan for additional .ini files in: /usr/local/etc/php/7.2/conf.d
+
+添加文件:
+/usr/local/etc/php/7.2/conf.d/nsq.ini
+
+文件内容为:
+$ cat /usr/local/etc/php/7.2/conf.d/nsq.ini
+[nsq]
+extension="/usr/local/opt/php@7.2/lib/php/20170718/nsq.so"
+
+测试扩展是否正常添加:
+$ php-fpm -t
+$ php-fpm -m | grep nsq
+nsq
+
+看到nsq就表示正常了!!
+
+4.重启php-fpm就可以
+粗暴点重启就是kill掉老的再重启，优雅点就是service php-fpm restart(前提是有安装对应的服务)
+
+php-fpm 关闭：
+kill -INT 'cat /usr/local/php/var/run/php-fpm.pid'
+php-fpm 重启：
+kill -USR2 'cat /usr/local/php/var/run/php-fpm.pid'
