@@ -28,11 +28,28 @@ nsqd –lookupd-tcp-address=127.0.0.1:4160 --broadcast-address=127.0.0.1
 nsqlookupd 主要负责服务发现，负责nsqd的心跳、状态监测，给客户端、nsqadmin提供nsqd地址与状态。
 
 nsqadmin是一个web管理界面 启动方式如下：
-
 ~ nsqadmin -nsqd-http-address=127.0.0.1:4150
 [nsqadmin] 2019/04/10 15:57:42.257169 INFO: nsqadmin v1.1.0 (built w/go1.11)
 [nsqadmin] 2019/04/10 15:57:42.259594 INFO: HTTP: listening on [::]:4171
 
 现在可以通过浏览器输入地址：127.0.0.1:4171来访问。
 
-4.
+4.Topic 和 Channel
+一条消息会发送到topic下的所有channel，最终某条消息会分配到channel下的某个客户端(消费者)上
+      - channel1 -> 
+topic - channel2 -> 选择n个消费者中的一个
+      - channeln -> 
+      
+5.延时消息
+nsq支持延时消息的投递，比如想某条消息5分钟之后才被投递出去被客户端消费，较于普通的消息投递，多了个毫秒数，
+默认支持最大的毫秒数为3600000毫秒也就是60分钟，不过这个值可以在nsqd启动的时候 用 -max-req-timeout参数修改最大值。
+-max-req-timeout duration //maximum requeuing timeout for a message (default 1h0m0s)
+
+6.延时消息使用场景
+1) 一个订单超过30分钟未付款，修改其状态或者给客户发短信提醒
+2) 之前看到的滴滴打车订单完成后，一定时间内未评价的可以未其设置默认值
+3) 用户的积分过期
+
+kafka不支持延时消息的投递，目前知道支持的有rabbitmq rocketmq,但是rabbitmq 有坑，有可能会超时投递，而rocketmq只有阿里云付费版支持的比较好。
+
+7.
