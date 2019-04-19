@@ -4,3 +4,9 @@ tail -f /var/log/cron
 2.查看哪些用户定义了执行计划
 ls /var/spool/cron/
 
+3.linux-flock文件锁之实际运用
+https://www.cnblogs.com/wangxusummer/p/4933492.html
+
+crontab运用flock防止重复执行:
+* * * * * (flock -xn ./test.lock -c "sh /root/test.sh") #-n 为非阻塞模式
+
